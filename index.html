@@ -213,7 +213,7 @@
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   min-height: 600px;
   display: flex;
   align-items: center;
@@ -378,7 +378,7 @@
     <!-- Header -->
     <div class="client-header" data-aos="fade-up">
       <div class="client-pill">Global Footprint</div>
-      <h2>Meet Our Clients</h2>
+      <h2>Meet Our <span style="color: #38bdf8;">Clients</span></h2>
       <div class="divider"></div>
       <p class="sub-text">
         We have collaborated with brands across <strong>6 countries</strong> to deliver excellence.
@@ -620,7 +620,7 @@
     <!-- HEADER -->
     <div class="services-header" data-aos="fade-up">
       <div class="services-pill">Our Core Expertise</div>
-      <h2>Transform Your Business</h2>
+      <h2>Transform Your <span style="color: #38bdf8;"> Business</span></h2>
       <p class="sub-text">
         Tailored digital solutions designed to scale your enterprise with <strong>modern technology</strong>.
       </p>
@@ -852,7 +852,7 @@
 
 .services-container {
   width: 92%;
-  max-width: 1280px;
+  max-width: 1240px;
   margin: 0 auto;
 }
 
@@ -1216,7 +1216,7 @@
     <!-- HEADER -->
     <div class="industries-header" data-aos="fade-up">
       <div class="industries-pill">Industries We Serve</div>
-      <h2 class="industries-title">Discover Our Impact Across Industries</h2>
+      <h2 class="industries-title">Discover Our Impact <span style="color: #38bdf8;">Across Industries</span></h2>
       <p class="sub-text">Delivering tailored technology solutions driving innovation across diverse domains.</p>
     </div>
 
@@ -1730,7 +1730,7 @@
       </div>
 
       <div class="stat-card" data-aos="fade-left" data-aos-delay="200">
-        <span class="number">6+</span>
+        <span class="number">50+</span>
         <span class="desc">Countries Supported</span>
       </div>
 
@@ -1936,21 +1936,24 @@
 </script>
 
 
-
 <section class="insights-section">
+  <!-- Section Header -->
   <div class="insights-header">
-    <h2 class="insights-title">Empowering Digital Excellence</h2>
+    <span class="insights-badge">OUR EXPERTISE</span>
+    <h2 class="insights-title">Empowering Digital <span>Excellence</span></h2>
     <div class="insights-underline"></div>
     <p class="insights-subtitle">
       Delivering scalable technology solutions for industry leaders across <strong>12+ domains</strong>.
     </p>
   </div>
 
+  <!-- Main Section Grid -->
   <div class="insights-grid">
 
+    <!-- Left Features Column -->
     <div class="left-features">
       
-      <div class="feature-card">
+      <div class="feature-card active" data-index="1">
         <div class="feature-badge">01</div>
         <div class="feature-body">
           <h3 class="feature-title">Custom Software Engineering</h3>
@@ -1959,7 +1962,7 @@
         <span class="feature-arrow">&rarr;</span>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card" data-index="2">
         <div class="feature-badge">02</div>
         <div class="feature-body">
           <h3 class="feature-title">Dedicated Agile Squads</h3>
@@ -1968,7 +1971,7 @@
         <span class="feature-arrow">&rarr;</span>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card" data-index="3">
         <div class="feature-badge">03</div>
         <div class="feature-body">
           <h3 class="feature-title">Cloud Optimization & Security</h3>
@@ -1979,16 +1982,21 @@
 
     </div>
 
+    <!-- Right Spotlight Dark Card -->
     <div class="right-spotlight">
+      <div class="spotlight-bg-glow"></div>
+      
       <div class="spotlight-content">
         <div class="spotlight-header">
           <span class="spotlight-tag">Featured Success Story</span>
-          <span class="spotlight-status">Verified Impact</span>
+          <span class="spotlight-status">
+            <span class="pulse-dot"></span> Verified Impact
+          </span>
         </div>
 
         <h3 class="spotlight-title">Fintech Core Architecture Overhaul</h3>
         <p class="spotlight-desc">
-          Automated payment routing and database re-engineering to handle high-frequency transactions seamlessly.
+          Automated payment routing and database re-engineering to handle high-frequency transactions seamlessly with zero downtime.
         </p>
 
         <div class="spotlight-stats">
@@ -2002,6 +2010,10 @@
           </div>
         </div>
 
+        <div class="spotlight-footer">
+          <span class="client-company">Global Financial Systems</span>
+          <a href="#" class="spotlight-link">View Case Study &rarr;</a>
+        </div>
       </div>
     </div>
 
@@ -2009,56 +2021,89 @@
 </section>
 
 <style>
-.insights-section {
-  width: 100%;
-  padding: 80px 24px;
-  background-color: #f8fafc;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  box-sizing: border-box;
+/* --- Design Variables --- */
+:root {
+  --navy-dark: #0f172a;
+  --sky-blue: #0284c7;
+  --cyan-bright: #38bdf8;
+  --bg-light: #f8fafc;
+  --border-light: #e2e8f0;
+  --text-muted: #64748b;
 }
 
+.insights-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 24px;
+  background-color: var(--bg-light);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* --- Section Header --- */
 .insights-header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto 60px auto;
+}
+
+.insights-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #38bdf8;
+  background: #e0f2fe;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
 }
 
 .insights-title {
-  font-size: 32px;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 800;
-  color: #0f172a;
+  color: var(--navy-dark);
   margin: 0 0 12px 0;
-  letter-spacing: -0.6px;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+
+.insights-title span {
+  color: #38bdf8;
 }
 
 .insights-underline {
   width: 50px;
-  height: 3px;
-  background-color: #0284c7;
-  margin: 0 auto 16px auto;
+  height: 4px;
+  /* background: linear-gradient(90deg, var(--sky-blue) 0%, var(--cyan-bright) 100%); */
+  margin: 16px auto;
   border-radius: 2px;
 }
 
 .insights-subtitle {
-  font-size: 15px;
-  color: #64748b;
+  font-size: 1.05rem;
+  color: var(--text-muted);
   margin: 0;
   line-height: 1.6;
 }
 
 .insights-subtitle strong {
-  color: #0f172a;
+  color: var(--navy-dark);
 }
 
+/* --- Main Layout Grid --- */
 .insights-grid {
-  max-width: 85%;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 32px;
   align-items: stretch;
 }
 
+/* --- Left Features Column --- */
 .left-features {
   display: flex;
   flex-direction: column;
@@ -2067,34 +2112,47 @@
 
 .feature-card {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 20px 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
   display: flex;
   align-items: center;
   gap: 20px;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor: pointer;
+  position: relative;
 }
 
-.feature-card:hover {
-  border-color: #38bdf8;
-  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.08);
+.feature-card:hover, .feature-card.active {
+  border-color: var(--cyan-bright);
+  box-shadow: 0 12px 30px -10px rgba(14, 165, 233, 0.15);
   transform: translateY(-2px);
 }
 
+.feature-card.active {
+  background: #ffffff;
+  border-left: 4px solid #38bdf8;
+}
+
 .feature-badge {
-  font-size: 13px;
-  font-weight: 700;
-  color: #0284c7;
-  background: #e0f2fe;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--sky-blue);
+  background: #f0f9ff;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-badge,
+.feature-card.active .feature-badge {
+  background: var(--sky-blue);
+  color: #ffffff;
 }
 
 .feature-body {
@@ -2102,55 +2160,62 @@
 }
 
 .feature-title {
-  font-size: 16px;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 4px 0;
+  color: var(--navy-dark);
+  margin: 0 0 6px 0;
 }
 
 .feature-text {
-  font-size: 13px;
-  color: #64748b;
+  font-size: 0.9rem;
+  color: var(--text-muted);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .feature-arrow {
-  color: #94a3b8;
-  font-size: 18px;
-  transition: transform 0.2s, color 0.2s;
+  color: #cbd5e1;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.feature-card:hover .feature-arrow {
-  color: #0284c7;
-  transform: translateX(4px);
+.feature-card:hover .feature-arrow,
+.feature-card.active .feature-arrow {
+  color: var(--sky-blue);
+  transform: translateX(6px);
 }
 
-.features-footer {
-  margin-top: 10px;
-}
-
-.btn-secondary {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #0284c7;
-  text-decoration: none;
-  padding: 8px 0;
-}
-
-.btn-secondary:hover {
-  text-decoration: underline;
-}
-
+/* --- Right Spotlight Glassmorphic Card --- */
 .right-spotlight {
+  position: relative;
   background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 18px;
-  padding: 18px;
+  border-radius: 20px;
+  padding: 36px;
   color: #ffffff;
-  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spotlight-bg-glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   justify-content: space-between;
 }
 
@@ -2158,36 +2223,49 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .spotlight-tag {
-  font-size: 12px;
-  font-weight: 700;
-  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--cyan-bright);
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
 }
 
 .spotlight-status {
-  font-size: 11px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
   border-radius: 20px;
   color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
 }
 
 .spotlight-title {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   margin: 0 0 12px 0;
   line-height: 1.35;
+  color: #ffffff;
 }
 
 .spotlight-desc {
-  font-size: 14px;
+  font-size: 0.95rem;
   color: #94a3b8;
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0 0 28px 0;
 }
 
@@ -2195,23 +2273,26 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 18px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 14px;
   margin-bottom: 28px;
+  backdrop-filter: blur(8px);
 }
 
 .stat-number {
   display: block;
-  font-size: 24px;
+  font-size: 1.75rem;
   font-weight: 800;
-  color: #38bdf8;
+  color: var(--cyan-bright);
+  letter-spacing: -0.5px;
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: 0.8rem;
   color: #94a3b8;
+  font-weight: 500;
 }
 
 .spotlight-footer {
@@ -2223,28 +2304,62 @@
 }
 
 .client-company {
-  font-size: 13px;
+  font-size: 0.85rem;
   font-weight: 600;
   color: #cbd5e1;
 }
 
 .spotlight-link {
-  color: #38bdf8;
-  font-size: 13px;
-  font-weight: 600;
+  color: var(--cyan-bright);
+  font-size: 0.85rem;
+  font-weight: 700;
   text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
 .spotlight-link:hover {
-  text-decoration: underline;
+  transform: translateX(4px);
 }
 
-@media (max-width: 900px) {
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
   .insights-grid {
     grid-template-columns: 1fr;
   }
+  
+  .right-spotlight {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .insights-section {
+    padding: 60px 16px;
+  }
+  
+  .feature-card {
+    padding: 18px;
+  }
+  
+  .spotlight-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.feature-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+      });
+    });
+  });
+</script>
 
 
   <!--CEO-->
@@ -2254,7 +2369,7 @@
       
       <!-- PILL BADGE -->
       <span class="ceo-pill">LEADERSHIP VISION</span>
-      <h2 class="section-heading">Our Global Leader & CEO</h2>
+      <h2 class="section-heading">Our Global Leader <span style="color: #38bdf8;"> & CEO</span></h2>
       
       <!-- QUOTE CARD -->
       <div class="quote-card">
@@ -2438,7 +2553,7 @@
     
     <!-- PILL BADGE & HEADINGS -->
     <span class="rating-pill">CLIENT FEEDBACK</span>
-    <h2 class="rating-title">How was your experience?</h2>
+    <h2 class="rating-title">How was your <span style="color: #38bdf8;">experience</span> ?</h2>
     <p class="rating-subtitle">Select a cloud to rate our service</p>
 
     <!-- CLOUDS RATING GRID -->
@@ -2772,231 +2887,315 @@
 
 <!--FAQQQQQ-->
 <section class="faq-section">
-    <div class="faq-watermark">
-        <img src="./images/logo.webp" alt="watermark">
+  <!-- Watermark Logo (Opacity Fixed) -->
+  <div class="faq-watermark" aria-hidden="true">
+    <img src="./images/logo.webp" alt="watermark">
+  </div>
+
+  <div class="faq-wrapper">
+    <!-- Header Section (Unchanged as requested) -->
+    <div class="faq-header">
+      <h2 class="faq-title">Frequently Asked <span>Questions</span></h2>
+      <div class="title-line"></div>
     </div>
 
-    <div class="faq-wrapper">
-        <div class="faq-header">
-            <h2 class="faq-title">Frequently Asked <span>Questions</span></h2>
-            <div class="title-line"></div>
+    <!-- Corrected Accordion Grid -->
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" aria-expanded="false">
+          <span class="q-num">01</span>
+          <p>What makes CodedClouds different from other agencies?</p>
+          <div class="icon-box">
+            <i class="fas fa-plus"></i>
+          </div>
         </div>
-
-        <div class="faq-grid">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span class="q-num">01</span>
-                    <p>What makes CodedClouds different from other agencies?</p>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        We don't just build websites; we engineer cloud-native experiences. Our focus on scalability and high-end security ensures your business is ready for the future of the web.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span class="q-num">02</span>
-                    <p>Can you migrate my existing site to the cloud?</p>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        Yes, we specialize in seamless migrations. We ensure zero downtime and complete data integrity while moving your infrastructure to modern cloud environments.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span class="q-num">03</span>
-                    <p>Do you provide custom UI/UX design services?</p>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        Every project we take on includes a bespoke design phase. We focus on user psychology and modern aesthetics to make sure your brand stands out.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span class="q-num">04</span>
-                    <p>How do you handle project communication?</p>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        Transparency is key. We use dedicated channels (Slack/WhatsApp) and provide weekly progress reports so you are always in the loop.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span class="q-num">05</span>
-                    <p>What is your typical payment structure?</p>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <div class="answer-content">
-                        Usually, we work on a milestone-based payment plan (25% upfront, and the rest divided across project delivery phases).
-                    </div>
-                </div>
-            </div>
+        <div class="faq-answer">
+          <div class="answer-content">
+            We don't just build websites; we engineer cloud-native experiences. Our focus on scalability and high-end security ensures your business is ready for the future of the web.
+          </div>
         </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" aria-expanded="false">
+          <span class="q-num">02</span>
+          <p>Can you migrate my existing site to the cloud?</p>
+          <div class="icon-box">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="answer-content">
+            Yes, we specialize in seamless migrations. We ensure zero downtime and complete data integrity while moving your infrastructure to modern cloud environments.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" aria-expanded="false">
+          <span class="q-num">03</span>
+          <p>Do you provide custom UI/UX design services?</p>
+          <div class="icon-box">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="answer-content">
+            Every project we take on includes a bespoke design phase. We focus on user psychology and modern aesthetics to make sure your brand stands out.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" aria-expanded="false">
+          <span class="q-num">04</span>
+          <p>How do you handle project communication?</p>
+          <div class="icon-box">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="answer-content">
+            Transparency is key. We use dedicated channels (Slack/WhatsApp) and provide weekly progress reports so you are always in the loop.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" role="button" aria-expanded="false">
+          <span class="q-num">05</span>
+          <p>What is your typical payment structure?</p>
+          <div class="icon-box">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="answer-content">
+            Usually, we work on a milestone-based payment plan (25% upfront, and the rest divided across project delivery phases).
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 
 <style>
-    /* --- Main Variables --- */
-    :root {
-        --navy: #11113a;
-        --light-black: #1a1a1a;
-        --cyan: #00d4ff;
-        --border-color: #f0f2f5;
+  :root {
+    --navy: #11113a;
+    --light-black: #1a1a1a;
+    --cyan: #00d4ff;
+    --border-color: #e2e8f0;
+  }
+
+  .faq-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 80px 20px;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+  }
+
+  /* --- Watermark Logo --- */
+  .faq-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    max-width: 500px;
+    opacity: 0.04; /* Fixed: faint watermark for background depth */
+    z-index: 1;
+    pointer-events: none;
+  }
+  .faq-watermark img { 
+    width: 100%; 
+    height: auto; 
+  }
+
+  .faq-wrapper {
+    width: 100%;
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* --- Header --- */
+  .faq-header { 
+    margin-bottom: 50px; 
+    text-align: center; 
+  }
+  .faq-title { 
+    font-size: clamp(2rem, 4vw, 2.8rem); 
+    font-weight: 800; 
+    color: var(--navy); 
+  }
+  .faq-title span { 
+    color: var(--cyan); 
+  }
+  .title-line { 
+    width: 60px; 
+    height: 4px; 
+    background: #00d4ff; 
+    margin: 15px auto 0; 
+    border-radius: 2px; 
+  }
+
+  /* --- FAQ Grid --- */
+  .faq-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+  }
+
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.06);
+  }
+
+  .faq-question {
+    padding: 22px 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    gap: 16px;
+  }
+
+  .q-num {
+    font-weight: 800;
+    color: var(--cyan);
+    font-size: 0.95rem;
+    font-family: monospace;
+  }
+
+  .faq-question p {
+    flex: 1;
+    font-weight: 700;
+    color: var(--light-black);
+    font-size: 1.05rem;
+    margin: 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+  }
+
+  .icon-box {
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+  }
+
+  .faq-question i {
+    color: var(--navy);
+    font-size: 0.85rem;
+    transition: transform 0.4s ease, color 0.3s ease;
+  }
+
+  /* --- Answer Drawer --- */
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .answer-content {
+    padding: 0 25px 24px 60px;
+    color: #555555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  /* --- Active Accordion States --- */
+  .faq-item.active {
+    border-color: var(--navy);
+    box-shadow: 0 10px 25px rgba(17, 17, 58, 0.08);
+  }
+
+  .faq-item.active .faq-question p { 
+    color: var(--navy); 
+  }
+
+  .faq-item.active .icon-box {
+    background: var(--navy);
+  }
+
+  .faq-item.active i {
+    transform: rotate(45deg);
+    color: var(--cyan);
+  }
+
+  /* --- Mobile Layout Optimization --- */
+  @media (max-width: 600px) {
+    .faq-section { 
+      padding: 50px 15px; 
     }
-
-    .faq-section {
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #ffffff;
-        padding: 60px 15px; /* Mobile par space kam karne ke liye */
-        font-family: 'Montserrat', sans-serif;
-        overflow: hidden;
+    .faq-question { 
+      padding: 18px 18px; 
+      gap: 12px;
     }
-
-    /* --- Watermark Logo --- */
-    .faq-watermark {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 60%;
-        max-width: 500px;
-        opacity: 0.5; /* Very subtle watermark */
-        z-index: 1;
-        pointer-events: none;
-    }
-    .faq-watermark img { width: 100%; height: auto; }
-
-    .faq-wrapper {
-        width: 100%;
-        max-width: 850px;
-        position: relative;
-        z-index: 2;
-    }
-
-    /* --- Header --- */
-    .faq-header { margin-bottom: 50px; text-align: center; }
-    .faq-title { font-size: 2.2rem; font-weight: 800; color: var(--navy); }
-    .faq-title span { color: var(--cyan); }
-    .title-line { 
-        width: 60px; height: 4px; background: var(--cyan); 
-        margin: 15px auto; border-radius: 2px; 
-    }
-
-    /* --- FAQ Items --- */
-    .faq-grid { display: flex; flex-direction: column; gap: 15px; }
-
-    .faq-item {
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        transition: 0.3s;
-    }
-
-    .faq-question {
-        padding: 22px 25px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        user-select: none;
-    }
-
-    .q-num {
-        font-weight: 800;
-        color: var(--cyan);
-        margin-right: 20px;
-        font-size: 0.9rem;
-    }
-
     .faq-question p {
-        flex: 1;
-        font-weight: 700;
-        color: var(--light-black);
-        font-size: 1.05rem;
-        margin: 0;
+      font-size: 0.95rem;
     }
-
-    .faq-question i {
-        color: var(--navy);
-        transition: 0.4s;
+    .answer-content { 
+      padding: 0 18px 20px 48px; 
+      font-size: 0.9rem; 
     }
-
-    /* --- Answer Area --- */
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .answer-content {
-        padding: 0 25px 25px 55px;
-        color: #555;
-        line-height: 1.7;
-        font-size: 0.95rem;
-    }
-
-    /* --- Active States --- */
-    .faq-item.active {
-        border-color: var(--navy);
-        box-shadow: 0 10px 25px rgba(17, 17, 58, 0.05);
-    }
-
-    .faq-item.active .faq-question p { color: var(--navy); }
-
-    .faq-item.active i {
-        transform: rotate(45deg);
-        color: var(--cyan);
-    }
-
-    .faq-item.active .faq-answer {
-        max-height: 300px; /* Adjust based on text length */
-    }
-
-    /* --- Mobile Optimization --- */
-    @media (max-width: 600px) {
-        .faq-section { padding: 40px 10px; }
-        .faq-title { font-size: 1.6rem; }
-        .faq-question { padding: 18px 15px; }
-        .answer-content { padding: 0 15px 20px 45px; font-size: 0.9rem; }
-        .q-num { margin-right: 12px; }
-        .faq-watermark { width: 80%; }
-    }
+  }
 </style>
 
 <script>
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const faqItem = button.parentElement;
-            
-            // Close other items for accordion effect
-            document.querySelectorAll('.faq-item').forEach(item => {
-                if (item !== faqItem) item.classList.remove('active');
-            });
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
 
-            // Toggle current
-            faqItem.classList.toggle('active');
+    faqItems.forEach((item) => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all other open accordions
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+          }
         });
+
+        // Toggle current selected item with smooth scrollHeight
+        if (isActive) {
+          item.classList.remove('active');
+          question.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = null;
+        } else {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
     });
+  });
 </script>
 
 
