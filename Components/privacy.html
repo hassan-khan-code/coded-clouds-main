@@ -7,104 +7,355 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="icon" type="image/png" href="../images/fav.png">
     <style>
         :root {
             --navy: #11113a;
             --cyan: #00d2ff;
-            --text: #475569;
+            --text: #1e293b;
+            --text-light: #64748b;
             --light-bg: #f8fafc;
+            --card-shadow: 0 20px 60px rgba(17, 17, 58, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--light-bg);
+            background: var(--light-bg);
             color: var(--text);
             line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 50px 0;
+            position: relative;
         }
 
+        /* ===== ANIMATED BACKGROUND ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(0, 210, 255, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(17, 17, 58, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgFloat 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(-40px, 40px) scale(1.08);
+            }
+        }
+
+        /* ===== POLICY CARD ===== */
         .policy-card {
-            max-width: 900px;
-            margin: 60px auto;
+            max-width: 960px;
+            margin: 0 auto;
             background: #ffffff;
-            padding: 60px;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(17, 17, 58, 0.05);
-            border-top: 8px solid var(--navy);
+            padding: 55px 60px;
+            border-radius: 28px;
+            box-shadow: var(--card-shadow), 0 8px 24px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 210, 255, 0.06);
+            position: relative;
+            overflow: hidden;
+            animation: cardSlideUp 0.8s ease forwards;
         }
 
+        @keyframes cardSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== TOP ACCENT LINE ===== */
+        .policy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan), #7c3aed, var(--cyan), var(--navy));
+            background-size: 300% 100%;
+            animation: gradientSlide 5s ease-in-out infinite;
+        }
+
+        @keyframes gradientSlide {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ===== DECORATIVE DOT ===== */
+        .policy-card::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.03), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ===== HEADER ===== */
         .policy-header {
             text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #edf2f7;
+            margin-bottom: 45px;
+            padding-bottom: 35px;
+            border-bottom: 2px solid #f1f5f9;
+            position: relative;
+        }
+
+        .policy-header .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 210, 255, 0.08);
+            color: var(--cyan);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 210, 255, 0.12);
+            margin-bottom: 14px;
+        }
+
+        .policy-header .last-updated i {
+            font-size: 12px;
         }
 
         .policy-header h1 {
             font-weight: 800;
             color: var(--navy);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
         }
 
-        .last-updated {
+        .policy-header h1 span {
+            background: linear-gradient(135deg, var(--navy), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .policy-header .sub-head {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        /* ===== SHIELD ICON ===== */
+        .shield-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(17, 17, 58, 0.04));
+            border-radius: 50%;
+            font-size: 2rem;
             color: var(--cyan);
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 210, 255, 0.08);
         }
 
+        /* ===== INTRO BOX ===== */
+        .intro-box {
+            background: linear-gradient(135deg, rgba(17, 17, 58, 0.02), rgba(0, 210, 255, 0.04));
+            padding: 22px 28px;
+            border-radius: 16px;
+            border-left: 4px solid var(--cyan);
+            margin-bottom: 35px;
+        }
+        .intro-box p {
+            margin: 0;
+            font-size: 0.98rem;
+            color: var(--text);
+        }
+
+        /* ===== SECTION HEADINGS ===== */
         h3 {
             color: var(--navy);
             font-weight: 700;
-            font-size: 1.4rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-top: 38px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
+            gap: 12px;
         }
 
-        h3 i {
-            color: var(--cyan);
-            margin-right: 12px;
-            font-size: 1.2rem;
+        h3 .icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--cyan), #0099cc);
+            color: #fff;
+            font-size: 0.9rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: 0.3s;
         }
 
+        h3:hover .icon-circle {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.3);
+        }
+
+        h3::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, #e2e8f0, transparent);
+            margin-left: 10px;
+        }
+
+        /* ===== PARAGRAPHS ===== */
+        p {
+            font-size: 0.98rem;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        /* ===== INFO BOXES ===== */
         .info-box {
-            background: rgba(0, 210, 255, 0.04);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.04), rgba(17, 17, 58, 0.02));
+            border-radius: 14px;
+            padding: 22px 26px;
+            margin: 16px 0 20px 0;
             border-left: 4px solid var(--cyan);
+            transition: 0.3s;
+        }
+        .info-box:hover {
+            border-left-color: var(--navy);
+            background: rgba(0, 210, 255, 0.06);
+        }
+        .info-box strong {
+            color: var(--navy);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .info-box p {
+            margin: 0;
+            font-size: 0.95rem;
         }
 
+        /* ===== DATA LIST ===== */
         ul.data-list {
             list-style: none;
             padding-left: 0;
+            margin: 12px 0 20px 0;
         }
 
         ul.data-list li {
             position: relative;
-            padding-left: 28px;
-            margin-bottom: 12px;
+            padding-left: 32px;
+            margin-bottom: 10px;
+            font-size: 0.96rem;
+            color: var(--text);
+            transition: 0.2s;
         }
 
         ul.data-list li::before {
-            content: "\f058";
-            font-family: "Font Awesome 5 Free";
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
             font-weight: 900;
             position: absolute;
             left: 0;
-            color: var(--navy);
+            top: 2px;
+            color: var(--cyan);
+            font-size: 0.8rem;
+            background: rgba(0, 210, 255, 0.08);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
+        ul.data-list li:hover {
+            padding-left: 38px;
+        }
+
+        /* ===== CONTACT SECTION ===== */
         .contact-section {
-            margin-top: 60px;
-            padding: 40px;
-            background: var(--navy);
+            margin-top: 50px;
+            padding: 35px 40px;
+            background: linear-gradient(135deg, var(--navy), #1a1a4e);
             color: white;
-            border-radius: 20px;
+            border-radius: 18px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.06), transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact-section .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 210, 255, 0.12);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--cyan);
+            margin-bottom: 12px;
+        }
+
+        .contact-section h3 {
+            color: white;
+            justify-content: center;
+            margin-top: 0;
+        }
+        .contact-section h3 .icon-circle {
+            background: rgba(0, 210, 255, 0.15);
+            color: var(--cyan);
+        }
+        .contact-section h3::after {
+            display: none;
+        }
+
+        .contact-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 10px;
         }
 
         .contact-section a {
@@ -112,72 +363,222 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-section a:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        .back-top:hover {
+            color: var(--cyan);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .policy-card {
+                padding: 40px 35px;
+                margin: 0 20px;
+            }
         }
 
         @media (max-width: 768px) {
-            .policy-card { padding: 35px 20px; margin: 20px; }
-            .policy-header h1 { font-size: 1.8rem; }
+            body {
+                padding: 25px 0;
+            }
+            .policy-card {
+                padding: 30px 22px;
+                margin: 0 12px;
+                border-radius: 20px;
+            }
+            .policy-header h1 {
+                font-size: 2rem;
+            }
+            .policy-header .sub-head {
+                font-size: 0.95rem;
+            }
+            h3 {
+                font-size: 1.05rem;
+            }
+            h3 .icon-circle {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+            .info-box {
+                padding: 18px 20px;
+            }
+            .contact-section {
+                padding: 28px 20px;
+            }
+            .contact-section a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .policy-card {
+                padding: 24px 16px;
+                border-radius: 16px;
+            }
+            .policy-header h1 {
+                font-size: 1.6rem;
+            }
+            .policy-header .last-updated {
+                font-size: 0.65rem;
+                padding: 4px 14px;
+            }
+            .shield-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            ul.data-list li {
+                font-size: 0.9rem;
+                padding-left: 28px;
+            }
+            ul.data-list li::before {
+                width: 18px;
+                height: 18px;
+                font-size: 0.7rem;
+            }
+            .info-box p {
+                font-size: 0.9rem;
+            }
+            .contact-section .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="policy-card">
-            <div class="policy-header">
-                <span class="last-updated">Last Updated: March 2024</span>
-                <h1>Privacy Policy</h1>
-                <p>Protecting your privacy and confidentiality is our fundamental commitment.</p>
+<div class="container">
+    <div class="policy-card">
+
+        <!-- Header -->
+        <div class="policy-header">
+           
+            <div class="last-updated">
+              Last Updated: March 2024
             </div>
-
-            <div class="policy-body">
-                <p>CodedClouds (“Company”, “we”, “our”, or “us”) is committed to protecting the privacy and confidentiality of visitors, clients, and users who access our website and digital services (collectively referred to as the “Services”).</p>
-                
-                <p>By accessing or using the CodedClouds website or submitting information through our platforms, you acknowledge that you have read and accepted the practices described in this Privacy Policy.</p>
-
-                <h3><i class="fas fa-sync-alt"></i> Updates and Modifications</h3>
-                <p>CodedClouds reserves the right to modify or update this Privacy Policy from time to time. Continued use of the website or services following publication of an updated policy constitutes acceptance of the revised terms.</p>
-
-                <h3><i class="fas fa-database"></i> Information We Collect</h3>
-                <div class="info-box">
-                    <strong>Personal Information:</strong>
-                    <p>We may collect full name, email address, phone number, company name, and project details submitted through contact forms or consultation requests.</p>
-                </div>
-
-                <div class="info-box">
-                    <strong>Technical Information:</strong>
-                    <p>Device type, browser info, IP address, geographic region, and navigation behavior are automatically recorded through server logs and analytics.</p>
-                </div>
-
-                <h3><i class="fas fa-bullseye"></i> How and Why We Use Information</h3>
-                <p>We use collected information for legitimate business purposes including:</p>
-                <ul class="data-list">
-                    <li>Responding to inquiries or consultation requests</li>
-                    <li>Evaluating project requirements and proposals</li>
-                    <li>Managing professional engagements and service delivery</li>
-                    <li>Ensuring system security and preventing unauthorized access</li>
-                </ul>
-
-                <h3><i class="fas fa-cookie-bite"></i> Cookies and Tracking</h3>
-                <p>The CodedClouds website may utilize cookies to recognize returning visitors and support website features. Users may configure web browsers to disable cookies, though this may limit certain features.</p>
-
-                <h3><i class="fas fa-shield-alt"></i> Information Security</h3>
-                <p>CodedClouds maintains commercially reasonable administrative, technical, and organizational safeguards to protect personal information. In the event of a security incident, affected individuals will be notified through appropriate means.</p>
-
-                <h3><i class="fas fa-external-link-alt"></i> Third-Party Services</h3>
-                <p>Our services may rely on third-party platforms (hosting, analytics). Their use of information is governed by their respective privacy policies. CodedClouds does not control the data handling practices of third-party providers.</p>
-
-                <h3><i class="fas fa-globe"></i> International Data Access</h3>
-                <p>Users accessing the website from outside our jurisdiction acknowledge and consent that their information may be transferred to and processed in jurisdictions where data protection laws may differ.</p>
-
-                <div class="contact-section">
-                    <h3><i class="fas fa-envelope-open-text" style="color: white;"></i> Contact Information</h3>
-                    <p>If you have any questions regarding this Privacy Policy or the handling of your information, contact us at:</p>
-                    <a href="mailto:info@codedclouds.org">info@codedclouds.org</a>
-                </div>
-            </div>
+            <h1>Privacy <span>Policy</span></h1>
+            <p class="sub-head">Protecting your privacy and confidentiality is our fundamental commitment.</p>
         </div>
-    </div>
 
+        <!-- Intro -->
+        <div class="intro-box">
+            <p><i class="fas fa-lock" style="color: var(--cyan); margin-right: 10px;"></i>
+                CodedClouds (“Company”, “we”, “our”, or “us”) is committed to protecting the privacy and confidentiality of visitors, clients, and users who access our website and digital services (collectively referred to as the “Services”).
+            </p>
+        </div>
+
+        <p>By accessing or using the CodedClouds website or submitting information through our platforms, you acknowledge that you have read and accepted the practices described in this Privacy Policy.</p>
+
+        <!-- Sections -->
+        <h3>
+            <span class="icon-circle"><i class="fas fa-sync-alt"></i></span>
+            Updates and Modifications
+        </h3>
+        <p>CodedClouds reserves the right to modify or update this Privacy Policy from time to time. Continued use of the website or services following publication of an updated policy constitutes acceptance of the revised terms.</p>
+
+        <h3>
+            <span class="icon-circle"><i class="fas fa-database"></i></span>
+            Information We Collect
+        </h3>
+
+        <div class="info-box">
+            <strong><i class="fas fa-user" style="color: var(--cyan); margin-right: 8px;"></i>Personal Information:</strong>
+            <p>We may collect full name, email address, phone number, company name, and project details submitted through contact forms or consultation requests.</p>
+        </div>
+
+        <div class="info-box">
+            <strong><i class="fas fa-microchip" style="color: var(--cyan); margin-right: 8px;"></i>Technical Information:</strong>
+            <p>Device type, browser info, IP address, geographic region, and navigation behavior are automatically recorded through server logs and analytics.</p>
+        </div>
+
+        <h3>
+            <span class="icon-circle"><i class="fas fa-bullseye"></i></span>
+            How and Why We Use Information
+        </h3>
+        <p>We use collected information for legitimate business purposes including:</p>
+        <ul class="data-list">
+            <li>Responding to inquiries or consultation requests</li>
+            <li>Evaluating project requirements and proposals</li>
+            <li>Managing professional engagements and service delivery</li>
+            <li>Ensuring system security and preventing unauthorized access</li>
+        </ul>
+
+        <h3>
+            <span class="icon-circle"><i class="fas fa-cookie-bite"></i></span>
+            Cookies and Tracking
+        </h3>
+        <p>The CodedClouds website may utilize cookies to recognize returning visitors and support website features. Users may configure web browsers to disable cookies, though this may limit certain features.</p>
+
+        <h3>
+            <span class="icon-circle"><i class="fas fa-shield-alt"></i></span>
+            Information Security
+        </h3>
+        <p>CodedClouds maintains commercially reasonable administrative, technical, and organizational safeguards to protect personal information. In the event of a security incident, affected individuals will be notified through appropriate means.</p>
+
+        <h3>
+            <span class="icon-circle"><i class="fas fa-external-link-alt"></i></span>
+            Third-Party Services
+        </h3>
+        <p>Our services may rely on third-party platforms (hosting, analytics). Their use of information is governed by their respective privacy policies. CodedClouds does not control the data handling practices of third-party providers.</p>
+
+        <h3>
+            <span class="icon-circle"><i class="fas fa-globe"></i></span>
+            International Data Access
+        </h3>
+        <p>Users accessing the website from outside our jurisdiction acknowledge and consent that their information may be transferred to and processed in jurisdictions where data protection laws may differ.</p>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <div class="contact-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h3>
+                <span class="icon-circle"><i class="fas fa-envelope"></i></span>
+                Contact Information
+            </h3>
+            <p>If you have any questions regarding this Privacy Policy or the handling of your information, contact us at:</p>
+            <a href="mailto:info@codedclouds.org">
+                <i class="fas fa-envelope me-2"></i>info@codedclouds.org
+            </a>
+        </div>
+
+        <!-- Back to Top -->
+        <div class="text-center mt-4">
+            <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                <i class="fas fa-arrow-up"></i> Back to Top
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

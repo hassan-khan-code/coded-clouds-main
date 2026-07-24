@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solutions - Coded Clouds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #11113a;
+            --cyan: #00d2ff;
+            --white: #ffffff;
+            --gray: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --ai-glow: rgba(0, 210, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           ELASTIC CURSOR
+        ======================================== */
+        #elastic-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            box-shadow: 0 0 20px var(--ai-glow);
+            transform-origin: center center;
+        }
+
+        .cursor-active {
+            mix-blend-mode: difference;
+            background-color: white !important;
+            width: 30px !important;
+            height: 30px !important;
+        }
+
+        @media (max-width: 768px) {
+            #elastic-cursor {
+                display: none !important;
+            }
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        .main-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            transition: 0.3s;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back-btn {
+            background: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            border: 2px solid var(--navy);
+        }
+
+        .back-btn:hover {
+            background: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(17, 17, 58, 0.12);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero-section {
+            padding: 80px 20px 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--gray) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.05), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-section .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(17, 17, 58, 0.05));
+            border-radius: 50%;
+            font-size: 2.5rem;
+            color: var(--cyan);
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 210, 255, 0.1); }
+            50% { box-shadow: 0 0 40px rgba(0, 210, 255, 0.2); }
+        }
+
+        .hero-section h1 {
+            color: var(--navy);
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-section h1 span {
+            background: #00d2ff;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-underline {
+            width: 80px;
+            height: 5px;
+            background: #00d2ff;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .hero-section p {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           AI FEATURES SECTION
+        ======================================== */
+        .ai-features {
+            padding: 80px 20px 100px;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 50px;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .ai-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+        }
+
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan), #7c3aed);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.5s ease;
+        }
+
+        .ai-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .ai-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(17, 17, 58, 0.08);
+            border-color: rgba(0, 210, 255, 0.1);
+        }
+
+        .ai-card .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(17, 17, 58, 0.04));
+            border-radius: 18px;
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            transition: 0.3s;
+            border: 1px solid rgba(0, 210, 255, 0.06);
+        }
+
+        .ai-card:hover .card-icon {
+            background: linear-gradient(135deg, var(--cyan), #0099cc);
+            color: var(--white);
+            transform: scale(1.05) rotate(-5deg);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .ai-card h3 {
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .ai-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .ai-card .tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 14px;
+            background: rgba(0, 210, 255, 0.06);
+            color: var(--cyan);
+            border-radius: 50px;
+            border: 1px solid rgba(0, 210, 255, 0.06);
+            margin-top: 12px;
+        }
+
+        /* ========================================
+           CONCEPT SECTION
+        ======================================== */
+        .concept-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: var(--navy);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.05), transparent 70%);
+            pointer-events: none;
+        }
+
+        .concept-section .concept-icon {
+            font-size: 3rem;
+            color: var(--cyan);
+            margin-bottom: 20px;
+        }
+
+        .concept-section h2 {
+            color: var(--cyan);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .concept-section p {
+            max-width: 750px;
+            margin: 0 auto;
+            opacity: 0.85;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .concept-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .concept-stats .stat {
+            text-align: center;
+        }
+
+        .concept-stats .stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--cyan);
+        }
+
+        .concept-stats .stat .label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: 80px 20px 100px;
+            text-align: center;
+            background: var(--gray);
+        }
+
+        .cta-section h2 {
+            color: var(--navy);
+            font-weight: 800;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 35px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 50px;
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: 0.3s;
+            border: 2px solid var(--navy);
+            box-shadow: 0 10px 30px rgba(17, 17, 58, 0.15);
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--navy);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(17, 17, 58, 0.2);
+        }
+
+        .cta-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .pro-footer {
+            background-color: var(--navy);
+            color: #b0b0b0;
+            padding: 80px 0 20px 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .pro-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #0c3f61, var(--cyan));
+        }
+
+        .footer-col {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo h3 {
+            font-weight: 800;
+            color: white;
+        }
+        .footer-logo h3 span {
+            color: var(--cyan);
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            max-width: 400px;
+            color: #b0b0b0;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .footer-social a:hover {
+            background: var(--cyan);
+            transform: translateY(-5px);
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--cyan);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 8px;
+        }
+
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            color: white;
+        }
+
+        .footer-contact i {
+            color: var(--white);
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.05);
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .footer-divider {
+            border-color: rgba(255, 255, 255, 0.06);
+            margin: 30px 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            padding-bottom: 10px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 992px) {
+            .concept-stats {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 20px 40px;
+            }
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            .hero-section .icon-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            .ai-features {
+                padding: 50px 20px 70px;
+            }
+            .section-heading {
+                font-size: 1.8rem;
+            }
+            .concept-section {
+                padding: 60px 20px;
+            }
+            .concept-section h2 {
+                font-size: 2rem;
+            }
+            .concept-stats {
+                gap: 30px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .concept-stats .stat .number {
+                font-size: 2rem;
+            }
+            .cta-section {
+                padding: 60px 20px;
+            }
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+            .cta-btn {
+                padding: 14px 35px;
+                font-size: 0.9rem;
+            }
+            .back-btn span {
+                display: none;
+            }
+            .back-btn {
+                padding: 10px 16px;
+            }
+            .pro-footer {
+                padding-top: 50px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+            .ai-card {
+                padding: 30px 20px;
+            }
+            .ai-card .card-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+            .ai-card h3 {
+                font-size: 1.1rem;
+            }
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== ELASTIC CURSOR ===== -->
+    <div id="elastic-cursor"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
+            </a>
+            <div class="nav-actions">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <header class="hero-section" data-aos="fade-up">
+        <div class="container">
+            <div class="icon-badge">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h1>AI <span>Solutions</span></h1>
+            <div class="hero-underline"></div>
+            <p>Harness the power of artificial intelligence to transform your business. From machine learning to natural language processing, we build intelligent systems that drive growth.</p>
+        </div>
+    </header>
+
+    <!-- ===== AI FEATURES ===== -->
+    <section class="ai-features">
+        <div class="container">
+            <h2 class="section-heading" data-aos="fade-up">Intelligent Solutions</h2>
+            <p class="section-subtitle" data-aos="fade-up">Custom AI-powered solutions designed for your unique business challenges</p>
+
+            <div class="ai-grid">
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Smart Chatbots</h3>
+                    <p>AI-powered virtual assistants that provide 24/7 customer support, learn from interactions, and deliver human-like conversations.</p>
+                    <span class="tag">NLP</span>
+                </div>
+
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Leverage machine learning algorithms to forecast trends, customer behavior, inventory needs, and business outcomes with high accuracy.</p>
+                    <span class="tag">ML</span>
+                </div>
+
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Workflow Automation</h3>
+                    <p>Automate repetitive tasks, data entry, and business processes with intelligent workflow engines and seamless API integrations.</p>
+                    <span class="tag">RPA</span>
+                </div>
+
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Custom ML Models</h3>
+                    <p>Tailor-made machine learning solutions including classification, regression, clustering, and deep learning for your specific needs.</p>
+                    <span class="tag">Deep Learning</span>
+                </div>
+
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Computer Vision</h3>
+                    <p>Image and video analysis solutions for object detection, facial recognition, quality control, and visual inspection systems.</p>
+                    <span class="tag">Vision AI</span>
+                </div>
+
+                <div class="ai-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>NLP Solutions</h3>
+                    <p>Natural language processing for text analysis, sentiment analysis, document summarization, and intelligent search systems.</p>
+                    <span class="tag">NLP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONCEPT SECTION ===== -->
+    <section class="concept-section" data-aos="fade-up">
+        <div class="container">
+            <div class="concept-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <h2>Human Intelligence, AI Speed</h2>
+            <p>Our goal isn't just to automate tasks, but to empower your team to focus on strategic, creative, and high-value work while AI handles the heavy lifting.</p>
+
+            <div class="concept-stats">
+                <div class="stat">
+                    <div class="number">95%</div>
+                    <div class="label">Accuracy Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="number">10x</div>
+                    <div class="label">Faster Processing</div>
+                </div>
+                <div class="stat">
+                    <div class="number">24/7</div>
+                    <div class="label">Uptime Availability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section" data-aos="fade-up">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Book a consultation to discover how AI can revolutionize your operations and drive growth.</p>
+            <a href="./contact.html" class="cta-btn">
+                <i class="fas fa-rocket"></i> Get Started
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ===== AOS INIT =====
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // ===== ELASTIC CURSOR =====
+        const cursor = document.querySelector("#elastic-cursor");
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.12;
+        let fpms = 60 / 1000;
+
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button, .ai-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
+    </script>
+
+</body>
+</html>
