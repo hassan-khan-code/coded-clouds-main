@@ -4094,7 +4094,6 @@
 
 
 <!--what we dooo-->
-<!-- Offcanvas Section -->
 <div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasDo">
   
   <!-- Close Button Container -->
@@ -4115,59 +4114,210 @@
     </div>
   </div>
 
-  <!-- Cards Section -->
+  <!-- Interactive 3-Tab Section -->
   <div class="offcanvas-cards-section">
     <div class="container">
-      <div class="row g-4 align-items-stretch justify-content-center">
+      
+      <!-- Top 3 Navigation Tabs -->
+      <div class="tab-navigation">
+        <button class="tab-btn active" data-target="tab-dev">
+          <i class="fas fa-laptop-code"></i> Development
+        </button>
+        <button class="tab-btn" data-target="tab-business">
+          <i class="fas fa-chart-pie"></i> Business Solutions
+        </button>
+        <button class="tab-btn" data-target="tab-growth">
+          <i class="fas fa-rocket"></i> Growth & Strategy
+        </button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="tab-content-container">
         
-        <!-- Card 1: Development -->
-        <div class="col-lg-4 col-md-6 d-flex">
-          <div class="custom-card light-card w-100">
-            <div class="card-icon-box">
-              <i class="fas fa-laptop-code"></i>
+        <!-- Tab 1: Development -->
+        <div class="tab-panel active" id="tab-dev">
+          <div class="panel-header-box">
+            <span class="badge-pill">ENGINEERING</span>
+            <h3>Development Solutions</h3>
+            <p>Building high-performance, scalable, and secure applications tailored to your business needs.</p>
+          </div>
+
+          <div class="details-list">
+            <div class="detail-item">
+              <i class="fas fa-code"></i>
+              <div>
+                <h5>Web Development & Architecture</h5>
+                <p>Custom, fast, and secure web applications built using React, Laravel, and modern full-stack frameworks.</p>
+              </div>
             </div>
-            <h4>Development</h4>
-            <ul class="card-list-items">
-              <li><i class="fas fa-chevron-right"></i> <span>Web Development</span></li>
-              <li><i class="fas fa-chevron-right"></i> <span>Mobile App Development</span></li>
-              <li><i class="fas fa-chevron-right"></i> <span>Custom Software</span></li>
-            </ul>
+
+            <div class="detail-item">
+              <i class="fas fa-mobile-alt"></i>
+              <div>
+                <h5>Mobile App Development</h5>
+                <p>Cross-platform mobile applications engineered for seamless native performance on iOS and Android.</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-desktop"></i>
+              <div>
+                <h5>Desktop Software</h5>
+                <p>Cross-platform desktop tools built with Electron & SQLite for offline-first business operations.</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-cloud"></i>
+              <div>
+                <h5>Custom SaaS & Cloud Systems</h5>
+                <p>Tailor-made cloud architectures designed to automate core business logic and scale effortlessly.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Section: Core Tech Stack -->
+          <div class="panel-extra-box">
+            <h6 class="extra-title"><i class="fas fa-layer-group"></i> Technologies We Use</h6>
+            <div class="tech-tags-list">
+              <span>React.js</span>
+              <span>Laravel</span>
+              <span>Node.js / MERN</span>
+              <span>Electron</span>
+              <span>REST & GraphQL APIs</span>
+              <span>MySQL & SQLite</span>
+            </div>
           </div>
         </div>
 
-        <!-- Card 2: Business Solutions -->
-        <div class="col-lg-4 col-md-6 d-flex">
-          <div class="custom-card dark-card w-100">
-            <div class="card-icon-box">
-              <i class="fas fa-chart-pie"></i>
+        <!-- Tab 2: Business Solutions -->
+        <div class="tab-panel" id="tab-business">
+          <div class="panel-header-box">
+            <span class="badge-pill">ENTERPRISE</span>
+            <h3>Business Solutions</h3>
+            <p>Streamline daily management and operational pipelines with powerful enterprise tools.</p>
+          </div>
+
+          <div class="details-list">
+            <div class="detail-item">
+              <i class="fas fa-building"></i>
+              <div>
+                <h5>PMS (Property Management)</h5>
+                <p>Smart portals for automated room booking, inventory tracking, and complete guest management.</p>
+              </div>
             </div>
-            <h4>Business Solutions</h4>
-            <ul class="card-list-items">
-              <li><i class="fas fa-check"></i> <span>PMS (Property Mgmt)</span></li>
-              <li><i class="fas fa-check"></i> <span>Full CRM Integrations</span></li>
-              <li><i class="fas fa-check"></i> <span>POS Software</span></li>
-              <li><i class="fas fa-check"></i> <span>E-commerce Platforms</span></li>
-            </ul>
+
+            <div class="detail-item">
+              <i class="fas fa-users-cog"></i>
+              <div>
+                <h5>Full CRM Integrations</h5>
+                <p>Centralized client pipelines, lead tracking, and automated customer relationship workflows.</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-cash-register"></i>
+              <div>
+                <h5>POS (Point of Sale) Solutions</h5>
+                <p>Reliable desktop POS systems with fast receipt generation, inventory sync, and offline support.</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-shopping-cart"></i>
+              <div>
+                <h5>E-commerce Engines</h5>
+                <p>High-converting online store setups with integrated multi-currency payment gateways.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Section: Solution Highlights -->
+          <div class="panel-extra-box">
+            <h6 class="extra-title"><i class="fas fa-shield-alt"></i> Key Enterprise Benefits</h6>
+            <div class="highlights-grid">
+              <div class="highlight-card">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>99.9% Uptime Guarantee</span>
+              </div>
+              <div class="highlight-card">
+                <i class="fas fa-lock"></i>
+                <span>Role-Based Access Control</span>
+              </div>
+              <div class="highlight-card">
+                <i class="fas fa-sync"></i>
+                <span>Real-Time Data Syncing</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Card 3: Growth -->
-        <div class="col-lg-4 col-md-12 d-flex">
-          <div class="custom-card light-card w-100">
-            <div class="card-icon-box">
-              <i class="fas fa-rocket"></i>
+        <!-- Tab 3: Growth -->
+        <div class="tab-panel" id="tab-growth">
+          <div class="panel-header-box">
+            <span class="badge-pill">EXPANSION</span>
+            <h3>Growth & Strategy</h3>
+            <p>Scale your market visibility and convert digital traffic into continuous revenue streams.</p>
+          </div>
+
+          <div class="details-list">
+            <div class="detail-item">
+              <i class="fas fa-bullhorn"></i>
+              <div>
+                <h5>Performance Marketing</h5>
+                <p>Data-driven ad campaigns and social media targeting to maximize ROI and customer acquisition.</p>
+              </div>
             </div>
-            <h4>Growth</h4>
-            <ul class="card-list-items">
-              <li><i class="fas fa-chevron-right"></i> <span>Digital Marketing</span></li>
-              <li><i class="fas fa-chevron-right"></i> <span>SEO & Branding</span></li>
-              <li><i class="fas fa-chevron-right"></i> <span>IT Consultancy</span></li>
-              <li><i class="fas fa-chevron-right"></i> <span>AI Automation</span></li>
-            </ul>
+
+            <div class="detail-item">
+              <i class="fas fa-search-dollar"></i>
+              <div>
+                <h5>Technical SEO Audits</h5>
+                <p>Comprehensive search engine optimization to boost Google rankings and organic traffic.</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-robot"></i>
+              <div>
+                <h5>AI Workflow Automation</h5>
+                <p>Intelligent AI bots and automated pipelines to cut response times and operational costs.</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="fas fa-paint-brush"></i>
+              <div>
+                <h5>Branding & UI/UX Design</h5>
+                <p>Modern visual identity design, UI wireframing, and interactive user experience strategies.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Section: Strategy Tags -->
+          <div class="panel-extra-box">
+            <h6 class="extra-title"><i class="fas fa-chart-line"></i> Growth Channels</h6>
+            <div class="tech-tags-list">
+              <span>Google Ads</span>
+              <span>Meta Ads</span>
+              <span>On-Page & Technical SEO</span>
+              <span>AI Chatbots</span>
+              <span>Conversion Rate Optimization (CRO)</span>
+            </div>
           </div>
         </div>
 
       </div>
+
+      <!-- Bottom Consultation Callout -->
+      <div class="offcanvas-cta-box">
+        <div class="cta-text">
+          <h4>Have a custom requirement in mind?</h4>
+          <p>Let's build a solution tailored specifically for your business growth.</p>
+        </div>
+        <a href="/Components/contact.html" class="cta-btn" data-bs-dismiss="offcanvas">Get In Touch <i class="fas fa-arrow-right"></i></a>
+      </div>
+
     </div>
   </div>
 
@@ -4253,7 +4403,7 @@
 </div>
 
 <style>
-    :root {
+:root {
   --f-navy: #0f172a;
   --f-navy-dark: #11113a;
   --f-blue: #00d2ff;
@@ -4263,13 +4413,14 @@
   --f-border: #1e293b;
 }
 
-/* Offcanvas Main Container */
+/* Offcanvas Container */
 .custom-offcanvas {
   height: 100vh !important;
   background: #ffffff;
   border: none !important;
   overflow-x: hidden;
   overflow-y: auto;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 /* Fixed Close Button */
@@ -4285,7 +4436,6 @@
   padding: 15px !important;
   border-radius: 50% !important;
   opacity: 1 !important;
-  margin-top: 20px;
   box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
   border: 2px solid #ffffff !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -4296,12 +4446,12 @@
   box-shadow: 0 12px 25px rgba(0, 210, 255, 0.6);
 }
 
-/* Offcanvas Hero Banner */
+/* Hero Header */
 .offcanvas-hero {
   position: relative;
   width: 100%;
-  height: 50vh;
-  min-height: 350px;
+  height: 42vh;
+  min-height: 300px;
   background: var(--f-navy-dark);
   display: flex;
   align-items: center;
@@ -4331,111 +4481,301 @@
 .offcanvas-hero-title {
   color: #ffffff;
   font-weight: 900;
-  font-size: clamp(30px, 7vw, 55px);
-  letter-spacing: 4px;
+  font-size: clamp(30px, 6vw, 52px);
+  letter-spacing: 3px;
   margin: 0;
   text-transform: uppercase;
-  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .hero-divider {
   width: 70px;
   height: 5px;
   background: var(--f-blue);
-  margin: 20px auto;
+  margin: 18px auto;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.6);
 }
 
 .offcanvas-hero-subtitle {
-  color: var(--f-blue);
+  color: var(--f-blue-alt);
   font-weight: 700;
-  letter-spacing: 2px;
-  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 1.5px;
+  font-size: clamp(13px, 2vw, 17px);
   text-transform: uppercase;
 }
 
-/* Cards Section Layout */
+/* Cards / Tab Section */
 .offcanvas-cards-section {
   background: #ffffff;
   position: relative;
   z-index: 10;
-  margin-top: -60px;
-  border-radius: 60px 60px 0 0;
-  padding: 60px 0;
+  margin-top: -50px;
+  border-radius: 50px 50px 0 0;
+  padding: 50px 0 60px 0;
 }
 
-/* Custom Card Styling */
-.custom-card {
-  padding: 35px 28px;
-  border-radius: 24px;
-  transition: all 0.35s ease;
+/* Navigation Tabs */
+.tab-navigation {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
 }
 
-.light-card {
+.tab-btn {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  color: #0f172a;
+  color: #475569;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.dark-card {
+.tab-btn i {
+  color: var(--f-blue-alt);
+  font-size: 1.1rem;
+}
+
+.tab-btn:hover {
+  background: #ffffff;
+  border-color: var(--f-blue-alt);
+  color: #0f172a;
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
   background: var(--f-navy-dark);
   color: #ffffff;
-  box-shadow: 0 20px 40px rgba(17, 17, 58, 0.25);
-  transform: scale(1.02);
+  border-color: var(--f-navy-dark);
+  box-shadow: 0 10px 25px rgba(17, 17, 58, 0.2);
 }
 
-.custom-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 35px rgba(0, 210, 255, 0.15);
+.tab-btn.active i {
+  color: var(--f-blue);
 }
 
-.card-icon-box {
-  width: 60px;
-  height: 60px;
-  background: rgba(0, 210, 255, 0.1);
+/* Tab Display Panels */
+.tab-content-container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.tab-panel {
+  display: none;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 38px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  animation: tabFadeIn 0.4s ease forwards;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.badge-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--f-blue-alt);
+  background: #e0f2fe;
+  padding: 4px 14px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.panel-header-box h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.panel-header-box p {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 0 0 28px 0;
+}
+
+/* Grid Details List */
+.details-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.detail-item {
+  background: #ffffff;
+  padding: 20px;
   border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.detail-item:hover {
+  border-color: var(--f-blue-alt);
+  transform: translateY(-2px);
+}
+
+.detail-item i {
+  color: var(--f-blue-alt);
+  font-size: 1rem;
+  margin-top: 2px;
+  background: #f0f9ff;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  color: var(--f-blue);
-  margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
-.custom-card h4 {
+.detail-item h5 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.detail-item p {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Extra Panels (Tags & Highlights) */
+.panel-extra-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.extra-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.extra-title i {
+  color: var(--f-blue-alt);
+}
+
+.tech-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tags-list span {
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.highlight-card {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.highlight-card i {
+  color: var(--f-blue-alt);
+}
+
+/* Call To Action Box */
+.offcanvas-cta-box {
+  max-width: 950px;
+  margin: 35px auto 0 auto;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 20px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.15);
+}
+
+.cta-text h4 {
+  color: #ffffff;
   font-weight: 800;
-  font-size: 1.35rem;
-  margin-bottom: 20px;
+  font-size: 1.25rem;
+  margin: 0 0 4px 0;
 }
 
-.card-list-items {
-  list-style: none;
-  padding: 0;
+.cta-text p {
+  color: var(--f-text-muted);
+  font-size: 0.92rem;
   margin: 0;
 }
 
-.card-list-items li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+.cta-btn {
+  background: var(--f-blue);
+  color: #0f172a;
+  font-weight: 800;
   font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
-.card-list-items i {
-  color: var(--f-blue);
-  font-size: 0.8rem;
+.cta-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateX(4px);
 }
 
-/* --- Footer Styling --- */
+/* Footer Styling */
 .pro-footer {
   background-color: var(--f-navy);
   color: var(--f-text-muted);
   padding: 70px 0 25px 0;
-  font-family: 'Poppins', sans-serif;
   position: relative;
   width: 100%;
 }
@@ -4443,260 +4783,199 @@
 .pro-footer::before {
   content: '';
   position: absolute;
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 3px;
+  top: 0; left: 0; width: 100%; height: 3px;
   background: linear-gradient(90deg, #0284c7 0%, var(--f-blue-alt) 100%);
 }
 
-.footer-logo {
-  text-decoration: none;
-  display: inline-block;
-}
+.footer-logo { text-decoration: none; display: inline-block; }
+.footer-logo h3 { color: #ffffff; font-weight: 800; margin: 0; font-size: 22px; }
+.footer-logo h3 span { color: var(--f-blue); }
 
-.footer-logo h3 {
-  color: #ffffff;
-  font-weight: 800;
-  margin: 0;
-  font-size: 22px;
-  letter-spacing: 0.5px;
-}
-
-.footer-logo h3 span {
-  color: var(--f-blue);
-}
-
-.footer-desc {
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--f-text-muted);
-  margin: 16px 0 22px 0;
-}
-
-.footer-social {
-  display: flex;
-  gap: 12px;
-}
+.footer-desc { font-size: 13.5px; line-height: 1.65; color: var(--f-text-muted); margin: 16px 0 22px 0; }
+.footer-social { display: flex; gap: 12px; }
 
 .footer-social a {
-  width: 38px;
-  height: 38px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--f-border);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 14px;
+  width: 38px; height: 38px; background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--f-border); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: #ffffff; text-decoration: none; transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
-  background: var(--f-blue);
-  color: var(--f-navy);
-  border-color: var(--f-blue);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 210, 255, 0.3);
+  background: var(--f-blue); color: var(--f-navy); transform: translateY(-3px);
 }
 
-.footer-title {
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  position: relative;
-}
+.footer-title { color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 20px; position: relative; }
+.footer-title::after { content: ''; position: absolute; left: 0; bottom: -7px; width: 20px; height: 2px; background-color: var(--f-blue); }
 
-.footer-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -7px;
-  width: 20px;
-  height: 2px;
-  background-color: var(--f-blue);
-  border-radius: 2px;
-}
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: var(--f-text-muted); text-decoration: none; font-size: 13px; transition: all 0.25s ease; }
+.footer-links a:hover { color: var(--f-blue); transform: translateX(4px); }
 
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: var(--f-text-muted);
-  text-decoration: none;
-  font-size: 13px;
-  transition: all 0.25s ease;
-  display: inline-block;
-}
-
-.footer-links a:hover {
-  color: var(--f-blue);
-  transform: translateX(4px);
-}
-
-.footer-contact {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 16px 0;
-}
-
-.footer-contact li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-  font-size: 13px;
-  color: var(--f-text-light);
-}
-
+.footer-contact { list-style: none; padding: 0; margin: 0 0 16px 0; }
+.footer-contact li { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 13px; color: var(--f-text-light); }
 .footer-contact i {
-  color: var(--f-blue);
-  font-size: 13px;
-  width: 28px;
-  height: 28px;
-  background: rgba(0, 210, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  flex-shrink: 0;
+  color: var(--f-blue); width: 28px; height: 28px; background: rgba(0, 210, 255, 0.1);
+  display: flex; align-items: center; justify-content: center; border-radius: 8px; flex-shrink: 0;
 }
 
 .compact-map-box {
-  width: 100%;
-  height: 110px;
-  border-radius: 12px;
-  overflow: hidden;
+  width: 100%; height: 110px; border-radius: 12px; overflow: hidden;
   border: 1px solid var(--f-border);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: border-color 0.3s ease;
 }
-
-.compact-map-box:hover {
-  border-color: var(--f-blue);
-}
-
-.compact-map-box iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  filter: contrast(1.05) brightness(0.95);
-}
+.compact-map-box iframe { width: 100%; height: 100%; border: 0; }
 
 .footer-bottom {
-  border-top: 1px solid var(--f-border);
-  margin-top: 45px;
-  padding-top: 22px;
-  text-align: center;
+  border-top: 1px solid var(--f-border); margin-top: 45px; padding-top: 22px; text-align: center;
 }
+.footer-bottom p { color: var(--f-text-muted); font-size: 13px; margin: 0; }
+.footer-bottom strong { color: #ffffff; }
 
-.footer-bottom p {
-  color: var(--f-text-muted);
-  font-size: 13px;
-  margin: 0;
-}
-
-.footer-bottom strong {
-  color: #ffffff;
-}
-
-/* Mobile Responsive */
-@media (max-width: 991px) {
-  .dark-card {
-    transform: none;
-    margin: 10px 0;
-  }
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .pro-footer {
-    padding: 50px 0 20px 0;
+  .details-list {
+    grid-template-columns: 1fr;
   }
-  .footer-title {
-    margin-top: 15px;
+  .highlights-grid {
+    grid-template-columns: 1fr;
   }
-  .compact-map-box {
-    height: 130px;
+  .tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .tab-panel {
+    padding: 24px;
+  }
+  .offcanvas-cta-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
   }
 }
 </style>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const activePanel = document.getElementById(targetId);
+        if (activePanel) {
+          activePanel.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
 <!--helpp-->
-<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasHelp" style="height: 100vh !important; background: #ffffff; border: none; overflow-x: hidden;">
+<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasHelp" style="height: 100vh !important; background: #0b0f19; border: none; overflow-x: hidden;">
     
+    <!-- Close Button -->
     <div style="position: fixed; top: 25px; right: 25px; z-index: 99999;">
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" 
-            style="background-color: #00d2ff; padding: 15px; border-radius: 50%; opacity: 1;margin-top: 60px; box-shadow: 0 10px 20px rgba(0,210,255,0.4); border: 2px solid #fff;"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" 
+            style="background-color: #00d2ff; padding: 15px; border-radius: 50%; opacity: 1; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,210,255,0.4); border: 2px solid #fff;"></button>
     </div>
 
-    <div style="position: relative; width: 100%; height: 55vh; min-height: 380px; background: #11113a; display: flex; align-items: center; justify-content: center;">
-        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: 1;">
+    <!-- Header (Kept Intact) -->
+    <div style="position: relative; width: 100%; height: 50vh; min-height: 380px; background: #11113a; display: flex; align-items: center; justify-content: center;">
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; z-index: 1;">
             <source src="./images/CODED_TEAM.mp4" type="video/mp4">
         </video>
         
         <div style="position: relative; z-index: 2; text-align: center; padding: 20px; width: 100%;">
-            <h1 style="color: #ffffff; font-weight: 900; font-size: clamp(32px, 7vw, 55px); letter-spacing: 4px; margin: 0; text-transform: uppercase; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">WHO WE HELP</h1>
+            <h1 style="color: #ffffff; font-weight: 900; font-size: clamp(32px, 7vw, 55px); letter-spacing: 4px; margin: 0; text-transform: uppercase; text-shadow: 0 10px 30px rgba(0,0,0,0.6);">WHO WE HELP</h1>
             <div style="width: 70px; height: 5px; background: #00d2ff; margin: 20px auto; border-radius: 10px;"></div>
             <p style="color: #00d2ff; font-weight: 700; letter-spacing: 2px; font-size: clamp(14px, 2vw, 18px); text-transform: uppercase;">Empowering Global Industries</p>
         </div>
     </div>
 
-    <div style="background: #ffffff; position: relative; z-index: 10; margin-top: -60px; border-radius: 60px 60px 0 0; padding: 60px 0;">
+    <!-- Redesigned Body Content Below Header -->
+    <div class="content-body-wrapper">
         <div class="container">
-            <div class="row g-4 justify-content-center">
+            <div class="row g-4 align-items-stretch">
                 
-                <div class="col-lg-6 col-md-12">
-                    <div style="padding: 20px;">
-                        <h2 style="color: #11113a; font-weight: 800; font-size: 30px; margin-bottom: 25px;">Strategic <span style="color: #00d2ff;">Industries</span></h2>
-                        <p style="color: #555; font-size: 17px; line-height: 1.8; margin-bottom: 30px;">
-                            We empower businesses across diverse sectors to achieve digital transformation and operational excellence.
+                <!-- Strategic Industries Column -->
+                <div class="col-lg-6">
+                    <div class="modern-card industries-card">
+                        <div class="card-badge">SECTORS</div>
+                        <h2 class="section-title">Strategic <span>Industries</span></h2>
+                        <p class="section-desc">
+                            We empower businesses across diverse sectors to achieve digital transformation, seamless automation, and operational excellence.
                         </p>
                         
-                        <div class="row g-2">
+                        <div class="row g-3 mt-2">
                             <div class="col-6">
-                                <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; border-left: 4px solid #00d2ff; font-weight: 700; color: #11113a;">Retail</div>
+                                <div class="industry-box">
+                                    <div class="ind-icon"><i class="fa-solid fa-store"></i></div>
+                                    <span>Retail</span>
+                                </div>
                             </div>
                             <div class="col-6">
-                                <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; border-left: 4px solid #00d2ff; font-weight: 700; color: #11113a;">Healthcare</div>
+                                <div class="industry-box">
+                                    <div class="ind-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                                    <span>Healthcare</span>
+                                </div>
                             </div>
                             <div class="col-6">
-                                <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; border-left: 4px solid #00d2ff; font-weight: 700; color: #11113a;">Real Estate</div>
+                                <div class="industry-box">
+                                    <div class="ind-icon"><i class="fa-solid fa-building"></i></div>
+                                    <span>Real Estate</span>
+                                </div>
                             </div>
                             <div class="col-6">
-                                <div style="background: #f8f9fa; padding: 15px; border-radius: 12px; border-left: 4px solid #00d2ff; font-weight: 700; color: #11113a;">Education</div>
+                                <div class="industry-box">
+                                    <div class="ind-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <span>Education</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-12">
-                    <div style="background: #11113a; padding: 40px; border-radius: 35px; color: #fff; box-shadow: 0 20px 40px rgba(17,17,58,0.15); height: 100%;">
-                        <h3 style="color: #00d2ff; font-weight: 800; font-size: 24px; margin-bottom: 25px;">Our Partners</h3>
+                <!-- Our Partners Column -->
+                <div class="col-lg-6">
+                    <div class="modern-card partners-card">
+                        <div class="card-badge badge-alt">COLLABORATION</div>
+                        <h3 class="section-title text-light">Who We <span>Partner With</span></h3>
+                        <p class="section-desc text-muted-custom">
+                            Tailored software solutions engineered to fit your specific organizational scale and growth roadmap.
+                        </p>
                         
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 20px; display: flex; align-items: flex-start;">
-                                <i class="fas fa-check-circle" style="color: #00d2ff; margin-right: 15px; margin-top: 5px;"></i>
-                                <span><b>Startups:</b> Looking to scale with rapid development.</span>
-                            </li>
-                            <li style="margin-bottom: 20px; display: flex; align-items: flex-start;">
-                                <i class="fas fa-check-circle" style="color: #00d2ff; margin-right: 15px; margin-top: 5px;"></i>
-                                <span><b>SMEs:</b> Needing end-to-end business automation.</span>
-                            </li>
-                            <li style="margin-bottom: 0; display: flex; align-items: flex-start;">
-                                <i class="fas fa-check-circle" style="color: #00d2ff; margin-right: 15px; margin-top: 5px;"></i>
-                                <span><b>Enterprises:</b> Seeking robust IT infrastructure.</span>
-                            </li>
-                        </ul>
+                        <div class="partner-list">
+                            <div class="partner-item">
+                                <div class="partner-icon"><i class="fa-solid fa-rocket"></i></div>
+                                <div class="partner-text">
+                                    <h4>Startups</h4>
+                                    <p>Looking to scale rapidly with high-speed MVP & modern web/mobile products.</p>
+                                </div>
+                            </div>
+
+                            <div class="partner-item">
+                                <div class="partner-icon"><i class="fa-solid fa-chart-line"></i></div>
+                                <div class="partner-text">
+                                    <h4>SMEs</h4>
+                                    <p>Needing end-to-end business automation, custom CRM/ERP & seamless operations.</p>
+                                </div>
+                            </div>
+
+                            <div class="partner-item">
+                                <div class="partner-icon"><i class="fa-solid fa-network-wired"></i></div>
+                                <div class="partner-text">
+                                    <h4>Enterprises</h4>
+                                    <p>Seeking robust IT infrastructure, cloud integration & enterprise-grade security.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -4704,96 +4983,258 @@
         </div>
     </div>
 
-<!--footer-->
-<footer class="pro-footer">
-    <div class="container"> 
-        <div class="row g-4 justify-content-between">
-            
-            <!-- Column 1: Brand Info -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <a href="#" class="footer-logo">
-                    <h3>CODED<span>CLOUDS</span></h3>
-                </a>
-                <p class="footer-desc">
-                    Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
-                </p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                </div>
-            </div>
-
-            <!-- Column 2: Quick Links -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Quick Links</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/Presence.html">Countries</a></li>
-                    <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
-                    <li><a href="#activements">Achievements</a></li>
-                    <li><a href="./Components/Leaders.html">CEO Message</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Legal -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Legal</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/nda.html">NDA</a></li>
-                    <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
-                    <li><a href="./Components/privacy.html">Privacy Policy</a></li>
-                    <li><a href="./Components/refund.html">Refund Policy</a></li>
-                    <li><a href="./Components/service level.html">Service Disclaimer</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Services -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Services</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/service.html">Web Development</a></li>
-                    <li><a href="./Components/service.html">CRM Solutions</a></li>
-                    <li><a href="./Components/service.html">Digital Marketing</a></li>
-                    <li><a href="./Components/service.html">PMS Solutions</a></li>
-                    <li><a href="./Components/service.html">AI Automation</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Contact & Clear Map -->
-            <div class="col-xl-3 col-lg-2 col-md-3 col-12">
-                <h5 class="footer-title">Get In Touch</h5>
-                <ul class="footer-contact">
-                    <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
-                    <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
-                    <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
-                </ul>
+    <!-- Footer -->
+    <footer class="pro-footer">
+        <div class="container"> 
+            <div class="row g-4 justify-content-between">
                 
-                <!-- Clear & Modern Map Box -->
-                <div class="compact-map-box">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
+                <!-- Column 1: Brand Info -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#" class="footer-logo">
+                        <h3>CODED<span>CLOUDS</span></h3>
+                    </a>
+                    <p class="footer-desc">
+                        Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
                 </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/Presence.html">Countries</a></li>
+                        <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
+                        <li><a href="#activements">Achievements</a></li>
+                        <li><a href="./Components/Leaders.html">CEO Message</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/nda.html">NDA</a></li>
+                        <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
+                        <li><a href="./Components/privacy.html">Privacy Policy</a></li>
+                        <li><a href="./Components/refund.html">Refund Policy</a></li>
+                        <li><a href="./Components/service level.html">Service Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Services -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/service.html">Web Development</a></li>
+                        <li><a href="./Components/service.html">CRM Solutions</a></li>
+                        <li><a href="./Components/service.html">Digital Marketing</a></li>
+                        <li><a href="./Components/service.html">PMS Solutions</a></li>
+                        <li><a href="./Components/service.html">AI Automation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Contact & Clear Map -->
+                <div class="col-xl-3 col-lg-2 col-md-3 col-12">
+                    <h5 class="footer-title">Get In Touch</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
+                        <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
+                        <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
+                    </ul>
+                    
+                    <div class="compact-map-box">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div> 
+            
+            <div class="footer-bottom">
+                <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
             </div>
-
-        </div> 
-        
-        <div class="footer-bottom">
-            <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
         </div>
-    </div>
-</footer>
+    </footer>
 
+</div>
+
+<!-- Additional CSS Styles -->
 <style>
-    :root {
-    --f-navy: #0f172a;
-    --f-blue: #38bdf8;
+/* --- Content Section Styles --- */
+.content-body-wrapper {
+    background: #f4f7fe;
+    position: relative;
+    z-index: 10;
+    margin-top: -50px;
+    border-radius: 40px 40px 0 0;
+    padding: 70px 0 80px 0;
+    box-shadow: 0 -15px 30px rgba(0,0,0,0.15);
+}
+
+.modern-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 35px;
+    height: 100%;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.partners-card {
+    background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 100%);
+    border: 1px solid #2e3856;
+}
+
+.card-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    background: rgba(0, 210, 255, 0.1);
+    color: #00a8cc;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.badge-alt {
+    background: rgba(0, 210, 255, 0.15);
+    color: #00d2ff;
+}
+
+.section-title {
+    color: #0f172a;
+    font-weight: 800;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.section-title span {
+    color: #00a8cc;
+}
+
+.partners-card .section-title span {
+    color: #00d2ff;
+}
+
+.section-desc {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.text-muted-custom {
+    color: #94a3b8 !important;
+}
+
+/* Industry Box Styling */
+.industry-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 16px 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.industry-box .ind-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(0, 210, 255, 0.12);
+    color: #00a8cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.industry-box:hover {
+    background: #ffffff;
+    border-color: #00d2ff;
+    box-shadow: 0 8px 20px rgba(0, 210, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Partner List Styling */
+.partner-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.partner-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 15px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.partner-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(0, 210, 255, 0.3);
+}
+
+.partner-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #00d2ff;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+}
+
+.partner-text h4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.partner-text p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --- Footer Base Container --- */
+:root {
+    --f-navy: #0b0f19;
+    --f-blue: #00d2ff;
     --f-text-light: #f8fafc;
     --f-text-muted: #94a3b8;
     --f-border: #1e293b;
 }
 
-/* --- Footer Base Container --- */
 .pro-footer {
     background-color: var(--f-navy);
     color: var(--f-text-muted);
@@ -4814,215 +5255,109 @@
 }
 
 /* --- Brand Info --- */
-.footer-logo {
-    text-decoration: none;
-    display: inline-block;
-}
-.footer-logo h3 {
-    color: #ffffff;
-    font-weight: 800;
-    margin: 0;
-    font-size: 22px;
-    letter-spacing: 0.5px;
-}
-.footer-logo h3 span {
-    color: var(--f-blue);
-}
+.footer-logo { text-decoration: none; display: inline-block; }
+.footer-logo h3 { color: #ffffff; font-weight: 800; margin: 0; font-size: 22px; letter-spacing: 0.5px; }
+.footer-logo h3 span { color: var(--f-blue); }
+.footer-desc { font-size: 13.5px; line-height: 1.65; color: var(--f-text-muted); margin: 16px 0 22px 0; }
 
-.footer-desc {
-    font-size: 13.5px;
-    line-height: 1.65;
-    color: var(--f-text-muted);
-    margin: 16px 0 22px 0;
-}
-
-/* --- Social Icons --- */
-.footer-social {
-    display: flex;
-    gap: 12px;
-}
+.footer-social { display: flex; gap: 12px; }
 .footer-social a {
-    width: 38px;
-    height: 38px;
+    width: 38px; height: 38px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--f-border);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ffffff; text-decoration: none; transition: all 0.3s ease; font-size: 14px;
 }
 .footer-social a:hover {
-    background: var(--f-blue);
-    color: var(--f-navy);
-    border-color: var(--f-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(56, 189, 248, 0.25);
+    background: var(--f-blue); color: #0b0f19;
+    border-color: var(--f-blue); transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 210, 255, 0.25);
 }
 
-/* --- Section Headings --- */
-.footer-title {
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    position: relative;
-}
+.footer-title { color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 20px; position: relative; }
 .footer-title::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -7px;
-    width: 20px;
-    height: 2px;
-    background-color: var(--f-blue);
-    border-radius: 2px;
+    content: ''; position: absolute; left: 0; bottom: -7px;
+    width: 20px; height: 2px; background-color: var(--f-blue); border-radius: 2px;
 }
 
-/* --- Links Styling --- */
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.footer-links li {
-    margin-bottom: 10px;
-}
-.footer-links a {
-    color: var(--f-text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    transition: all 0.25 ease;
-    display: inline-block;
-}
-.footer-links a:hover {
-    color: var(--f-blue);
-    transform: translateX(4px);
-}
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: var(--f-text-muted); text-decoration: none; font-size: 13px; transition: all 0.25s ease; display: inline-block; }
+.footer-links a:hover { color: var(--f-blue); transform: translateX(4px); }
 
-/* --- Contact List --- */
-.footer-contact {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 16px 0;
-}
-.footer-contact li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-    font-size: 13px;
-    color: var(--f-text-light);
-}
+.footer-contact { list-style: none; padding: 0; margin: 0 0 16px 0; }
+.footer-contact li { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 13px; color: var(--f-text-light); }
 .footer-contact i {
-    color: var(--f-blue);
-    font-size: 13px;
-    width: 28px;
-    height: 28px;
-    background: rgba(56, 189, 248, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    flex-shrink: 0;
+    color: var(--f-blue); font-size: 13px; width: 28px; height: 28px;
+    background: rgba(0, 210, 255, 0.1); display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; flex-shrink: 0;
 }
 
-/* --- Clear HD Map Box --- */
 .compact-map-box {
-    width: 100%;
-    height: 110px;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--f-border);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: border-color 0.3s ease;
+    width: 100%; height: 110px; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--f-border); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); transition: border-color 0.3s ease;
 }
+.compact-map-box:hover { border-color: var(--f-blue); }
+.compact-map-box iframe { width: 100%; height: 100%; border: 0; filter: contrast(1.05) brightness(0.95); }
 
-.compact-map-box:hover {
-    border-color: var(--f-blue);
-}
+.footer-bottom { border-top: 1px solid var(--f-border); margin-top: 45px; padding-top: 22px; text-align: center; }
+.footer-bottom p { color: var(--f-text-muted); font-size: 13px; margin: 0; }
+.footer-bottom strong { color: #ffffff; }
 
-.compact-map-box iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    /* Clean clear view with subtle contrast adjustment */
-    filter: contrast(1.05) brightness(0.95);
-}
-
-/* --- Bottom Copyright Bar --- */
-.footer-bottom {
-    border-top: 1px solid var(--f-border);
-    margin-top: 45px;
-    padding-top: 22px;
-    text-align: center;
-}
-.footer-bottom p {
-    color: var(--f-text-muted);
-    font-size: 13px;
-    margin: 0;
-}
-.footer-bottom strong {
-    color: #ffffff;
-}
-
-/* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
-    .pro-footer {
-        padding: 50px 0 20px 0;
-    }
-    .footer-title {
-        margin-top: 15px;
-    }
-    .compact-map-box {
-        height: 130px;
-    }
+    .content-body-wrapper { padding: 40px 0 50px 0; border-radius: 25px 25px 0 0; }
+    .modern-card { padding: 25px 20px; }
+    .pro-footer { padding: 50px 0 20px 0; }
+    .footer-title { margin-top: 15px; }
 }
 </style>
 
-</div>
+
   <!--who we are-->
-<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasWho" style="height: 100vh !important; background: #ffffff; border: none; overflow-x: hidden;  ">
+<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasWho" style="height: 100vh !important; background: #ffffff; border: none; overflow-y: auto; overflow-x: hidden;">
     
+    <!-- Fixed Close Button -->
     <div style="position: fixed; top: 20px; right: 20px; z-index: 99999;">
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" 
-            style="background-color: #00d2ff; padding: 15px; border-radius: 50%; opacity: 1; margin-top: 60px;box-shadow: 0 5px 15px rgba(0,0,0,0.3);"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"
+            style="background-color: #00d2ff; padding: 12px; border-radius: 50%; opacity: 1; box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: none; cursor: pointer;"></button>
     </div>
 
-    <div style="position: relative; width: 100%; height: 60vh; min-height: 400px; background: #11113a; display: flex; align-items: center; justify-content: center;">
-        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; z-index: 1;">
+    <!-- Hero Video Header Section -->
+    <div style="position: relative; width: 100%; min-height: 50vh; background: #11113a; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: 1;">
             <source src="./images/CODED_TEAM.mp4" type="video/mp4">
         </video>
         
-        <div style="position: relative; z-index: 2; text-align: center; padding: 20px; width: 100%;">
-            <h1 style="color: #ffffff; font-weight: 900; font-size: clamp(30px, 8vw, 60px); letter-spacing: 5px; margin: 0; text-transform: uppercase; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">WHO WE ARE</h1>
-            <div style="width: 80px; height: 5px; background: #00d2ff; margin: 20px auto; border-radius: 10px;"></div>
-            <p style="color: #00d2ff; font-weight: 700; letter-spacing: 3px; font-size: clamp(14px, 2vw, 18px);">GLOBAL SOLUTIONS PROVIDER</p>
+        <div style="position: relative; z-index: 2; text-align: center; padding: 40px 20px; width: 100%;">
+            <h1 style="color: #ffffff; font-weight: 900; font-size: clamp(28px, 6vw, 55px); letter-spacing: 4px; margin: 0; text-transform: uppercase; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">WHO WE ARE</h1>
+            <div style="width: 70px; height: 4px; background: #00d2ff; margin: 15px auto; border-radius: 10px;"></div>
+            <p style="color: #00d2ff; font-weight: 700; letter-spacing: 2px; font-size: clamp(13px, 2vw, 16px); margin: 0;">GLOBAL SOLUTIONS PROVIDER</p>
         </div>
     </div>
 
-    <div style="background: #ffffff; position: relative; z-index: 10; margin-top: -60px; border-radius: 60px 60px 0 0; padding: 80px 0;">
+    <!-- Main Content Card -->
+    <div style="background: #ffffff; position: relative; z-index: 10; margin-top: -40px; border-radius: 40px 40px 0 0; padding: 60px 0 40px 0;">
         <div class="container">
-            <div class="row g-5">
+            <div class="row g-4 align-items-center">
+                <!-- About Column -->
                 <div class="col-lg-7">
-                    <h2 style="color: #11113a; font-weight: 800; font-size: 35px; margin-bottom: 25px;">About <span style="color: #00d2ff;">CodedCloud</span></h2>
-                    <p style="color: #555; font-size: 18px; line-height: 1.8;">
+                    <h2 style="color: #11113a; font-weight: 800; font-size: clamp(26px, 4vw, 36px); margin-bottom: 20px;">About <span style="color: #00d2ff;">CodedCloud</span></h2>
+                    <p style="color: #555; font-size: 16px; line-height: 1.8;">
                         CodedCloud is a premier IT solutions provider with a strong global presence in <b>Saudi Arabia</b> and <b>Pakistan</b>. We are a team of innovators, developers, and strategists dedicated to delivering excellence.
                     </p>
                     
-                    <div style="display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap;">
-                        <div style="background: #f0faff; padding: 12px 25px; border-radius: 50px; border: 1px solid #00d2ff; color: #11113a; font-weight: 700;">🇸🇦 Saudi Arabia</div>
-                        <div style="background: #f0faff; padding: 12px 25px; border-radius: 50px; border: 1px solid #00d2ff; color: #11113a; font-weight: 700;">🇵🇰 Pakistan</div>
+                    <div style="display: flex; gap: 12px; margin-top: 25px; flex-wrap: wrap;">
+                        <div style="background: #f0faff; padding: 10px 22px; border-radius: 50px; border: 1px solid #00d2ff; color: #11113a; font-weight: 700; font-size: 14px;">🇸🇦 Saudi Arabia</div>
+                        <div style="background: #f0faff; padding: 10px 22px; border-radius: 50px; border: 1px solid #00d2ff; color: #11113a; font-weight: 700; font-size: 14px;">🇵🇰 Pakistan</div>
                     </div>
                 </div>
                 
+                <!-- Mission Column -->
                 <div class="col-lg-5">
-                    <div style="background: #11113a; padding: 40px; border-radius: 35px; color: #fff; box-shadow: 0 20px 40px rgba(17,17,58,0.2);">
-                        <h3 style="color: #00d2ff; font-weight: 800; font-size: 24px; margin-bottom: 20px;">Our Mission</h3>
-                        <p style="font-size: 18px; line-height: 1.6; font-style: italic; color: #e0e0e0;">
+                    <div style="background: #11113a; padding: 35px; border-radius: 25px; color: #fff; box-shadow: 0 15px 35px rgba(17,17,58,0.15);">
+                        <h3 style="color: #00d2ff; font-weight: 800; font-size: 22px; margin-bottom: 15px;">Our Mission</h3>
+                        <p style="font-size: 16px; line-height: 1.6; font-style: italic; color: #e0e0e0; margin: 0;">
                             "To simplify complex business problems with elegant, efficient, and scalable technology solutions."
                         </p>
                     </div>
@@ -5030,88 +5365,90 @@
             </div>
         </div>
     </div>
-<!--footer-->
-<footer class="pro-footer">
-    <div class="container"> 
-        <div class="row g-4 justify-content-between">
-            
-            <!-- Column 1: Brand Info -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <a href="#" class="footer-logo">
-                    <h3>CODED<span>CLOUDS</span></h3>
-                </a>
-                <p class="footer-desc">
-                    Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
-                </p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                </div>
-            </div>
 
-            <!-- Column 2: Quick Links -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Quick Links</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/Presence.html">Countries</a></li>
-                    <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
-                    <li><a href="#activements">Achievements</a></li>
-                    <li><a href="./Components/Leaders.html">CEO Message</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Legal -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Legal</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/nda.html">NDA</a></li>
-                    <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
-                    <li><a href="./Components/privacy.html">Privacy Policy</a></li>
-                    <li><a href="./Components/refund.html">Refund Policy</a></li>
-                    <li><a href="./Components/service level.html">Service Disclaimer</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Services -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Services</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/service.html">Web Development</a></li>
-                    <li><a href="./Components/service.html">CRM Solutions</a></li>
-                    <li><a href="./Components/service.html">Digital Marketing</a></li>
-                    <li><a href="./Components/service.html">PMS Solutions</a></li>
-                    <li><a href="./Components/service.html">AI Automation</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Contact & Clear Map -->
-            <div class="col-xl-3 col-lg-2 col-md-3 col-12">
-                <h5 class="footer-title">Get In Touch</h5>
-                <ul class="footer-contact">
-                    <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
-                    <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
-                    <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
-                </ul>
+    <!-- Footer Section -->
+    <footer class="pro-footer">
+        <div class="container"> 
+            <div class="row g-4 justify-content-between">
                 
-                <!-- Clear & Modern Map Box -->
-                <div class="compact-map-box">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
+                <!-- Column 1: Brand Info -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#" class="footer-logo">
+                        <h3>CODED<span>CLOUDS</span></h3>
+                    </a>
+                    <p class="footer-desc">
+                        Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/coded-clouds/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584082650845" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
                 </div>
-            </div>
 
-        </div> 
-        
-        <div class="footer-bottom">
-            <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
+                <!-- Column 2: Quick Links -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/Presence.html">Countries</a></li>
+                        <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
+                        <li><a href="#activements">Achievements</a></li>
+                        <li><a href="./Components/Leaders.html">CEO Message</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/nda.html">NDA</a></li>
+                        <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
+                        <li><a href="./Components/privacy.html">Privacy Policy</a></li>
+                        <li><a href="./Components/refund.html">Refund Policy</a></li>
+                        <li><a href="./Components/service level.html">Service Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Services -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/service.html">Web Development</a></li>
+                        <li><a href="./Components/service.html">CRM Solutions</a></li>
+                        <li><a href="./Components/service.html">Digital Marketing</a></li>
+                        <li><a href="./Components/service.html">PMS Solutions</a></li>
+                        <li><a href="./Components/service.html">AI Automation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Contact & Map -->
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <h5 class="footer-title">Get In Touch</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
+                        <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
+                        <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
+                    </ul>
+                    
+                    <div class="compact-map-box">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div> 
+            
+            <div class="footer-bottom">
+                <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+</div>
 
 <style>
-    :root {
+:root {
     --f-navy: #0f172a;
     --f-blue: #38bdf8;
     --f-text-light: #f8fafc;
@@ -5123,8 +5460,8 @@
 .pro-footer {
     background-color: var(--f-navy);
     color: var(--f-text-muted);
-    padding: 70px 0 25px 0;
-    font-family: 'Poppins', sans-serif;
+    padding: 60px 0 25px 0;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     position: relative;
     width: 100%;
 }
@@ -5221,7 +5558,7 @@
     color: var(--f-text-muted);
     text-decoration: none;
     font-size: 13px;
-    transition: all 0.25 ease;
+    transition: all 0.25s ease;
     display: inline-block;
 }
 .footer-links a:hover {
@@ -5275,15 +5612,14 @@
     width: 100%;
     height: 100%;
     border: 0;
-    /* Clean clear view with subtle contrast adjustment */
     filter: contrast(1.05) brightness(0.95);
 }
 
 /* --- Bottom Copyright Bar --- */
 .footer-bottom {
     border-top: 1px solid var(--f-border);
-    margin-top: 45px;
-    padding-top: 22px;
+    margin-top: 40px;
+    padding-top: 20px;
     text-align: center;
 }
 .footer-bottom p {
@@ -5298,7 +5634,7 @@
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
     .pro-footer {
-        padding: 50px 0 20px 0;
+        padding: 40px 0 20px 0;
     }
     .footer-title {
         margin-top: 15px;
@@ -5308,8 +5644,6 @@
     }
 }
 </style>
-
-</div>
 
 <!--OUR VENTURES-->
 <div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasVentures" 
@@ -5661,8 +5995,9 @@
 
 
 <!--stoeyyyyyyyyyyyy-->
-<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasstory" style="height: 100vh !important; background: #ffffff; border: none; overflow-x: hidden;  ; overflow-y: auto;">
+<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasstory" style="height: 100vh !important; background: #ffffff; border: none; overflow-x: hidden; overflow-y: auto;">
     
+    <!-- Header / Offcanvas Close Button (UNCHANGED) -->
     <div style="position: absolute; top: 15px; right: 20px; z-index: 10001;">
       <button type="button" 
         class="btn-close" 
@@ -5673,7 +6008,7 @@
             top: 25px; 
             right: 25px; 
             z-index: 99999; 
-            background-color: #00d2ff; /* Cyan Color taake nazar aaye */
+            background-color: #00d2ff;
             padding: 15px; 
             border-radius: 50%; 
             opacity: 1; 
@@ -5685,9 +6020,10 @@
             background-repeat: no-repeat;
             background-position: center;
         ">
-</button>
+      </button>
     </div>
 
+    <!-- Header / Hero Video Banner (UNCHANGED) -->
     <div style="position: relative; width: 100%; height: 350px; min-height: 300px; background: #11113a; overflow: hidden;">
         <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
             <source src="./images/CODED_TEAM.mp4" type="video/mp4">
@@ -5699,56 +6035,73 @@
         </div>
     </div>
 
-    <div style="background: #ffffff; position: relative; z-index: 10; margin-top: -10px; border-radius: 50px 50px 0 0; padding-bottom: 60px;">
-        <div class="container" style="padding-top: 50px;">
-            <div class="row align-items-start g-5">
+    <!-- REDESIGNED CENTER SECTION -->
+    <div class="story-center-wrapper">
+        <div class="container">
+            <div class="row align-items-center g-5">
                 
+                <!-- Left Column: Modern Story Content -->
                 <div class="col-lg-7 col-md-12">
-                    <div style="padding-right: 10px;">
-                        <h2 style="color: #11113a; font-weight: 800; font-size: 32px; margin-bottom: 25px; line-height: 1.2;">
-                            It Started With A <span style="color: #00d2ff;">Dream</span>
+                    <div class="story-content-block">
+                        <span class="story-badge">ORIGIN STORY</span>
+                        <h2 class="story-headline">
+                            It Started With A <span>Dream</span>
                         </h2>
                         
-                        <div class="story-text" style="color: #444; line-height: 1.8; font-size: 16px;">
-                            <p>Five years ago, Coded Clouds didn’t start as a company, it started as a <strong>frustration</strong>. Muhammad Hashim was staring at the same problem every small business in Pakistan complained about—undocumented economy and cash-only chaos.</p>
-                            
-                            <p style="border-left: 4px solid #00d2ff; padding-left: 20px; margin: 30px 0; font-style: italic; color: #11113a; background: #f9f9f9; padding-top: 15px; padding-bottom: 15px;">
-                                "He wasn’t a giant corporation, just one young guy with a laptop, a vision, and that stubborn energy."
+                        <div class="story-text-body">
+                            <p class="lead-paragraph">
+                                Five years ago, Coded Clouds didn’t start as a company—it started as a <strong>frustration</strong>. Muhammad Hashim was staring at the same problem every small business in Pakistan complained about: an undocumented economy and cash-only chaos.
                             </p>
                             
-                            <p>The mission was simple: earn enough capital to launch Pakistan’s first real fintech solution for the backbone of our economy—the dukaan owners and freelancers.</p>
+                            <!-- Highlighted Quote Card -->
+                            <div class="glass-quote-card">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p>He wasn’t a giant corporation, just one young guy with a laptop, a vision, and that stubborn energy.</p>
+                            </div>
                             
-                            <p>Today, Coded Clouds is a quiet movement. We are sharpening our skills, building custom CRMs, and pushing the boundaries until the real product drops.</p>
+                            <p>
+                                The mission was simple: earn enough capital to launch Pakistan’s first real fintech solution for the backbone of our economy—the dukaan owners and freelancers.
+                            </p>
                             
-                            <div style="margin-top: 30px; background: linear-gradient(90deg, #11113a, #00d2ff); color: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,210,255,0.2);">
-                                <p style="margin: 0; font-weight: 700;">🚀 The journey hasn’t peaked yet—this is just the warm-up.</p>
+                            <p>
+                                Today, Coded Clouds is a quiet movement. We are sharpening our skills, building custom CRMs, and pushing the boundaries until the real product drops.
+                            </p>
+                            
+                            <!-- Callout Banner -->
+                            <div class="story-callout-banner">
+                                <div class="pulse-dot"></div>
+                                <p>🚀 The journey hasn’t peaked yet—this is just the warm-up.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Right Column: Interactive Media Grid & Badge -->
                 <div class="col-lg-5 col-md-12">
-                    <div style="position: relative;">
-                        <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 5px solid #fff;">
-                            <img src="./images/stry/1.jpg" alt="Team" style="width: 100%; height: auto; display: block;">
+                    <div class="media-grid-wrapper">
+                        <!-- Main Featured Image -->
+                        <div class="media-card main-media">
+                            <img src="./images/stry/1.jpg" alt="Team Working" loading="lazy">
                         </div>
                         
+                        <!-- Secondary Grid Images -->
                         <div class="row g-3 mt-1">
                             <div class="col-6">
-                                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 3px solid #fff;">
-                                    <img src="./images/stry/3.jpg" alt="Discussion" style="width: 100%; height: auto; display: block;">
+                                <div class="media-card sub-media">
+                                    <img src="./images/stry/3.jpg" alt="Discussion" loading="lazy">
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 3px solid #fff;">
-                                    <img src="./images/stry/2.jpg" alt="Coding" style="width: 100%; height: auto; display: block;">
+                                <div class="media-card sub-media">
+                                    <img src="./images/stry/2.jpg" alt="Coding" loading="lazy">
                                 </div>
                             </div>
                         </div>
 
-                        <div style="position: absolute; top: -20px; right: -10px; background: #00d2ff; color: #fff; width: 90px; height: 90px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 10px 20px rgba(0,210,255,0.3); border: 3px solid #fff;">
-                            <span style="font-size: 24px; line-height: 1;">5+</span>
-                            <span style="font-size: 10px;">YEARS</span>
+                        <!-- Floating Glow Experience Badge -->
+                        <div class="experience-badge">
+                            <span class="exp-number">6+</span>
+                            <span class="exp-text">YEARS OF<br>EXCELLENCE</span>
                         </div>
                     </div>
                 </div>
@@ -5756,88 +6109,96 @@
             </div>
         </div>
     </div>
-<!--footer-->
-<footer class="pro-footer">
-    <div class="container"> 
-        <div class="row g-4 justify-content-between">
-            
-            <!-- Column 1: Brand Info -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <a href="#" class="footer-logo">
-                    <h3>CODED<span>CLOUDS</span></h3>
-                </a>
-                <p class="footer-desc">
-                    Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
-                </p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                </div>
-            </div>
 
-            <!-- Column 2: Quick Links -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Quick Links</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/Presence.html">Countries</a></li>
-                    <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
-                    <li><a href="#activements">Achievements</a></li>
-                    <li><a href="./Components/Leaders.html">CEO Message</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Legal -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Legal</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/nda.html">NDA</a></li>
-                    <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
-                    <li><a href="./Components/privacy.html">Privacy Policy</a></li>
-                    <li><a href="./Components/refund.html">Refund Policy</a></li>
-                    <li><a href="./Components/service level.html">Service Disclaimer</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Services -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Services</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/service.html">Web Development</a></li>
-                    <li><a href="./Components/service.html">CRM Solutions</a></li>
-                    <li><a href="./Components/service.html">Digital Marketing</a></li>
-                    <li><a href="./Components/service.html">PMS Solutions</a></li>
-                    <li><a href="./Components/service.html">AI Automation</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Contact & Clear Map -->
-            <div class="col-xl-3 col-lg-2 col-md-3 col-12">
-                <h5 class="footer-title">Get In Touch</h5>
-                <ul class="footer-contact">
-                    <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
-                    <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
-                    <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
-                </ul>
+    <!-- FOOTER SECTION (UNCHANGED) -->
+    <footer class="pro-footer">
+        <div class="container"> 
+            <div class="row g-4 justify-content-between">
                 
-                <!-- Clear & Modern Map Box -->
-                <div class="compact-map-box">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
+                <!-- Column 1: Brand Info -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#" class="footer-logo">
+                        <h3>CODED<span>CLOUDS</span></h3>
+                    </a>
+                    <p class="footer-desc">
+                        Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
                 </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/Presence.html">Countries</a></li>
+                        <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
+                        <li><a href="#activements">Achievements</a></li>
+                        <li><a href="./Components/Leaders.html">CEO Message</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/nda.html">NDA</a></li>
+                        <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
+                        <li><a href="./Components/privacy.html">Privacy Policy</a></li>
+                        <li><a href="./Components/refund.html">Refund Policy</a></li>
+                        <li><a href="./Components/service level.html">Service Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Services -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/service.html">Web Development</a></li>
+                        <li><a href="./Components/service.html">CRM Solutions</a></li>
+                        <li><a href="./Components/service.html">Digital Marketing</a></li>
+                        <li><a href="./Components/service.html">PMS Solutions</a></li>
+                        <li><a href="./Components/service.html">AI Automation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Contact & Clear Map -->
+                <div class="col-xl-3 col-lg-2 col-md-3 col-12">
+                    <h5 class="footer-title">Get In Touch</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
+                        <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
+                        <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
+                    </ul>
+                    
+                    <!-- Clear & Modern Map Box -->
+                    <div class="compact-map-box">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div> 
+            
+            <div class="footer-bottom">
+                <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
             </div>
-
-        </div> 
-        
-        <div class="footer-bottom">
-            <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
         </div>
-    </div>
-</footer>
+    </footer>
 
+</div>
+
+<!-- STYLESHEET (Included Existing Footer Rules + New Center Section Styles) -->
 <style>
-    :root {
+/* CSS Variables */
+:root {
+    --brand-navy: #11113a;
+    --brand-cyan: #00d2ff;
+    --brand-dark-blue: #0b0c26;
     --f-navy: #0f172a;
     --f-blue: #38bdf8;
     --f-text-light: #f8fafc;
@@ -5845,7 +6206,191 @@
     --f-border: #1e293b;
 }
 
-/* --- Footer Base Container --- */
+/* --- CENTER SECTION STYLES --- */
+.story-center-wrapper {
+    background: #f8fafc;
+    position: relative;
+    z-index: 10;
+    margin-top: -30px;
+    border-radius: 40px 40px 0 0;
+    padding: 70px 0 90px 0;
+    box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.story-badge {
+    color: var(--brand-cyan);
+    background: rgba(0, 210, 255, 0.1);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 210, 255, 0.25);
+}
+
+.story-headline {
+    color: var(--brand-navy);
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 38px);
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.story-headline span {
+    color: var(--brand-cyan);
+    position: relative;
+}
+
+.story-text-body {
+    color: #475569;
+    font-size: 15.5px;
+    line-height: 1.8;
+}
+
+.story-text-body .lead-paragraph {
+    font-size: 17px;
+    color: #334155;
+}
+
+/* Glassmorphism Quote Box */
+.glass-quote-card {
+    position: relative;
+    background: rgba(17, 17, 58, 0.03);
+    border-left: 4px solid var(--brand-cyan);
+    border-radius: 0 16px 16px 0;
+    padding: 22px 25px;
+    margin: 30px 0;
+    backdrop-filter: blur(5px);
+}
+
+.glass-quote-card p {
+    margin: 0;
+    font-style: italic;
+    color: var(--brand-navy);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.glass-quote-card .quote-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 28px;
+    color: rgba(0, 210, 255, 0.15);
+}
+
+/* Callout Banner */
+.story-callout-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 35px;
+    background: linear-gradient(135deg, var(--brand-navy) 0%, #1e1e58 100%);
+    color: #ffffff;
+    padding: 18px 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(17, 17, 58, 0.25);
+}
+
+.story-callout-banner p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+}
+
+.pulse-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--brand-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(0, 210, 255, 0.7);
+    animation: pulse-glow 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 210, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
+
+/* Media Grid & Hover Styles */
+.media-grid-wrapper {
+    position: relative;
+    padding-top: 10px;
+}
+
+.media-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    border: 4px solid #ffffff;
+    transition: all 0.35s ease;
+    background: #e2e8f0;
+}
+
+.media-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.media-card:hover img {
+    transform: scale(1.05);
+}
+
+.main-media {
+    height: 280px;
+}
+
+.sub-media {
+    height: 160px;
+}
+
+/* Experience Badge Floating */
+.experience-badge {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    background: var(--brand-navy);
+    border: 3px solid var(--brand-cyan);
+    color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 30px rgba(0, 210, 255, 0.3);
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
+
+.experience-badge:hover {
+    transform: translateY(-5px);
+}
+
+.exp-number {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--brand-cyan);
+    line-height: 1;
+}
+
+.exp-text {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    color: #f8fafc;
+}
+
+/* --- FOOTER BASE CONTAINER (UNCHANGED) --- */
 .pro-footer {
     background-color: var(--f-navy);
     color: var(--f-text-muted);
@@ -5865,357 +6410,240 @@
     background: linear-gradient(90deg, #0284c7 0%, var(--f-blue) 100%);
 }
 
-/* --- Brand Info --- */
-.footer-logo {
-    text-decoration: none;
-    display: inline-block;
-}
-.footer-logo h3 {
-    color: #ffffff;
-    font-weight: 800;
-    margin: 0;
-    font-size: 22px;
-    letter-spacing: 0.5px;
-}
-.footer-logo h3 span {
-    color: var(--f-blue);
-}
-
-.footer-desc {
-    font-size: 13.5px;
-    line-height: 1.65;
-    color: var(--f-text-muted);
-    margin: 16px 0 22px 0;
-}
-
-/* --- Social Icons --- */
-.footer-social {
-    display: flex;
-    gap: 12px;
-}
+.footer-logo { text-decoration: none; display: inline-block; }
+.footer-logo h3 { color: #ffffff; font-weight: 800; margin: 0; font-size: 22px; letter-spacing: 0.5px; }
+.footer-logo h3 span { color: var(--f-blue); }
+.footer-desc { font-size: 13.5px; line-height: 1.65; color: var(--f-text-muted); margin: 16px 0 22px 0; }
+.footer-social { display: flex; gap: 12px; }
 .footer-social a {
-    width: 38px;
-    height: 38px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--f-border);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 14px;
+    width: 38px; height: 38px; background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--f-border); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ffffff; text-decoration: none; transition: all 0.3s ease; font-size: 14px;
 }
 .footer-social a:hover {
-    background: var(--f-blue);
-    color: var(--f-navy);
-    border-color: var(--f-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(56, 189, 248, 0.25);
+    background: var(--f-blue); color: var(--f-navy); border-color: var(--f-blue);
+    transform: translateY(-3px); box-shadow: 0 6px 15px rgba(56, 189, 248, 0.25);
 }
-
-/* --- Section Headings --- */
-.footer-title {
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    position: relative;
-}
+.footer-title { color: #ffffff; font-size: 15px; font-weight: 700; margin-bottom: 20px; position: relative; }
 .footer-title::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -7px;
-    width: 20px;
-    height: 2px;
-    background-color: var(--f-blue);
-    border-radius: 2px;
+    content: ''; position: absolute; left: 0; bottom: -7px;
+    width: 20px; height: 2px; background-color: var(--f-blue); border-radius: 2px;
 }
-
-/* --- Links Styling --- */
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.footer-links li {
-    margin-bottom: 10px;
-}
-.footer-links a {
-    color: var(--f-text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    transition: all 0.25 ease;
-    display: inline-block;
-}
-.footer-links a:hover {
-    color: var(--f-blue);
-    transform: translateX(4px);
-}
-
-/* --- Contact List --- */
-.footer-contact {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 16px 0;
-}
-.footer-contact li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-    font-size: 13px;
-    color: var(--f-text-light);
-}
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: var(--f-text-muted); text-decoration: none; font-size: 13px; transition: all 0.25s ease; display: inline-block; }
+.footer-links a:hover { color: var(--f-blue); transform: translateX(4px); }
+.footer-contact { list-style: none; padding: 0; margin: 0 0 16px 0; }
+.footer-contact li { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 13px; color: var(--f-text-light); }
 .footer-contact i {
-    color: var(--f-blue);
-    font-size: 13px;
-    width: 28px;
-    height: 28px;
-    background: rgba(56, 189, 248, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    flex-shrink: 0;
+    color: var(--f-blue); font-size: 13px; width: 28px; height: 28px;
+    background: rgba(56, 189, 248, 0.1); display: flex; align-items: center;
+    justify-content: center; border-radius: 8px; flex-shrink: 0;
 }
-
-/* --- Clear HD Map Box --- */
 .compact-map-box {
-    width: 100%;
-    height: 110px;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--f-border);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%; height: 110px; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--f-border); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: border-color 0.3s ease;
 }
+.compact-map-box:hover { border-color: var(--f-blue); }
+.compact-map-box iframe { width: 100%; height: 100%; border: 0; filter: contrast(1.05) brightness(0.95); }
+.footer-bottom { border-top: 1px solid var(--f-border); margin-top: 45px; padding-top: 22px; text-align: center; }
+.footer-bottom p { color: var(--f-text-muted); font-size: 13px; margin: 0; }
+.footer-bottom strong { color: #ffffff; }
 
-.compact-map-box:hover {
-    border-color: var(--f-blue);
-}
-
-.compact-map-box iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    /* Clean clear view with subtle contrast adjustment */
-    filter: contrast(1.05) brightness(0.95);
-}
-
-/* --- Bottom Copyright Bar --- */
-.footer-bottom {
-    border-top: 1px solid var(--f-border);
-    margin-top: 45px;
-    padding-top: 22px;
-    text-align: center;
-}
-.footer-bottom p {
-    color: var(--f-text-muted);
-    font-size: 13px;
-    margin: 0;
-}
-.footer-bottom strong {
-    color: #ffffff;
-}
-
-/* --- Mobile Responsiveness --- */
+/* Responsive tweaks */
 @media (max-width: 768px) {
-    .pro-footer {
-        padding: 50px 0 20px 0;
-    }
-    .footer-title {
-        margin-top: 15px;
-    }
-    .compact-map-box {
-        height: 130px;
-    }
+    .story-center-wrapper { padding: 40px 0 60px 0; border-radius: 25px 25px 0 0; }
+    .pro-footer { padding: 50px 0 20px 0; }
+    .footer-title { margin-top: 15px; }
+    .compact-map-box { height: 130px; }
+    .experience-badge { top: 0; right: 0; padding: 10px 14px; }
+    .exp-number { font-size: 24px; }
 }
 </style>
 
-</div>
-
  <!--join Us-->
-<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasJoin"  style="height: 100vh !important; background: #fff; border: none; overflow-x: hidden;">
+<div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasJoin" style="height: 100vh !important; background: #ffffff; border: none; overflow-y: auto; overflow-x: hidden;">
     
+    <!-- Fixed Top-Right Close Button -->
     <button type="button" 
         class="btn-close" 
         data-bs-dismiss="offcanvas" 
         aria-label="Close"
         style="
             position: fixed; 
-            top: 25px; 
-            right: 25px; 
+            top: 20px; 
+            right: 20px; 
             z-index: 99999; 
-            background-color: #00d2ff; /* Cyan Color taake nazar aaye */
-            padding: 15px; 
+            background-color: #00d2ff; 
+            padding: 14px; 
             border-radius: 50%; 
             opacity: 1; 
-            margin-top: 60px;
-            box-shadow: 0 10px 20px rgba(0,210,255,0.4); 
-            border: 2px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,210,255,0.4); 
+            border: 2px solid #ffffff;
             background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z%27/%3e%3c/svg%3e');
-            background-size: 15px;
+            background-size: 14px;
             background-repeat: no-repeat;
             background-position: center;
+            cursor: pointer;
         ">
-</button>
-    <div class="join-hero-section" style="position: relative; height: 45vh; min-height: 300px; width: 100%; overflow: hidden; ">
-        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+    </button>
+
+    <!-- Hero Video Header -->
+    <div class="join-hero-section" style="position: relative; height: 45vh; min-height: 300px; width: 100%; overflow: hidden; background: #11113a;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
             <source src="./images/CODED_TEAM.mp4" type="video/mp4">
         </video>
         
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 15px; margin-top: 30px;">
-            <span style="color: #00d2ff; font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase;">Build Your Career</span>
-            <h1 style="color: #fff; font-weight: 900; font-size: 2.5rem; letter-spacing: 2px; margin: 5px 0;">JOIN US</h1>
-            <p style="color: #eee; max-width: 500px; font-size: 0.95rem; line-height: 1.4;">Passionately working on challenging global projects.</p>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; z-index: 2;">
+            <span style="color: #00d2ff; font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase;">Build Your Career</span>
+            <h1 style="color: #ffffff; font-weight: 900; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 2px; margin: 8px 0;">JOIN US</h1>
+            <p style="color: #e0e0e0; max-width: 500px; font-size: 0.95rem; line-height: 1.5; margin: 0;">Passionately working on challenging global projects.</p>
         </div>
     </div>
 
-    <div class="join-content-area" style="background: #fff; position: relative; z-index: 10; margin-top: -30px; border-radius: 30px 30px 0 0; padding: 40px 0; ">
+    <!-- Main Content Area -->
+    <div class="join-content-area" style="background: #ffffff; position: relative; z-index: 10; margin-top: -30px; border-radius: 30px 30px 0 0; padding: 50px 0 30px 0;">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-md-10 col-lg-8">
                     
-                    <h5 style="color: #11113a; font-weight: 800; margin-bottom: 25px; font-size: 1.1rem;">WE ARE LOOKING FOR TALENTED:</h5>
+                    <h5 style="color: #11113a; font-weight: 800; margin-bottom: 25px; font-size: 1.1rem; letter-spacing: 1px;">WE ARE LOOKING FOR TALENTED:</h5>
                     
+                    <!-- NEW PRO ROLE CARDS -->
                     <div class="row g-3 mb-4">
                         <div class="col-6 col-md-3">
-                            <div class="role-box" style="padding: 20px 10px; border: 1px solid #eee; border-radius: 15px; transition: 0.3s;"
-                                 onmouseover="this.style.background='#11113a'; this.style.color='#fff'; this.style.transform='translateY(-5px)';"
-                                 onmouseout="this.style.background='#fff'; this.style.color='#11113a'; this.style.transform='translateY(0)';">
-                                <i class="fas fa-code" style="font-size: 1.5rem; color: #00d2ff; margin-bottom: 10px;"></i>
-                                <p style="font-weight: 700; font-size: 0.85rem; margin: 0;">DEVELOPERS</p>
+                            <div class="custom-role-card">
+                                <div class="card-icon-wrapper">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h6>DEVELOPERS</h6>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
-                            <div class="role-box" style="padding: 20px 10px; border: 1px solid #eee; border-radius: 15px; transition: 0.3s;"
-                                 onmouseover="this.style.background='#11113a'; this.style.color='#fff'; this.style.transform='translateY(-5px)';"
-                                 onmouseout="this.style.background='#fff'; this.style.color='#11113a'; this.style.transform='translateY(0)';">
-                                <i class="fas fa-pen-nib" style="font-size: 1.5rem; color: #00d2ff; margin-bottom: 10px;"></i>
-                                <p style="font-weight: 700; font-size: 0.85rem; margin: 0;">DESIGNERS</p>
+                            <div class="custom-role-card">
+                                <div class="card-icon-wrapper">
+                                    <i class="fas fa-pen-nib"></i>
+                                </div>
+                                <h6>DESIGNERS</h6>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
-                            <div class="role-box" style="padding: 20px 10px; border: 1px solid #eee; border-radius: 15px; transition: 0.3s;"
-                                 onmouseover="this.style.background='#11113a'; this.style.color='#fff'; this.style.transform='translateY(-5px)';"
-                                 onmouseout="this.style.background='#fff'; this.style.color='#11113a'; this.style.transform='translateY(0)';">
-                                <i class="fas fa-bullhorn" style="font-size: 1.5rem; color: #00d2ff; margin-bottom: 10px;"></i>
-                                <p style="font-weight: 700; font-size: 0.85rem; margin: 0;">MARKETERS</p>
+                            <div class="custom-role-card">
+                                <div class="card-icon-wrapper">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <h6>MARKETERS</h6>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
-                            <div class="role-box" style="padding: 20px 10px; border: 1px solid #eee; border-radius: 15px; transition: 0.3s;"
-                                 onmouseover="this.style.background='#11113a'; this.style.color='#fff'; this.style.transform='translateY(-5px)';"
-                                 onmouseout="this.style.background='#fff'; this.style.color='#11113a'; this.style.transform='translateY(0)';">
-                                <i class="fas fa-brain" style="font-size: 1.5rem; color: #00d2ff; margin-bottom: 10px;"></i>
-                                <p style="font-weight: 700; font-size: 0.85rem; margin: 0;">AI EXPERTS</p>
+                            <div class="custom-role-card">
+                                <div class="card-icon-wrapper">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h6>AI EXPERTS</h6>
                             </div>
                         </div>
                     </div>
 
-                    <a href="./Components/join us.html" style="
-                        display: inline-block; padding: 15px 35px; background: #11113a; color: #fff;
-                        text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 0.9rem;
-                        box-shadow: 0 10px 20px rgba(17,17,58,0.2); transition: 0.3s;"
-                        onmouseover="this.style.background='#00d2ff'; this.style.transform='scale(1.05)';"
-                        onmouseout="this.style.background='#11113a'; this.style.transform='scale(1)';">
+                    <a href="./Components/join us.html" class="cta-join-btn">
                         SEE HOW TO JOIN CODED CLOUDS <i class="fas fa-arrow-right ms-2"></i>
                     </a>
 
-                    <div style="margin-top: 30px; border-top: 1px solid #f0f0f0; padding-top: 20px;">
-                        <p style="color: #888; font-size: 0.8rem; margin: 0;">Send your CV to:</p>
-                        <a href="mailto:info@codedclouds.org" style="color: #11113a; font-weight: 700; text-decoration: none;">info@codedclouds.org</a>
+                    <div style="margin-top: 35px; border-top: 1px solid #f0f0f0; padding-top: 20px;">
+                        <p style="color: #888888; font-size: 0.82rem; margin: 0 0 4px 0;">Send your CV to:</p>
+                        <a href="mailto:info@codedclouds.org" style="color: #11113a; font-weight: 700; text-decoration: none; font-size: 0.95rem;">info@codedclouds.org</a>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-<!--footer-->
-<footer class="pro-footer">
-    <div class="container"> 
-        <div class="row g-4 justify-content-between">
-            
-            <!-- Column 1: Brand Info -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                <a href="#" class="footer-logo">
-                    <h3>CODED<span>CLOUDS</span></h3>
-                </a>
-                <p class="footer-desc">
-                    Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
-                </p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                </div>
-            </div>
 
-            <!-- Column 2: Quick Links -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Quick Links</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/Presence.html">Countries</a></li>
-                    <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
-                    <li><a href="#activements">Achievements</a></li>
-                    <li><a href="./Components/Leaders.html">CEO Message</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Legal -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Legal</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/nda.html">NDA</a></li>
-                    <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
-                    <li><a href="./Components/privacy.html">Privacy Policy</a></li>
-                    <li><a href="./Components/refund.html">Refund Policy</a></li>
-                    <li><a href="./Components/service level.html">Service Disclaimer</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Services -->
-            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-                <h5 class="footer-title">Services</h5>
-                <ul class="footer-links">
-                    <li><a href="./Components/service.html">Web Development</a></li>
-                    <li><a href="./Components/service.html">CRM Solutions</a></li>
-                    <li><a href="./Components/service.html">Digital Marketing</a></li>
-                    <li><a href="./Components/service.html">PMS Solutions</a></li>
-                    <li><a href="./Components/service.html">AI Automation</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 5: Contact & Clear Map -->
-            <div class="col-xl-3 col-lg-2 col-md-3 col-12">
-                <h5 class="footer-title">Get In Touch</h5>
-                <ul class="footer-contact">
-                    <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
-                    <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
-                    <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
-                </ul>
+    <!-- Footer Section -->
+    <footer class="pro-footer">
+        <div class="container"> 
+            <div class="row g-4 justify-content-between">
                 
-                <!-- Clear & Modern Map Box -->
-                <div class="compact-map-box">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
+                <!-- Column 1: Brand Info -->
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <a href="#" class="footer-logo">
+                        <h3>CODED<span>CLOUDS</span></h3>
+                    </a>
+                    <p class="footer-desc">
+                        Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/coded-clouds/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584082650845" target="_blank" rel="noopener" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
                 </div>
-            </div>
 
-        </div> 
-        
-        <div class="footer-bottom">
-            <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
+                <!-- Column 2: Quick Links -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/Presence.html">Countries</a></li>
+                        <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
+                        <li><a href="#activements">Achievements</a></li>
+                        <li><a href="./Components/Leaders.html">CEO Message</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/nda.html">NDA</a></li>
+                        <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
+                        <li><a href="./Components/privacy.html">Privacy Policy</a></li>
+                        <li><a href="./Components/refund.html">Refund Policy</a></li>
+                        <li><a href="./Components/service level.html">Service Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Services -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="./Components/service.html">Web Development</a></li>
+                        <li><a href="./Components/service.html">CRM Solutions</a></li>
+                        <li><a href="./Components/service.html">Digital Marketing</a></li>
+                        <li><a href="./Components/service.html">PMS Solutions</a></li>
+                        <li><a href="./Components/service.html">AI Automation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Contact & Map -->
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <h5 class="footer-title">Get In Touch</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
+                        <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
+                        <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
+                    </ul>
+                    
+                    <div class="compact-map-box">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div> 
+            
+            <div class="footer-bottom">
+                <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+</div>
 
 <style>
-    :root {
+:root {
     --f-navy: #0f172a;
     --f-blue: #38bdf8;
     --f-text-light: #f8fafc;
@@ -6223,12 +6651,113 @@
     --f-border: #1e293b;
 }
 
-/* --- Footer Base Container --- */
+/* --- UPDATED ROLE CARDS DESIGN --- */
+.custom-role-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.custom-role-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #11113a 0%, #0a0a26 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: -1;
+}
+
+.custom-role-card .card-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 14px auto;
+    background: rgba(0, 210, 255, 0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s ease;
+}
+
+.custom-role-card .card-icon-wrapper i {
+    font-size: 1.4rem;
+    color: #00d2ff;
+    transition: all 0.35s ease;
+}
+
+.custom-role-card h6 {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #11113a;
+    margin: 0;
+    letter-spacing: 0.5px;
+    transition: color 0.35s ease;
+}
+
+/* Hover State Effects */
+.custom-role-card:hover {
+    border-color: #11113a;
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(17, 17, 58, 0.25);
+}
+
+.custom-role-card:hover::before {
+    opacity: 1;
+}
+
+.custom-role-card:hover .card-icon-wrapper {
+    background: #00d2ff;
+    transform: scale(1.1) rotate(6deg);
+    box-shadow: 0 6px 18px rgba(0, 210, 255, 0.4);
+}
+
+.custom-role-card:hover .card-icon-wrapper i {
+    color: #ffffff;
+}
+
+.custom-role-card:hover h6 {
+    color: #ffffff;
+}
+
+/* --- CTA BUTTON --- */
+.cta-join-btn {
+    display: inline-block;
+    padding: 15px 36px;
+    background: #11113a;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 20px rgba(17,17,58,0.2);
+    transition: all 0.3s ease;
+}
+
+.cta-join-btn:hover {
+    background: #00d2ff;
+    color: #ffffff;
+    transform: scale(1.04);
+    box-shadow: 0 12px 25px rgba(0, 210, 255, 0.35);
+}
+
+/* --- FOOTER BASE CONTAINER --- */
 .pro-footer {
     background-color: var(--f-navy);
     color: var(--f-text-muted);
-    padding: 70px 0 25px 0;
-    font-family: 'Poppins', sans-serif;
+    padding: 60px 0 25px 0;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     position: relative;
     width: 100%;
 }
@@ -6243,7 +6772,7 @@
     background: linear-gradient(90deg, #0284c7 0%, var(--f-blue) 100%);
 }
 
-/* --- Brand Info --- */
+/* --- BRAND INFO --- */
 .footer-logo {
     text-decoration: none;
     display: inline-block;
@@ -6266,7 +6795,7 @@
     margin: 16px 0 22px 0;
 }
 
-/* --- Social Icons --- */
+/* --- SOCIAL ICONS --- */
 .footer-social {
     display: flex;
     gap: 12px;
@@ -6293,7 +6822,7 @@
     box-shadow: 0 6px 15px rgba(56, 189, 248, 0.25);
 }
 
-/* --- Section Headings --- */
+/* --- SECTION HEADINGS --- */
 .footer-title {
     color: #ffffff;
     font-size: 15px;
@@ -6312,7 +6841,7 @@
     border-radius: 2px;
 }
 
-/* --- Links Styling --- */
+/* --- LINKS STYLING --- */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -6325,7 +6854,7 @@
     color: var(--f-text-muted);
     text-decoration: none;
     font-size: 13px;
-    transition: all 0.25 ease;
+    transition: all 0.25s ease;
     display: inline-block;
 }
 .footer-links a:hover {
@@ -6333,7 +6862,7 @@
     transform: translateX(4px);
 }
 
-/* --- Contact List --- */
+/* --- CONTACT LIST --- */
 .footer-contact {
     list-style: none;
     padding: 0;
@@ -6360,7 +6889,7 @@
     flex-shrink: 0;
 }
 
-/* --- Clear HD Map Box --- */
+/* --- MAP BOX --- */
 .compact-map-box {
     width: 100%;
     height: 110px;
@@ -6379,15 +6908,14 @@
     width: 100%;
     height: 100%;
     border: 0;
-    /* Clean clear view with subtle contrast adjustment */
     filter: contrast(1.05) brightness(0.95);
 }
 
-/* --- Bottom Copyright Bar --- */
+/* --- BOTTOM COPYRIGHT BAR --- */
 .footer-bottom {
     border-top: 1px solid var(--f-border);
-    margin-top: 45px;
-    padding-top: 22px;
+    margin-top: 40px;
+    padding-top: 20px;
     text-align: center;
 }
 .footer-bottom p {
@@ -6399,10 +6927,10 @@
     color: #ffffff;
 }
 
-/* --- Mobile Responsiveness --- */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     .pro-footer {
-        padding: 50px 0 20px 0;
+        padding: 40px 0 20px 0;
     }
     .footer-title {
         margin-top: 15px;
@@ -6412,8 +6940,6 @@
     }
 }
 </style>
-
-</div>
 <!--OUR team-->
 
 <div class="offcanvas offcanvas-top custom-offcanvas" tabindex="-1" id="offcanvasTeam"  >
