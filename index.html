@@ -1904,26 +1904,34 @@
       </p>
     </div>
 
-    <!-- RIGHT STATS GRID -->
+    <!-- RIGHT STATS GRID WITH COUNTERS -->
     <div class="achievements-right">
       
       <div class="stat-card" data-aos="fade-left" data-aos-delay="100">
-        <span class="number">1200+</span>
+        <span class="number-box">
+          <span class="counter" data-target="1200">0</span><span class="plus">+</span>
+        </span>
         <span class="desc">Successful Projects</span>
       </div>
 
       <div class="stat-card" data-aos="fade-left" data-aos-delay="200">
-        <span class="number">50+</span>
+        <span class="number-box">
+          <span class="counter" data-target="50">0</span><span class="plus">+</span>
+        </span>
         <span class="desc">Countries Supported</span>
       </div>
 
       <div class="stat-card" data-aos="fade-left" data-aos-delay="300">
-        <span class="number">150+</span>
+        <span class="number-box">
+          <span class="counter" data-target="150">0</span><span class="plus">+</span>
+        </span>
         <span class="desc">Active Clients</span>
       </div>
 
       <div class="stat-card" data-aos="fade-left" data-aos-delay="400">
-        <span class="number">6+</span>
+        <span class="number-box">
+          <span class="counter" data-target="6">0</span><span class="plus">+</span>
+        </span>
         <span class="desc">Years of Experience</span>
       </div>
 
@@ -1933,7 +1941,7 @@
 </section>
 
 <style>
-    /* --- Achievements Section Architecture --- */
+/* --- Achievements Section Architecture --- */
 .achievements-section {
   background-color: #ffffff;
   padding: 90px 0;
@@ -1945,7 +1953,7 @@
   max-width: 1240px;
   margin: 0 auto;
   display: flex;
-  align-items: center; /* Left Content and Right Cards Centered */
+  align-items: center;
   justify-content: space-between;
   gap: 60px;
 }
@@ -2012,15 +2020,16 @@
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stat-card .number {
+.number-box {
   font-size: clamp(2.2rem, 3vw, 2.8rem);
   font-weight: 800;
-  color: #0f172a;
   line-height: 1;
   margin-bottom: 10px;
   background: linear-gradient(135deg, #0f172a 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-flex;
+  align-items: center;
 }
 
 .stat-card .desc {
@@ -2072,6 +2081,50 @@
   }
 }
 </style>
+
+<!-- COUNTDOWN / COUNTER JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.counter');
+  const speed = 900; // Fast and smooth animation duration
+
+  const startCounting = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const updateCount = () => {
+      const count = +counter.innerText;
+      const inc = Math.ceil(target / (speed / 10));
+
+      if (count < target) {
+        counter.innerText = Math.min(count + inc, target);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  };
+
+  // Trigger animation when the section enters the viewport
+  const observerOptions = {
+    threshold: 0.4
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counterElements = entry.target.querySelectorAll('.counter');
+        counterElements.forEach(counter => startCounting(counter));
+        observer.unobserve(entry.target); // Runs once
+      }
+    });
+  }, observerOptions);
+
+  const achievementsSection = document.getElementById('achievements');
+  if (achievementsSection) {
+    observer.observe(achievementsSection);
+  }
+});
+</script>
 
 
 <!---->
