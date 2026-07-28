@@ -714,7 +714,7 @@
 }
 
 /* Main Title & Gradient Accent */
-.hero-title {
+.hero-title-heading {
   color: #ffffff;
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
   font-weight: 900;
@@ -724,7 +724,7 @@
   text-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-.hero-title .text-gradient {
+.hero-title-heading .text-gradient {
   background: linear-gradient(135deg, #ffffff 10%, #38bdf8 60%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -733,7 +733,7 @@
 }
 
 /* Subtitle Styling */
-.hero-subtitle {
+.hero-sub {
   color: #e2e8f0;
   font-size: clamp(0.95rem, 1.5vw, 1.15rem);
   font-weight: 500;
@@ -743,7 +743,7 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-.hero-subtitle .bullet {
+.hero-sub .bullet {
   color: #38bdf8;
   margin: 0 8px;
   font-weight: 800;
@@ -793,7 +793,7 @@
     padding: 80px 0 60px 0;
   }
 
-  .hero-subtitle .bullet {
+  .hero-sub .bullet {
     display: inline-block;
     margin: 0 4px;
   }
