@@ -33,7 +33,6 @@
     justify-content: center;
     text-align: center;
     color: white;
-    margin-bottom: 60px;
     overflow: hidden; /* Video ko bahar nikalne se rokta hai */
 }
 
@@ -208,6 +207,7 @@
     </style>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css">
 
 <div id="elastic-cursor"></div>
 
@@ -294,6 +294,62 @@
 </script>
 <body>
 
+      <!-- Navbar section -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    
+    <!-- Logo with Image Tag -->
+    <a href="../index.html" class="navbar-brand p-0 m-0">
+      <img src="../images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
+    </a>
+
+    <!-- Mobile Toggler Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav Items -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      
+      <!-- Center Links -->
+      <div class="center-nav-container d-flex align-items-center gap-1 mx-auto">
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDo" aria-controls="offcanvasDo">
+          WHAT WE DO
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHelp" aria-controls="offcanvasHelp">
+          WHO WE HELP
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWho" aria-controls="offcanvasWho">
+          WHO WE ARE
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVentures" aria-controls="offcanvasVentures">
+          OUR VENTURES
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasJoin" aria-controls="offcanvasJoin">
+          JOIN US
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam" aria-controls="offcanvasTeam">
+          OUR TEAM
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasstory" aria-controls="offcanvasstory">
+          OUR STORY
+        </button>
+      </div>
+
+      <!-- Right Action Button -->
+      <div class="right-nav-container d-flex align-items-center ms-auto">
+        <a href="./Components/service.html" class="text-decoration-none">
+          <button class="btn nav-talk-btn" type="button">EXPLORE CAREERS</button>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Navbar section end -->
+
     <!-- HEADER / COVER SECTION -->
  <header class="serv-header">
     
@@ -307,574 +363,622 @@
         <p class="lead mt-3 text-light opacity-75">Tailored services to scale your business.</p>
     </div>
 </header>
-    <!-- SERVICES GRID -->
-    <section class="services-page-section">
-        <div class="container">
-            
-            <!-- Using Bootstrap Grid Classes for Perfect Alignment -->
-            <div class="row g-4 row-cols-2 row-cols-md-2 row-cols-lg-3 justify-content-center">
-                
-                <!-- 1. WEB DEVELOPMENT -->
-                <div class="col" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-box">
-                        <div class="img-area">
-                            <img src="../images/web.webp" alt="Web Development">
-                        </div>
-                        <div class="content-area">
-                            <h3>Web Development</h3>
-                            <p>Custom websites & complex web apps built for performance.</p>
-                            <a href="./web.html" class="btn-get-service">Get Service</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- 2. APP DEVELOPMENT -->
-                <div class="col" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-box">
-                        <div class="img-area">
-                            <img src="../images/app.webp" alt="App Development">
-                        </div>
-                        <div class="content-area">
-                            <h3>App Development</h3>
-                            <p>Native mobile apps for iOS and Android with seamless UI/UX.</p>
-                            <a href="./app.html" class="btn-get-service">Get Service</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. PMS DEVELOPMENT -->
-                <div class="col" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-box">
-                        <div class="img-area">
-                            <img src="../images/PMs.png" alt="PMS">
-                        </div>
-                        <div class="content-area">
-                            <h3>PMS Development</h3>
-                            <p>Property Management Systems to streamline operations.</p>
-                            <a href="./pms.html" class="btn-get-service">Get Service</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. DIGITAL MARKETING -->
-                <div class="col" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-box">
-                        <div class="img-area">
-                            <img src="../images/marketing.webp" alt="Marketing">
-                        </div>
-                        <div class="content-area">
-                            <h3>Digital Marketing</h3>
-                            <p>SEO, Social Media, and PPC campaigns to boost brand visibility.</p>
-                            <a href="./marketing.html" class="btn-get-service">Get Service</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. FULL CRM -->
-                <div class="col" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-box">
-                        <div class="img-area">
-                            <img src="../images/crm.webp" alt="CRM">
-                        </div>
-                        <div class="content-area">
-                            <h3>Full CRM</h3>
-                            <p>Customer Relationship Management systems to track leads.</p>
-                            <a href="./crm.html" class="btn-get-service">Get Service</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. POS SOFTWARE -->
-                <div class="col" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-box">
-                        <div class="img-area">
-                            <img src="../images/6a327a49c84f482a9fd9ba0451a31765.webp" alt="POS">
-                        </div>
-                        <div class="content-area">
-                            <h3>POS Software</h3>
-                            <p>Point of Sale solutions for retail shops and restaurants.</p>
-                            <a href="./pos.html" class="btn-get-service">Get Service</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. ECOMMERCE SERVICES -->
-                <div class="col" data-aos="fade-up" data-aos-delay="700">
-                    <div class="service-box">
-                        <div class="img-area">
-                            <img src="../images/5c77ba78b22044d5ba75652b75559eec.webp" alt="Ecommerce">
-                        </div>
-                        <div class="content-area">
-                            <h3>Ecommerce Services</h3>
-                            <p>Shopify, WooCommerce, and custom online stores.</p>
-                            <a href="./E-com.html" class="btn-get-service">Get Service</a>
-                        </div>
-                    </div>
-                </div>
-
-    <div class="col" data-aos="fade-up" data-aos-delay="800">
-    <div class="service-box">
-        <div class="img-area">
-            <img src="../images/ai.png" alt="AI Automation">
-        </div>
-        <div class="content-area">
-            <h3>AI Automation</h3>
-            <p>Smart workflows, Chatbots, and AI-driven business process automation.</p>
-            <a href="./AI.html" class="btn-get-service">Get Service</a>
-        </div>
-    </div>
-</div>
-
-    <div class="col" data-aos="fade-up" data-aos-delay="800">
-    <div class="service-box">
-        <div class="img-area">
-            <img src="../images/ai-solutions.jpg" alt="AI Automation">
-        </div>
-        <div class="content-area">
-            <h3>AI Solution</h3>
-            <p>Create personalized AI assistants and AI agents to automate repetitive tasks, simplify complex processes and accelerate your work. </p>
-            <a href="./ai-solution.html" class="btn-get-service">Get Service</a>
-        </div>
-    </div>
-</div>
-
-  <div class="col" data-aos="fade-up" data-aos-delay="800">
-    <div class="service-box">
-        <div class="img-area">
-            <img src="../images/blockchain.webp" alt="AI Automation">
-        </div>
-        <div class="content-area">
-            <h3>Blockchain Tech</h3>
-            <p>We power crypto access for everyone: from private people, to pros, to public companies.</p>
-            <a href="./blockchain.html" class="btn-get-service">Get Service</a>
-        </div>
-    </div>
-</div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-<!--contact-->
-  
-<div id="unique-contact-section" class="contact-section-wrapper">
-    <section class="contact-container">
-        
-        <!-- Form Column -->
-        <div class="contact-left-col">
-            <span class="contact-badge">GET IN TOUCH</span>
-            <h1 class="contact-title">Let’s Start a Conversation</h1>
-            <p class="contact-subtitle">Fill out the form below and we will get back to you shortly.</p>
-
-            <form id="contactForm" class="styled-form">
-                <input type="hidden" name="selected_services" id="selected_services">
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Full Name <span class="required">*</span></label>
-                        <input type="text" name="full_name" placeholder="Omaan Jallane" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Work Email <span class="required">*</span></label>
-                        <input type="email" name="user_email" placeholder="email@company.com" required class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Phone Number <span class="required">*</span></label>
-                        <div class="phone-input-group">
-                            <select name="country_code" required class="form-control phone-code">
-                                <option value="+966">SA +966</option>
-                                <option value="+92">PK +92</option>
-                                <option value="+971">UAE +971</option>
-                            </select>
-                            <input type="tel" name="phone_number" placeholder="55 123 4567" required class="form-control flex-grow-1">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Company Name <span class="required">*</span></label>
-                        <input type="text" name="company_name" placeholder="CodedCloud Ltd." required class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Company Website</label>
-                        <input type="url" name="company_url" placeholder="https://codedclouds.org" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Region <span class="required">*</span></label>
-                        <select name="region" required class="form-control">
-                            <option value="" disabled selected>Please Select</option>
-                            <option value="Saudi Arabia">Saudi Arabia</option>
-                            <option value="Pakistan">Pakistan</option>
-                            <option value="Middle East">Middle East</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group full-width">
-                    <label>Services interested in: <span class="required">*</span></label>
-                    <div class="select-wrapper">
-                        <select class="form-control service-select" name="services" required>
-                            <option value="" disabled selected>Click to select a service...</option>
-                            <option value="Web Development">Web Development</option>
-                            <option value="Mobile App Development">Mobile App Development</option>
-                            <option value="Custom Software">Custom Software Solutions</option>
-                            <option value="PMS">PMS (Property Management Systems)</option>
-                            <option value="CRM">Full CRM Integrations</option>
-                            <option value="POS">POS Software Solutions</option>
-                            <option value="Ecommerce">E-commerce Platforms</option>
-                            <option value="Digital Marketing">Digital Marketing & SEO</option>
-                            <option value="Branding">Branding & IT Consultancy</option>
-                            <option value="AI Automation">AI & Workflow Automation</option>
-                        </select>
-                        <i class="fa-solid fa-chevron-down select-icon"></i>
-                    </div>
-                </div>
-
-                <div class="form-group full-width">
-                    <label>How can we help you?</label>
-                    <textarea name="message" rows="4" placeholder="Tell us about your project requirements..." class="form-control textarea-control"></textarea>
-                </div>
-
-                <div class="form-group full-width checkbox-group">
-                    <label class="custom-checkbox">
-                        <input type="checkbox" name="looking_for_job">
-                        <span class="checkmark"></span>
-                        <span class="checkbox-label">I am looking for a career opportunity</span>
-                    </label>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    <span>Submit Inquiry</span>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
-        </div>
-
-        <!-- Right Side Info Cards -->
-        <div class="contact-right-col">
-            
-            <div class="info-card">
-                <span class="info-tag">EARTH</span>
-                <h3 class="info-title">Global Presence</h3>
-                <p class="info-desc">Across 5 continents, delivering high-impact solutions worldwide.</p>
-                <a href="./Components/Presence.html" class="info-link">
-                    <span>Learn more</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="info-card">
-                <span class="info-tag">PEOPLE</span>
-                <h3 class="info-title">Global Leaders</h3>
-                <p class="info-desc">Technical excellence backed by seasoned industry visionaries.</p>
-                <a href="./Components/Leaders.html" class="info-link">
-                    <span>Learn more</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-</div>
-
-<style>
-/* CSS Variables */
-:root {
-    --brand-navy: #11113a;
-    --brand-cyan: #00d2ff;
-    --bg-light: #f8fafc;
-    --text-dark: #1e293b;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-}
-
-.contact-section-wrapper {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-light);
-    width: 100%;
-    padding: 60px 0;
-    box-sizing: border-box;
-}
-
-.contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 45px;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 25px;
-    box-sizing: border-box;
-}
-
-/* Left Column Styling */
-.contact-left-col {
-    flex: 1 1 640px;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    box-sizing: border-box;
-}
-
-.contact-badge {
-    display: inline-block;
-    padding: 4px 14px;
-    background: rgba(0, 210, 255, 0.12);
-    color: #008eb0;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    border-radius: 30px;
-    margin-bottom: 12px;
-}
-
-.contact-title {
-    font-size: clamp(26px, 4vw, 36px);
-    margin: 0 0 8px 0;
-    color: var(--brand-navy);
-    font-weight: 800;
-    line-height: 1.25;
-}
-
-.contact-subtitle {
-    font-size: 14px;
-    margin: 0 0 32px 0;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-/* Form Grid & Layout */
-.styled-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    width: 100%;
-}
-
-.form-group {
-    flex: 1 1 240px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group.full-width {
-    flex: 1 1 100%;
-}
-
-.form-group label {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--brand-navy);
-    margin-bottom: 8px;
-}
-
-.required {
-    color: #ef4444;
-}
-
-.form-control {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    background: #f1f5f9;
-    font-size: 14px;
-    font-family: inherit;
-    color: var(--text-dark);
-    outline: none;
-    transition: all 0.25s ease;
-    box-sizing: border-box;
-}
-
-.form-control:focus {
-    background: #ffffff;
-    border-color: var(--brand-cyan);
-    box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.15);
-}
-
-/* Phone input group */
-.phone-input-group {
-    display: flex;
-    gap: 8px;
-}
-
-.phone-code {
-    width: 105px;
-    flex-shrink: 0;
-    cursor: pointer;
-}
-
-/* Select Box Wrapper */
-.select-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.select-icon {
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: var(--brand-navy);
-    font-size: 12px;
-}
-
-.textarea-control {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Custom Checkbox */
-.checkbox-group {
-    margin-top: 5px;
-}
-
-.custom-checkbox {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.custom-checkbox input {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--brand-navy);
-    cursor: pointer;
-}
-
-.checkbox-label {
-    font-size: 13.5px;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-
-/* Submit Button */
-.submit-btn {
-    background: var(--brand-navy);
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    padding: 14px 36px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    align-self: flex-start;
-    margin-top: 10px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 8px 20px rgba(17, 17, 58, 0.2);
-}
-
-.submit-btn:hover {
-    background: var(--brand-cyan);
-    color: var(--brand-navy);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(0, 210, 255, 0.35);
-}
-
-/* Right Column Info Cards */
-.contact-right-col {
-    flex: 1 1 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.info-card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--brand-navy);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-    transition: all 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-    border-left-color: var(--brand-cyan);
-    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.12);
-}
-
-.info-tag {
-    font-size: 11px;
-    color: var(--brand-navy);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 800;
-    display: block;
-    margin-bottom: 6px;
-}
-
-.info-title {
-    font-size: 20px;
-    margin: 0 0 8px 0;
-    font-weight: 800;
-    color: var(--text-dark);
-}
-
-.info-desc {
-    font-size: 13.5px;
-    margin: 0 0 18px 0;
-    color: var(--text-muted);
-    line-height: 1.55;
-}
-
-.info-link {
-    color: var(--brand-navy);
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 12px;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.2s ease;
-}
-
-.info-link:hover {
-    color: var(--brand-cyan);
-    gap: 12px;
-}
-
-/* Responsive Rules */
-@media (max-width: 768px) {
-    .contact-left-col {
-        padding: 25px 20px;
-    }
+<!-- =========================
+     SERVICES SECTION
+     ========================= -->
+<section class="services-section">
+  <div class="container">
     
-    .contact-container {
-        padding: 0 15px;
-    }
+    <!-- HEADER -->
+    <div class="services-header text-center" data-aos="fade-up">
+      <div class="services-pill">
+        <i class="fa-solid fa-layer-group"></i> OUR CORE EXPERTISE
+      </div>
+      <h2>Transform Your <span class="highlight-text">Business</span></h2>
+      <p class="sub-text">
+        Tailored digital solutions designed to scale your enterprise with <strong>modern technology</strong>.
+      </p>
+    </div>
 
-    .submit-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-</style>
+    <!-- SERVICES GRID CONTAINER -->
+    <div class="services-grid">
+
+      <!-- CARD 1: Web Development -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+            <span class="badge-tag">Scalable</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/web-development-programming-resized.jpg" alt="Web Development" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>Web Development</h3>
+            <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+          </div>
+        </div>
+
+        <!-- Slide Up Hover Card -->
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>Web Development</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Clean & Scalable Code</li>
+            <li><i class="fa-regular fa-circle-check"></i> Responsive & Modern UI</li>
+            <li><i class="fa-regular fa-circle-check"></i> Fast Performance & SEO</li>
+          </ul>
+          <a href="./Components/web.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 2: App Development -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <span class="badge-tag">Mobile Performance</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/app-development.avif" alt="App Development" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>App Development</h3>
+            <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
+          </div>
+        </div>
+
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>App Development</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Android & iOS Apps</li>
+            <li><i class="fa-regular fa-circle-check"></i> Smooth UI / UX Flow</li>
+            <li><i class="fa-regular fa-circle-check"></i> Secure & Scalable Architecture</li>
+          </ul>
+          <a href="./Components/app.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 3: PMS Development -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-building"></i></div>
+            <span class="badge-tag">Property</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/PMs.png" alt="PMS Development" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>PMS Development</h3>
+            <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
+          </div>
+        </div>
+
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>PMS Development</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Centralized Property Dashboard</li>
+            <li><i class="fa-regular fa-circle-check"></i> Tenant & Lease Tracking</li>
+            <li><i class="fa-regular fa-circle-check"></i> Automated Invoicing & Alerts</li>
+          </ul>
+          <a href="./Components/pms.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 4: Digital Marketing -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <span class="badge-tag">Growth</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/Digital-marketing.jpg" alt="Digital Marketing" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>Digital Marketing</h3>
+            <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+          </div>
+        </div>
+
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>Digital Marketing</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Target Social Campaigns</li>
+            <li><i class="fa-regular fa-circle-check"></i> SEO & ROI Analytics</li>
+            <li><i class="fa-regular fa-circle-check"></i> Targeted Lead Generation</li>
+          </ul>
+          <a href="./Components/marketing.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 5: Full CRM System -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <span class="badge-tag">Business Automation</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/CRM_Systems.png" alt="Full CRM System" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>Full CRM System</h3>
+            <p class="focus-label"><span>Focus:</span> Business Automation</p>
+          </div>
+        </div>
+
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>Full CRM System</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> Business Automation</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Client Data Management</li>
+            <li><i class="fa-regular fa-circle-check"></i> Sales Pipeline Tracking</li>
+            <li><i class="fa-regular fa-circle-check"></i> Workflow Automation</li>
+          </ul>
+          <a href="./Components/crm.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 6: POS Software -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-cash-register"></i></div>
+            <span class="badge-tag">Fast Billing</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/pos-system.png" alt="POS Software" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>POS Software</h3>
+            <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+          </div>
+        </div>
+
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>POS Software</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Instant Checkout & Receipts</li>
+            <li><i class="fa-regular fa-circle-check"></i> Live Stock Management</li>
+            <li><i class="fa-regular fa-circle-check"></i> Financial Reporting</li>
+          </ul>
+          <a href="./Components/pos.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 7: Ecommerce Services -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <span class="badge-tag">High Converting Stores</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/eco-system.jpg" alt="Ecommerce Services" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>Ecommerce Services</h3>
+            <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+          </div>
+        </div>
+
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>Ecommerce Services</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Custom Storefront Design</li>
+            <li><i class="fa-regular fa-circle-check"></i> Secure Payment Gateways</li>
+            <li><i class="fa-regular fa-circle-check"></i> Inventory & Order Sync</li>
+          </ul>
+          <a href="./Components/E-com.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 8: AI & Automation -->
+      <div class="service-card">
+        <div class="card-front-content">
+          <div class="card-top-bar">
+            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+            <span class="badge-tag">Intelligent Workflows</span>
+          </div>
+          <div class="card-image-wrapper">
+            <img src="../images/ai-automation.png" alt="AI & Automation" loading="lazy">
+          </div>
+          <div class="card-bottom-info">
+            <h3>AI & Automation</h3>
+            <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+          </div>
+        </div>
+
+        <div class="card-hover-content">
+          <div class="hover-header">
+            <h3>AI & Automation</h3>
+            <span class="details-badge">DETAILS</span>
+          </div>
+          <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+          <ul class="feature-list">
+            <li><i class="fa-regular fa-circle-check"></i> Custom Conversational AI</li>
+            <li><i class="fa-regular fa-circle-check"></i> Predictive Analytics</li>
+            <li><i class="fa-regular fa-circle-check"></i> Process Optimization</li>
+          </ul>
+          <a href="./Components/AI.html" class="explore-btn">
+            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+
+       <!-- CARD 9: Block chain -->
+      <div class="service-card">
+  <!-- Front Content -->
+  <div class="card-front-content">
+    <div class="card-top-bar">
+      <!-- Icon updated to Blockchain/Link -->
+      <div class="card-icon"><i class="fa-solid fa-link"></i></div>
+      <span class="badge-tag">Blockchain</span>
+    </div>
+    <div class="card-image-wrapper">
+      <img src="../images/blockchain.webp" alt="Blockchain Development" loading="lazy">
+    </div>
+    <div class="card-bottom-info">
+      <h3>Blockchain Development</h3>
+      <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+    </div>
+  </div>
+
+  <!-- Hover Content -->
+  <div class="card-hover-content">
+    <div class="hover-header">
+      <h3>Blockchain Development</h3>
+      <span class="details-badge">DETAILS</span>
+    </div>
+    <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+    <ul class="feature-list">
+      <li><i class="fa-regular fa-circle-check"></i> Smart Contract Development</li>
+      <li><i class="fa-regular fa-circle-check"></i> dApp & Web3 Architecture</li>
+      <li><i class="fa-regular fa-circle-check"></i> Tokenomics & DeFi Solutions</li>
+    </ul>
+    <a href="./Components/Blockchain.html" class="explore-btn">
+      Explore Solution <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+ <section id="unique-contact-section" class="contact-section-wrapper">
+    <div class="contact-container">
+        
+        <!-- SECTION TOP HEADER -->
+        <div class="section-top-header">
+            <span class="section-badge">
+                <i class="fa-solid fa-sparkles"></i> CONNECT WITH US
+            </span>
+            <h1 class="main-section-title">
+                Ready to Build Something <span class="gradient-text-alt">Extraordinary?</span>
+            </h1>
+            <p class="main-section-desc">
+                Partner with Coded Clouds to elevate your digital ecosystem. Reach out today for enterprise-grade solutions, custom development, or strategic technical consultancy.
+            </p>
+        </div>
+
+        <!-- MAIN GLASS CARD CONTAINER -->
+        <div class="contact-card-frame">
+            
+            <!-- LEFT COLUMN: Compact Form -->
+            <div class="contact-left-col">
+                <div class="form-header">
+                    <span class="contact-badge"><i class="fa-solid fa-paper-plane"></i> GET IN TOUCH</span>
+                    <h2 class="contact-title">Let’s Start a <span class="gradient-text">Conversation</span></h2>
+                    <p class="contact-subtitle">Fill out the form below and our engineering team will get back to you shortly.</p>
+                </div>
+
+                <form id="contactForm" class="styled-form">
+                    <input type="hidden" name="selected_services" id="selected_services">
+
+                    <!-- Grid Row 1 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-user field-icon"></i>
+                                <input type="text" name="full_name" placeholder="Omaan Jallane" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Work Email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-envelope field-icon"></i>
+                                <input type="email" name="user_email" placeholder="email@company.com" required class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grid Row 2 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number <span class="required">*</span></label>
+                            <div class="phone-input-group">
+                                <select name="country_code" required class="form-control phone-code">
+                                    <option value="+966">🇸🇦 +966</option>
+                                    <option value="+92">🇵🇰 +92</option>
+                                    <option value="+971">🇦🇪 +971</option>
+                                </select>
+                                <input type="tel" name="phone_number" placeholder="55 123 4567" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Company Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-building field-icon"></i>
+                                <input type="text" name="company_name" placeholder="CodedCloud Ltd." required class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grid Row 3 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Company Website</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-globe field-icon"></i>
+                                <input type="url" name="company_url" placeholder="https://codedclouds.org" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Region <span class="required">*</span></label>
+                            <div class="select-wrapper">
+                                <select name="region" required class="form-control">
+                                    <option value="" disabled selected>Select Region</option>
+                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                    <option value="Pakistan">Pakistan</option>
+                                    <option value="Middle East">Middle East</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Dropdown -->
+                    <div class="form-group full-width">
+                        <label>Services interested in <span class="required">*</span></label>
+                        <div class="select-wrapper">
+                            <select class="form-control service-select" name="services" required>
+                                <option value="" disabled selected>Click to select a service...</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Mobile App Development">Mobile App Development</option>
+                                <option value="Custom Software">Custom Software Solutions</option>
+                                <option value="PMS">PMS (Property Management Systems)</option>
+                                <option value="CRM">Full CRM Integrations</option>
+                                <option value="POS">POS Software Solutions</option>
+                                <option value="Ecommerce">E-commerce Platforms</option>
+                                <option value="Digital Marketing">Digital Marketing & SEO</option>
+                                <option value="Branding">Branding & IT Consultancy</option>
+                                <option value="AI Automation">AI & Workflow Automation</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div class="form-group full-width">
+                        <label>How can we help you?</label>
+                        <textarea name="message" rows="3" placeholder="Tell us briefly about your project requirements..." class="form-control textarea-control"></textarea>
+                    </div>
+
+                    <!-- Actions Row -->
+                    <div class="form-actions-row">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="looking_for_job">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">Career Opportunity?</span>
+                        </label>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Submit Inquiry</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- RIGHT COLUMN: Vibrant Glass Sidebar Tiles -->
+            <div class="contact-right-col">
+                <div class="sidebar-bg-glow glow-top"></div>
+                <div class="sidebar-bg-glow glow-bottom"></div>
+
+                <div class="sidebar-top">
+                    <div class="brand-chip">
+                        <i class="fa-solid fa-cloud"></i> Coded Clouds
+                    </div>
+                    <h3>Engineered for Global Excellence</h3>
+                    <p>Delivering high-impact digital products and next-gen enterprise software solutions worldwide.</p>
+                </div>
+
+                <!-- TILES / FEATURE CARDS CONTAINER -->
+                <div class="sidebar-cards-container">
+                    
+                    <!-- Global Presence Tile -->
+                    <div class="side-feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                        <div class="feature-content">
+                            <span class="feature-tag">GLOBAL PRESENCE</span>
+                            <h4>Active Across 5 Continents</h4>
+                            <a href="./Components/Presence.html" class="feature-link">
+                                Explore Footprint <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Leadership Tile -->
+                    <div class="side-feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
+                        <div class="feature-content">
+                            <span class="feature-tag">LEADERSHIP</span>
+                            <h4>Seasoned Industry Experts</h4>
+                            <a href="./Components/Leaders.html" class="feature-link">
+                                Meet Leaders <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Footer Metric Badge Tile -->
+                <div class="sidebar-metric">
+                    <div class="metric-num">99.8%</div>
+                    <div class="metric-desc">Client Satisfaction Rate Across Enterprise Deployments</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!--footer-->
+<footer class="pro-footer">
+    <div class="container"> 
+        <div class="row g-4 justify-content-between">
+            
+            <!-- Column 1: Brand Info -->
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                <a href="#" class="footer-logo">
+                    <h3>CODED<span>CLOUDS</span></h3>
+                </a>
+                <p class="footer-desc">
+                    Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                <h5 class="footer-title">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="../Components/Presence.html">Countries</a></li>
+                    <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
+                    <li><a href="#activements">Achievements</a></li>
+                    <li><a href="../Components/Leaders.html">CEO Message</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Legal -->
+            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                <h5 class="footer-title">Legal</h5>
+                <ul class="footer-links">
+                    <li><a href="../Components/nda.html">NDA</a></li>
+                    <li><a href="../Components/Condition.html">Terms & Conditions</a></li>
+                    <li><a href="../Components/privacy.html">Privacy Policy</a></li>
+                    <li><a href="../Components/refund.html">Refund Policy</a></li>
+                    <li><a href="../Components/service level.html">Service Disclaimer</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Services -->
+            <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+                <h5 class="footer-title">Services</h5>
+                <ul class="footer-links">
+                    <li><a href="../Components/service.html">Media production </a></li>
+                    <li><a href="../Components/service.html">Hospiat sector</a></li>
+                    <li><a href="../Components/service.html">Mobile/ Web development</a></li>
+                    <li><a href="../Components/service.html">Ai solutions / automation</a></li>
+                    <li><a href="../Components/service.html">IT INFRASTRUCTURE </a></li>
+                    <li><a href="../Components/service.html">DIGITAL MARCH </a></li>
+                    <li><a href="../Components/service.html">CRM SYSTEMS</a></li>
+                    <li><a href="../Components/service.html">BANKING / fintech sols</a></li>
+                    <li><a href="../Components/service.html">Quality Assurance</a></li>
+                    <li><a href="../Components/service.html">DevOps</a></li>
+                    <li><a href="../Components/service.html">Cybersecurity</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Contact & Clear Map -->
+            <div class="col-xl-3 col-lg-2 col-md-3 col-12">
+                <h5 class="footer-title">Get In Touch</h5>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
+                    <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
+                </ul>
+                
+                <!-- Clear & Modern Map Box -->
+                <div class="compact-map-box">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" 
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div> 
+        
+        <div class="footer-bottom">
+            <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px;">    
+    <a href="https://wa.me/+966594552890" style="background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+        <i class="fab fa-whatsapp" style="font-size: 30px;"></i>
+    </a>
+</div>
+
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
