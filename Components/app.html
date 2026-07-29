@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Development - Coded Clouds</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
         :root {
             --navy: rgb(17, 17, 58);
+            --navy-light: rgb(27, 27, 80);
             --cyan: #00d4ff;
             --white: #ffffff;
-            --gray: #f8f9fa;
+            --gray-bg: #f4f6f9;
+            --text-dark: #2c3e50;
+            --text-muted: #666666;
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-hover: 0 20px 40px rgba(17, 17, 58, 0.12);
         }
 
         * {
@@ -25,16 +30,92 @@
 
         body {
             background-color: var(--white);
-            color: #333;
+            color: var(--text-dark);
             overflow-x: hidden;
+        }
+
+        /* --- Elastic Cursor --- */
+        #elastic-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            transform-origin: center center;
+        }
+
+        .cursor-active {
+            mix-blend-mode: difference;
+            background-color: white !important;
+        }
+
+        /* --- Navigation --- */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background-color: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--navy);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background-color: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
         }
 
         /* --- Hero Section --- */
         .hero-section {
-            padding: 120px 20px 60px;
+            padding: 110px 20px 70px;
             text-align: center;
-            background: var(--white);
-            animation: fadeIn 1s ease-in;
+            background: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero-section h1 {
@@ -42,6 +123,8 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero-underline {
@@ -50,82 +133,149 @@
             background: var(--cyan);
             margin: 20px auto;
             border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
         }
 
         .hero-section p {
-            color: #666;
-            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         /* --- App Features Section --- */
         .features-section {
-            padding: 80px 20px;
-            background: var(--gray);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 70px 20px 90px;
+            background: var(--gray-bg);
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 30px;
         }
 
         .feature-card {
             background: var(--white);
             padding: 40px 30px;
-            border-radius: 20px;
+            border-radius: 24px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border-bottom: 4px solid transparent;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(17, 17, 58, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Top Gradient Accent on Hover */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid var(--cyan);
-            box-shadow: 0 15px 40px rgba(17, 17, 58, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .icon-box {
+            background: var(--navy);
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--cyan);
         }
 
         .feature-card i {
-            font-size: 3rem;
+            font-size: 2.2rem;
             color: var(--navy);
-            margin-bottom: 20px;
+            transition: color 0.4s ease;
+        }
+
+        .feature-card:hover i {
+            color: var(--cyan);
         }
 
         .feature-card h3 {
             color: var(--navy);
             font-size: 1.5rem;
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .feature-card p {
-            color: #777;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tech-tags span {
+            background: var(--gray-bg);
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(17, 17, 58, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .tech-tags span {
+            background: rgba(17, 17, 58, 0.05);
+            border-color: rgba(0, 212, 255, 0.3);
         }
 
         /* --- CTA Section --- */
         .cta-section {
             padding: 100px 20px;
             text-align: center;
-            background: var(--navy);
-            color: white;
-            margin-top: 50px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: -30px;
         }
 
         .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
             font-weight: 800;
+            margin-bottom: 15px;
         }
 
         .cta-section p {
@@ -136,218 +286,60 @@
 
         .cta-btn {
             display: inline-block;
-            padding: 16px 40px;
+            padding: 18px 45px;
             background: var(--cyan);
             color: var(--navy);
             text-decoration: none;
             font-weight: 800;
             border-radius: 50px;
             font-size: 1.1rem;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
         }
 
         .cta-btn:hover {
             background: var(--white);
+            color: var(--navy);
             transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
         }
 
-        /* --- Animation --- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        /* --- Animations & Responsive --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
+            #elastic-cursor { display: none !important; }
             .hero-section h1 { font-size: 2.5rem; }
             .feature-grid { grid-template-columns: 1fr; }
             .cta-section h2 { font-size: 1.8rem; }
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
         }
     </style>
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<div id="elastic-cursor"></div>
-
-<style>
-    #elastic-cursor {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background-color: rgb(17, 17, 58); /* Aapka Navy Blue Color */
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 99999;
-        /* Glow effect taake dark bg par nazar aaye */
-        box-shadow: 0 0 10px rgba(17, 17, 58, 0.4);
-        transform-origin: center center;
-    }
-
-    /* Jab link par jaye to cursor white ho jaye ya invert ho */
-    .cursor-active {
-        mix-blend-mode: difference;
-        background-color: white !important;
-    }
-     @media (max-width: 768px) {
-    #elastic-cursor {
-        display: none !important;
-    }
-}
-</style>
-
-<script>
-    const cursor = document.querySelector("#elastic-cursor");
-
-    // Cursor position and scale settings
-    let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    let mouse = { x: pos.x, y: pos.y };
-    let speed = 0.15; // Smoothness factor
-
-    // Speed/Stretch Calculation
-    let fpms = 60 / 1000;
-    
-    window.addEventListener("mousemove", e => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
-
-    const xSet = gsap.quickSetter(cursor, "x", "px");
-    const ySet = gsap.quickSetter(cursor, "y", "px");
-
-    gsap.ticker.add((time, deltaTime) => {
-        let delta = deltaTime * fpms;
-        let dt = 1.0 - Math.pow(1.0 - speed, delta);
-        
-        // Calculate distance moved
-        let dx = mouse.x - pos.x;
-        let dy = mouse.y - pos.y;
-        
-        pos.x += dx * dt;
-        pos.y += dy * dt;
-        
-        // Calculate velocity for stretching
-        let velocity = Math.sqrt(dx * dx + dy * dy);
-        let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-        
-        // Velocity ke hisab se stretch (Max stretch limit 2.5 rakhi hai)
-        let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-        let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
-
-        xSet(pos.x - 10); // 10 is half of width
-        ySet(pos.y - 10);
-        
-        // Apply rotation and stretching
-        gsap.set(cursor, {
-            rotation: setRotation,
-            scaleX: setScale,
-            scaleY: setScaleY
-        });
-    });
-
-    // Hover effect on links
-    document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-    });
-</script>
 <body>
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
+
+    <div id="elastic-cursor"></div>
+
+    <!-- Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
             </a>
 
-        <div class="nav-actions">
-            <a href="../index.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
-            </a>
+            <div class="nav-actions">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<style>
-    /* Navigation Styling */
-    .main-nav {
-        background-color: #ffffff; /* White Background */
-        height: 80px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    }
-
-    .nav-container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Logo Styling */
-    .logo img {
-        height: 50px; /* Adjust height according to your logo */
-        display: block;
-    }
-
-    .logo span {
-        color: rgb(17, 17, 58); /* Navy Blue */
-        font-weight: 800;
-        font-size: 1.5rem;
-        text-decoration: none;
-    }
-
-    /* Back Button Styling */
-    .back-btn {
-        background-color: rgb(17, 17, 58); /* Navy Blue */
-        color: #ffffff;
-        text-decoration: none;
-        padding: 10px 25px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        border: 2px solid rgb(17, 17, 58);
-    }
-
-    .back-btn:hover {
-        background-color: transparent;
-        color: rgb(17, 17, 58);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 600px) {
-        .main-nav {
-            height: 70px;
-        }
-        
-        .logo img {
-            height: 40px;
-        }
-
-        .back-btn span {
-            display: none; /* Mobile par sirf arrow dikhega ya text chota ho jayega */
-        }
-        
-        .back-btn {
-            padding: 10px 15px;
-        }
-
-        .back-btn::after {
-            content: 'Back'; /* Mobile par chota text */
-            display: inline-block;
-        }
-    }
-</style>
+    <!-- Hero Section -->
     <header class="hero-section">
         <div class="container">
             <h1>App Development</h1>
@@ -356,50 +348,94 @@
         </div>
     </header>
 
+    <!-- App Features Section -->
     <section class="features-section">
         <div class="container">
             <div class="feature-grid">
                 
                 <div class="feature-card">
-                    <i class="fas fa-mobile-alt"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
                     <h3>iOS & Android</h3>
                     <p>Native and Cross-platform development using Flutter and React Native for a smooth experience on all devices.</p>
+                    <div class="tech-tags">
+                        <span>Flutter</span>
+                        <span>React Native</span>
+                        <span>Cross-Platform</span>
+                    </div>
                 </div>
 
                 <div class="feature-card">
-                    <i class="fas fa-layer-group"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
                     <h3>Custom UI/UX</h3>
                     <p>Modern, intuitive designs focused on user engagement and ease of navigation to keep your users coming back.</p>
+                    <div class="tech-tags">
+                        <span>Figma</span>
+                        <span>User Journey</span>
+                        <span>Interactive UI</span>
+                    </div>
                 </div>
 
                 <div class="feature-card">
-                    <i class="fas fa-bolt"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <h3>Fast & Secure</h3>
                     <p>Optimized code for high-speed performance and high-level security protocols to protect user data.</p>
+                    <div class="tech-tags">
+                        <span>Encryption</span>
+                        <span>OAuth 2.0</span>
+                        <span>High Speed</span>
+                    </div>
                 </div>
 
                 <div class="feature-card">
-                    <i class="fas fa-sync"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-sync"></i>
+                    </div>
                     <h3>Real-time Updates</h3>
                     <p>Integration with real-time databases and cloud services for instant data synchronization and push notifications.</p>
+                    <div class="tech-tags">
+                        <span>Firebase</span>
+                        <span>WebSockets</span>
+                        <span>Push Alerts</span>
+                    </div>
                 </div>
 
                 <div class="feature-card">
-                    <i class="fas fa-cogs"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-cogs"></i>
+                    </div>
                     <h3>Powerful Backend</h3>
                     <p>Scalable server-side solutions that grow with your user base, ensuring zero downtime.</p>
+                    <div class="tech-tags">
+                        <span>Node.js</span>
+                        <span>Laravel</span>
+                        <span>Cloud APIs</span>
+                    </div>
                 </div>
 
                 <div class="feature-card">
-                    <i class="fas fa-chart-pie"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
                     <h3>App Analytics</h3>
                     <p>Built-in tracking to monitor user behavior and app performance, helping you make data-driven decisions.</p>
+                    <div class="tech-tags">
+                        <span>Mixpanel</span>
+                        <span>GA4</span>
+                        <span>Data Insights</span>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Ready to launch your own App?</h2>
@@ -408,5 +444,54 @@
         </div>
     </section>
 
+    <!-- GSAP Cursor Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        const cursor = document.querySelector("#elastic-cursor");
+
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.15;
+        let fpms = 60 / 1000;
+        
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+            
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+            
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+            
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+            
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
+    </script>
 </body>
 </html>

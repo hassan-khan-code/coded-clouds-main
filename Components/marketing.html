@@ -4,307 +4,416 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Marketing - Coded Clouds</title>
+    
+    <!-- External Dependencies matching PMS & App Dev pages -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
         :root {
             --navy: rgb(17, 17, 58);
+            --navy-light: rgb(27, 27, 80);
             --cyan: #00d4ff;
             --white: #ffffff;
-            --gray: #f4f7f6;
+            --gray-bg: #f4f6f9;
+            --text-dark: #2c3e50;
+            --text-muted: #666666;
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-hover: 0 20px 40px rgba(17, 17, 58, 0.12);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--white); color: #333; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Elastic Cursor --- */
+        #elastic-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            transform-origin: center center;
+        }
+
+        .cursor-active {
+            mix-blend-mode: difference;
+            background-color: white !important;
+        }
+
+        /* --- Navigation --- */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background-color: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--navy);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background-color: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
+        }
+
+        /* --- Container --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
         /* --- Hero Section --- */
         .hero-section {
-            padding: 120px 20px 60px;
+            padding: 110px 20px 70px;
             text-align: center;
-            background: var(--white);
-            animation: fadeIn 1s ease-in;
+            background: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
+            animation: fadeInDown 1s ease-out;
         }
-        .hero-section h1 { color: var(--navy); font-size: 3.5rem; font-weight: 800; }
-        .hero-underline { width: 80px; height: 5px; background: var(--cyan); margin: 20px auto; border-radius: 10px; }
-        .hero-section p { color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto; line-height: 1.8; }
 
-        /* --- Marketing Features (How We Work) --- */
-        .features-section { padding: 80px 20px; background: var(--gray); }
-        .container { max-width: 1200px; margin: 0 auto; }
-        
-        .section-heading { text-align: center; color: var(--navy); margin-bottom: 50px; font-size: 2.2rem; }
+        .hero-section h1 {
+            color: var(--navy);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-underline {
+            width: 80px;
+            height: 5px;
+            background: var(--cyan);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+        }
+
+        .hero-section p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* --- Section Titles --- */
+        .section-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Features Section --- */
+        .features-section {
+            padding: 70px 20px 90px;
+            background: var(--gray-bg);
+        }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
         .feature-card {
             background: var(--white);
             padding: 40px 25px;
-            border-radius: 20px;
+            border-radius: 24px;
             text-align: center;
-            transition: 0.3s;
-            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(17, 17, 58, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(17, 17, 58, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 212, 255, 0.4);
         }
 
-        .feature-card i { font-size: 2.5rem; color: var(--cyan); margin-bottom: 20px; }
-        .feature-card h3 { color: var(--navy); margin-bottom: 15px; }
-        .feature-card p { color: #777; font-size: 0.9rem; line-height: 1.6; }
+        .feature-card:hover::before {
+            opacity: 1;
+        }
 
-        /* --- Brand Showcase --- */
-        .brand-section { padding: 80px 20px; text-align: center; }
-        
-        .brand-container {
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 40px;
-            margin-top: 40px;
+            justify-content: center;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .icon-box {
+            background: var(--navy);
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--cyan);
+        }
+
+        .feature-card i {
+            font-size: 2.2rem;
+            color: var(--navy);
+            transition: color 0.4s ease;
+        }
+
+        .feature-card:hover i {
+            color: var(--cyan);
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 8px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .brand-box {
+        .tech-tags span {
+            background: var(--gray-bg);
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(17, 17, 58, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .tech-tags span {
+            background: rgba(17, 17, 58, 0.05);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        /* --- Brand Section --- */
+        .brand-section {
+            padding: 80px 20px;
             background: var(--white);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            width: 200px;
-            transition: 0.3s;
         }
 
-        .brand-box:hover { transform: scale(1.1); }
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
 
-        .brand-logo {
-            width: 100%;
-            height: 100px;
+        .brand-card {
+            background: var(--gray-bg);
+            border-radius: 20px;
+            padding: 35px 20px;
+            text-align: center;
+            border: 2px solid rgba(17, 17, 58, 0.05);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .brand-card:hover {
+            background: var(--white);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-sm);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .brand-card img {
+            max-height: 65px;
+            max-width: 100%;
             object-fit: contain;
-            margin-bottom: 10px;
+            /* filter: grayscale(100%); */
+            opacity: 0.7;
+            transition: all 0.3s ease;
         }
 
-        .brand-box h4 { color: var(--navy); font-weight: 700; }
+        .brand-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .brand-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .brand-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
 
         /* --- CTA Section --- */
         .cta-section {
             padding: 100px 20px;
             text-align: center;
-            background: var(--navy);
-            color: white;
-            margin-top: 50px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-size: 1.1rem;
         }
 
         .cta-btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 18px 50px;
+            padding: 18px 45px;
             background: var(--cyan);
             color: var(--navy);
             text-decoration: none;
             font-weight: 800;
             border-radius: 50px;
-            transition: 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
         }
 
-        .cta-btn:hover { background: white; transform: scale(1.1); }
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+        }
 
-        /* --- Mobile --- */
+        /* --- Animations & Responsive --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 768px) {
+            #elastic-cursor { display: none !important; }
             .hero-section h1 { font-size: 2.5rem; }
-            .section-heading { font-size: 1.8rem; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
         }
     </style>
 </head>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<div id="elastic-cursor"></div>
-
-<style>
-    #elastic-cursor {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background-color: rgb(17, 17, 58); /* Aapka Navy Blue Color */
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 99999;
-        /* Glow effect taake dark bg par nazar aaye */
-        box-shadow: 0 0 10px rgba(17, 17, 58, 0.4);
-        transform-origin: center center;
-    }
-
-    /* Jab link par jaye to cursor white ho jaye ya invert ho */
-    .cursor-active {
-        mix-blend-mode: difference;
-        background-color: white !important;
-    }
-     @media (max-width: 768px) {
-    #elastic-cursor {
-        display: none !important;
-    }
-}
-</style>
-
-<script>
-    const cursor = document.querySelector("#elastic-cursor");
-
-    // Cursor position and scale settings
-    let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    let mouse = { x: pos.x, y: pos.y };
-    let speed = 0.15; // Smoothness factor
-
-    // Speed/Stretch Calculation
-    let fpms = 60 / 1000;
-    
-    window.addEventListener("mousemove", e => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
-
-    const xSet = gsap.quickSetter(cursor, "x", "px");
-    const ySet = gsap.quickSetter(cursor, "y", "px");
-
-    gsap.ticker.add((time, deltaTime) => {
-        let delta = deltaTime * fpms;
-        let dt = 1.0 - Math.pow(1.0 - speed, delta);
-        
-        // Calculate distance moved
-        let dx = mouse.x - pos.x;
-        let dy = mouse.y - pos.y;
-        
-        pos.x += dx * dt;
-        pos.y += dy * dt;
-        
-        // Calculate velocity for stretching
-        let velocity = Math.sqrt(dx * dx + dy * dy);
-        let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-        
-        // Velocity ke hisab se stretch (Max stretch limit 2.5 rakhi hai)
-        let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-        let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
-
-        xSet(pos.x - 10); // 10 is half of width
-        ySet(pos.y - 10);
-        
-        // Apply rotation and stretching
-        gsap.set(cursor, {
-            rotation: setRotation,
-            scaleX: setScale,
-            scaleY: setScaleY
-        });
-    });
-
-    // Hover effect on links
-    document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-    });
-</script>
 <body>
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
+
+    <div id="elastic-cursor"></div>
+
+    <!-- Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
             </a>
 
-        <div class="nav-actions">
-            <a href="../index.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
-            </a>
+            <div class="nav-actions">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<style>
-    /* Navigation Styling */
-    .main-nav {
-        background-color: #ffffff; /* White Background */
-        height: 80px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    }
-
-    .nav-container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Logo Styling */
-    .logo img {
-        height: 50px; /* Adjust height according to your logo */
-        display: block;
-    }
-
-    .logo span {
-        color: rgb(17, 17, 58); /* Navy Blue */
-        font-weight: 800;
-        font-size: 1.5rem;
-        text-decoration: none;
-    }
-
-    /* Back Button Styling */
-    .back-btn {
-        background-color: rgb(17, 17, 58); /* Navy Blue */
-        color: #ffffff;
-        text-decoration: none;
-        padding: 10px 25px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        border: 2px solid rgb(17, 17, 58);
-    }
-
-    .back-btn:hover {
-        background-color: transparent;
-        color: rgb(17, 17, 58);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 600px) {
-        .main-nav {
-            height: 70px;
-        }
-        
-        .logo img {
-            height: 40px;
-        }
-
-        .back-btn span {
-            display: none; /* Mobile par sirf arrow dikhega ya text chota ho jayega */
-        }
-        
-        .back-btn {
-            padding: 10px 15px;
-        }
-
-        .back-btn::after {
-            content: 'Back'; /* Mobile par chota text */
-            display: inline-block;
-        }
-    }
-</style>
+    <!-- Hero Section -->
     <header class="hero-section">
         <div class="container">
             <h1>Digital Marketing</h1>
@@ -313,53 +422,88 @@
         </div>
     </header>
 
+    <!-- Marketing Approach Section -->
     <section class="features-section">
         <div class="container">
-            <h2 class="section-heading">Our Marketing Approach</h2>
+            <h2 class="section-title">Our Marketing Approach</h2>
             <div class="feature-grid">
+
                 <div class="feature-card">
-                    <i class="fas fa-search-dollar"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
                     <h3>Market Research</h3>
                     <p>Understanding your competitors and target audience before spending a single penny.</p>
+                    <div class="tech-tags">
+                        <span>Audience Audit</span>
+                        <span>Competitor Analysis</span>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-ad"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-ad"></i>
+                    </div>
                     <h3>Targeted Ads</h3>
                     <p>Meta, Google, and TikTok ads designed for high conversion and low cost per lead.</p>
+                    <div class="tech-tags">
+                        <span>Meta Ads</span>
+                        <span>Google PPC</span>
+                        <span>TikTok</span>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-bullhorn"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
                     <h3>Social Media</h3>
                     <p>Maintaining a strong brand presence across all social platforms with engaging content.</p>
+                    <div class="tech-tags">
+                        <span>Content Strategy</span>
+                        <span>Brand Identity</span>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-chart-line"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <h3>ROI Focused</h3>
                     <p>We focus on sales and leads, not just likes and comments. Your profit is our priority.</p>
+                    <div class="tech-tags">
+                        <span>Lead Gen</span>
+                        <span>Conversion Scale</span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- Brand Showcase Section -->
     <section class="brand-section">
         <div class="container">
-            <h2 class="section-heading">Brands We've Empowered</h2>
-            <div class="brand-container">
-                <div class="brand-box">
-                    <img src="../images/Hareesa.png" alt="Hareesa Brand" class="brand-logo">
+            <h2 class="section-title">Brands We've Empowered</h2>
+            <div class="brand-grid">
+                
+                <div class="brand-card">
+                    <img src="../images/Hareesa.png" alt="Hareesa Brand">
                     <h4>HAREESA</h4>
-                    <p style="font-size: 0.8rem; color: #666;">Social Media & Growth</p>
+                    <p>Social Media & Growth</p>
                 </div>
 
-                <div class="brand-box">
-                    <img src="./images/logos/brand2.png" alt="Client Logo" class="brand-logo">
+                <div class="brand-card">
+                    <img src="./images/logos/brand2.png" alt="HAM SB KA ATTA Brand">
                     <h4>HAM SB KA ATTA</h4>
-                    <p style="font-size: 0.8rem; color: #666;">Full Stack Marketing</p>
+                    <p>Full Stack Marketing</p>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Scale Your Brand?</h2>
@@ -368,5 +512,54 @@
         </div>
     </section>
 
+    <!-- GSAP Cursor Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        const cursor = document.querySelector("#elastic-cursor");
+
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.15;
+        let fpms = 60 / 1000;
+        
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+            
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+            
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+            
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+            
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button, .feature-card, .brand-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
+    </script>
 </body>
 </html>

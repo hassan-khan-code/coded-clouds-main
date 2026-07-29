@@ -4,285 +4,421 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom CRM Solutions - Coded Clouds</title>
+    
+    <!-- External Dependencies matching standard theme -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
         :root {
             --navy: rgb(17, 17, 58);
+            --navy-light: rgb(27, 27, 80);
             --cyan: #00d4ff;
             --white: #ffffff;
-            --gray: #f8f9fa;
+            --gray-bg: #f4f6f9;
+            --text-dark: #2c3e50;
+            --text-muted: #666666;
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-hover: 0 20px 40px rgba(17, 17, 58, 0.12);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--white); color: #333; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Elastic Cursor --- */
+        #elastic-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            transform-origin: center center;
+        }
+
+        .cursor-active {
+            mix-blend-mode: difference;
+            background-color: white !important;
+        }
+
+        /* --- Navigation --- */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background-color: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--navy);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background-color: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
+        }
+
+        /* --- Container --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
         /* --- Hero Section --- */
         .hero-section {
-            padding: 120px 20px 60px;
+            padding: 110px 20px 70px;
             text-align: center;
-            background: var(--white);
+            background: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
+            animation: fadeInDown 1s ease-out;
         }
-        .hero-section h1 { color: var(--navy); font-size: 3.5rem; font-weight: 800; }
-        .hero-underline { width: 80px; height: 5px; background: var(--cyan); margin: 20px auto; border-radius: 10px; }
-        .hero-section p { color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto; line-height: 1.8; }
 
-        /* --- CRM Concept Section --- */
-        .crm-features { padding: 80px 20px; background: var(--gray); }
-        .container { max-width: 1200px; margin: 0 auto; }
-        
-        .section-heading { text-align: center; color: var(--navy); margin-bottom: 50px; font-size: 2.2rem; }
+        .hero-section h1 {
+            color: var(--navy);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-underline {
+            width: 80px;
+            height: 5px;
+            background: var(--cyan);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+        }
+
+        .hero-section p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* --- Section Titles --- */
+        .section-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- CRM Features Section --- */
+        .crm-features {
+            padding: 70px 20px 90px;
+            background: var(--gray-bg);
+        }
 
         .crm-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
+            margin-top: 20px;
         }
 
         .crm-card {
             background: var(--white);
-            padding: 40px 30px;
-            border-radius: 20px;
-            transition: 0.4s;
+            padding: 40px 25px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(17, 17, 58, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             overflow: hidden;
-            border-left: 5px solid var(--navy);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .crm-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(17,17,58,0.1); }
-        .crm-card i { font-size: 2.5rem; color: var(--cyan); margin-bottom: 20px; display: block; }
-        .crm-card h3 { color: var(--navy); margin-bottom: 15px; font-weight: 700; }
-        .crm-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+        .crm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
 
-        /* --- Coming Soon / Innovation Section --- */
-        .innovation-box {
-            margin-top: 80px;
-            padding: 50px;
-            background: var(--navy);
-            color: white;
-            border-radius: 30px;
+        .crm-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .crm-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 40px;
-            text-align: left;
+            justify-content: center;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
         }
 
-        .innovation-text h2 { color: var(--cyan); font-size: 2rem; margin-bottom: 15px; }
-        .innovation-text p { opacity: 0.8; line-height: 1.7; }
+        .crm-card:hover .icon-box {
+            background: var(--navy);
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--cyan);
+        }
+
+        .crm-card i {
+            font-size: 2.2rem;
+            color: var(--navy);
+            transition: color 0.4s ease;
+        }
+
+        .crm-card:hover i {
+            color: var(--cyan);
+        }
+
+        .crm-card h3 {
+            color: var(--navy);
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .crm-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tech-tags span {
+            background: var(--gray-bg);
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(17, 17, 58, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .crm-card:hover .tech-tags span {
+            background: rgba(17, 17, 58, 0.05);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        /* --- Innovation / Showcase Box --- */
+        .innovation-box {
+            margin-top: 70px;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            box-shadow: var(--shadow-hover);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .innovation-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .innovation-box .icon-box-large {
+            width: 90px;
+            height: 90px;
+            min-width: 90px;
+            background: rgba(0, 212, 255, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .innovation-box .icon-box-large i {
+            font-size: 3rem;
+            color: var(--cyan);
+        }
+
+        .innovation-text h2 {
+            color: var(--cyan);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .innovation-text p {
+            opacity: 0.9;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
 
         /* --- CTA Section --- */
         .cta-section {
             padding: 100px 20px;
             text-align: center;
-            background: var(--white);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-size: 1.1rem;
         }
 
         .cta-btn {
             display: inline-block;
-            padding: 18px 50px;
-            background: var(--navy);
-            color: white;
+            padding: 18px 45px;
+            background: var(--cyan);
+            color: var(--navy);
             text-decoration: none;
             font-weight: 800;
             border-radius: 50px;
-            transition: 0.3s;
-            border: 2px solid var(--navy);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
         }
 
-        .cta-btn:hover { background: transparent; color: var(--navy); transform: scale(1.1); }
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+        }
 
-        /* --- Responsive --- */
+        /* --- Animations & Responsive --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 900px) {
+            .innovation-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #elastic-cursor { display: none !important; }
             .hero-section h1 { font-size: 2.5rem; }
-            .innovation-box { flex-direction: column; text-align: center; padding: 30px; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
         }
     </style>
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<div id="elastic-cursor"></div>
-
-<style>
-    #elastic-cursor {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background-color: rgb(17, 17, 58); /* Aapka Navy Blue Color */
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 99999;
-        /* Glow effect taake dark bg par nazar aaye */
-        box-shadow: 0 0 10px rgba(17, 17, 58, 0.4);
-        transform-origin: center center;
-    }
-
-    /* Jab link par jaye to cursor white ho jaye ya invert ho */
-    .cursor-active {
-        mix-blend-mode: difference;
-        background-color: white !important;
-    }
-     @media (max-width: 768px) {
-    #elastic-cursor {
-        display: none !important;
-    }
-}
-</style>
-
-<script>
-    const cursor = document.querySelector("#elastic-cursor");
-
-    // Cursor position and scale settings
-    let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    let mouse = { x: pos.x, y: pos.y };
-    let speed = 0.15; // Smoothness factor
-
-    // Speed/Stretch Calculation
-    let fpms = 60 / 1000;
-    
-    window.addEventListener("mousemove", e => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
-
-    const xSet = gsap.quickSetter(cursor, "x", "px");
-    const ySet = gsap.quickSetter(cursor, "y", "px");
-
-    gsap.ticker.add((time, deltaTime) => {
-        let delta = deltaTime * fpms;
-        let dt = 1.0 - Math.pow(1.0 - speed, delta);
-        
-        // Calculate distance moved
-        let dx = mouse.x - pos.x;
-        let dy = mouse.y - pos.y;
-        
-        pos.x += dx * dt;
-        pos.y += dy * dt;
-        
-        // Calculate velocity for stretching
-        let velocity = Math.sqrt(dx * dx + dy * dy);
-        let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-        
-        // Velocity ke hisab se stretch (Max stretch limit 2.5 rakhi hai)
-        let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-        let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
-
-        xSet(pos.x - 10); // 10 is half of width
-        ySet(pos.y - 10);
-        
-        // Apply rotation and stretching
-        gsap.set(cursor, {
-            rotation: setRotation,
-            scaleX: setScale,
-            scaleY: setScaleY
-        });
-    });
-
-    // Hover effect on links
-    document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-    });
-</script>
 <body>
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
+
+    <div id="elastic-cursor"></div>
+
+    <!-- Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
             </a>
 
-        <div class="nav-actions">
-            <a href="../index.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
-            </a>
+            <div class="nav-actions">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<style>
-    /* Navigation Styling */
-    .main-nav {
-        background-color: #ffffff; /* White Background */
-        height: 80px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    }
-
-    .nav-container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Logo Styling */
-    .logo img {
-        height: 50px; /* Adjust height according to your logo */
-        display: block;
-    }
-
-    .logo span {
-        color: rgb(17, 17, 58); /* Navy Blue */
-        font-weight: 800;
-        font-size: 1.5rem;
-        text-decoration: none;
-    }
-
-    /* Back Button Styling */
-    .back-btn {
-        background-color: rgb(17, 17, 58); /* Navy Blue */
-        color: #ffffff;
-        text-decoration: none;
-        padding: 10px 25px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        border: 2px solid rgb(17, 17, 58);
-    }
-
-    .back-btn:hover {
-        background-color: transparent;
-        color: rgb(17, 17, 58);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 600px) {
-        .main-nav {
-            height: 70px;
-        }
-        
-        .logo img {
-            height: 40px;
-        }
-
-        .back-btn span {
-            display: none; /* Mobile par sirf arrow dikhega ya text chota ho jayega */
-        }
-        
-        .back-btn {
-            padding: 10px 15px;
-        }
-
-        .back-btn::after {
-            content: 'Back'; /* Mobile par chota text */
-            display: inline-block;
-        }
-    }
-</style>
+    <!-- Hero Section -->
     <header class="hero-section">
         <div class="container">
             <h1>Custom CRM Solutions</h1>
@@ -291,53 +427,134 @@
         </div>
     </header>
 
+    <!-- CRM Features Section -->
     <section class="crm-features">
         <div class="container">
-            <h2 class="section-heading">Why Choose Coded Clouds CRM?</h2>
+            <h2 class="section-title">Why Choose Coded Clouds CRM?</h2>
             
             <div class="crm-grid">
+
                 <div class="crm-card">
-                    <i class="fas fa-users-cog"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
                     <h3>Lead Management</h3>
                     <p>Track your potential customers from first contact to final sale. Never miss a follow-up again.</p>
+                    <div class="tech-tags">
+                        <span>Pipeline Tracker</span>
+                        <span>Follow-ups</span>
+                    </div>
                 </div>
 
                 <div class="crm-card">
-                    <i class="fas fa-chart-bar"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
                     <h3>Sales Analytics</h3>
                     <p>Get real-time insights into your sales performance with automated reports and visual dashboards.</p>
+                    <div class="tech-tags">
+                        <span>Visual Dashboards</span>
+                        <span>Live Reports</span>
+                    </div>
                 </div>
 
                 <div class="crm-card">
-                    <i class="fas fa-envelope-open-text"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
                     <h3>Automated Communication</h3>
                     <p>Integrate Email and WhatsApp automation to keep your clients engaged without manual work.</p>
+                    <div class="tech-tags">
+                        <span>WhatsApp API</span>
+                        <span>Email Triggers</span>
+                    </div>
                 </div>
 
                 <div class="crm-card">
-                    <i class="fas fa-shield-alt"></i>
+                    <div class="icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <h3>Data Privacy</h3>
                     <p>Your customer data is your most valuable asset. We use bank-grade encryption to keep it safe.</p>
+                    <div class="tech-tags">
+                        <span>End-to-End Encryption</span>
+                        <span>RBAC Access</span>
+                    </div>
                 </div>
+
             </div>
 
+            <!-- Future-Ready Innovation Box -->
             <div class="innovation-box">
-                <i class="fas fa-rocket" style="font-size: 4rem; color: var(--cyan);"></i>
+                <div class="icon-box-large">
+                    <i class="fas fa-rocket"></i>
+                </div>
                 <div class="innovation-text">
                     <h2>Future-Ready Systems</h2>
                     <p>While every business is unique, we are currently designing a baseline CRM architecture that will allow for faster deployment and deeper customization for our future clients.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2 style="color: var(--navy); margin-bottom: 20px;">Want a CRM built for YOUR business?</h2>
-            <p style="margin-bottom: 40px; color: #666;">Let's discuss your requirements and build a system that saves you hours of manual work.</p>
+            <h2>Want a CRM built for YOUR business?</h2>
+            <p>Let's discuss your requirements and build a system that saves you hours of manual work.</p>
             <a href="./contact.html" class="cta-btn">Get A Quote</a>
         </div>
     </section>
 
+    <!-- GSAP Cursor Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        const cursor = document.querySelector("#elastic-cursor");
+
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.15;
+        let fpms = 60 / 1000;
+        
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+            
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+            
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+            
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+            
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button, .crm-card, .innovation-box').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
+    </script>
 </body>
 </html>

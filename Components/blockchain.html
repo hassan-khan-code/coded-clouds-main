@@ -18,7 +18,7 @@
             --text: #1e293b;
             --text-light: #64748b;
             --blockchain-glow: #00d2ff;
-            --purple:#00d2ff;
+            --purple: #00d2ff;
         }
 
         * {
@@ -128,7 +128,7 @@
            HERO SECTION
         ======================================== */
         .hero-section {
-            padding: 80px 20px 60px;
+            padding: 100px 20px 80px;
             text-align: center;
             background: linear-gradient(180deg, var(--gray) 0%, var(--white) 100%);
             position: relative;
@@ -142,26 +142,10 @@
             right: -20%;
             width: 60%;
             height: 80%;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.05), transparent 70%);
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.05), transparent 70%);
             pointer-events: none;
         }
 
-        .hero-section .icon-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(0, 210, 255, 0.05));
-            border-radius: 50%;
-            font-size: 2.5rem;
-            color: var(--purple);
-            margin-bottom: 20px;
-            border: 1px solid #00d2ff;
-            animation: pulseGlow 3s ease-in-out infinite;
-        }
-
- 
         .hero-section h1 {
             color: var(--navy);
             font-size: clamp(2.5rem, 6vw, 3.8rem);
@@ -183,7 +167,7 @@
             background: linear-gradient(90deg, var(--purple), var(--cyan));
             margin: 20px auto;
             border-radius: 10px;
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
         }
 
         .hero-section p {
@@ -260,7 +244,7 @@
         .blockchain-card:hover {
             transform: translateY(-12px);
             box-shadow: 0 25px 50px rgba(17, 17, 58, 0.08);
-            border-color: rgba(124, 58, 237, 0.1);
+            border-color: rgba(0, 210, 255, 0.1);
         }
 
         .blockchain-card .card-icon {
@@ -269,20 +253,20 @@
             justify-content: center;
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(0, 210, 255, 0.04));
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(0, 210, 255, 0.04));
             border-radius: 18px;
             font-size: 2.2rem;
             color: var(--navy);
             margin-bottom: 20px;
             transition: 0.3s;
-            border: 1px solid rgba(124, 58, 237, 0.06);
+            border: 1px solid rgba(0, 210, 255, 0.06);
         }
 
         .blockchain-card:hover .card-icon {
-            background: linear-gradient(135deg, var(--purple), #6d28d9);
+            background: linear-gradient(135deg, var(--purple), #0099cc);
             color: var(--white);
             transform: scale(1.05) rotate(-5deg);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
         }
 
         .blockchain-card h3 {
@@ -305,10 +289,10 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding: 4px 14px;
-            background: rgba(124, 58, 237, 0.06);
+            background: rgba(0, 210, 255, 0.06);
             color: var(--purple);
             border-radius: 50px;
-            border: 1px solid rgba(124, 58, 237, 0.06);
+            border: 1px solid rgba(0, 210, 255, 0.06);
             margin-top: 12px;
         }
 
@@ -331,7 +315,7 @@
             right: -20%;
             width: 60%;
             height: 200%;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.05), transparent 70%);
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.05), transparent 70%);
             pointer-events: none;
         }
 
@@ -409,7 +393,7 @@
             align-items: center;
             gap: 12px;
             padding: 18px 50px;
-            background: linear-gradient(135deg, var(--purple), #6d28d9);
+            background: linear-gradient(135deg, var(--purple), #0099cc);
             color: white;
             text-decoration: none;
             font-weight: 700;
@@ -417,14 +401,14 @@
             border-radius: 50px;
             transition: 0.3s;
             border: 2px solid var(--purple);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
         }
 
         .cta-btn:hover {
             background: transparent;
             color: var(--purple);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.25);
         }
 
         .cta-btn i {
@@ -446,11 +430,6 @@
             }
             .hero-section h1 {
                 font-size: 2.2rem;
-            }
-            .hero-section .icon-badge {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
             }
             .blockchain-features {
                 padding: 50px 20px 70px;
@@ -534,9 +513,6 @@
     <!-- ===== HERO SECTION ===== -->
     <header class="hero-section" data-aos="fade-up">
         <div class="container">
-            <div class="icon-badge">
-                <i class="fas fa-link"></i>
-            </div>
             <h1>Blockchain <span>Technology</span></h1>
             <div class="hero-underline"></div>
             <p>Build trust, transparency, and security with decentralized solutions. From smart contracts to DeFi platforms, we develop enterprise-grade blockchain applications.</p>
