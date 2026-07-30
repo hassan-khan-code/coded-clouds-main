@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity - Coded Clouds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/fav.png">
+    
+    <style>
+        :root { --navy: #11113a; --cyan: #00d2ff; --white: #ffffff; --gray: #f8fafc; --text: #1e293b; --text-light: #64748b; --purple: #00d2ff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--white); color: var(--text); overflow-x: hidden; }
+
+        #elastic-cursor { position: fixed; width: 20px; height: 20px; background-color: var(--navy); border-radius: 50%; pointer-events: none; z-index: 99999; box-shadow: 0 0 20px var(--cyan); }
+        .cursor-active { mix-blend-mode: difference; background-color: white !important; width: 30px !important; height: 30px !important; }
+        @media (max-width: 768px) { #elastic-cursor { display: none !important; } }
+
+        .main-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); height: 80px; width: 100%; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.04); }
+        .nav-container { width: 90%; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 45px; }
+        .back-btn { background: var(--navy); color: var(--white); text-decoration: none; padding: 10px 28px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; border: 2px solid var(--navy); }
+
+        .hero-section { padding: 100px 20px 80px; text-align: center; background: linear-gradient(180deg, var(--gray) 0%, var(--white) 100%); }
+        .hero-section h1 { color: var(--navy); font-size: clamp(2.5rem, 6vw, 3.8rem); font-weight: 800; text-transform: uppercase; }
+        .hero-section h1 span { background: linear-gradient(135deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-underline { width: 80px; height: 5px; background: linear-gradient(90deg, var(--purple), var(--cyan)); margin: 20px auto; border-radius: 10px; }
+        .hero-section p { color: var(--text-light); font-size: 1.15rem; max-width: 750px; margin: 0 auto; line-height: 1.8; }
+
+        .features-section { padding: 80px 20px 100px; background: var(--white); }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-heading { text-align: center; color: var(--navy); margin-bottom: 15px; font-size: 2.2rem; font-weight: 800; }
+        .section-subtitle { text-align: center; color: var(--text-light); font-size: 1.05rem; margin-bottom: 50px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 40px 30px; border-radius: 24px; text-align: center; transition: all 0.4s ease; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(17, 17, 58, 0.08); }
+        .card .card-icon { display: inline-flex; align-items: center; justify-content: center; width: 70px; height: 70px; background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(0, 210, 255, 0.04)); border-radius: 18px; font-size: 2.2rem; color: var(--navy); margin-bottom: 20px; }
+        .card:hover .card-icon { background: linear-gradient(135deg, var(--purple), #0099cc); color: var(--white); transform: scale(1.05) rotate(-5deg); }
+        .card h3 { color: var(--navy); margin-bottom: 12px; font-size: 1.3rem; font-weight: 700; }
+        .card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+        .tag { display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; padding: 4px 14px; background: rgba(0, 210, 255, 0.06); color: var(--purple); border-radius: 50px; margin-top: 12px; }
+
+        .concept-section { padding: 100px 20px; text-align: center; background: var(--navy); color: white; }
+        .concept-section h2 { color: var(--cyan); margin-bottom: 20px; font-size: 2.5rem; font-weight: 800; }
+        .concept-section p { max-width: 750px; margin: 0 auto; opacity: 0.85; font-size: 1.1rem; line-height: 1.8; }
+        .concept-stats { display: flex; justify-content: center; gap: 60px; margin-top: 40px; flex-wrap: wrap; }
+        .concept-stats .stat .number { font-size: 2.5rem; font-weight: 800; color: var(--purple); }
+        .concept-stats .stat .label { font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; }
+
+        .cta-section { padding: 80px 20px 100px; text-align: center; background: var(--gray); }
+        .cta-section h2 { color: var(--navy); font-weight: 800; font-size: 2.2rem; margin-bottom: 15px; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 50px; background: linear-gradient(135deg, var(--purple), #0099cc); color: white; text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s; }
+        .cta-btn:hover { background: transparent; color: var(--purple); transform: translateY(-5px); }
+
+        @media (max-width: 768px) { .hero-section h1 { font-size: 2.2rem; } .back-btn span { display: none; } }
+    </style>
+</head>
+<body>
+    <div id="elastic-cursor"></div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><img src="../images/logo.webp" alt="Coded Clouds Logo"></a>
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span>Back to Home</span></a>
+        </div>
+    </nav>
+
+    <header class="hero-section" data-aos="fade-up">
+        <div class="container">
+            <h1>Cyber<span>security</span></h1>
+            <div class="hero-underline"></div>
+            <p>Protect your critical infrastructure, client data, and web assets from evolving digital threats and vulnerabilities.</p>
+        </div>
+    </header>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-heading" data-aos="fade-up">Security & Defense Solutions</h2>
+            <p class="section-subtitle" data-aos="fade-up">Proactive protection models for modern enterprises.</p>
+
+            <div class="grid">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-user-ninja"></i></div>
+                    <h3>Penetration Testing</h3>
+                    <p>Simulated cyberattacks to expose vulnerabilities before malicious hackers can exploit them.</p>
+                    <span class="tag">Pentesting</span>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Data Encryption</h3>
+                    <p>End-to-end encryption protocols for data at rest and in transit to safeguard sensitive records.</p>
+                    <span class="tag">Privacy</span>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fas fa-shield-virus"></i></div>
+                    <h3>WAF & DDoS Protection</h3>
+                    <p>Implement Web Application Firewalls and cloud-based mitigation to stop DDoS attacks instant.</p>
+                    <span class="tag">Firewall</span>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fas fa-key"></i></div>
+                    <h3>Identity Management (IAM)</h3>
+                    <p>Enforce role-based access control, multi-factor authentication (MFA), and zero-trust security.</p>
+                    <span class="tag">Zero Trust</span>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon"><i class="fas fa-file-shield"></i></div>
+                    <h3>Compliance Audits</h3>
+                    <p>Ensure your software adheres to GDPR, HIPAA, SOC 2, and ISO 27001 compliance standards.</p>
+                    <span class="tag">Compliance</span>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card-icon"><i class="fas fa-bell-exclamation"></i></div>
+                    <h3>Incident Response</h3>
+                    <p>24/7 monitoring and action plans to contain breaches and restore services instantly.</p>
+                    <span class="tag">24/7 Response</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="concept-section" data-aos="fade-up">
+        <div class="container">
+            <h2>Proactive Threat Mitigation</h2>
+            <p>Our security framework safeguards systems from data breaches, securing customer trust and operational uptime.</p>
+            <div class="concept-stats">
+                <div class="stat"><div class="number">24/7</div><div class="label">Threat Monitoring</div></div>
+                <div class="stat"><div class="number">100%</div><div class="label">Encrypted Networks</div></div>
+                <div class="stat"><div class="number">Zero</div><div class="label">Unchecked Leaks</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" data-aos="fade-up">
+        <div class="container">
+            <h2>Need a Security Audit for Your Web App?</h2>
+            <p>Speak with our security team to patch vulnerabilities today.</p>
+            <a href="./contact.html" class="cta-btn"><i class="fas fa-rocket"></i> Get Started</a>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        const cursor = document.querySelector("#elastic-cursor");
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 }, mouse = { x: pos.x, y: pos.y };
+        window.addEventListener("mousemove", e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        gsap.ticker.add(() => {
+            pos.x += (mouse.x - pos.x) * 0.12; pos.y += (mouse.y - pos.y) * 0.12;
+            gsap.set(cursor, { x: pos.x - 10, y: pos.y - 10 });
+        });
+        document.querySelectorAll('a, button, .card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
+    </script>
+</body>
+</html>

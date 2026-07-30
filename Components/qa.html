@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Assurance - Coded Clouds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/fav.png">
+    
+    <style>
+        :root {
+            --navy: rgb(17, 17, 58);
+            --navy-light: rgb(27, 27, 80);
+            --cyan: #00d4ff;
+            --white: #ffffff;
+            --gray-bg: #f4f6f9;
+            --text-dark: #2c3e50;
+            --text-muted: #666666;
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-hover: 0 20px 40px rgba(17, 17, 58, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* --- Elastic Cursor --- */
+        #elastic-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            transform-origin: center center;
+        }
+
+        .cursor-active {
+            mix-blend-mode: difference;
+            background-color: white !important;
+        }
+
+        /* --- Navigation --- */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background-color: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--navy);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background-color: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 110px 20px 70px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            color: var(--navy);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-underline {
+            width: 80px;
+            height: 5px;
+            background: var(--cyan);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+        }
+
+        .hero-section p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* --- Features Section --- */
+        .features-section {
+            padding: 70px 20px 90px;
+            background: var(--gray-bg);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(17, 17, 58, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Top Gradient Accent on Hover */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .icon-box {
+            background: var(--navy);
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--cyan);
+        }
+
+        .feature-card i {
+            font-size: 2.2rem;
+            color: var(--navy);
+            transition: color 0.4s ease;
+        }
+
+        .feature-card:hover i {
+            color: var(--cyan);
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tech-tags span {
+            background: var(--gray-bg);
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(17, 17, 58, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .tech-tags span {
+            background: rgba(17, 17, 58, 0.05);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: -30px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--cyan);
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- Keyframe Animations & Responsive --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            #elastic-cursor { display: none !important; }
+            .hero-section h1 { font-size: 2.5rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="elastic-cursor"></div>
+
+    <!-- Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
+            </a>
+
+            <div class="nav-actions">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1>Quality Assurance</h1>
+            <div class="hero-underline"></div>
+            <p>Ensure robust, flaw-free software with end-to-end testing strategies, automated execution, and performance benchmarking for flawless digital experiences.</p>
+        </div>
+    </header>
+
+    <!-- QA Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="feature-grid">
+                
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automated Testing</h3>
+                    <p>Speed up deployment cycles with automated test suites for UI, APIs, and regression testing using modern tools.</p>
+                    <div class="tech-tags">
+                        <span>Selenium</span>
+                        <span>Cypress</span>
+                        <span>Playwright</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <h3>Manual & Exploratory</h3>
+                    <p>Meticulous human testing focusing on real-world usability, edge cases, and user journey validation.</p>
+                    <div class="tech-tags">
+                        <span>UX Audit</span>
+                        <span>Usability</span>
+                        <span>Edge Cases</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Performance & Load</h3>
+                    <p>Simulate high traffic conditions to verify application stability, response times, and system scalability.</p>
+                    <div class="tech-tags">
+                        <span>JMeter</span>
+                        <span>k6</span>
+                        <span>Stress Test</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Cross-Platform Testing</h3>
+                    <p>Seamless functionality tests across various operating systems, browsers, and mobile screen sizes.</p>
+                    <div class="tech-tags">
+                        <span>BrowserStack</span>
+                        <span>iOS & Android</span>
+                        <span>Responsive</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>API & Integration</h3>
+                    <p>Thorough verification of backend services, microservices, and third-party API communications.</p>
+                    <div class="tech-tags">
+                        <span>Postman</span>
+                        <span>REST APIs</span>
+                        <span>GraphQL</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Security Auditing</h3>
+                    <p>Identify code vulnerabilities and data leaks prior to deployment to meet industry compliance standards.</p>
+                    <div class="tech-tags">
+                        <span>OWASP</span>
+                        <span>PenTesting</span>
+                        <span>Vulnerability</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Test Your Application?</h2>
+            <p>Get a complete quality audit on your digital product and eliminate bugs before deployment.</p>
+            <a href="./contact.html" class="cta-btn">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- GSAP Cursor Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        const cursor = document.querySelector("#elastic-cursor");
+
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.15;
+        let fpms = 60 / 1000;
+        
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+            
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+            
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+            
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+            
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button, .feature-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
+    </script>
+</body>
+</html>
