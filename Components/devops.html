@@ -5,155 +5,560 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Solutions - Coded Clouds</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
-        :root { --navy: #11113a; --cyan: #00d2ff; --white: #ffffff; --gray: #f8fafc; --text: #1e293b; --text-light: #64748b; --purple: #00d2ff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--white); color: var(--text); overflow-x: hidden; }
+        :root {
+            --navy: rgb(17, 17, 58);
+            --navy-light: rgb(27, 27, 80);
+            --cyan: #00d4ff;
+            --white: #ffffff;
+            --gray-bg: #f4f6f9;
+            --text-dark: #2c3e50;
+            --text-muted: #666666;
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-hover: 0 20px 40px rgba(17, 17, 58, 0.12);
+        }
 
-        #elastic-cursor { position: fixed; width: 20px; height: 20px; background-color: var(--navy); border-radius: 50%; pointer-events: none; z-index: 99999; box-shadow: 0 0 20px var(--cyan); }
-        .cursor-active { mix-blend-mode: difference; background-color: white !important; width: 30px !important; height: 30px !important; }
-        @media (max-width: 768px) { #elastic-cursor { display: none !important; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-        .main-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); height: 80px; width: 100%; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.04); }
-        .nav-container { width: 90%; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 45px; }
-        .back-btn { background: var(--navy); color: var(--white); text-decoration: none; padding: 10px 28px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; border: 2px solid var(--navy); }
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
 
-        .hero-section { padding: 100px 20px 80px; text-align: center; background: linear-gradient(180deg, var(--gray) 0%, var(--white) 100%); }
-        .hero-section h1 { color: var(--navy); font-size: clamp(2.5rem, 6vw, 3.8rem); font-weight: 800; text-transform: uppercase; }
-        .hero-section h1 span { background: linear-gradient(135deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-underline { width: 80px; height: 5px; background: linear-gradient(90deg, var(--purple), var(--cyan)); margin: 20px auto; border-radius: 10px; }
-        .hero-section p { color: var(--text-light); font-size: 1.15rem; max-width: 750px; margin: 0 auto; line-height: 1.8; }
+        /* --- Elastic Cursor --- */
+        #elastic-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: var(--navy);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            transform-origin: center center;
+        }
 
-        .features-section { padding: 80px 20px 100px; background: var(--white); }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .section-heading { text-align: center; color: var(--navy); margin-bottom: 15px; font-size: 2.2rem; font-weight: 800; }
-        .section-subtitle { text-align: center; color: var(--text-light); font-size: 1.05rem; margin-bottom: 50px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: var(--white); padding: 40px 30px; border-radius: 24px; text-align: center; transition: all 0.4s ease; border: 1px solid rgba(0, 0, 0, 0.04); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02); }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(17, 17, 58, 0.08); }
-        .card .card-icon { display: inline-flex; align-items: center; justify-content: center; width: 70px; height: 70px; background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(0, 210, 255, 0.04)); border-radius: 18px; font-size: 2.2rem; color: var(--navy); margin-bottom: 20px; }
-        .card:hover .card-icon { background: linear-gradient(135deg, var(--purple), #0099cc); color: var(--white); transform: scale(1.05) rotate(-5deg); }
-        .card h3 { color: var(--navy); margin-bottom: 12px; font-size: 1.3rem; font-weight: 700; }
-        .card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
-        .tag { display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; padding: 4px 14px; background: rgba(0, 210, 255, 0.06); color: var(--purple); border-radius: 50px; margin-top: 12px; }
+        .cursor-active {
+            mix-blend-mode: difference;
+            background-color: white !important;
+        }
 
-        .concept-section { padding: 100px 20px; text-align: center; background: var(--navy); color: white; }
-        .concept-section h2 { color: var(--cyan); margin-bottom: 20px; font-size: 2.5rem; font-weight: 800; }
-        .concept-section p { max-width: 750px; margin: 0 auto; opacity: 0.85; font-size: 1.1rem; line-height: 1.8; }
-        .concept-stats { display: flex; justify-content: center; gap: 60px; margin-top: 40px; flex-wrap: wrap; }
-        .concept-stats .stat .number { font-size: 2.5rem; font-weight: 800; color: var(--purple); }
-        .concept-stats .stat .label { font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; }
+        /* --- Navigation --- */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+        }
 
-        .cta-section { padding: 80px 20px 100px; text-align: center; background: var(--gray); }
-        .cta-section h2 { color: var(--navy); font-weight: 800; font-size: 2.2rem; margin-bottom: 15px; }
-        .cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 50px; background: linear-gradient(135deg, var(--purple), #0099cc); color: white; text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s; }
-        .cta-btn:hover { background: transparent; color: var(--purple); transform: translateY(-5px); }
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        @media (max-width: 768px) { .hero-section h1 { font-size: 2.2rem; } .back-btn span { display: none; } }
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background-color: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--navy);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background-color: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 110px 20px 70px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            color: var(--navy);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-underline {
+            width: 80px;
+            height: 5px;
+            background: var(--cyan);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+        }
+
+        .hero-section p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* --- Features Section --- */
+        .features-section {
+            padding: 70px 20px 90px;
+            background: var(--gray-bg);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(17, 17, 58, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Top Gradient Accent on Hover */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .icon-box {
+            background: var(--navy);
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--cyan);
+        }
+
+        .feature-card i {
+            font-size: 2.2rem;
+            color: var(--navy);
+            transition: color 0.4s ease;
+        }
+
+        .feature-card:hover i {
+            color: var(--cyan);
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tech-tags span {
+            background: var(--gray-bg);
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(17, 17, 58, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .tech-tags span {
+            background: rgba(17, 17, 58, 0.05);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        /* --- Concept Stats Section --- */
+        .concept-section {
+            padding: 90px 20px;
+            text-align: center;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .concept-section h2 {
+            color: var(--cyan);
+            margin-bottom: 15px;
+            font-size: 2.3rem;
+            font-weight: 800;
+        }
+
+        .concept-section p {
+            max-width: 750px;
+            margin: 0 auto;
+            opacity: 0.85;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .concept-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 45px;
+            flex-wrap: wrap;
+        }
+
+        .concept-stats .stat .number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--cyan);
+        }
+
+        .concept-stats .stat .label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* --- CTA Section (Light Mode Updated) --- */
+        .cta-section {
+            padding: 90px 20px;
+            text-align: center;
+            background: var(--white);
+            color: var(--navy);
+            border-top: 1px solid rgba(17, 17, 58, 0.05);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .cta-section p {
+            margin-bottom: 35px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 42px;
+            background: var(--navy);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--navy);
+            box-shadow: 0 8px 20px rgba(17, 17, 58, 0.15);
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(17, 17, 58, 0.2);
+        }
+
+        /* --- Keyframe Animations & Responsive --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            #elastic-cursor { display: none !important; }
+            .hero-section h1 { font-size: 2.5rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .concept-stats { gap: 30px; }
+        }
     </style>
 </head>
 <body>
+
     <div id="elastic-cursor"></div>
 
+    <!-- Navigation Header -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="../index.html" class="logo"><img src="../images/logo.webp" alt="Coded Clouds Logo"></a>
-            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span>Back to Home</span></a>
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
+            </a>
+
+            <div class="nav-actions">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
         </div>
     </nav>
 
-    <header class="hero-section" data-aos="fade-up">
+    <!-- Hero Section -->
+    <header class="hero-section">
         <div class="container">
-            <h1>DevOps <span>Solutions</span></h1>
+            <h1>DevOps Solutions</h1>
             <div class="hero-underline"></div>
             <p>Accelerate your release cycles, streamline cloud infrastructure, and achieve continuous delivery with robust DevOps practices.</p>
         </div>
     </header>
 
+    <!-- Capabilities Section -->
     <section class="features-section">
         <div class="container">
-            <h2 class="section-heading" data-aos="fade-up">Cloud & DevOps Capabilities</h2>
-            <p class="section-subtitle" data-aos="fade-up">Automate workflows and optimize cloud infrastructure for high performance.</p>
-
-            <div class="grid">
-                <div class="card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="feature-grid">
+                
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
                     <h3>CI/CD Pipelines</h3>
                     <p>Automated build, test, and deployment pipelines using GitHub Actions, Jenkins, or GitLab for instant updates.</p>
-                    <span class="tag">CI/CD</span>
+                    <div class="tech-tags">
+                        <span>GitHub Actions</span>
+                        <span>Jenkins</span>
+                        <span>GitLab CI</span>
+                    </div>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
                     <h3>Cloud Infrastructure</h3>
                     <p>Design and deploy scalable cloud environments on AWS, Google Cloud, or Microsoft Azure.</p>
-                    <span class="tag">Cloud Architecture</span>
+                    <div class="tech-tags">
+                        <span>AWS</span>
+                        <span>GCP</span>
+                        <span>Azure</span>
+                    </div>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-icon"><i class="fas fa-cubes"></i></div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-cubes"></i>
+                    </div>
                     <h3>Docker & Kubernetes</h3>
                     <p>Containerize applications and orchestrate microservices for maximum elasticity and uptime.</p>
-                    <span class="tag">Containers</span>
+                    <div class="tech-tags">
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>Helm</span>
+                    </div>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card-icon"><i class="fas fa-terminal"></i></div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-terminal"></i>
+                    </div>
                     <h3>Infrastructure as Code</h3>
                     <p>Automate resource provisioning using Terraform and Ansible for repeatable setup.</p>
-                    <span class="tag">IaC</span>
+                    <div class="tech-tags">
+                        <span>Terraform</span>
+                        <span>Ansible</span>
+                        <span>CloudFormation</span>
+                    </div>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <h3>Monitoring & Alerts</h3>
                     <p>Set up real-time server monitoring, logging, and automated failure recovery using Prometheus & Grafana.</p>
-                    <span class="tag">Observability</span>
+                    <div class="tech-tags">
+                        <span>Prometheus</span>
+                        <span>Grafana</span>
+                        <span>ELK Stack</span>
+                    </div>
                 </div>
-                <div class="card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="card-icon"><i class="fas fa-coins"></i></div>
+
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-coins"></i>
+                    </div>
                     <h3>FinOps & Cost Control</h3>
                     <p>Audit cloud expenses and optimize resource allocation to eliminate wasteful cloud spending.</p>
-                    <span class="tag">Cost Optimization</span>
+                    <div class="tech-tags">
+                        <span>Cost Audit</span>
+                        <span>Auto-Scaling</span>
+                        <span>Optimization</span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section class="concept-section" data-aos="fade-up">
+    <!-- Concept / Stats Section -->
+    <section class="concept-section">
         <div class="container">
             <h2>Streamlined Deployment Automation</h2>
             <p>From initial commit to live production, our DevOps workflows ensure reliable, fast, and automated release cycles.</p>
             <div class="concept-stats">
-                <div class="stat"><div class="number">99.99%</div><div class="label">Target Uptime</div></div>
-                <div class="stat"><div class="number">0s</div><div class="label">Zero Downtime Releases</div></div>
-                <div class="stat"><div class="number">5x</div><div class="label">Deployment Speed</div></div>
+                <div class="stat">
+                    <div class="number">99.99%</div>
+                    <div class="label">Target Uptime</div>
+                </div>
+                <div class="stat">
+                    <div class="number">0s</div>
+                    <div class="label">Zero Downtime Releases</div>
+                </div>
+                <div class="stat">
+                    <div class="number">5x</div>
+                    <div class="label">Deployment Speed</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section" data-aos="fade-up">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
             <h2>Ready to Automate Your Infrastructure?</h2>
             <p>Consult with our cloud engineers to modernize your delivery pipeline.</p>
-            <a href="./contact.html" class="cta-btn"><i class="fas fa-rocket"></i> Get Started</a>
+            <a href="./contact.html" class="cta-btn">Get Started Now</a>
         </div>
     </section>
 
+    <!-- GSAP Cursor Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
         const cursor = document.querySelector("#elastic-cursor");
-        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 }, mouse = { x: pos.x, y: pos.y };
-        window.addEventListener("mousemove", e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-        gsap.ticker.add(() => {
-            pos.x += (mouse.x - pos.x) * 0.12; pos.y += (mouse.y - pos.y) * 0.12;
-            gsap.set(cursor, { x: pos.x - 10, y: pos.y - 10 });
+
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.15;
+        let fpms = 60 / 1000;
+        
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
         });
-        document.querySelectorAll('a, button, .card').forEach(el => {
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+            
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+            
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+            
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+            
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button, .feature-card').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
         });
