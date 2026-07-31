@@ -212,6 +212,61 @@
 <div id="elastic-cursor"></div>
 
 <style>
+
+       /* --- Navigation --- */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background-color: #0f172a;
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--navy);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background-color: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
+        }
+
+
     #elastic-cursor {
         position: fixed;
         width: 20px;
@@ -294,59 +349,21 @@
 </script>
 <body>
 
-      <!-- Navbar section -->
+    <!-- Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
+            </a>
 
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    
-    <!-- Logo with Image Tag -->
-    <a href="../index.html" class="navbar-brand p-0 m-0">
-      <img src="../images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
-    </a>
+            <div class="nav-actions">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Mobile Toggler Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Nav Items -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      
-      <!-- Center Links -->
-      <div class="center-nav-container d-flex align-items-center gap-1 mx-auto">
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDo" aria-controls="offcanvasDo">
-          WHAT WE DO
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHelp" aria-controls="offcanvasHelp">
-          WHO WE HELP
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWho" aria-controls="offcanvasWho">
-          WHO WE ARE
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVentures" aria-controls="offcanvasVentures">
-          OUR VENTURES
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasJoin" aria-controls="offcanvasJoin">
-          JOIN US
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam" aria-controls="offcanvasTeam">
-          OUR TEAM
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasstory" aria-controls="offcanvasstory">
-          OUR STORY
-        </button>
-      </div>
-
-      <!-- Right Action Button -->
-      <div class="right-nav-container d-flex align-items-center ms-auto">
-        <a href="contact.html" class="text-decoration-none">
-          <button class="btn nav-talk-btn" type="button">Contact Us</button>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</nav>
 
 <!-- Navbar section end -->
 
@@ -1001,9 +1018,9 @@
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" title="Facebook"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" title="Facebook"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" title="Facebook"><i class="fa-brands fa-discord"></i></a>
                 </div>
             </div>
 
