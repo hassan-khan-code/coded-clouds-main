@@ -214,6 +214,7 @@
 
 <!-- client section -->
 
+<!-- client section -->
 <section class="client-section">
     <div class="client-container">
 
@@ -225,100 +226,75 @@
 
         <!-- Premium Marquee Slider -->
         <div class="slider-wrapper">
-            <div class="fade-overlay left"></div>
-            <div class="fade-overlay right"></div>
-
             <div class="logo-track">
                 <!-- 11 Client Cards -->
                 <div class="logo-card">
                     <img src="./images/PRO.webp" alt="Client PRO">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/madni.png" alt="Client Madni">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/TCS.webp" alt="Client TCS">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/kids.png" alt="Client Kids">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/sakoon.png" alt="Client Sakoon">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/Hareesa.png" alt="Client Hareesa">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/rooh.png" alt="Client Rooh">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/misbar.webp" alt="Client Misbar">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/Code_Generated_Image.png" alt="Client Logo 1">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/logo2.jpeg" alt="Client Logo 2">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/logo3.jpeg" alt="Client Logo 3">
-                    <div class="card-shine"></div>
                 </div>
 
                 <!-- Repeated for seamless infinite scroll -->
                 <div class="logo-card">
                     <img src="./images/PRO.webp" alt="Client PRO">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/madni.png" alt="Client Madni">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/TCS.webp" alt="Client TCS">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/kids.png" alt="Client Kids">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/sakoon.png" alt="Client Sakoon">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/Hareesa.png" alt="Client Hareesa">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/rooh.png" alt="Client Rooh">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/misbar.webp" alt="Client Misbar">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/logo1.jpeg" alt="Client Logo 1">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/logo2.jpeg" alt="Client Logo 2">
-                    <div class="card-shine"></div>
                 </div>
                 <div class="logo-card">
                     <img src="./images/logo3.jpeg" alt="Client Logo 3">
-                    <div class="card-shine"></div>
                 </div>
             </div>
         </div>
@@ -327,25 +303,27 @@
 </section>
 
 <style>
-    /* --- Client Section Base (Light Mode) --- */
+    /* --- Client Section Base --- */ 
     .client-section {
         background-color: #ffffff;
-        padding: 80px 0;
+        padding: 60px 0;
         color: #0f172a;
         overflow: hidden;
-        border-top: 1px solid #f1f5f9;
+        width: 100%;
     }
 
+    /* Edge-to-edge / Full Fluid Container */
     .client-container {
-        /* max-width: 1200px; */
-        margin: 0 auto;
-        padding: 0 24px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
     /* --- Header Styling --- */
     .client-header {
         text-align: center;
-        margin-bottom: 45px;
+        margin-bottom: 35px;
+        padding: 0 20px;
     }
 
     .client-header h2 {
@@ -356,52 +334,21 @@
         letter-spacing: -0.02em;
     }
 
-
-    .client-header .sub-text {
-        color: #64748b;
-        font-size: 1.05rem;
-        margin: 0 auto;
-        max-width: 600px;
-    }
-
-    .client-header .sub-text strong {
-        color: #38bdf8;
-    }
-
     /* --- Infinite Slider Wrapper --- */
     .slider-wrapper {
         position: relative;
         width: 100%;
         overflow: hidden;
-        padding: 20px 0;
-    }
-
-    .fade-overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100px;
-        z-index: 2;
-        pointer-events: none;
-    }
-
-    .fade-overlay.left {
-        left: 0;
-        /* background: linear-gradient(to right, #ffffff 0%, transparent 100%); */
-    }
-
-    .fade-overlay.right {
-        right: 0;
-        /* background: linear-gradient(to left, #ffffff 0%, transparent 100%); */
+        padding: 15px 0;
     }
 
     /* --- Logo Track --- */
     .logo-track {
         display: flex;
         align-items: center;
-        gap: 28px;
+        gap: 40px;
         width: max-content;
-        animation: scrollMarquee 40s linear infinite;
+        animation: scrollMarquee 35s linear infinite;
     }
 
     .logo-track:hover {
@@ -417,178 +364,72 @@
         }
     }
 
-    /* ========================================
-       PREMIUM LOGO CARDS (ONLY LOGOS IMPROVED)
-    ======================================== */
+    /* --- Logo Cards (No BG, Uniform Fit) --- */
     .logo-card {
-        width: 190px;
-        height: 100px;
-        /* background: #ffffff; */
-        /* border: 2px solid #e8edf4; */
-        border-radius: 16px;
+        width: 180px;
+        height: 90px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 18px 22px;
+        padding: 10px;
         box-sizing: border-box;
-        position: relative;
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         cursor: pointer;
-        /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); */
-        overflow: hidden;
+        flex-shrink: 0;
     }
 
-    /* Gradient Border on Hover */
-
-    .logo-card:hover::before {
-        opacity: 1;
-    }
-
-    /* Card Hover Effects */
-    .logo-card:hover {
-        transform: translateY(-8px) scale(1.03);
-        border-color: #38bdf8;
-        box-shadow: 0 16px 40px rgba(56, 189, 248, 0.12), 
-                    0 0 60px rgba(56, 189, 248, 0.04);
-    }
-
-    /* Shine Effect on Hover */
-    .card-shine {
-        position: absolute;
-        top: 0;
-        left: -100%;
+    /* Image Styling: Equal Bounding Box Box-Fitting */
+    .logo-card img {
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, 
-            transparent 0%, 
-            rgba(56, 189, 248, 0.06) 50%, 
-            transparent 100%
-        );
-        transition: 0.6s ease;
-        pointer-events: none;
-        border-radius: 14px;
-    }
-
-    .logo-card:hover .card-shine {
-        left: 100%;
-    }
-
-    /* Image Styling */
-    .logo-card img {
-        max-width: 100%;
-        max-height: 100%;
         object-fit: contain;
-        transition: 0.4s ease;
-        position: relative;
-        z-index: 1;
-        filter: grayscale(0%) brightness(1);
+        object-position: center;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: transparent;
     }
 
+    /* Clean Zoom-in Effect on Hover */
     .logo-card:hover img {
-        transform: scale(1.08);
-        filter: grayscale(0%) brightness(1.05);
+        transform: scale(1.15);
+    }
+
+    /* Custom sizing class for naturally wide/horizontal logos */
+    .logo-card img.logo-wide {
+        width: 85%;
+        height: auto;
+    }
+
+    /* Custom sizing class for compact/square/circle logos */
+    .logo-card img.logo-compact {
+        max-height: 70%;
+        width: auto;
     }
 
     /* --- Responsive --- */
-    @media (max-width: 992px) {
-        .logo-card {
-            width: 160px;
-            height: 85px;
-            padding: 14px 18px;
-        }
-        .fade-overlay {
-            width: 80px;
-        }
-    }
-
     @media (max-width: 768px) {
-        .client-section {
-            padding: 60px 0;
-        }
         .logo-card {
             width: 140px;
-            height: 75px;
-            padding: 12px 16px;
-            border-radius: 14px;
+            height: 70px;
+            padding: 8px;
         }
         .logo-track {
-            gap: 20px;
-        }
-        .fade-overlay {
-            width: 60px;
-        }
-        .client-pill {
-            font-size: 0.7rem;
-            padding: 5px 14px;
-        }
-        .sub-text {
-            font-size: 0.95rem;
+            gap: 24px;
         }
     }
 
     @media (max-width: 480px) {
         .logo-card {
-            width: 115px;
-            height: 65px;
-            padding: 10px 12px;
-            border-radius: 12px;
-            border-width: 1.5px;
+            width: 110px;
+            height: 60px;
+            padding: 5px;
         }
         .logo-track {
             gap: 16px;
         }
-        .fade-overlay {
-            width: 40px;
-        }
-        .client-container {
-            padding: 0 16px;
-        }
-        .client-header h2 {
-            font-size: 1.8rem;
-        }
     }
 </style>
-
-<script>
-    // Slider JavaScript
-    const track = document.getElementById('logoTrack');
-    let index = 0;
-    const totalLogos = 16;
-    
-    function getVisibleLogos() {
-        if (window.innerWidth <= 600) return 1;
-        if (window.innerWidth <= 1024) return 3;
-        return 5;
-    }
-
-    function moveSlide(direction) {
-        const visibleLogos = getVisibleLogos();
-        const maxIndex = totalLogos - visibleLogos;
-        
-        index += direction;
-
-        if (index > maxIndex) {
-            index = 0; // Loop back to start
-        } else if (index < 0) {
-            index = maxIndex; // Go to end
-        }
-
-        const slideWidth = track.querySelector('.logo-item').offsetWidth + 20;
-        track.style.transform = `translateX(-${index * slideWidth}px)`;
-    }
-
-    // Auto Slide every 3 seconds
-    let autoSlide = setInterval(() => moveSlide(1), 3000);
-
-    // Stop auto-slide when user interacts
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            clearInterval(autoSlide);
-            autoSlide = setInterval(() => moveSlide(1), 3000);
-        });
-    });
-</script>
-
 
 <!-- =========================
      SERVICES SECTION
