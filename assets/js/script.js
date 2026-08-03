@@ -123,3 +123,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+/// services script
+
+
+  function toggleServices() {
+    const grid = document.querySelector('.services-grid');
+    const btn = document.getElementById('loadMoreBtn');
+    const btnText = btn.querySelector('span');
+
+    // Toggle 'show-all' class on grid
+    grid.classList.toggle('show-all');
+    btn.classList.toggle('active');
+
+    if (grid.classList.contains('show-all')) {
+      btnText.textContent = 'Show Less';
+    } else {
+      btnText.textContent = 'Load More Services';
+      
+      // Jab user Show Less kare to wapas top services par smooth scroll ho jaye
+      document.querySelector('.services-section').scrollIntoView({ behavior: 'smooth' });
+    }
+  }

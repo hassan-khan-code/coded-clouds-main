@@ -21,7 +21,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<div id="elastic-cursor"></div>
 <style>
     #elastic-cursor {
         position: fixed;
@@ -189,15 +188,9 @@
   <div class="container hero-container">
     <div class="hero-content" data-aos="zoom-in" data-aos-delay="200">
       
-      <!-- Top Modern Badge -->
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Coded Clouds
-      </div>
-
       <!-- Main Title -->
       <h1 class="hero-title-heading">
-        Your Cloud, <span class="text-gradient">Our Code</span>
+        Your Cloud <span class="text-gradient">Our Code</span>
       </h1>
 
       <!-- Subtitle -->
@@ -226,12 +219,8 @@
 
         <!-- Header -->
         <div class="client-header" data-aos="fade-up">
-            <div class="client-pill">Global Footprint</div>
             <h2>Meet Our <span style="color: #38bdf8;">Clients</span></h2>
             <div class="divider"></div>
-            <p class="sub-text">
-                We have collaborated with brands across <strong>50+ countries</strong> to deliver excellence.
-            </p>
         </div>
 
         <!-- Premium Marquee Slider -->
@@ -348,7 +337,7 @@
     }
 
     .client-container {
-        max-width: 1200px;
+        /* max-width: 1200px; */
         margin: 0 auto;
         padding: 0 24px;
     }
@@ -357,20 +346,6 @@
     .client-header {
         text-align: center;
         margin-bottom: 45px;
-    }
-
-    .client-pill {
-        display: inline-block;
-        padding: 6px 16px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: #38bdf8;
-        background: #eff6ff;
-        border: 1px solid rgba(29, 78, 216, 0.15);
-        border-radius: 20px;
-        margin-bottom: 14px;
     }
 
     .client-header h2 {
@@ -412,12 +387,12 @@
 
     .fade-overlay.left {
         left: 0;
-        background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+        /* background: linear-gradient(to right, #ffffff 0%, transparent 100%); */
     }
 
     .fade-overlay.right {
         right: 0;
-        background: linear-gradient(to left, #ffffff 0%, transparent 100%);
+        /* background: linear-gradient(to left, #ffffff 0%, transparent 100%); */
     }
 
     /* --- Logo Track --- */
@@ -448,8 +423,8 @@
     .logo-card {
         width: 190px;
         height: 100px;
-        background: #ffffff;
-        border: 2px solid #e8edf4;
+        /* background: #ffffff; */
+        /* border: 2px solid #e8edf4; */
         border-radius: 16px;
         display: flex;
         align-items: center;
@@ -459,39 +434,11 @@
         position: relative;
         transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); */
         overflow: hidden;
     }
 
     /* Gradient Border on Hover */
-    .logo-card::before {
-        content: '';
-        position: absolute;
-        inset: -2px;
-        border-radius: 18px;
-        padding: 2px;
-        background: linear-gradient(135deg, #38bdf8, #818cf8, #38bdf8);
-        background-size: 200% 200%;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        opacity: 0;
-        transition: 0.5s ease;
-        animation: borderGlow 3s ease-in-out infinite;
-    }
-
-    @keyframes borderGlow {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
 
     .logo-card:hover::before {
         opacity: 1;
@@ -651,12 +598,8 @@
     
     <!-- HEADER -->
     <div class="services-header text-center" data-aos="fade-up">
-      <div class="services-pill">
-        <i class="fa-solid fa-layer-group"></i> OUR CORE EXPERTISE
-      </div>
       <h2>Transform Your <span class="highlight-text">Business</span></h2>
       <p class="sub-text">
-        Tailored digital solutions designed to scale your enterprise with <strong>modern technology</strong>.
       </p>
     </div>
 
@@ -1067,6 +1010,15 @@
       <!--  -->
 
     </div>
+
+    <!-- LOAD MORE / SHOW LESS BUTTON -->
+    <div class="text-center mt-5">
+      <button id="loadMoreBtn" class="load-more-btn" onclick="toggleServices()">
+        <span>Load More Services</span> 
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+
   </div>
 </section>
 
@@ -1102,88 +1054,114 @@
     
     <!-- HEADER -->
     <div class="industries-header text-center" data-aos="fade-up">
-      <div class="industries-pill">
-        <i class="fa-solid fa-briefcase"></i> INDUSTRIES WE SERVE
-      </div>
-      <h2>Discover Our Impact <span class="highlight-text">Across Industries</span></h2>
-      <p class="sub-text">
-        Delivering tailored technology solutions driving innovation across diverse domains.
-      </p>
+      <h2>Modern & <span class="highlight-text">Tech-Driven</span></h2>
     </div>
 
-    <!-- UNIFORM GRID -->
+    <!-- 4-COLUMN CARDS GRID -->
     <div class="industries-grid">
       
-      <div class="industry-item" data-aos="fade-up">
+      <!-- Card 1 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="100">
         <div class="industry-icon-box">
           <i class="fa-solid fa-plane-departure"></i>
         </div>
-        <span class="industry-text">Travel & Hospitality</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">Travel & Hospitality</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
-      <div class="industry-item" data-aos="fade-up" data-aos-delay="100">
+      <!-- Card 2 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="150">
         <div class="industry-icon-box">
           <i class="fa-solid fa-landmark"></i>
         </div>
-        <span class="industry-text">Public Sector</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">Public Sector</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
-      <div class="industry-item" data-aos="fade-up" data-aos-delay="150">
+      <!-- Card 3 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="200">
         <div class="industry-icon-box">
           <i class="fa-solid fa-tower-cell"></i>
         </div>
-        <span class="industry-text">Telecommunication</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">Telecommunication</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
-      <div class="industry-item" data-aos="fade-up" data-aos-delay="200">
+      <!-- Card 4 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="250">
         <div class="industry-icon-box">
           <i class="fa-solid fa-store"></i>
         </div>
-        <span class="industry-text">Retail & CPG</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">Retail & CPG</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
-      <div class="industry-item" data-aos="fade-up" data-aos-delay="250">
+      <!-- Card 5 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="300">
         <div class="industry-icon-box">
           <i class="fa-solid fa-fire-flame-simple"></i>
         </div>
-        <span class="industry-text">Oil, Gas, and Energy</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">Oil, Gas & Energy</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
-      <div class="industry-item" data-aos="fade-up" data-aos-delay="300">
+      <!-- Card 6 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="350">
         <div class="industry-icon-box">
           <i class="fa-solid fa-rocket"></i>
         </div>
-        <span class="industry-text">Startups</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">Startups</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
-      <div class="industry-item" data-aos="fade-up" data-aos-delay="350">
+      <!-- Card 7 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="400">
         <div class="industry-icon-box">
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
-        <span class="industry-text">E-commerce</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">E-commerce</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
-      <div class="industry-item" data-aos="fade-up" data-aos-delay="400">
+      <!-- Card 8 -->
+      <a href="./Components/indus.html" class="industry-card" data-aos="fade-up" data-aos-delay="450">
         <div class="industry-icon-box">
           <i class="fa-solid fa-building-columns"></i>
         </div>
-        <span class="industry-text">Banking & Fintech</span>
-        <i class="fa-solid fa-arrow-right industry-arrow"></i>
-      </div>
+        <h3 class="industry-title">Banking & Fintech</h3>
+        <div class="card-action">
+          <span>Explore</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
 
     </div>
 
-    <!-- UNIFORM ACTION BUTTON -->
+    <!-- ACTION BUTTON -->
     <div class="industry-cta text-center" data-aos="fade-up">
       <a href="./Components/indus.html" class="btn-explore">
-        <span>EXPLORE MORE</span>
+        <span>EXPLORE ALL INDUSTRIES</span>
         <i class="fa-solid fa-arrow-right-long"></i>
       </a>
     </div>
@@ -1201,12 +1179,9 @@
       
       <!-- LEFT TEXT CONTENT -->
       <div class="left-text" data-aos="fade-right">
-        <span class="section-badge">
-          <i class="fa-solid fa-compass"></i> OUR EXPERTISE
-        </span>
         <h2>Our Journeys & <span class="highlight-text">Stories</span></h2>
         <p>
-          Discover our amazing journeys and experiences. Each story shares a unique perspective and insight, connecting us through moments that matter.
+          We deliver innovative digital solutions that help businesses streamline operations, enhance customer experiences, and accelerate growth. From web and mobile applications to cloud, AI, and enterprise solutions, our expertise empowers organizations to succeed in today's fast-changing digital landscape.
         </p>
       </div>
 
@@ -1265,13 +1240,9 @@
       
       <!-- LEFT CONTENT -->
       <div class="achievements-left" data-aos="fade-right">
-        <span class="achievements-pill">
-          <i class="fa-solid fa-trophy"></i> OUR TRACK RECORD
-        </span>
         <h2>Pioneering Trust and <span class="highlight-text">Innovation</span></h2>
-        <h3 class="achievements-subtitle">Codedcloud's Achievements</h3>
         <p class="achievements-desc">
-          We take pride in empowering businesses worldwide with innovative solutions. Codedcloud brings an unwavering commitment to excellence, backed by a strong global presence.
+         We create innovative software, web, mobile, and cloud solutions that empower businesses to achieve their goals. Every project is driven by quality, collaboration, and a passion for delivering exceptional digital experiences.
         </p>
       </div>
 
@@ -1320,39 +1291,72 @@
   <div class="container">
     <div class="careers-wrapper">
       
-      <!-- LEFT VIDEO CONTAINER -->
+      <!-- LEFT VIDEO CONTAINER (Square & Overlay) -->
       <div class="careers-left" data-aos="fade-right">
         <div class="video-box">
           <video autoplay muted loop playsinline class="main-video">
             <source src="./images/meet.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          
+          <!-- Decorative Overlay Details -->
+
+          <div class="video-badge top-right">
+            <span class="pulse-dot"></span>
+            <span>We're Hiring</span>
+          </div>
+          <div class="video-badge bottom-left">
+            <i class="fa-solid fa-users"></i>
+            <span>Life at Coded Clouds</span>
+          </div>
         </div>
       </div>
 
       <!-- RIGHT TEXT CONTENT -->
       <div class="careers-right" data-aos="fade-left">
-        <span class="careers-pill">
-          <i class="fa-solid fa-users"></i> JOIN OUR TEAM
-        </span>
-        <h2>Careers at <span class="highlight-text">Codedcloud</span></h2>
-        <h3 class="careers-subtitle">Human-first is our foundation.</h3>
+        <h2>Shape the Future at <span class="highlight-text">Coded Clouds</span></h2>
+        
         <p class="careers-desc">
-          Join a culture that celebrates excellence, growth, and diversity globally! We build meaningful products together with an emphasis on continuous learning.
+          We are more than just a tech company—we are a hub of passionate creators, engineers, and visionaries. We foster an environment of continuous learning, strategic autonomy, and collaborative growth where your ideas directly shape world-class digital experiences.
         </p>
         
-       <div class="careers-action">
-  <a href="#offcanvasJoin" data-bs-toggle="offcanvas" class="btn-explore">
-    <span>JOIN US</span>
-    <i class="fa-solid fa-arrow-right-long"></i>
-  </a>
-</div>
+        <!-- FEATURE HIGHLIGHTS GRID -->
+        <div class="careers-highlights">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div class="highlight-info">
+              <h4>Rapid Growth</h4>
+              <p>Accelerate your career path</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="highlight-info">
+              <h4>Modern Tech</h4>
+              <p>Work with cutting-edge tools</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-heart"></i></div>
+            <div class="highlight-info">
+              <h4>Great Culture</h4>
+              <p>Inclusive & collaborative team</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ACTION BUTTON -->
+        <div class="careers-action">
+          <a href="#offcanvasJoin" data-bs-toggle="offcanvas" class="btn-explore">
+            <span>EXPLORE OPEN ROLES</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </a>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
-
 
 <!-- =========================
      INSIGHTS / EXPERTISE SECTION
@@ -1362,13 +1366,7 @@
     
     <!-- Section Header -->
     <div class="insights-header" data-aos="fade-up">
-      <span class="insights-pill">
-        <i class="fa-solid fa-lightbulb"></i> OUR EXPERTISE
-      </span>
-      <h2>Empowering Digital <span class="highlight-text">Excellence</span></h2>
-      <p class="insights-subtitle">
-        Delivering scalable technology solutions for industry leaders across <strong>12+ domains</strong>.
-      </p>
+      <h2>Engineering Digital Growth <span class="highlight-text">That Scales</span></h2>
     </div>
 
     <!-- Main Section Grid -->
@@ -1378,28 +1376,34 @@
       <div class="left-features" data-aos="fade-right">
         
         <div class="feature-card active" data-index="1">
-          <div class="feature-badge">01</div>
+          <div class="feature-badge">
+            <i class="fa-solid fa-code"></i>
+          </div>
           <div class="feature-body">
-            <h3 class="feature-title">Custom Software Engineering</h3>
-            <p class="feature-text">End-to-end bespoke web and mobile platforms built with resilient architecture.</p>
+            <h3 class="feature-title">Full-Stack Web & App Development</h3>
+            <p class="feature-text">Custom, scalable software solutions engineered with modern stacks for speed, security, and seamless user experiences.</p>
           </div>
           <span class="feature-arrow"><i class="fa-solid fa-arrow-right"></i></span>
         </div>
 
         <div class="feature-card" data-index="2">
-          <div class="feature-badge">02</div>
+          <div class="feature-badge">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
           <div class="feature-body">
-            <h3 class="feature-title">Dedicated Agile Squads</h3>
-            <p class="feature-text">High-performing remote dev teams seamlessly integrated into your workflow.</p>
+            <h3 class="feature-title">Dedicated Development Teams</h3>
+            <p class="feature-text">Extend your technical capacity with experienced software engineers who integrate directly into your sprint workflow.</p>
           </div>
           <span class="feature-arrow"><i class="fa-solid fa-arrow-right"></i></span>
         </div>
 
         <div class="feature-card" data-index="3">
-          <div class="feature-badge">03</div>
+          <div class="feature-badge">
+            <i class="fa-solid fa-server"></i>
+          </div>
           <div class="feature-body">
-            <h3 class="feature-title">Cloud Optimization & Security</h3>
-            <p class="feature-text">Modernizing infrastructure for 99.99% reliability and zero-trust security.</p>
+            <h3 class="feature-title">Cloud Infrastructure & API Integration</h3>
+            <p class="feature-text">Streamlining database performance, server deployment, and third-party integrations for maximum uptime.</p>
           </div>
           <span class="feature-arrow"><i class="fa-solid fa-arrow-right"></i></span>
         </div>
@@ -1407,36 +1411,36 @@
       </div>
 
       <!-- Right Spotlight Dark Card -->
-      <div class="right-spotlight" data-aos="fade-left">
+      <div class="right-spotlight" data-aos="fade-up">
         <div class="spotlight-bg-glow"></div>
         
         <div class="spotlight-content">
           <div class="spotlight-header">
-            <span class="spotlight-tag">Featured Success Story</span>
+            <span class="spotlight-tag">FEATURED CASE STUDY</span>
             <span class="spotlight-status">
-              <span class="pulse-dot"></span> Verified Impact
+              <span class="pulse-dot"></span> Live Deployment
             </span>
           </div>
 
-          <h3 class="spotlight-title">Fintech Core Architecture Overhaul</h3>
+          <h3 class="spotlight-title">E-Commerce Architecture & API Optimization</h3>
           <p class="spotlight-desc">
-            Automated payment routing and database re-engineering to handle high-frequency transactions seamlessly with zero downtime.
+            Re-engineered core database queries, optimized checkout routing, and configured custom server caching to eliminate peak traffic delays.
           </p>
 
           <div class="spotlight-stats">
             <div class="stat-block">
-              <span class="stat-number">4.2M+</span>
-              <span class="stat-label">Daily Transactions</span>
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Monthly Active Users</span>
             </div>
             <div class="stat-block">
-              <span class="stat-number">40%</span>
-              <span class="stat-label">Latency Reduction</span>
+              <span class="stat-number">3.2x</span>
+              <span class="stat-label">Faster Load Time</span>
             </div>
           </div>
 
           <div class="spotlight-footer">
-            <span class="client-company">Global Financial Systems</span>
-            <a href="#" class="spotlight-link">View Case Study <i class="fa-solid fa-arrow-right-long"></i></a>
+            <span class="client-company">Retail & E-Commerce Platform</span>
+            <a href="#" class="spotlight-link">View Success Story <i class="fa-solid fa-arrow-right-long"></i></a>
           </div>
         </div>
       </div>
@@ -1446,7 +1450,6 @@
   </div>
 </section>
 
-
 <!-- =========================
      LEADERSHIP / VISIONARIES SECTION
      ========================= -->
@@ -1454,13 +1457,7 @@
   <div class="container">
     <div class="ceo-content-wrapper" data-aos="fade-up">
       
-      <!-- PILL BADGE -->
-      <span class="ceo-pill">
-        <i class="fa-solid fa-crown"></i> LEADERSHIP VISION
-      </span>
       <h2 class="section-heading">OUR GLOBAL <span class="highlight-text">VISIONARIES</span></h2>
-      <p class="section-subtext">Driving innovation, scale, and strategic direction across worldwide markets.</p>
-
       <!-- CARDS GRID -->
       <div class="leaders-grid">
 
@@ -1565,9 +1562,6 @@
     
     <!-- Section Header -->
     <div class="section-header" data-aos="fade-up">
-      <span class="pill-badge">
-        <i class="fa-solid fa-sparkles"></i> COMMUNITY & HELP
-      </span>
       <h2 class="main-title">Have Questions or <span class="gradient-text">Feedback</span>?</h2>
       <p class="section-subtitle">Explore quick answers or share your experience with Coded Clouds.</p>
     </div>
@@ -1657,92 +1651,112 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Interactive Rating -->
+      <!-- RIGHT COLUMN: Modern Interactive Rating -->
       <div class="rating-column">
-        <div class="glass-card rating-card-wrapper" data-aos="fade-left" data-aos-delay="200">
+        <div class="glass-card rating-card-wrapper modern-rating-card" data-aos="fade-left" data-aos-delay="200">
           
           <div class="rating-header">
             <span class="rating-pill"><i class="fa-solid fa-heart"></i> CLIENT FEEDBACK</span>
             <h3 class="rating-title">How was your <span class="gradient-text">Experience</span>?</h3>
-            <p class="rating-subtitle">Tap a cloud expression to submit your rating</p>
+            <p class="rating-subtitle">Tap a cloud expression to rate your project experience</p>
           </div>
 
-          <!-- CLOUDS RATING GRID -->
+          <!-- REFINED CLOUDS RATING GRID -->
           <div class="clouds-grid">
             
             <!-- 1. Poor -->
-            <div class="rating-cloud" data-value="1">
-              <div class="cloud-shape">
-                <div class="face">
-                  <div class="eyes angry-eyes"><span></span><span></span></div>
-                  <div class="mouth sad-arch"></div>
+            <button class="rating-cloud-btn" data-value="1" type="button" aria-label="Rate 1 star - Poor">
+              <div class="cloud-avatar">
+                <svg viewBox="0 0 64 48" class="cloud-svg">
+                  <path class="cloud-base" d="M 18,38 L 48,38 A 12,12 0 0,0 48,14 A 14,14 0 0,0 23,17 A 11,11 0 0,0 18,38 Z" />
+                </svg>
+                <div class="face-layer">
+                  <div class="eye-pair frown-eyes"><span></span><span></span></div>
+                  <div class="mouth-line frown-mouth"></div>
                 </div>
               </div>
               <span class="cloud-label">Poor</span>
-            </div>
+            </button>
 
             <!-- 2. Fair -->
-            <div class="rating-cloud" data-value="2">
-              <div class="cloud-shape">
-                <div class="face">
-                  <div class="eyes"><span></span><span></span></div>
-                  <div class="mouth flat-line"></div>
+            <button class="rating-cloud-btn" data-value="2" type="button" aria-label="Rate 2 stars - Fair">
+              <div class="cloud-avatar">
+                <svg viewBox="0 0 64 48" class="cloud-svg">
+                  <path class="cloud-base" d="M 18,38 L 48,38 A 12,12 0 0,0 48,14 A 14,14 0 0,0 23,17 A 11,11 0 0,0 18,38 Z" />
+                </svg>
+                <div class="face-layer">
+                  <div class="eye-pair"><span></span><span></span></div>
+                  <div class="mouth-line flat-mouth"></div>
                 </div>
               </div>
               <span class="cloud-label">Fair</span>
-            </div>
+            </button>
 
             <!-- 3. Good -->
-            <div class="rating-cloud" data-value="3">
-              <div class="cloud-shape">
-                <div class="face">
-                  <div class="eyes"><span></span><span></span></div>
-                  <div class="mouth neutral-circle"></div>
+            <button class="rating-cloud-btn" data-value="3" type="button" aria-label="Rate 3 stars - Good">
+              <div class="cloud-avatar">
+                <svg viewBox="0 0 64 48" class="cloud-svg">
+                  <path class="cloud-base" d="M 18,38 L 48,38 A 12,12 0 0,0 48,14 A 14,14 0 0,0 23,17 A 11,11 0 0,0 18,38 Z" />
+                </svg>
+                <div class="face-layer">
+                  <div class="eye-pair"><span></span><span></span></div>
+                  <div class="mouth-line neutral-mouth"></div>
                 </div>
               </div>
               <span class="cloud-label">Good</span>
-            </div>
+            </button>
 
             <!-- 4. Great -->
-            <div class="rating-cloud" data-value="4">
-              <div class="cloud-shape">
-                <div class="face">
-                  <div class="eyes"><span></span><span></span></div>
-                  <div class="mouth smile-curve"></div>
+            <button class="rating-cloud-btn" data-value="4" type="button" aria-label="Rate 4 stars - Great">
+              <div class="cloud-avatar">
+                <svg viewBox="0 0 64 48" class="cloud-svg">
+                  <path class="cloud-base" d="M 18,38 L 48,38 A 12,12 0 0,0 48,14 A 14,14 0 0,0 23,17 A 11,11 0 0,0 18,38 Z" />
+                </svg>
+                <div class="face-layer">
+                  <div class="eye-pair"><span></span><span></span></div>
+                  <div class="mouth-line happy-mouth"></div>
                 </div>
               </div>
               <span class="cloud-label">Great</span>
-            </div>
+            </button>
 
             <!-- 5. Excellent -->
-            <div class="rating-cloud selected" data-value="5" id="excellent-cloud">
-              <div class="cloud-shape">
-                <div class="face">
-                  <div class="eyes blinking-eyes"><span></span><span></span></div>
-                  <div class="mouth big-smile"></div>
+            <button class="rating-cloud-btn active" data-value="5" type="button" aria-label="Rate 5 stars - Excellent">
+              <div class="cloud-avatar">
+                <svg viewBox="0 0 64 48" class="cloud-svg">
+                  <path class="cloud-base" d="M 18,38 L 48,38 A 12,12 0 0,0 48,14 A 14,14 0 0,0 23,17 A 11,11 0 0,0 18,38 Z" />
+                </svg>
+                <div class="face-layer">
+                  <div class="eye-pair joy-eyes"><span></span><span></span></div>
+                  <div class="mouth-line joy-mouth"></div>
                 </div>
               </div>
               <span class="cloud-label">Excellent!</span>
-            </div>
+            </button>
 
           </div>
 
-          <!-- RATING STATS SUMMARY -->
-          <div class="rating-result">
-            <div class="average-box">
-              <span id="avg-val">4.9</span>
+          <!-- RATING STATS SUMMARY BLOCK -->
+          <div class="rating-result-card">
+            <div class="score-display">
+              <div class="number-wrap">
+                <span id="avg-val">4.9</span>
+                <span class="out-of">/ 5.0</span>
+              </div>
               <div class="stars-wrap">
-                <i class="fas fa-star star-animated"></i>
-                <i class="fas fa-star star-animated"></i>
-                <i class="fas fa-star star-animated"></i>
-                <i class="fas fa-star star-animated"></i>
-                <i class="fas fa-star star-animated"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
               </div>
             </div>
-            <p class="total-reviews">Based on <strong id="total-rev">1,250+</strong> Verified Client Reviews</p>
             
-            <div class="satisfaction-badge">
-              <i class="fa-solid fa-shield-check"></i> 99.4% Client Satisfaction Rate
+            <p class="total-reviews">Based on <strong id="total-rev">1,250+</strong> client reviews</p>
+
+            <div class="trust-pill-badge">
+              <i class="fa-solid fa-shield-check"></i>
+              <span>99.9% Overall Satisfaction</span>
             </div>
           </div>
 
@@ -1760,14 +1774,11 @@
         
         <!-- SECTION TOP HEADER -->
         <div class="section-top-header">
-            <span class="section-badge">
-                <i class="fa-solid fa-sparkles"></i> CONNECT WITH US
-            </span>
             <h1 class="main-section-title">
-                Ready to Build Something <span class="gradient-text-alt">Extraordinary?</span>
+                Let's Build Something <span class="gradient-text-alt">Amazing Together</span>
             </h1>
             <p class="main-section-desc">
-                Partner with Coded Clouds to elevate your digital ecosystem. Reach out today for enterprise-grade solutions, custom development, or strategic technical consultancy.
+                Have a project in mind or looking for the right technology partner? Our team is ready to turn your ideas into innovative, scalable, and high-performing digital solutions. Get in touch and let's make it happen.
             </p>
         </div>
 
@@ -1936,7 +1947,7 @@
 
                 <!-- Footer Metric Badge Tile -->
                 <div class="sidebar-metric">
-                    <div class="metric-num">99.8%</div>
+                    <div class="metric-num">99.9%</div>
                     <div class="metric-desc">Client Satisfaction Rate Across Enterprise Deployments</div>
                 </div>
 
@@ -1963,9 +1974,7 @@
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" title="Facebook"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" title="Facebook"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" title="Facebook"><i class="fa-brands fa-discord"></i></a>
+                    <a href="https://www.instagram.com/codedclouds/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -1996,16 +2005,17 @@
             <div class="col-xl-2 col-lg-2 col-md-3 col-6">
                 <h5 class="footer-title">Services</h5>
                 <ul class="footer-links">
-                    <li><a href="./Components/service.html">Media production </a></li>
-                    <li><a href="./Components/service.html">Hospiat sector</a></li>
-                    <li><a href="./Components/service.html">Mobile/ Web development</a></li>
-                    <li><a href="./Components/service.html">Ai solutions / automation</a></li>
-                    <li><a href="./Components/service.html">IT INFRASTRUCTURE </a></li>
-                    <li><a href="./Components/service.html">DIGITAL MARCH </a></li>
-                    <li><a href="./Components/service.html">CRM SYSTEMS</a></li>
-                    <li><a href="./Components/service.html">BANKING / fintech sols</a></li>
+                    <li><a href="./Components/service.html">Web Development</a></li>
+                    <li><a href="./Components/service.html">App Development</a></li>
+                    <li><a href="./Components/service.html">PMS Development</a></li>
+                    <li><a href="./Components/service.html">Digital Marketing</a></li>
+                    <li><a href="./Components/service.html">Full CRM System</a></li>
+                    <li><a href="./Components/service.html">POS Software</a></li>
+                    <li><a href="./Components/service.html">Ecommerce Services</a></li>
+                    <li><a href="./Components/service.html">AI & Automation</a></li>
+                    <li><a href="./Components/service.html">Blockchain Development</a></li>
                     <li><a href="./Components/service.html">Quality Assurance</a></li>
-                    <li><a href="./Components/service.html">DevOps</a></li>
+                    <li><a href="./Components/service.html">DevOps Solutions</a></li>
                     <li><a href="./Components/service.html">Cybersecurity</a></li>
                 </ul>
             </div>
@@ -2015,8 +2025,7 @@
                 <h5 class="footer-title">Get In Touch</h5>
                 <ul class="footer-contact">
                     <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
-                    <li><i class="fa-solid fa-phone"></i><span>+966-594552890</span></li>
-                    <li><i class="fa-solid fa-location-dot"></i><span>Lahore, Pakistan</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i><span>College Rd, Block 1 Sector C-1 Twp Sector C 1 Ahmed Avenue, Lahore, 34217, Pakistan</span></li>
                 </ul>
                 
                 <!-- Clear & Modern Map Box -->
@@ -6382,6 +6391,8 @@
 
 </div>
 <!-- CSS Styling -->
+<script src="https://cdn.zanderio.ai/widget/loader.js" data-id="wdg_m8f6PlAgZ4C6y3c67X6fgIlz" defer></script>
+
 <style>
 :root {
   --team-navy: #0b0f19;
