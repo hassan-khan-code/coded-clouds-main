@@ -1,37 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const speed = 900; // Animation speed in ms
+  const section = document.getElementById("achievements");
+  const counters = document.querySelectorAll(".counter");
+  const speed = 900; // Animation duration in ms
 
-  const startCounting = (counter) => {
-    const target = +counter.getAttribute('data-target');
-    const updateCount = () => {
+  // Har counter ki dynamic intervals save rakhne ke liye object
+  const intervals = {};
+
+  const runCounter = (counter, index) => {
+    // Purani chalne wali interval stop karein agar active ho
+    if (intervals[index]) clearInterval(intervals[index]);
+
+    const target = +counter.getAttribute("data-target");
+    counter.innerText = "0";
+
+    const inc = Math.max(1, Math.ceil(target / (speed / 20)));
+
+    intervals[index] = setInterval(() => {
       const count = +counter.innerText;
-      const inc = Math.ceil(target / (speed / 10));
-
       if (count < target) {
         counter.innerText = Math.min(count + inc, target);
-        setTimeout(updateCount, 20);
       } else {
         counter.innerText = target;
+        clearInterval(intervals[index]);
       }
-    };
-    updateCount();
+    }, 20);
   };
 
-  const observerOptions = { threshold: 0.3 };
+  const resetCounter = (counter, index) => {
+    if (intervals[index]) clearInterval(intervals[index]);
+    counter.innerText = "0";
+  };
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counterElements = entry.target.querySelectorAll('.counter');
-        counterElements.forEach(counter => startCounting(counter));
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  // IntersectionObserver setup
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Jab section viewport me AYEGA tab counting start hogi
+          counters.forEach((counter, idx) => runCounter(counter, idx));
+        } else {
+          // Jab section viewport se BAHAR NIKLEGA tab zero par reset ho jayega
+          counters.forEach((counter, idx) => resetCounter(counter, idx));
+        }
+      });
+    },
+    { threshold: 0.25 } // 25% section dikhte hi trigger hoga
+  );
 
-  const achievementsSection = document.getElementById('achievements');
-  if (achievementsSection) {
-    observer.observe(achievementsSection);
+  if (section) {
+    observer.observe(section);
   }
 });
 
@@ -127,13 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /// services script
 
-
   function toggleServices() {
     const grid = document.querySelector('.services-grid');
     const btn = document.getElementById('loadMoreBtn');
     const btnText = btn.querySelector('span');
 
-    // Toggle 'show-all' class on grid
     grid.classList.toggle('show-all');
     btn.classList.toggle('active');
 
@@ -142,7 +157,46 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       btnText.textContent = 'Load More Services';
       
-      // Jab user Show Less kare to wapas top services par smooth scroll ho jaye
       document.querySelector('.services-section').scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+
+
+  // industry script
+
+  document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.getElementById('toggleIndustriesBtn');
+  const btnText = document.getElementById('btnText');
+  const btnIcon = document.getElementById('btnIcon');
+  const extraCards = document.querySelectorAll('.extra-card');
+
+  let isExpanded = false;
+
+  toggleBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    isExpanded = !isExpanded;
+
+    if (isExpanded) {
+      extraCards.forEach((card, index) => {
+        card.classList.remove('hidden-card');
+        setTimeout(() => {
+          card.style.opacity = '1';
+        }, index * 50);
+      });
+
+      btnText.textContent = 'SHOW LESS';
+      btnIcon.className = 'fa-solid fa-arrow-up-long';
+    } else {
+      extraCards.forEach((card) => {
+        card.style.opacity = '0';
+        card.classList.add('hidden-card');
+      });
+
+      btnText.textContent = 'EXPLORE ALL INDUSTRIES';
+      btnIcon.className = 'fa-solid fa-arrow-right-long';
+
+      document.querySelector('.industries-section').scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});

@@ -1175,7 +1175,6 @@
   color: #38bdf8;
 }
 
-
 /* Grid System - 4 Column Layout */
 .industries-grid {
   display: grid;
@@ -1198,10 +1197,26 @@
   min-height: 190px;
   text-decoration: none !important;
   box-sizing: border-box;
-  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease, 
+              opacity 0.4s ease;
   box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03);
   position: relative;
   overflow: hidden;
+  opacity: 1;
+  max-height: 500px;
+}
+
+/* Classes for Hide/Show Logic */
+.industry-card.hidden-card {
+  display: none !important;
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  border: none;
 }
 
 /* Accent Line Effect on Hover */
@@ -1309,7 +1324,8 @@
   background-color: #ffffff;
   border: 2px solid #0284c7;
   border-radius: 50px;
-  text-decoration: none !important;
+  cursor: pointer;
+  outline: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(2, 132, 199, 0.1);
 }
@@ -1368,7 +1384,6 @@
   }
 }
 
-
 /* ==========================================
    JOURNEYS / EXPERTISE SECTION
    ========================================== */
@@ -1411,7 +1426,7 @@
 }
 
 .journeys-wrapper .left-text h2 {
-  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 16px;
@@ -1525,10 +1540,6 @@
   }
 }
 
-
-/* ==========================================
-   ACHIEVEMENTS SECTION (Uniform Theme & Cards)
-   ========================================== */
 .achievements-section {
   background-color: #f8fafc;
   padding: 90px 0;
@@ -1664,7 +1675,6 @@
     padding: 20px;
   }
 }
-
 
 /* ==========================================
    CAREERS SECTION (Modern & Square Aspect Ratio)
