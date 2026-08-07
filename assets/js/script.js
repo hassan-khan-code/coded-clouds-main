@@ -1,3 +1,36 @@
+// ==========================================
+// THEME TOGGLE FUNCTIONALITY
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  const icon = themeToggle.querySelector('i');
+  
+  // Check saved theme
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateIcon(savedTheme);
+  
+  // Toggle on click
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon(newTheme);
+  });
+  
+  function updateIcon(theme) {
+    if (theme === 'dark') {
+      icon.className = 'fa-solid fa-sun';
+    } else {
+      icon.className = 'fa-solid fa-moon';
+    }
+  }
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.getElementById("achievements");
   const counters = document.querySelectorAll(".counter");

@@ -4,69 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blockchain Technology - Coded Clouds</title>
+    
+    <!-- External Dependencies -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
+        /* ==========================================
+           THEME SYSTEM - Same as Other Pages
+           ========================================== */
+        
+        /* Light Theme (Default) */
         :root {
-            --navy: #11113a;
-            --cyan: #00d2ff;
-            --white: #ffffff;
-            --gray: #f8fafc;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --blockchain-glow: #00d2ff;
-            --purple: #00d2ff;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f8fafc;
+            --bg-navbar: rgba(255, 255, 255, 0.95);
+            --bg-footer: #0f172a;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --accent-cyan: #00d4ff;
+            --accent-blue: #0284c7;
+            --accent-purple: #7c3aed;
+            --accent-glow: rgba(0, 212, 255, 0.12);
+            
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.4);
+            
+            --gradient-hero: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
+            --gradient-cta: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --gradient-text: linear-gradient(135deg, #7c3aed, #00d4ff);
         }
 
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0B0E14;
+            --bg-secondary: #131A22;
+            --bg-card: #131A22;
+            --bg-input: #1C2633;
+            --bg-navbar: rgba(11, 14, 20, 0.95);
+            --bg-footer: #0B0E14;
+            
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8899AA;
+            --text-white: #ffffff;
+            
+            --border-color: #1C2633;
+            --border-light: #2A3644;
+            
+            --accent-cyan: #00D4FF;
+            --accent-blue: #00D4FF;
+            --accent-purple: #8B5CF6;
+            --accent-glow: rgba(0, 212, 255, 0.08);
+            
+            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.25);
+            
+            --gradient-hero: linear-gradient(180deg, rgba(11, 14, 20, 0.6) 0%, rgba(11, 14, 20, 1) 100%);
+            --gradient-cta: linear-gradient(135deg, #0B0E14 0%, #131A22 100%);
+            --gradient-text: linear-gradient(135deg, #8B5CF6, #00D4FF);
+        }
+
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--white);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
         }
 
-        /* ========================================
+        /* ==========================================
            ELASTIC CURSOR
-        ======================================== */
-        #elastic-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background-color: var(--navy);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99999;
-            box-shadow: 0 0 20px var(--blockchain-glow);
-            transform-origin: center center;
-        }
-
-        .cursor-active {
-            mix-blend-mode: difference;
-            background-color: white !important;
-            width: 30px !important;
-            height: 30px !important;
-        }
+           ========================================== */
+       
 
         @media (max-width: 768px) {
-            #elastic-cursor {
-                display: none !important;
-            }
+            #elastic-cursor { display: none !important; }
         }
 
-        /* ========================================
+        /* ==========================================
+           THEME TOGGLE BUTTON
+           ========================================== */
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-cyan);
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
+        /* ==========================================
            NAVIGATION
-        ======================================== */
+           ========================================== */
         .main-nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--bg-navbar);
             backdrop-filter: blur(10px);
             height: 80px;
             width: 100%;
@@ -75,87 +152,97 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .nav-container {
             width: 90%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo img {
-            height: 45px;
-            transition: 0.3s;
-        }
-        .logo img:hover {
-            transform: scale(1.05);
-        }
-
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
         }
 
         .back-btn {
-            background: var(--navy);
-            color: var(--white);
+            background: var(--text-primary);
+            color: var(--text-white);
             text-decoration: none;
-            padding: 10px 28px;
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: 0.3s;
-            border: 2px solid var(--navy);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--text-primary);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
         }
 
         .back-btn:hover {
             background: transparent;
-            color: var(--navy);
+            color: var(--text-primary);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(17, 17, 58, 0.12);
+            box-shadow: var(--shadow-md);
         }
 
-        /* ========================================
+        [data-theme="dark"] .back-btn {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        [data-theme="dark"] .back-btn:hover {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
+
+        /* ==========================================
+           CONTAINER
+           ========================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================
            HERO SECTION
-        ======================================== */
+           ========================================== */
         .hero-section {
-            padding: 100px 20px 80px;
+            padding: 110px 20px 70px;
             text-align: center;
-            background: linear-gradient(180deg, var(--gray) 0%, var(--white) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -20%;
-            width: 60%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.05), transparent 70%);
-            pointer-events: none;
+            background: var(--gradient-hero);
+            animation: fadeInDown 1s ease-out;
+            transition: background 0.3s ease;
         }
 
         .hero-section h1 {
-            color: var(--navy);
-            font-size: clamp(2.5rem, 6vw, 3.8rem);
-            font-weight: 800;
+            color: var(--text-primary);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
         .hero-section h1 span {
-            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            background: var(--gradient-text);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -164,64 +251,79 @@
         .hero-underline {
             width: 80px;
             height: 5px;
-            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            background: var(--accent-cyan);
             margin: 20px auto;
             border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            box-shadow: 0 0 12px var(--accent-glow);
+            transition: background 0.3s ease;
         }
 
         .hero-section p {
-            color: var(--text-light);
-            font-size: 1.15rem;
-            max-width: 750px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 800px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.7;
+            transition: color 0.3s ease;
         }
 
-        /* ========================================
-           BLOCKCHAIN FEATURES SECTION
-        ======================================== */
-        .blockchain-features {
-            padding: 80px 20px 100px;
-            background: var(--white);
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        /* ==========================================
+           SECTION HEADINGS
+           ========================================== */
         .section-heading {
             text-align: center;
-            color: var(--navy);
+            color: var(--text-primary);
             margin-bottom: 15px;
             font-size: 2.2rem;
             font-weight: 800;
+            transition: color 0.3s ease;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 1.05rem;
             margin-bottom: 50px;
+            transition: color 0.3s ease;
+        }
+
+        /* ==========================================
+           BLOCKCHAIN FEATURES SECTION - Consistent with Other Pages
+           ========================================== */
+        .blockchain-features {
+            padding: 70px 20px 90px;
+            background: var(--bg-primary);
+            transition: background 0.3s ease;
         }
 
         .blockchain-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            margin-top: 20px;
         }
 
+        /* ==========================================
+           CARDS - Same as Other Pages
+           ========================================== */
         .blockchain-card {
-            background: var(--white);
+            background: var(--bg-card);
             padding: 40px 30px;
             border-radius: 24px;
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-sm);
+            border: 2px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .blockchain-card::before {
@@ -231,81 +333,108 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--purple), var(--cyan), var(--navy));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: 0.5s ease;
-        }
-
-        .blockchain-card:hover::before {
-            transform: scaleX(1);
+            background: linear-gradient(90deg, var(--text-primary), var(--accent-cyan));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .blockchain-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px rgba(17, 17, 58, 0.08);
-            border-color: rgba(0, 210, 255, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-cyan);
         }
 
+        .blockchain-card:hover::before {
+            opacity: 1;
+        }
+
+        /* ==========================================
+           ICON BOX - Same as Other Pages
+           ========================================== */
         .blockchain-card .card-icon {
-            display: inline-flex;
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(0, 210, 255, 0.04));
-            border-radius: 18px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.4s ease;
             font-size: 2.2rem;
-            color: var(--navy);
-            margin-bottom: 20px;
-            transition: 0.3s;
-            border: 1px solid rgba(0, 210, 255, 0.06);
+            color: var(--text-primary);
         }
 
         .blockchain-card:hover .card-icon {
-            background: linear-gradient(135deg, var(--purple), #0099cc);
-            color: var(--white);
-            transform: scale(1.05) rotate(-5deg);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+            background: var(--text-primary);
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
         }
 
+        [data-theme="dark"] .blockchain-card:hover .card-icon {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+        }
+
+        /* ==========================================
+           CARD CONTENT
+           ========================================== */
         .blockchain-card h3 {
-            color: var(--navy);
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            transition: color 0.3s ease;
         }
 
         .blockchain-card p {
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            line-height: 1.7;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            transition: color 0.3s ease;
         }
 
-        .blockchain-card .tag {
-            display: inline-block;
-            font-size: 0.6rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 14px;
-            background: rgba(0, 210, 255, 0.06);
-            color: var(--purple);
-            border-radius: 50px;
-            border: 1px solid rgba(0, 210, 255, 0.06);
-            margin-top: 12px;
+        /* ==========================================
+           TAGS - Same as Other Pages
+           ========================================== */
+        .tech-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        /* ========================================
+        .tech-tags span {
+            background: var(--bg-input);
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .blockchain-card:hover .tech-tags span {
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
+        }
+
+        /* ==========================================
            CONCEPT SECTION
-        ======================================== */
+           ========================================== */
         .concept-section {
             padding: 100px 20px;
             text-align: center;
-            background: var(--navy);
-            color: white;
+            background: var(--gradient-cta);
+            color: var(--text-white);
             position: relative;
             overflow: hidden;
+            transition: background 0.3s ease;
         }
 
         .concept-section::before {
@@ -315,18 +444,18 @@
             right: -20%;
             width: 60%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.05), transparent 70%);
+            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
             pointer-events: none;
         }
 
         .concept-section .concept-icon {
             font-size: 3rem;
-            color: var(--purple);
+            color: var(--accent-cyan);
             margin-bottom: 20px;
         }
 
         .concept-section h2 {
-            color: var(--cyan);
+            color: var(--accent-cyan);
             margin-bottom: 20px;
             font-size: 2.5rem;
             font-weight: 800;
@@ -356,7 +485,7 @@
         .concept-stats .stat .number {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--purple);
+            color: var(--accent-cyan);
         }
 
         .concept-stats .stat .label {
@@ -366,58 +495,58 @@
             letter-spacing: 1px;
         }
 
-        /* ========================================
+        /* ==========================================
            CTA SECTION
-        ======================================== */
+           ========================================== */
         .cta-section {
-            padding: 80px 20px 100px;
+            padding: 100px 20px;
             text-align: center;
-            background: var(--gray);
+            /* background: var(--gradient-cta); */
+            color: var(--text-dark);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            margin-top: 20px;
+            transition: background 0.3s ease;
         }
 
         .cta-section h2 {
-            color: var(--navy);
+            font-size: 2.5rem;
             font-weight: 800;
-            font-size: 2.2rem;
             margin-bottom: 15px;
         }
 
         .cta-section p {
-            color: var(--text-light);
-            font-size: 1.05rem;
-            margin-bottom: 35px;
-        }
-
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 50px;
-            background: linear-gradient(135deg, var(--purple), #0099cc);
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 50px;
-            transition: 0.3s;
-            border: 2px solid var(--purple);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
-        }
-
-        .cta-btn:hover {
-            background: transparent;
-            color: var(--purple);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.25);
-        }
-
-        .cta-btn i {
+            margin-bottom: 40px;
+            opacity: 0.9;
             font-size: 1.1rem;
         }
 
-        /* ========================================
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--accent-cyan);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-btn:hover {
+            background: var(--text-white);
+            color: var(--text-primary);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        [data-theme="dark"] .cta-btn {
+            color: var(--bg-primary);
+        }
+
+        /* ==========================================
            RESPONSIVE
-        ======================================== */
+           ========================================== */
         @media (max-width: 992px) {
             .concept-stats {
                 gap: 40px;
@@ -426,13 +555,13 @@
 
         @media (max-width: 768px) {
             .hero-section {
-                padding: 60px 20px 40px;
+                padding: 80px 20px 50px;
             }
             .hero-section h1 {
                 font-size: 2.2rem;
             }
             .blockchain-features {
-                padding: 50px 20px 70px;
+                padding: 50px 20px 60px;
             }
             .section-heading {
                 font-size: 1.8rem;
@@ -452,40 +581,67 @@
                 font-size: 2rem;
             }
             .cta-section {
-                padding: 60px 20px;
+                padding: 70px 20px;
             }
             .cta-section h2 {
                 font-size: 1.8rem;
             }
             .cta-btn {
                 padding: 14px 35px;
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
             .back-btn span {
                 display: none;
             }
-            .back-btn {
-                padding: 10px 16px;
+            .back-btn::after {
+                content: 'Back';
+                display: inline-block;
+            }
+            .theme-toggle-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 0.9rem;
+            }
+            .blockchain-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
         }
 
         @media (max-width: 480px) {
-            .blockchain-grid {
-                grid-template-columns: 1fr;
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
             }
             .blockchain-card {
                 padding: 30px 20px;
             }
             .blockchain-card .card-icon {
-                width: 55px;
-                height: 55px;
+                width: 60px;
+                height: 60px;
                 font-size: 1.8rem;
             }
             .blockchain-card h3 {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
-            .hero-section h1 {
-                font-size: 1.8rem;
+            .nav-container {
+                width: 95%;
+            }
+            .logo img {
+                height: 40px;
+            }
+            .back-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+            .cta-btn {
+                padding: 14px 30px;
+                font-size: 0.9rem;
+            }
+            .concept-section h2 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -503,6 +659,10 @@
                 <img src="../images/logo.webp" alt="Coded Clouds Logo">
             </a>
             <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
                 <a href="../index.html" class="back-btn">
                     <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
                 </a>
@@ -513,7 +673,7 @@
     <!-- ===== HERO SECTION ===== -->
     <header class="hero-section" data-aos="fade-up">
         <div class="container">
-            <h1>Blockchain <span>Technology</span></h1>
+            <h1>Blockchain Technology</h1>
             <div class="hero-underline"></div>
             <p>Build trust, transparency, and security with decentralized solutions. From smart contracts to DeFi platforms, we develop enterprise-grade blockchain applications.</p>
         </div>
@@ -526,46 +686,70 @@
             <p class="section-subtitle" data-aos="fade-up">Enterprise-grade blockchain solutions for the future of business</p>
 
             <div class="blockchain-grid">
+                <!-- Card 1 -->
                 <div class="blockchain-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-icon"><i class="fas fa-file-contract"></i></div>
                     <h3>Smart Contracts</h3>
                     <p>Self-executing contracts with the terms directly written into code. Automate agreements, payments, and transactions with complete transparency.</p>
-                    <span class="tag">Solidity</span>
+                    <div class="tech-tags">
+                        <span>Solidity</span>
+                        <span>Automation</span>
+                    </div>
                 </div>
 
+                <!-- Card 2 -->
                 <div class="blockchain-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-icon"><i class="fas fa-cubes"></i></div>
                     <h3>dApp Development</h3>
                     <p>Decentralized applications that run on blockchain networks. Built for security, transparency, and user control without central authority.</p>
-                    <span class="tag">Web3</span>
+                    <div class="tech-tags">
+                        <span>Web3</span>
+                        <span>Ethereum</span>
+                    </div>
                 </div>
 
+                <!-- Card 3 -->
                 <div class="blockchain-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-icon"><i class="fas fa-coins"></i></div>
                     <h3>DeFi Platforms</h3>
                     <p>Decentralized finance solutions including lending platforms, yield farming, staking, and tokenization services for the digital economy.</p>
-                    <span class="tag">DeFi</span>
+                    <div class="tech-tags">
+                        <span>DeFi</span>
+                        <span>Staking</span>
+                    </div>
                 </div>
 
+                <!-- Card 4 -->
                 <div class="blockchain-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>NFT Marketplaces</h3>
                     <p>Build and deploy NFT marketplaces for digital art, collectibles, gaming assets, and tokenized real-world assets with secure minting.</p>
-                    <span class="tag">NFT</span>
+                    <div class="tech-tags">
+                        <span>NFT</span>
+                        <span>Minting</span>
+                    </div>
                 </div>
 
+                <!-- Card 5 -->
                 <div class="blockchain-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="card-icon"><i class="fas fa-link"></i></div>
                     <h3>Tokenization</h3>
                     <p>Asset tokenization services to convert real-world assets (real estate, commodities, equity) into digital tokens for fractional ownership.</p>
-                    <span class="tag">Token</span>
+                    <div class="tech-tags">
+                        <span>Token</span>
+                        <span>Fractional</span>
+                    </div>
                 </div>
 
+                <!-- Card 6 -->
                 <div class="blockchain-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="card-icon"><i class="fas fa-database"></i></div>
                     <h3>Blockchain Consulting</h3>
                     <p>Strategic consulting to identify blockchain opportunities, select the right network, and design scalable decentralized solutions.</p>
-                    <span class="tag">Consulting</span>
+                    <div class="tech-tags">
+                        <span>Consulting</span>
+                        <span>Strategy</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -620,50 +804,34 @@
             offset: 50
         });
 
-        // ===== ELASTIC CURSOR =====
-        const cursor = document.querySelector("#elastic-cursor");
-        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        let mouse = { x: pos.x, y: pos.y };
-        let speed = 0.12;
-        let fpms = 60 / 1000;
-
-        window.addEventListener("mousemove", e => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        const xSet = gsap.quickSetter(cursor, "x", "px");
-        const ySet = gsap.quickSetter(cursor, "y", "px");
-
-        gsap.ticker.add((time, deltaTime) => {
-            let delta = deltaTime * fpms;
-            let dt = 1.0 - Math.pow(1.0 - speed, delta);
-
-            let dx = mouse.x - pos.x;
-            let dy = mouse.y - pos.y;
-
-            pos.x += dx * dt;
-            pos.y += dy * dt;
-
-            let velocity = Math.sqrt(dx * dx + dy * dy);
-            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
-
-            xSet(pos.x - 10);
-            ySet(pos.y - 10);
-
-            gsap.set(cursor, {
-                rotation: setRotation,
-                scaleX: setScale,
-                scaleY: setScaleY
+        // ===== THEME TOGGLE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
             });
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
         });
 
-        document.querySelectorAll('a, button, .blockchain-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-        });
+       
     </script>
 
 </body>

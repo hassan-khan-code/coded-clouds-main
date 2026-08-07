@@ -5,217 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - CodedClouds</title>
     
-    <!-- Bootstrap CSS -->
+    <!-- External Dependencies -->
     <link rel="icon" type="image/png" href="../images/fav.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/png" href="../images/fav.png">
-    
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-
     <style>
-        /* --- PAGE SPECIFIC STYLES --- */
+        /* ==========================================
+           THEME SYSTEM - Same as Other Pages
+           ========================================== */
         
-        /* 1. Header Section (Dark Tech Theme) */
-       /* --- Header Container --- */
-.serv-header {
-    position: relative;
-    height: 50vh;
-    min-height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden; /* Video ko bahar nikalne se rokta hai */
-}
-
-/* --- Video Styling --- */
-.serv-video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Video ko poora screen fit karega */
-    z-index: -2;       /* Sab se peeche */
-}
-
-/* --- Dark Blue Overlay (Gradient) --- */
-.serv-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Tumhara purana gradient */
-    background: linear-gradient(to bottom, rgba(78, 78, 181, 0.115), rgba(17, 17, 58, 0.95));
-    z-index: -1;       /* Video k ooper, Content k neechay */
-}
-
-/* --- Content Styling --- */
-.serv-header .container {
-    position: relative;
-    z-index: 1;        /* Text sab se ooper */
-}
-
-        .serv-header h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        /* Light Theme (Default) */
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f8fafc;
+            --bg-navbar: rgba(255, 255, 255, 0.95);
+            --bg-footer: #0f172a;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --accent-cyan: #00d4ff;
+            --accent-blue: #0284c7;
+            --accent-glow: rgba(0, 212, 255, 0.12);
+            
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.4);
+            
+            --gradient-text: linear-gradient(135deg, #00d4ff, #3b82f6);
+            --gradient-hero: linear-gradient(to bottom, rgba(78, 78, 181, 0.115), rgba(17, 17, 58, 0.95));
         }
 
-        .serv-header p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0B0E14;
+            --bg-secondary: #131A22;
+            --bg-card: #131A22;
+            --bg-input: #1C2633;
+            --bg-navbar: rgba(11, 14, 20, 0.95);
+            --bg-footer: #0B0E14;
+            
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8899AA;
+            --text-white: #ffffff;
+            
+            --border-color: #1C2633;
+            --border-light: #2A3644;
+            
+            --accent-cyan: #00D4FF;
+            --accent-blue: #00D4FF;
+            --accent-glow: rgba(0, 212, 255, 0.08);
+            
+            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.25);
+            
+            --gradient-text: linear-gradient(135deg, #00D4FF, #0099CC);
+            --gradient-hero: linear-gradient(to bottom, rgba(11, 14, 20, 0.6), rgba(11, 14, 20, 0.95));
         }
 
-        /* 2. Services Grid Section */
-        .services-page-section {
-            padding-bottom: 100px;
-            background-color: #fff;
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* --- CARD STYLING --- */
-        .service-box {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden; 
-            border: 1px solid #eee;
-            transition: all 0.3s ease;
-            height: 100%;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           ELASTIC CURSOR
+           ========================================== */
+
+        /* ==========================================
+           THEME TOGGLE BUTTON
+           ========================================== */
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             display: flex;
-            flex-direction: column;
-        }
-
-        .service-box:hover {
-            transform: translateY(-5px); 
-        }
-
-        /* Image Area */
-        .img-area {
-            height: 180px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .img-area img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s ease;
-        }
-
-        .service-box:hover .img-area img {
-            transform: scale(1.1);
-        }
-
-        /* Content Area */
-        .content-area {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .content-area h3 {
+            align-items: center;
+            justify-content: center;
             font-size: 1.1rem;
-            font-weight: 700;
-            color: rgb(17, 17, 58);
-            margin-bottom: 8px;
-            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
         }
 
-        .content-area p {
-            color: #666;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            line-height: 1.5;
-            flex-grow: 1;
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-cyan);
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* Button (Small & Navy Blue) */
-        .btn-get-service {
-            background: transparent;
-            color: rgb(17, 17, 58);
-            border: 1px solid rgb(17, 17, 58);
-            padding: 6px 0; /* Thora patla */
-            width: 100%;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 11px; /* Font chota */
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
         }
 
-        .btn-get-service:hover {
-            background: rgb(17, 17, 58);
-            color: white;
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
         }
 
-        /* --- RESPONSIVE LAYOUT --- */
-        
-        /* Laptop: 3 Cards Row */
-        @media (min-width: 992px) {
-            .row-cols-lg-3 > * {
-                flex: 0 0 auto;
-                width: 33.3333%;
-            }
-        }
-
-        /* Mobile: 2 Cards Grid */
-        @media (max-width: 768px) {
-            .serv-header h1 { font-size: 2rem; }
-            .serv-header { height: 40vh; min-height: 300px; }
-
-            /* Grid Adjustment for Mobile */
-            .row.g-4 {
-                --bs-gutter-x: 10px; /* Gap kam */
-                --bs-gutter-y: 15px;
-            }
-            
-            .service-box {
-                border-radius: 10px;
-            }
-
-            .img-area { height: 120px; } /* Choti image mobile pe */
-            
-            .content-area { padding: 15px 10px; }
-            
-            .content-area h3 { font-size: 0.9rem; }
-            
-            .content-area p { font-size: 0.75rem; margin-bottom: 10px; }
-            
-            .btn-get-service { font-size: 10px; padding: 5px 0; }
-        }
-    </style>
-</head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<link rel="stylesheet" href="../assets/css/style.css">
-
-<div id="elastic-cursor"></div>
-
-<style>
-
-       /* --- Navigation --- */
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
         .main-nav {
-            background-color: rgba(255, 255, 255, 0.95);
+            background: var(--bg-navbar);
             backdrop-filter: blur(10px);
             height: 80px;
             width: 100%;
@@ -225,8 +144,9 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .nav-container {
@@ -238,14 +158,20 @@
             align-items: center;
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .logo img {
             height: 50px;
             display: block;
         }
 
         .back-btn {
-            background-color: #0f172a;
-            color: white;
+            background: var(--text-primary);
+            color: var(--text-white);
             text-decoration: none;
             padding: 10px 25px;
             border-radius: 50px;
@@ -255,108 +181,1005 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--navy);
+            border: 2px solid var(--text-primary);
             box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
         }
 
         .back-btn:hover {
-            background-color: transparent;
-            color: var(--navy);
+            background: transparent;
+            color: var(--text-primary);
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
+            box-shadow: var(--shadow-md);
         }
 
+        [data-theme="dark"] .back-btn {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
 
-    #elastic-cursor {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background-color: rgb(17, 17, 58); /* Aapka Navy Blue Color */
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 99999;
-        /* Glow effect taake dark bg par nazar aaye */
-        box-shadow: 0 0 10px rgba(17, 17, 58, 0.4);
-        transform-origin: center center;
-    }
+        [data-theme="dark"] .back-btn:hover {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
 
-    /* Jab link par jaye to cursor white ho jaye ya invert ho */
-    .cursor-active {
-        mix-blend-mode: difference;
-        background-color: white !important;
-    }
-     @media (max-width: 768px) {
-    #elastic-cursor {
-        display: none !important;
-    }
-}
-</style>
+        @media (max-width: 768px) {
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
 
-<script>
-    const cursor = document.querySelector("#elastic-cursor");
+        @media (max-width: 576px) {
+            .nav-container { width: 95%; }
+            .logo img { height: 40px; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+        }
 
-    // Cursor position and scale settings
-    let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    let mouse = { x: pos.x, y: pos.y };
-    let speed = 0.15; // Smoothness factor
+        /* ==========================================
+           SERVICES HEADER
+           ========================================== */
+        .serv-header {
+            position: relative;
+            height: 50vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-white);
+            overflow: hidden;
+        }
 
-    // Speed/Stretch Calculation
-    let fpms = 60 / 1000;
-    
-    window.addEventListener("mousemove", e => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
+        .serv-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
 
-    const xSet = gsap.quickSetter(cursor, "x", "px");
-    const ySet = gsap.quickSetter(cursor, "y", "px");
+        .serv-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hero);
+            z-index: -1;
+            transition: background 0.3s ease;
+        }
 
-    gsap.ticker.add((time, deltaTime) => {
-        let delta = deltaTime * fpms;
-        let dt = 1.0 - Math.pow(1.0 - speed, delta);
-        
-        // Calculate distance moved
-        let dx = mouse.x - pos.x;
-        let dy = mouse.y - pos.y;
-        
-        pos.x += dx * dt;
-        pos.y += dy * dt;
-        
-        // Calculate velocity for stretching
-        let velocity = Math.sqrt(dx * dx + dy * dy);
-        let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-        
-        // Velocity ke hisab se stretch (Max stretch limit 2.5 rakhi hai)
-        let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-        let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+        .serv-header .container {
+            position: relative;
+            z-index: 1;
+        }
 
-        xSet(pos.x - 10); // 10 is half of width
-        ySet(pos.y - 10);
-        
-        // Apply rotation and stretching
-        gsap.set(cursor, {
-            rotation: setRotation,
-            scaleX: setScale,
-            scaleY: setScaleY
-        });
-    });
+        .serv-header .badge-custom {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: var(--text-white);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            margin-bottom: 16px;
+        }
 
-    // Hover effect on links
-    document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-    });
-</script>
+        .serv-header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .serv-header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .serv-header {
+                height: 40vh;
+                min-height: 280px;
+            }
+            .serv-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ==========================================
+           SERVICES SECTION - Theme Aware
+           ========================================== */
+        .services-section {
+            background: var(--bg-primary);
+            padding: 90px 0;
+            transition: background 0.3s ease;
+        }
+
+        .services-header h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .services-header .highlight-text {
+            color: var(--accent-cyan);
+            transition: color 0.3s ease;
+        }
+
+        .services-header .sub-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin: 0 auto 50px auto;
+            transition: color 0.3s ease;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        /* ==========================================
+           SERVICE CARDS - Same as Home Page
+           ========================================== */
+        .service-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.35s ease;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-front-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .badge-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .card-image-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            background: var(--bg-input);
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .card-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-bottom-info h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .focus-label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .focus-label span {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        /* ==========================================
+           SLIDE-UP HOVER OVERLAY
+           ========================================== */
+        .card-hover-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 5;
+            transform: translateY(100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.4s;
+        }
+
+        .service-card:hover .card-hover-content {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hover-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hover-header h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .details-badge {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.08);
+            padding: 3px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .feature-list li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .feature-list li i {
+            color: var(--accent-cyan);
+            font-size: 0.95rem;
+        }
+
+        .explore-btn {
+            width: 100%;
+            background: var(--gradient-text);
+            color: var(--text-white);
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-decoration: none !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+
+        .explore-btn:hover {
+            box-shadow: 0 6px 18px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* Load More */
+        .services-grid .service-card:nth-child(n+5) {
+            display: none;
+        }
+
+        .services-grid.show-all .service-card:nth-child(n+5) {
+            display: flex;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .load-more-btn {
+            background: var(--bg-secondary);
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            padding: 12px 32px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .load-more-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--text-white);
+            box-shadow: 0 6px 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .load-more-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .mt-5 { margin-top: 40px; }
+
+        @media (max-width: 1200px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 991px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card { min-height: 320px; }
+            .card-image-wrapper { height: 150px; }
+        }
+
+        /* ==========================================
+           CONTACT SECTION - Same as Contact Page
+           ========================================== */
+        .contact-section-wrapper {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            width: 100%;
+            padding: 80px 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-top-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-section-title {
+            font-size: clamp(32px, 4vw, 46px);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin: 0 0 16px 0;
+            letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .gradient-text-alt {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .main-section-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card-frame {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            background: var(--bg-secondary);
+            border-radius: 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-left-col {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: rgba(0, 212, 255, 0.08);
+            color: var(--accent-cyan);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-title {
+            font-size: clamp(24px, 3vw, 32px);
+            margin: 0 0 6px 0;
+            color: var(--text-primary);
+            font-weight: 800;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-subtitle {
+            font-size: 13.5px;
+            margin: 0 0 28px 0;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .styled-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .input-wrapper,
+        .select-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .field-icon {
+            position: absolute;
+            left: 14px;
+            color: var(--text-muted);
+            font-size: 13px;
+            pointer-events: none;
+            transition: color 0.25s ease;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 11px 14px 11px 38px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-input);
+            font-size: 13.5px;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-control:focus {
+            background: var(--bg-secondary);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+
+        .phone-input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .phone-code {
+            width: 98px !important;
+            padding: 11px 8px !important;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .phone-input-group .form-control {
+            padding-left: 14px;
+        }
+
+        .select-wrapper .form-control {
+            padding-left: 14px;
+            padding-right: 30px;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .select-icon {
+            position: absolute;
+            right: 14px;
+            pointer-events: none;
+            color: var(--text-muted);
+            font-size: 11px;
+            transition: color 0.3s ease;
+        }
+
+        .textarea-control {
+            padding: 12px 14px !important;
+            resize: none;
+            min-height: 85px;
+        }
+
+        .form-actions-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 15px;
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--accent-cyan);
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .submit-btn {
+            background: var(--gradient-text);
+            color: var(--text-white);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 13px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px var(--accent-glow);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px var(--accent-glow);
+        }
+
+        /* Right Column */
+        .contact-right-col {
+            background: radial-gradient(circle at 85% 15%, rgba(0, 212, 255, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                        linear-gradient(150deg, #060913 0%, #0B0E14 50%, #0B0E14 100%);
+            padding: 50px 38px;
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="light"] .contact-right-col {
+            background: radial-gradient(circle at 85% 15%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(2, 132, 199, 0.15) 0%, transparent 50%),
+                        linear-gradient(150deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        .sidebar-bg-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .sidebar-bg-glow.glow-top {
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: var(--accent-cyan);
+            opacity: 0.2;
+        }
+
+        .sidebar-bg-glow.glow-bottom {
+            bottom: -50px;
+            left: -50px;
+            width: 220px;
+            height: 220px;
+            background: var(--accent-blue);
+            opacity: 0.2;
+        }
+
+        .brand-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            color: var(--accent-cyan);
+            margin-bottom: 18px;
+            backdrop-filter: blur(12px);
+        }
+
+        .sidebar-top h3 {
+            font-size: 23px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sidebar-top p {
+            font-size: 13.5px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .sidebar-cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .side-feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .side-feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.15);
+        }
+
+        .feature-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            color: var(--accent-cyan);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .feature-tag {
+            font-size: 9.5px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+            display: block;
+        }
+
+        .feature-content h4 {
+            margin: 2px 0 4px 0;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .feature-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+
+        .feature-link:hover {
+            color: var(--accent-cyan);
+            transform: translateX(4px);
+        }
+
+        .sidebar-metric {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .metric-num {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-desc {
+            font-size: 11.5px;
+            color: #94a3b8;
+            line-height: 1.45;
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        .footer-bar {
+            background: var(--bg-footer);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-bar p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .footer-bar strong {
+            color: var(--text-white);
+            transition: color 0.3s ease;
+        }
+
+        /* ==========================================
+           WHATSAPP FLOATING BUTTON
+           ========================================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+
+        .whatsapp-float a {
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float i {
+            font-size: 30px;
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 992px) {
+            .contact-card-frame {
+                grid-template-columns: 1fr;
+            }
+            .contact-right-col {
+                padding: 40px 30px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .section-top-header {
+                margin-bottom: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 60px 0;
+            }
+            .contact-section-wrapper {
+                padding: 50px 15px;
+            }
+            .contact-left-col {
+                padding: 30px 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .form-actions-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .submit-btn {
+                justify-content: center;
+            }
+            .whatsapp-float a {
+                width: 50px;
+                height: 50px;
+            }
+            .whatsapp-float i {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-header h2 {
+                font-size: 1.6rem;
+            }
+            .service-card {
+                min-height: 300px;
+                padding: 16px;
+            }
+            .card-image-wrapper {
+                height: 130px;
+            }
+            .card-bottom-info h3 {
+                font-size: 1rem;
+            }
+            .load-more-btn {
+                padding: 10px 24px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
 <body>
 
-    <!-- Navigation Header -->
+    <div id="elastic-cursor"></div>
+
+    <!-- ===== NAVIGATION ===== -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="logo">
-                <img src="../images/logo.webp" alt="Coded Clouds Logo"> 
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
             </a>
 
             <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
                 <a href="../index.html" class="back-btn">
                     <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
                 </a>
@@ -364,656 +1187,715 @@
         </div>
     </nav>
 
-
-<!-- Navbar section end -->
-
-    <!-- HEADER / COVER SECTION -->
- <header class="serv-header">
-    
-    <video autoplay muted loop playsinline class="serv-video-bg">
-        <source src="../images/hero.webm" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="container" data-aos="fade-up">
-        <span class="badge bg-light text-dark px-3 py-2 mb-3 rounded-pill fw-bold shadow-sm">OUR EXPERTISE</span>
-        <h1 class="display-4 fw-bold">Premium Digital Solutions</h1>
-        <p class="lead mt-3 text-light opacity-75">Tailored services to scale your business.</p>
-    </div>
-</header>
-
-<!-- =========================
-     SERVICES SECTION
-     ========================= -->
-<section class="services-section">
-  <div class="container">
-    
-    <!-- HEADER -->
-    <div class="services-header text-center" data-aos="fade-up">
-      <div class="services-pill">
-        <i class="fa-solid fa-layer-group"></i> OUR CORE EXPERTISE
-      </div>
-      <h2>Transform Your <span class="highlight-text">Business</span></h2>
-      <p class="sub-text">
-        Tailored digital solutions designed to scale your enterprise with <strong>modern technology</strong>.
-      </p>
-    </div>
-
-    <!-- SERVICES GRID CONTAINER -->
-    <div class="services-grid">
-
-      <!-- CARD 1: Web Development -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-            <span class="badge-tag">Scalable</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/web-development-programming-resized.jpg" alt="Web Development" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>Web Development</h3>
-            <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
-          </div>
+    <!-- ===== SERVICES HEADER ===== -->
+    <header class="serv-header">
+        <video autoplay muted loop playsinline class="serv-video-bg">
+            <source src="../images/hero.webm" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container" data-aos="fade-up">
+            <span class="badge-custom"><i class="fas fa-rocket me-2"></i>Our Expertise</span>
+            <h1 class="display-4 fw-bold">Premium Digital Solutions</h1>
+            <p class="lead mt-3 opacity-75">Tailored services to scale your business.</p>
         </div>
+    </header>
 
-        <!-- Slide Up Hover Card -->
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>Web Development</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Clean & Scalable Code</li>
-            <li><i class="fa-regular fa-circle-check"></i> Responsive & Modern UI</li>
-            <li><i class="fa-regular fa-circle-check"></i> Fast Performance & SEO</li>
-          </ul>
-          <a href="web.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 2: App Development -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-            <span class="badge-tag">Mobile Performance</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/app-development.avif" alt="App Development" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>App Development</h3>
-            <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>App Development</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Android & iOS Apps</li>
-            <li><i class="fa-regular fa-circle-check"></i> Smooth UI / UX Flow</li>
-            <li><i class="fa-regular fa-circle-check"></i> Secure & Scalable Architecture</li>
-          </ul>
-          <a href="app.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 3: PMS Development -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-building"></i></div>
-            <span class="badge-tag">Property</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/PMs.png" alt="PMS Development" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>PMS Development</h3>
-            <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>PMS Development</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Centralized Property Dashboard</li>
-            <li><i class="fa-regular fa-circle-check"></i> Tenant & Lease Tracking</li>
-            <li><i class="fa-regular fa-circle-check"></i> Automated Invoicing & Alerts</li>
-          </ul>
-          <a href="pms.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 4: Digital Marketing -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-            <span class="badge-tag">Growth</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/Digital-marketing.jpg" alt="Digital Marketing" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>Digital Marketing</h3>
-            <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>Digital Marketing</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Target Social Campaigns</li>
-            <li><i class="fa-regular fa-circle-check"></i> SEO & ROI Analytics</li>
-            <li><i class="fa-regular fa-circle-check"></i> Targeted Lead Generation</li>
-          </ul>
-          <a href="marketing.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 5: Full CRM System -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
-            <span class="badge-tag">Business Automation</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/CRM_Systems.png" alt="Full CRM System" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>Full CRM System</h3>
-            <p class="focus-label"><span>Focus:</span> Business Automation</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>Full CRM System</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Business Automation</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Client Data Management</li>
-            <li><i class="fa-regular fa-circle-check"></i> Sales Pipeline Tracking</li>
-            <li><i class="fa-regular fa-circle-check"></i> Workflow Automation</li>
-          </ul>
-          <a href="crm.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 6: POS Software -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-cash-register"></i></div>
-            <span class="badge-tag">Fast Billing</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/pos-system.png" alt="POS Software" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>POS Software</h3>
-            <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>POS Software</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Instant Checkout & Receipts</li>
-            <li><i class="fa-regular fa-circle-check"></i> Live Stock Management</li>
-            <li><i class="fa-regular fa-circle-check"></i> Financial Reporting</li>
-          </ul>
-          <a href="pos.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 7: Ecommerce Services -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-            <span class="badge-tag">High Converting Stores</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/eco-system.jpg" alt="Ecommerce Services" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>Ecommerce Services</h3>
-            <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>Ecommerce Services</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Custom Storefront Design</li>
-            <li><i class="fa-regular fa-circle-check"></i> Secure Payment Gateways</li>
-            <li><i class="fa-regular fa-circle-check"></i> Inventory & Order Sync</li>
-          </ul>
-          <a href="E-com.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 8: AI & Automation -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
-            <span class="badge-tag">Intelligent Workflows</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/ai-automation.png" alt="AI & Automation" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>AI & Automation</h3>
-            <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>AI & Automation</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Custom Conversational AI</li>
-            <li><i class="fa-regular fa-circle-check"></i> Predictive Analytics</li>
-            <li><i class="fa-regular fa-circle-check"></i> Process Optimization</li>
-          </ul>
-          <a href="AI.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-
-       <!-- CARD 9: Block chain -->
-      <div class="service-card">
-  <!-- Front Content -->
-  <div class="card-front-content">
-    <div class="card-top-bar">
-      <!-- Icon updated to Blockchain/Link -->
-      <div class="card-icon"><i class="fa-solid fa-link"></i></div>
-      <span class="badge-tag">Blockchain</span>
-    </div>
-    <div class="card-image-wrapper">
-      <img src="../images/blockchain.webp" alt="Blockchain Development" loading="lazy">
-    </div>
-    <div class="card-bottom-info">
-      <h3>Blockchain Development</h3>
-      <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
-    </div>
-  </div>
-
-  <!-- Hover Content -->
-  <div class="card-hover-content">
-    <div class="hover-header">
-      <h3>Blockchain Development</h3>
-      <span class="details-badge">DETAILS</span>
-    </div>
-    <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
-    <ul class="feature-list">
-      <li><i class="fa-regular fa-circle-check"></i> Smart Contract Development</li>
-      <li><i class="fa-regular fa-circle-check"></i> dApp & Web3 Architecture</li>
-      <li><i class="fa-regular fa-circle-check"></i> Tokenomics & DeFi Solutions</li>
-    </ul>
-    <a href="Blockchain.html" class="explore-btn">
-      Explore Solution <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
-</div>
-
-<!-- CARD 10: Quality Assurance -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-bug-slash"></i></div>
-            <span class="badge-tag">Zero Defect</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/implementing-qa.webp" alt="Quality Assurance" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>Quality Assurance</h3>
-            <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>Quality Assurance</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Automated & Manual Testing</li>
-            <li><i class="fa-regular fa-circle-check"></i> Performance & Load Testing</li>
-            <li><i class="fa-regular fa-circle-check"></i> Cross-Browser Compatibility</li>
-          </ul>
-          <a href="qa.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 11: DevOps -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
-            <span class="badge-tag">CI/CD & Cloud</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/devops.jpeg" alt="DevOps Solutions" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>DevOps Solutions</h3>
-            <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>DevOps Solutions</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Automated CI/CD Pipelines</li>
-            <li><i class="fa-regular fa-circle-check"></i> Infrastructure as Code (IaC)</li>
-            <li><i class="fa-regular fa-circle-check"></i> Cloud Migration & Optimization</li>
-          </ul>
-          <a href="devops.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD 12: Cybersecurity -->
-      <div class="service-card">
-        <div class="card-front-content">
-          <div class="card-top-bar">
-            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <span class="badge-tag">Threat Protection</span>
-          </div>
-          <div class="card-image-wrapper">
-            <img src="../images/Cybersecurity.webp" alt="Cybersecurity" loading="lazy">
-          </div>
-          <div class="card-bottom-info">
-            <h3>Cybersecurity</h3>
-            <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
-          </div>
-        </div>
-
-        <div class="card-hover-content">
-          <div class="hover-header">
-            <h3>Cybersecurity</h3>
-            <span class="details-badge">DETAILS</span>
-          </div>
-          <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
-          <ul class="feature-list">
-            <li><i class="fa-regular fa-circle-check"></i> Penetration Testing & Audits</li>
-            <li><i class="fa-regular fa-circle-check"></i> End-to-End Encryption</li>
-            <li><i class="fa-regular fa-circle-check"></i> Real-time Threat Monitoring</li>
-          </ul>
-          <a href="cybersecurity.html" class="explore-btn">
-            Explore Solution <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!--  -->
-
-    </div>
-  </div>
-</section>
-
-
-<!-- contact sectiion -->
- <section id="unique-contact-section" class="contact-section-wrapper">
-    <div class="contact-container">
-        
-        <!-- SECTION TOP HEADER -->
-        <div class="section-top-header">
-            <h1 class="main-section-title">
-                Let's Build Something <span class="gradient-text-alt">Amazing Together</span>
-            </h1>
-            <p class="main-section-desc">
-                Have a project in mind or looking for the right technology partner? Our team is ready to turn your ideas into innovative, scalable, and high-performing digital solutions. Get in touch and let's make it happen.
-            </p>
-        </div>
-
-        <!-- MAIN GLASS CARD CONTAINER -->
-        <div class="contact-card-frame">
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services-section">
+        <div class="container">
             
-            <!-- LEFT COLUMN: Compact Form -->
-            <div class="contact-left-col">
-                <div class="form-header">
-                    <span class="contact-badge"><i class="fa-solid fa-paper-plane"></i> GET IN TOUCH</span>
-                    <h2 class="contact-title">Let’s Start a <span class="gradient-text">Conversation</span></h2>
-                    <p class="contact-subtitle">Fill out the form below and our engineering team will get back to you shortly.</p>
+            <div class="services-header text-center" data-aos="fade-up">
+                <h2>Transform Your <span class="highlight-text">Business</span></h2>
+                <p class="sub-text"></p>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- CARD 1: Web Development -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                            <span class="badge-tag">Scalable</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/web-development-programming-resized.jpg" alt="Web Development" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Web Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Web Development</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Clean & Scalable Code</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Responsive & Modern UI</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Fast Performance & SEO</li>
+                        </ul>
+                        <a href="web.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <form id="contactForm" class="styled-form">
-                    <input type="hidden" name="selected_services" id="selected_services">
-
-                    <!-- Grid Row 1 -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <i class="fa-regular fa-user field-icon"></i>
-                                <input type="text" name="full_name" placeholder="Omaan Jallane" required class="form-control">
-                            </div>
+                <!-- CARD 2: App Development -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <span class="badge-tag">Mobile Performance</span>
                         </div>
-                        <div class="form-group">
-                            <label>Work Email <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <i class="fa-regular fa-envelope field-icon"></i>
-                                <input type="email" name="user_email" placeholder="email@company.com" required class="form-control">
-                            </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/app-development.avif" alt="App Development" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>App Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
                         </div>
                     </div>
-
-                    <!-- Grid Row 2 -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Phone Number <span class="required">*</span></label>
-                            <div class="phone-input-group">
-                                <select name="country_code" required class="form-control phone-code">
-                                    <option value="+966">🇸🇦 +966</option>
-                                    <option value="+92">🇵🇰 +92</option>
-                                    <option value="+971">🇦🇪 +971</option>
-                                </select>
-                                <input type="tel" name="phone_number" placeholder="55 123 4567" required class="form-control">
-                            </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>App Development</h3>
+                            <span class="details-badge">DETAILS</span>
                         </div>
-                        <div class="form-group">
-                            <label>Company Name <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <i class="fa-regular fa-building field-icon"></i>
-                                <input type="text" name="company_name" placeholder="CodedCloud Ltd." required class="form-control">
-                            </div>
+                        <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Android & iOS Apps</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Smooth UI / UX Flow</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Secure & Scalable Architecture</li>
+                        </ul>
+                        <a href="app.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 3: PMS Development -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-building"></i></div>
+                            <span class="badge-tag">Property</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/PMs.png" alt="PMS Development" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>PMS Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
                         </div>
                     </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>PMS Development</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Centralized Property Dashboard</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Tenant & Lease Tracking</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Automated Invoicing & Alerts</li>
+                        </ul>
+                        <a href="pms.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-                    <!-- Grid Row 3 -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Company Website</label>
-                            <div class="input-wrapper">
-                                <i class="fa-solid fa-globe field-icon"></i>
-                                <input type="url" name="company_url" placeholder="https://codedclouds.org" class="form-control">
+                <!-- CARD 4: Digital Marketing -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <span class="badge-tag">Growth</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/Digital-marketing.jpg" alt="Digital Marketing" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Digital Marketing</h3>
+                            <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Digital Marketing</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Target Social Campaigns</li>
+                            <li><i class="fa-regular fa-circle-check"></i> SEO & ROI Analytics</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Targeted Lead Generation</li>
+                        </ul>
+                        <a href="marketing.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 5: Full CRM System -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                            <span class="badge-tag">Business Automation</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/CRM_Systems.png" alt="Full CRM System" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Full CRM System</h3>
+                            <p class="focus-label"><span>Focus:</span> Business Automation</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Full CRM System</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Business Automation</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Client Data Management</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Sales Pipeline Tracking</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Workflow Automation</li>
+                        </ul>
+                        <a href="crm.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 6: POS Software -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-cash-register"></i></div>
+                            <span class="badge-tag">Fast Billing</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/pos-system.png" alt="POS Software" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>POS Software</h3>
+                            <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>POS Software</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Instant Checkout & Receipts</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Live Stock Management</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Financial Reporting</li>
+                        </ul>
+                        <a href="pos.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 7: Ecommerce Services -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <span class="badge-tag">High Converting Stores</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/eco-system.jpg" alt="Ecommerce Services" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Ecommerce Services</h3>
+                            <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Ecommerce Services</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Custom Storefront Design</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Secure Payment Gateways</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Inventory & Order Sync</li>
+                        </ul>
+                        <a href="E-com.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 8: AI & Automation -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                            <span class="badge-tag">Intelligent Workflows</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/ai-automation.png" alt="AI & Automation" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>AI & Automation</h3>
+                            <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>AI & Automation</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Custom Conversational AI</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Predictive Analytics</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Process Optimization</li>
+                        </ul>
+                        <a href="AI.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 9: Blockchain -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-link"></i></div>
+                            <span class="badge-tag">Blockchain</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/blockchain.webp" alt="Blockchain Development" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Blockchain Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Blockchain Development</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Smart Contract Development</li>
+                            <li><i class="fa-regular fa-circle-check"></i> dApp & Web3 Architecture</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Tokenomics & DeFi Solutions</li>
+                        </ul>
+                        <a href="Blockchain.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 10: Quality Assurance -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-bug-slash"></i></div>
+                            <span class="badge-tag">Zero Defect</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/implementing-qa.webp" alt="Quality Assurance" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Quality Assurance</h3>
+                            <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Quality Assurance</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Automated & Manual Testing</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Performance & Load Testing</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Cross-Browser Compatibility</li>
+                        </ul>
+                        <a href="qa.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 11: DevOps -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
+                            <span class="badge-tag">CI/CD & Cloud</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/devops.jpeg" alt="DevOps Solutions" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>DevOps Solutions</h3>
+                            <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>DevOps Solutions</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Automated CI/CD Pipelines</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Infrastructure as Code (IaC)</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Cloud Migration & Optimization</li>
+                        </ul>
+                        <a href="devops.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 12: Cybersecurity -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <span class="badge-tag">Threat Protection</span>
+                        </div>
+                        <div class="card-image-wrapper">
+                            <img src="../images/Cybersecurity.webp" alt="Cybersecurity" loading="lazy">
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Cybersecurity</h3>
+                            <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Cybersecurity</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Penetration Testing & Audits</li>
+                            <li><i class="fa-regular fa-circle-check"></i> End-to-End Encryption</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Real-time Threat Monitoring</li>
+                        </ul>
+                        <a href="cybersecurity.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button id="loadMoreBtn" class="load-more-btn" onclick="toggleServices()">
+                    <span>Load More Services</span> 
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="unique-contact-section" class="contact-section-wrapper">
+        <div class="contact-container">
+            
+            <div class="section-top-header">
+                <h1 class="main-section-title">
+                    Let's Build Something <span class="gradient-text-alt">Amazing Together</span>
+                </h1>
+                <p class="main-section-desc">
+                    Have a project in mind or looking for the right technology partner? Our team is ready to turn your ideas into innovative, scalable, and high-performing digital solutions. Get in touch and let's make it happen.
+                </p>
+            </div>
+
+            <div class="contact-card-frame">
+                
+                <div class="contact-left-col">
+                    <div class="form-header">
+                        <span class="contact-badge"><i class="fa-solid fa-paper-plane"></i> GET IN TOUCH</span>
+                        <h2 class="contact-title">Let's Start a <span class="gradient-text">Conversation</span></h2>
+                        <p class="contact-subtitle">Fill out the form below and our engineering team will get back to you shortly.</p>
+                    </div>
+
+                    <form id="contactForm" class="styled-form">
+                        <input type="hidden" name="selected_services" id="selected_services">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user field-icon"></i>
+                                    <input type="text" name="full_name" placeholder="Omaan Jallane" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Work Email <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope field-icon"></i>
+                                    <input type="email" name="user_email" placeholder="email@company.com" required class="form-control">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Region <span class="required">*</span></label>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <div class="phone-input-group">
+                                    <select name="country_code" required class="form-control phone-code">
+                                        <option value="+966">🇸🇦 +966</option>
+                                        <option value="+92">🇵🇰 +92</option>
+                                        <option value="+971">🇦🇪 +971</option>
+                                    </select>
+                                    <input type="tel" name="phone_number" placeholder="55 123 4567" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Company Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-building field-icon"></i>
+                                    <input type="text" name="company_name" placeholder="CodedCloud Ltd." required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Company Website</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-globe field-icon"></i>
+                                    <input type="url" name="company_url" placeholder="https://codedclouds.org" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Region <span class="required">*</span></label>
+                                <div class="select-wrapper">
+                                    <select name="region" required class="form-control">
+                                        <option value="" disabled selected>Select Region</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Middle East">Middle East</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Services interested in <span class="required">*</span></label>
                             <div class="select-wrapper">
-                                <select name="region" required class="form-control">
-                                    <option value="" disabled selected>Select Region</option>
-                                    <option value="Saudi Arabia">Saudi Arabia</option>
-                                    <option value="Pakistan">Pakistan</option>
-                                    <option value="Middle East">Middle East</option>
-                                    <option value="Other">Other</option>
+                                <select class="form-control service-select" name="services" required>
+                                    <option value="" disabled selected>Click to select a service...</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Mobile App Development">Mobile App Development</option>
+                                    <option value="Custom Software">Custom Software Solutions</option>
+                                    <option value="PMS">PMS (Property Management Systems)</option>
+                                    <option value="CRM">Full CRM Integrations</option>
+                                    <option value="POS">POS Software Solutions</option>
+                                    <option value="Ecommerce">E-commerce Platforms</option>
+                                    <option value="Digital Marketing">Digital Marketing & SEO</option>
+                                    <option value="Branding">Branding & IT Consultancy</option>
+                                    <option value="AI Automation">AI & Workflow Automation</option>
                                 </select>
                                 <i class="fa-solid fa-chevron-down select-icon"></i>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Service Dropdown -->
-                    <div class="form-group full-width">
-                        <label>Services interested in <span class="required">*</span></label>
-                        <div class="select-wrapper">
-                            <select class="form-control service-select" name="services" required>
-                                <option value="" disabled selected>Click to select a service...</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Mobile App Development">Mobile App Development</option>
-                                <option value="Custom Software">Custom Software Solutions</option>
-                                <option value="PMS">PMS (Property Management Systems)</option>
-                                <option value="CRM">Full CRM Integrations</option>
-                                <option value="POS">POS Software Solutions</option>
-                                <option value="Ecommerce">E-commerce Platforms</option>
-                                <option value="Digital Marketing">Digital Marketing & SEO</option>
-                                <option value="Branding">Branding & IT Consultancy</option>
-                                <option value="AI Automation">AI & Workflow Automation</option>
-                            </select>
-                            <i class="fa-solid fa-chevron-down select-icon"></i>
+                        <div class="form-group full-width">
+                            <label>How can we help you?</label>
+                            <textarea name="message" rows="3" placeholder="Tell us briefly about your project requirements..." class="form-control textarea-control"></textarea>
                         </div>
-                    </div>
 
-                    <!-- Message Textarea -->
-                    <div class="form-group full-width">
-                        <label>How can we help you?</label>
-                        <textarea name="message" rows="3" placeholder="Tell us briefly about your project requirements..." class="form-control textarea-control"></textarea>
-                    </div>
+                        <div class="form-actions-row">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="looking_for_job">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-label">Career Opportunity?</span>
+                            </label>
 
-                    <!-- Actions Row -->
-                    <div class="form-actions-row">
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="looking_for_job">
-                            <span class="checkmark"></span>
-                            <span class="checkbox-label">Career Opportunity?</span>
-                        </label>
-
-                        <button type="submit" class="submit-btn">
-                            <span>Submit Inquiry</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- RIGHT COLUMN: Vibrant Glass Sidebar Tiles -->
-            <div class="contact-right-col">
-                <div class="sidebar-bg-glow glow-top"></div>
-                <div class="sidebar-bg-glow glow-bottom"></div>
-
-                <div class="sidebar-top">
-                    <div class="brand-chip">
-                        <i class="fa-solid fa-cloud"></i> Coded Clouds
-                    </div>
-                    <h3>Engineered for Global Excellence</h3>
-                    <p>Delivering high-impact digital products and next-gen enterprise software solutions worldwide.</p>
+                            <button type="submit" class="submit-btn">
+                                <span>Submit Inquiry</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
-                <!-- TILES / FEATURE CARDS CONTAINER -->
-                <div class="sidebar-cards-container">
-                    
-                    <!-- Global Presence Tile -->
-                    <div class="side-feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
-                        <div class="feature-content">
-                            <span class="feature-tag">GLOBAL PRESENCE</span>
-                            <h4>Active Across 5 Continents</h4>
-                            <a href="./Components/Presence.html" class="feature-link">
-                                Explore Footprint <i class="fas fa-arrow-right"></i>
-                            </a>
+                <div class="contact-right-col">
+                    <div class="sidebar-bg-glow glow-top"></div>
+                    <div class="sidebar-bg-glow glow-bottom"></div>
+
+                    <div class="sidebar-top">
+                        <div class="brand-chip">
+                            <i class="fa-solid fa-cloud"></i> Coded Clouds
+                        </div>
+                        <h3>Engineered for Global Excellence</h3>
+                        <p>Delivering high-impact digital products and next-gen enterprise software solutions worldwide.</p>
+                    </div>
+
+                    <div class="sidebar-cards-container">
+                        <div class="side-feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                            <div class="feature-content">
+                                <span class="feature-tag">GLOBAL PRESENCE</span>
+                                <h4>Active Across 5 Continents</h4>
+                                <a href="./Components/Presence.html" class="feature-link">
+                                    Explore Footprint <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="side-feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
+                            <div class="feature-content">
+                                <span class="feature-tag">LEADERSHIP</span>
+                                <h4>Seasoned Industry Experts</h4>
+                                <a href="./Components/Leaders.html" class="feature-link">
+                                    Meet Leaders <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Leadership Tile -->
-                    <div class="side-feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
-                        <div class="feature-content">
-                            <span class="feature-tag">LEADERSHIP</span>
-                            <h4>Seasoned Industry Experts</h4>
-                            <a href="./Components/Leaders.html" class="feature-link">
-                                Meet Leaders <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
+                    <div class="sidebar-metric">
+                        <div class="metric-num">99.9%</div>
+                        <div class="metric-desc">Client Satisfaction Rate Across Enterprise Deployments</div>
                     </div>
-
-                </div>
-
-                <!-- Footer Metric Badge Tile -->
-                <div class="sidebar-metric">
-                    <div class="metric-num">99.9%</div>
-                    <div class="metric-desc">Client Satisfaction Rate Across Enterprise Deployments</div>
                 </div>
 
             </div>
 
         </div>
+    </section>
 
+    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/+966594552890" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
-</section>
 
-<!--footer-->
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-bar">
+        <div class="container">
+            <p>© 2026 <strong>CodedClouds</strong>. All rights reserved.</p>
+        </div>
+    </footer>
 
-
-<div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px;">    
-    <a href="https://wa.me/+966594552890" style="background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
-        <i class="fab fa-whatsapp" style="font-size: 30px;"></i>
-    </a>
-</div>
-
-
-    <!-- Scripts -->
+    <!-- ===== SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <script>
-        AOS.init({ once: true, offset: 50 });
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800
+        });
+
+        // ===== LOAD MORE SERVICES =====
+        function toggleServices() {
+            const grid = document.querySelector('.services-grid');
+            const btn = document.getElementById('loadMoreBtn');
+            const btnText = btn.querySelector('span');
+
+            grid.classList.toggle('show-all');
+            btn.classList.toggle('active');
+
+            if (grid.classList.contains('show-all')) {
+                btnText.textContent = 'Show Less';
+            } else {
+                btnText.textContent = 'Load More Services';
+                document.querySelector('.services-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // ===== THEME TOGGLE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
+        });
+
+        // ===== ELASTIC CURSOR =====
+        const cursor = document.querySelector("#elastic-cursor");
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.15;
+        let fpms = 60 / 1000;
+
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button, .service-card, .theme-toggle-btn, .submit-btn').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
     </script>
+
 </body>
 </html>

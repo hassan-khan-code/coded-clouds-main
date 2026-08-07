@@ -4,116 +4,283 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Presence - CodedCloud</title>
-    <!-- Google Fonts -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link rel="icon" type="image/png" href="../images/fav.png">
-    <link rel="stylesheet" href="../assets/css/style.css">
     
-
+    <!-- External Dependencies -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/fav.png">
+    
     <style>
-        /* --- ELASTIC CURSOR --- */
-        #elastic-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background-color: rgb(17, 17, 58);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99999;
-            box-shadow: 0 0 10px rgba(17, 17, 58, 0.4);
-            transform-origin: center center;
-        }
-
-        .cursor-active {
-            mix-blend-mode: difference;
-            background-color: white !important;
-        }
-
-        @media (max-width: 768px) {
-            #elastic-cursor {
-                display: none !important;
-            }
-        }
-
-        /* --- VARIABLES & BASE STYLES --- */
+        /* ==========================================
+           THEME SYSTEM - Same as Other Pages
+           ========================================== */
+        
+        /* Light Theme (Default) */
         :root {
-            --primary-blue: #0d1226;
-            --bg-white: #ffffff;
-            --text-dark: #1a1a1a;
-            --card-radius: 15px;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f8fafc;
+            --bg-navbar: rgba(255, 255, 255, 0.95);
+            --bg-footer: #0f172a;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --accent-cyan: #00d4ff;
+            --accent-blue: #0284c7;
+            --accent-glow: rgba(0, 212, 255, 0.12);
+            
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            
+            --gradient-text: linear-gradient(135deg, #00d4ff, #3b82f6);
+            --gradient-overlay: linear-gradient(to top, rgba(13, 18, 38, 0.95) 10%, rgba(13, 18, 38, 0) 65%);
         }
 
-        /* * {
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0B0E14;
+            --bg-secondary: #131A22;
+            --bg-card: #131A22;
+            --bg-input: #1C2633;
+            --bg-navbar: rgba(11, 14, 20, 0.95);
+            --bg-footer: #0B0E14;
+            
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8899AA;
+            --text-white: #ffffff;
+            
+            --border-color: #1C2633;
+            --border-light: #2A3644;
+            
+            --accent-cyan: #00D4FF;
+            --accent-blue: #00D4FF;
+            --accent-glow: rgba(0, 212, 255, 0.08);
+            
+            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+            
+            --gradient-text: linear-gradient(135deg, #00D4FF, #0099CC);
+            --gradient-overlay: linear-gradient(to top, rgba(11, 14, 20, 0.95) 10%, rgba(11, 14, 20, 0) 65%);
+        }
+
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        } */
+        }
 
-        /* body {
-            background-color: var(--bg-white);
-            color: var(--text-dark);
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             overflow-x: hidden;
-        } */
+            transition: background 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
+        }
 
-        /* --- SECTION CONTAINER --- */
+
+        /* ==========================================
+           THEME TOGGLE BUTTON
+           ========================================== */
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-cyan);
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
+        .main-nav {
+            background: var(--bg-navbar);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background: var(--text-primary);
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--text-primary);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background: transparent;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        [data-theme="dark"] .back-btn {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        [data-theme="dark"] .back-btn:hover {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 576px) {
+            .nav-container { width: 95%; }
+            .logo img { height: 40px; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+        }
+
+        /* ==========================================
+           PRESENCE SECTION
+           ========================================== */
         .presence-section {
-            padding: 80px 20px;
+            padding: 60px 20px 80px;
             max-width: 1400px;
             margin: 0 auto;
             text-align: center;
         }
 
         .section-tag {
-            color: #6c757d;
-            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 600;
-            display: block;
+            font-weight: 700;
+            display: inline-block;
             margin-bottom: 10px;
+            background: rgba(0, 212, 255, 0.08);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
         .main-heading {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--text-primary);
+            font-weight: 800;
             margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .main-heading span {
+            color: var(--accent-cyan);
         }
 
         .sub-text {
-            color: #555;
+            color: var(--text-secondary);
             max-width: 700px;
-            margin: 0 auto 50px auto;
-            line-height: 1.6;
+            margin: 0 auto 40px auto;
+            line-height: 1.8;
+            transition: color 0.3s ease;
         }
 
-        /* --- COUNTRY GRID SYSTEM --- */
+        /* ==========================================
+           COUNTRY GRID
+           ========================================== */
         .country-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 25px;
             justify-content: center;
         }
 
-        /* --- CARD DESIGN --- */
+        /* ==========================================
+           COUNTRY CARDS
+           ========================================== */
         .country-card {
             position: relative;
-            height: 320px;
-            border-radius: var(--card-radius);
+            height: 300px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 2px solid var(--border-color);
         }
 
         .country-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-cyan);
         }
 
         .card-bg {
@@ -125,7 +292,7 @@
         }
 
         .country-card:hover .card-bg {
-            transform: scale(1.1);
+            transform: scale(1.12);
         }
 
         .card-overlay {
@@ -134,43 +301,68 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(13, 18, 38, 0.95) 10%, rgba(13, 18, 38, 0) 65%);
+            background: var(--gradient-overlay);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 22px;
+            padding: 24px 22px;
             text-align: left;
+            transition: background 0.3s ease;
         }
 
         .country-name {
-            color: #fff;
-            font-size: 1.35rem;
+            color: var(--text-white);
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 4px;
         }
 
         .region-tag {
-            color: #cbd5e1;
-            font-size: 0.85rem;
-            font-weight: 300;
-            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        /* --- COUNTRY BACKGROUNDS (ORIGINAL 5 + LIVE LINKS FOR NEW COUNTRIES) --- */
+        .region-tag i {
+            font-size: 0.7rem;
+            color: var(--accent-cyan);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            pointer-events: none;
+            transition: color 0.3s ease;
+        }
+
+        .country-card:hover .card-number {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* ==========================================
+           COUNTRY BACKGROUNDS
+           ========================================== */
         .bg-uae { background-image: url('../images/presence/UAEe.png'); }
         .bg-oman { background-image: url('../images/presence/oman.png'); }
         .bg-ksa { background-image: url('../images/presence/saudia.png'); }
         .bg-pak { background-image: url('../images/presence/pakistan.png'); }
         .bg-uk { background-image: url('../images/presence/uk.jpg'); }
-
-        /* LIVE LINKS FOR 45+ ADDITIONAL COUNTRIES */
         .bg-usa { background-image: url('../images/presence/us.jpg'); }
         .bg-canada { background-image: url('../images/presence/canada.jpg'); }
         .bg-germany { background-image: url('../images/presence/Germany.jpeg'); }
         .bg-france { background-image: url('../images/presence/\ France.jpg'); }
         .bg-australia { background-image: url('../images/presence/\ Australia.jpg'); }
         .bg-qatar { background-image: url('../images/presence/\ Qatar.jpg'); }
-        .bg-bahrain { background-image:url('../images/presence/\ Bahrain.jpg'); }
+        .bg-bahrain { background-image: url('../images/presence/\ Bahrain.jpg'); }
         .bg-kuwait { background-image: url('../images/presence/\ Kuwait.jpg'); }
         .bg-japan { background-image: url('../images/presence/\ Japan.jpg'); }
         .bg-singapore { background-image: url('../images/presence/\ Singapore.jpg'); }
@@ -183,9 +375,9 @@
         .bg-italy { background-image: url('../images/presence/\ Italy.jpg'); }
         .bg-spain { background-image: url('../images/presence/\ Spain.jpg'); }
         .bg-brazil { background-image: url('../images/presence/\ Brazil.jpg'); }
-        .bg-southafrica { background-image: url('../images/presence/\ South\ Africa.jpg'); }
+        .bg-southafrica { background-image: url('../images/presence/\ South Africa.jpg'); }
         .bg-egypt { background-image: url('../images/presence/\ Egypt.jpg'); }
-        .bg-southkorea { background-image: url('../images/presence/\ South\ Korea.jpg'); }
+        .bg-southkorea { background-image: url('../images/presence/\ South Korea.jpg'); }
         .bg-sweden { background-image: url('../images/presence/\ Sweden.jpg'); }
         .bg-norway { background-image: url('../images/presence/\ Norway.jpg'); }
         .bg-denmark { background-image: url('../images/presence/\ Denmark.jpg'); }
@@ -196,7 +388,7 @@
         .bg-poland { background-image: url('../images/presence/\ Poland.jpg'); }
         .bg-portugal { background-image: url('../images/presence/\ Portugal.jpg'); }
         .bg-greece { background-image: url('../images/presence/\ Greece.jpg'); }
-        .bg-newzealand { background-image: url('../images/presence/New\ Zealand.jpg'); }
+        .bg-newzealand { background-image: url('../images/presence/New Zealand.jpg'); }
         .bg-thailand { background-image: url('../images/presence/\ Thailand.jpg'); }
         .bg-indonesia { background-image: url('../images/presence/\ Indonesia.jpg'); }
         .bg-vietnam { background-image: url('../images/presence/\ Vietnam.jpg'); }
@@ -210,331 +402,1397 @@
         .bg-kenya { background-image: url('../images/presence/\ Kenya.jpg'); }
         .bg-nigeria { background-image: url('../images/presence/\ Nigeria.jpg'); }
         .bg-morocco { background-image: url('../images/presence/\ Morocco.jpg'); }
-        .bg-srilanka { background-image: url('../images/presence/\ Sri\ Lanka.jpg'); }
+        .bg-srilanka { background-image: url('../images/presence/\ Sri Lanka.jpg'); }
         .bg-bangladesh { background-image: url('../images/presence/\ Bangladesh.jpg'); }
+
+        /* ==========================================
+           CONTACT SECTION - Same as Contact Page
+           ========================================== */
+        .contact-section-wrapper {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            width: 100%;
+            padding: 80px 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-top-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-section-title {
+            font-size: clamp(32px, 4vw, 46px);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin: 0 0 16px 0;
+            letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .gradient-text-alt {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .main-section-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card-frame {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            background: var(--bg-secondary);
+            border-radius: 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-left-col {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: rgba(0, 212, 255, 0.08);
+            color: var(--accent-cyan);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-title {
+            font-size: clamp(24px, 3vw, 32px);
+            margin: 0 0 6px 0;
+            color: var(--text-primary);
+            font-weight: 800;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-subtitle {
+            font-size: 13.5px;
+            margin: 0 0 28px 0;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .styled-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .input-wrapper,
+        .select-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .field-icon {
+            position: absolute;
+            left: 14px;
+            color: var(--text-muted);
+            font-size: 13px;
+            pointer-events: none;
+            transition: color 0.25s ease;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 11px 14px 11px 38px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-input);
+            font-size: 13.5px;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-control:focus {
+            background: var(--bg-secondary);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+
+        .phone-input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .phone-code {
+            width: 98px !important;
+            padding: 11px 8px !important;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .phone-input-group .form-control {
+            padding-left: 14px;
+        }
+
+        .select-wrapper .form-control {
+            padding-left: 14px;
+            padding-right: 30px;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .select-icon {
+            position: absolute;
+            right: 14px;
+            pointer-events: none;
+            color: var(--text-muted);
+            font-size: 11px;
+            transition: color 0.3s ease;
+        }
+
+        .textarea-control {
+            padding: 12px 14px !important;
+            resize: none;
+            min-height: 85px;
+        }
+
+        .form-actions-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 15px;
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--accent-cyan);
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .submit-btn {
+            background: var(--gradient-text);
+            color: var(--text-white);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 13px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px var(--accent-glow);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px var(--accent-glow);
+        }
+
+        /* Right Column */
+        .contact-right-col {
+            background: radial-gradient(circle at 85% 15%, rgba(0, 212, 255, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                        linear-gradient(150deg, #060913 0%, #0B0E14 50%, #0B0E14 100%);
+            padding: 50px 38px;
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="light"] .contact-right-col {
+            background: radial-gradient(circle at 85% 15%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(2, 132, 199, 0.15) 0%, transparent 50%),
+                        linear-gradient(150deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        .sidebar-bg-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .sidebar-bg-glow.glow-top {
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: var(--accent-cyan);
+            opacity: 0.2;
+        }
+
+        .sidebar-bg-glow.glow-bottom {
+            bottom: -50px;
+            left: -50px;
+            width: 220px;
+            height: 220px;
+            background: var(--accent-blue);
+            opacity: 0.2;
+        }
+
+        .brand-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            color: var(--accent-cyan);
+            margin-bottom: 18px;
+            backdrop-filter: blur(12px);
+        }
+
+        .sidebar-top h3 {
+            font-size: 23px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sidebar-top p {
+            font-size: 13.5px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .sidebar-cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .side-feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .side-feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.15);
+        }
+
+        .feature-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            color: var(--accent-cyan);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .feature-tag {
+            font-size: 9.5px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--accent-cyan);
+            display: block;
+        }
+
+        .feature-content h4 {
+            margin: 2px 0 4px 0;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .feature-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+
+        .feature-link:hover {
+            color: var(--accent-cyan);
+            transform: translateX(4px);
+        }
+
+        .sidebar-metric {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .metric-num {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-desc {
+            font-size: 11.5px;
+            color: #94a3b8;
+            line-height: 1.45;
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        .footer-bar {
+            background: var(--bg-footer);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-bar p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .footer-bar strong {
+            color: var(--text-white);
+            transition: color 0.3s ease;
+        }
+
+        /* ==========================================
+           WHATSAPP FLOATING BUTTON
+           ========================================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .whatsapp-float a {
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float i {
+            font-size: 30px;
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 992px) {
+            .contact-card-frame {
+                grid-template-columns: 1fr;
+            }
+            .contact-right-col {
+                padding: 40px 30px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .section-top-header {
+                margin-bottom: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .presence-section {
+                padding: 40px 15px 60px;
+            }
+            .country-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 18px;
+            }
+            .country-card {
+                height: 240px;
+            }
+            .contact-section-wrapper {
+                padding: 50px 15px;
+            }
+            .contact-left-col {
+                padding: 30px 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .form-actions-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .submit-btn {
+                justify-content: center;
+            }
+            .whatsapp-float a {
+                width: 50px;
+                height: 50px;
+            }
+            .whatsapp-float i {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .country-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .country-card {
+                height: 180px;
+                border-radius: 12px;
+            }
+            .card-overlay {
+                padding: 16px 14px;
+            }
+            .country-name {
+                font-size: 1rem;
+            }
+            .region-tag {
+                font-size: 0.7rem;
+            }
+            .card-number {
+                font-size: 1.8rem;
+                top: 10px;
+                right: 12px;
+            }
+            .main-heading {
+                font-size: 1.6rem;
+            }
+            .section-tag {
+                font-size: 0.7rem;
+                padding: 4px 14px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .country-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .country-card {
+                height: 160px;
+            }
+            .country-name {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-
     <div id="elastic-cursor"></div>
 
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
+            </a>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PRESENCE SECTION ===== -->
     <section class="presence-section">
         <!-- Header -->
-        <span class="section-tag">Global Presence</span>
-        <h2 class="main-heading">Serving Across Borders</h2>
+        <span class="section-tag"><i class="fas fa-globe me-2"></i>Global Presence</span>
+        <h2 class="main-heading">Serving Across <span>Borders</span></h2>
         <p class="sub-text">
-            CodedCloud delivers innovative digital solutions in over 50+ countries worldwide. We are proud to have established a strong international footprint across all major regions.
+            CodedCloud delivers innovative digital solutions in over <strong>50+ countries</strong> worldwide. We are proud to have established a strong international footprint across all major regions.
         </p>
 
-        <!-- Countries Grid (50+ Items) -->
+        <!-- Countries Grid -->
         <div class="country-grid">
             
             <!-- Original 5 Countries -->
-            <div class="country-card"><div class="card-bg bg-uae"></div><div class="card-overlay"><h3 class="country-name">U.A.E</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-oman"></div><div class="card-overlay"><h3 class="country-name">Oman</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-ksa"></div><div class="card-overlay"><h3 class="country-name">Saudi Arabia (KSA)</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-pak"></div><div class="card-overlay"><h3 class="country-name">Pakistan</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-uk"></div><div class="card-overlay"><h3 class="country-name">United Kingdom</h3><span class="region-tag">Europe</span></div></div>
+            <div class="country-card">
+                <div class="card-bg bg-uae"></div>
+                <div class="card-overlay">
+                    <span class="card-number">01</span>
+                    <h3 class="country-name">U.A.E</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+            
+            <div class="country-card">
+                <div class="card-bg bg-oman"></div>
+                <div class="card-overlay">
+                    <span class="card-number">02</span>
+                    <h3 class="country-name">Oman</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+            
+            <div class="country-card">
+                <div class="card-bg bg-ksa"></div>
+                <div class="card-overlay">
+                    <span class="card-number">03</span>
+                    <h3 class="country-name">Saudi Arabia</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+            
+            <div class="country-card">
+                <div class="card-bg bg-pak"></div>
+                <div class="card-overlay">
+                    <span class="card-number">04</span>
+                    <h3 class="country-name">Pakistan</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+            
+            <div class="country-card">
+                <div class="card-bg bg-uk"></div>
+                <div class="card-overlay">
+                    <span class="card-number">05</span>
+                    <h3 class="country-name">United Kingdom</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
 
-            <!-- 45+ Added Countries with Live Links -->
-            <div class="country-card"><div class="card-bg bg-usa"></div><div class="card-overlay"><h3 class="country-name">United States</h3><span class="region-tag">North America</span></div></div>
-            <div class="country-card"><div class="card-bg bg-canada"></div><div class="card-overlay"><h3 class="country-name">Canada</h3><span class="region-tag">North America</span></div></div>
-            <div class="country-card"><div class="card-bg bg-germany"></div><div class="card-overlay"><h3 class="country-name">Germany</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-france"></div><div class="card-overlay"><h3 class="country-name">France</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-australia"></div><div class="card-overlay"><h3 class="country-name">Australia</h3><span class="region-tag">Oceania</span></div></div>
-            <div class="country-card"><div class="card-bg bg-qatar"></div><div class="card-overlay"><h3 class="country-name">Qatar</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-bahrain"></div><div class="card-overlay"><h3 class="country-name">Bahrain</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-kuwait"></div><div class="card-overlay"><h3 class="country-name">Kuwait</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-japan"></div><div class="card-overlay"><h3 class="country-name">Japan</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-singapore"></div><div class="card-overlay"><h3 class="country-name">Singapore</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-malaysia"></div><div class="card-overlay"><h3 class="country-name">Malaysia</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-china"></div><div class="card-overlay"><h3 class="country-name">China</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-india"></div><div class="card-overlay"><h3 class="country-name">India</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-turkey"></div><div class="card-overlay"><h3 class="country-name">Turkey</h3><span class="region-tag">Europe / Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-netherlands"></div><div class="card-overlay"><h3 class="country-name">Netherlands</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-switzerland"></div><div class="card-overlay"><h3 class="country-name">Switzerland</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-italy"></div><div class="card-overlay"><h3 class="country-name">Italy</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-spain"></div><div class="card-overlay"><h3 class="country-name">Spain</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-brazil"></div><div class="card-overlay"><h3 class="country-name">Brazil</h3><span class="region-tag">South America</span></div></div>
-            <div class="country-card"><div class="card-bg bg-southafrica"></div><div class="card-overlay"><h3 class="country-name">South Africa</h3><span class="region-tag">Africa</span></div></div>
-            <div class="country-card"><div class="card-bg bg-egypt"></div><div class="card-overlay"><h3 class="country-name">Egypt</h3><span class="region-tag">Africa</span></div></div>
-            <div class="country-card"><div class="card-bg bg-southkorea"></div><div class="card-overlay"><h3 class="country-name">South Korea</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-sweden"></div><div class="card-overlay"><h3 class="country-name">Sweden</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-norway"></div><div class="card-overlay"><h3 class="country-name">Norway</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-denmark"></div><div class="card-overlay"><h3 class="country-name">Denmark</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-finland"></div><div class="card-overlay"><h3 class="country-name">Finland</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-ireland"></div><div class="card-overlay"><h3 class="country-name">Ireland</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-belgium"></div><div class="card-overlay"><h3 class="country-name">Belgium</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-austria"></div><div class="card-overlay"><h3 class="country-name">Austria</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-poland"></div><div class="card-overlay"><h3 class="country-name">Poland</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-portugal"></div><div class="card-overlay"><h3 class="country-name">Portugal</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-greece"></div><div class="card-overlay"><h3 class="country-name">Greece</h3><span class="region-tag">Europe</span></div></div>
-            <div class="country-card"><div class="card-bg bg-newzealand"></div><div class="card-overlay"><h3 class="country-name">New Zealand</h3><span class="region-tag">Oceania</span></div></div>
-            <div class="country-card"><div class="card-bg bg-thailand"></div><div class="card-overlay"><h3 class="country-name">Thailand</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-indonesia"></div><div class="card-overlay"><h3 class="country-name">Indonesia</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-vietnam"></div><div class="card-overlay"><h3 class="country-name">Vietnam</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-philippines"></div><div class="card-overlay"><h3 class="country-name">Philippines</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-jordan"></div><div class="card-overlay"><h3 class="country-name">Jordan</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-lebanon"></div><div class="card-overlay"><h3 class="country-name">Lebanon</h3><span class="region-tag">Middle East</span></div></div>
-            <div class="country-card"><div class="card-bg bg-mexico"></div><div class="card-overlay"><h3 class="country-name">Mexico</h3><span class="region-tag">North America</span></div></div>
-            <div class="country-card"><div class="card-bg bg-argentina"></div><div class="card-overlay"><h3 class="country-name">Argentina</h3><span class="region-tag">South America</span></div></div>
-            <div class="country-card"><div class="card-bg bg-chile"></div><div class="card-overlay"><h3 class="country-name">Chile</h3><span class="region-tag">South America</span></div></div>
-            <div class="country-card"><div class="card-bg bg-colombia"></div><div class="card-overlay"><h3 class="country-name">Colombia</h3><span class="region-tag">South America</span></div></div>
-            <div class="country-card"><div class="card-bg bg-kenya"></div><div class="card-overlay"><h3 class="country-name">Kenya</h3><span class="region-tag">Africa</span></div></div>
-            <div class="country-card"><div class="card-bg bg-nigeria"></div><div class="card-overlay"><h3 class="country-name">Nigeria</h3><span class="region-tag">Africa</span></div></div>
-            <div class="country-card"><div class="card-bg bg-morocco"></div><div class="card-overlay"><h3 class="country-name">Morocco</h3><span class="region-tag">Africa</span></div></div>
-            <div class="country-card"><div class="card-bg bg-srilanka"></div><div class="card-overlay"><h3 class="country-name">Sri Lanka</h3><span class="region-tag">Asia</span></div></div>
-            <div class="country-card"><div class="card-bg bg-bangladesh"></div><div class="card-overlay"><h3 class="country-name">Bangladesh</h3><span class="region-tag">Asia</span></div></div>
+            <!-- USA -->
+            <div class="country-card">
+                <div class="card-bg bg-usa"></div>
+                <div class="card-overlay">
+                    <span class="card-number">06</span>
+                    <h3 class="country-name">United States</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> North America</span>
+                </div>
+            </div>
+
+            <!-- Canada -->
+            <div class="country-card">
+                <div class="card-bg bg-canada"></div>
+                <div class="card-overlay">
+                    <span class="card-number">07</span>
+                    <h3 class="country-name">Canada</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> North America</span>
+                </div>
+            </div>
+
+            <!-- Germany -->
+            <div class="country-card">
+                <div class="card-bg bg-germany"></div>
+                <div class="card-overlay">
+                    <span class="card-number">08</span>
+                    <h3 class="country-name">Germany</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- France -->
+            <div class="country-card">
+                <div class="card-bg bg-france"></div>
+                <div class="card-overlay">
+                    <span class="card-number">09</span>
+                    <h3 class="country-name">France</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Australia -->
+            <div class="country-card">
+                <div class="card-bg bg-australia"></div>
+                <div class="card-overlay">
+                    <span class="card-number">10</span>
+                    <h3 class="country-name">Australia</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Oceania</span>
+                </div>
+            </div>
+
+            <!-- Qatar -->
+            <div class="country-card">
+                <div class="card-bg bg-qatar"></div>
+                <div class="card-overlay">
+                    <span class="card-number">11</span>
+                    <h3 class="country-name">Qatar</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+
+            <!-- Bahrain -->
+            <div class="country-card">
+                <div class="card-bg bg-bahrain"></div>
+                <div class="card-overlay">
+                    <span class="card-number">12</span>
+                    <h3 class="country-name">Bahrain</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+
+            <!-- Kuwait -->
+            <div class="country-card">
+                <div class="card-bg bg-kuwait"></div>
+                <div class="card-overlay">
+                    <span class="card-number">13</span>
+                    <h3 class="country-name">Kuwait</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+
+            <!-- Japan -->
+            <div class="country-card">
+                <div class="card-bg bg-japan"></div>
+                <div class="card-overlay">
+                    <span class="card-number">14</span>
+                    <h3 class="country-name">Japan</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Singapore -->
+            <div class="country-card">
+                <div class="card-bg bg-singapore"></div>
+                <div class="card-overlay">
+                    <span class="card-number">15</span>
+                    <h3 class="country-name">Singapore</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Malaysia -->
+            <div class="country-card">
+                <div class="card-bg bg-malaysia"></div>
+                <div class="card-overlay">
+                    <span class="card-number">16</span>
+                    <h3 class="country-name">Malaysia</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- China -->
+            <div class="country-card">
+                <div class="card-bg bg-china"></div>
+                <div class="card-overlay">
+                    <span class="card-number">17</span>
+                    <h3 class="country-name">China</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- India -->
+            <div class="country-card">
+                <div class="card-bg bg-india"></div>
+                <div class="card-overlay">
+                    <span class="card-number">18</span>
+                    <h3 class="country-name">India</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Turkey -->
+            <div class="country-card">
+                <div class="card-bg bg-turkey"></div>
+                <div class="card-overlay">
+                    <span class="card-number">19</span>
+                    <h3 class="country-name">Turkey</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe / Asia</span>
+                </div>
+            </div>
+
+            <!-- Netherlands -->
+            <div class="country-card">
+                <div class="card-bg bg-netherlands"></div>
+                <div class="card-overlay">
+                    <span class="card-number">20</span>
+                    <h3 class="country-name">Netherlands</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Switzerland -->
+            <div class="country-card">
+                <div class="card-bg bg-switzerland"></div>
+                <div class="card-overlay">
+                    <span class="card-number">21</span>
+                    <h3 class="country-name">Switzerland</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Italy -->
+            <div class="country-card">
+                <div class="card-bg bg-italy"></div>
+                <div class="card-overlay">
+                    <span class="card-number">22</span>
+                    <h3 class="country-name">Italy</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Spain -->
+            <div class="country-card">
+                <div class="card-bg bg-spain"></div>
+                <div class="card-overlay">
+                    <span class="card-number">23</span>
+                    <h3 class="country-name">Spain</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Brazil -->
+            <div class="country-card">
+                <div class="card-bg bg-brazil"></div>
+                <div class="card-overlay">
+                    <span class="card-number">24</span>
+                    <h3 class="country-name">Brazil</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> South America</span>
+                </div>
+            </div>
+
+            <!-- South Africa -->
+            <div class="country-card">
+                <div class="card-bg bg-southafrica"></div>
+                <div class="card-overlay">
+                    <span class="card-number">25</span>
+                    <h3 class="country-name">South Africa</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Africa</span>
+                </div>
+            </div>
+
+            <!-- Egypt -->
+            <div class="country-card">
+                <div class="card-bg bg-egypt"></div>
+                <div class="card-overlay">
+                    <span class="card-number">26</span>
+                    <h3 class="country-name">Egypt</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Africa</span>
+                </div>
+            </div>
+
+            <!-- South Korea -->
+            <div class="country-card">
+                <div class="card-bg bg-southkorea"></div>
+                <div class="card-overlay">
+                    <span class="card-number">27</span>
+                    <h3 class="country-name">South Korea</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Sweden -->
+            <div class="country-card">
+                <div class="card-bg bg-sweden"></div>
+                <div class="card-overlay">
+                    <span class="card-number">28</span>
+                    <h3 class="country-name">Sweden</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Norway -->
+            <div class="country-card">
+                <div class="card-bg bg-norway"></div>
+                <div class="card-overlay">
+                    <span class="card-number">29</span>
+                    <h3 class="country-name">Norway</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Denmark -->
+            <div class="country-card">
+                <div class="card-bg bg-denmark"></div>
+                <div class="card-overlay">
+                    <span class="card-number">30</span>
+                    <h3 class="country-name">Denmark</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Finland -->
+            <div class="country-card">
+                <div class="card-bg bg-finland"></div>
+                <div class="card-overlay">
+                    <span class="card-number">31</span>
+                    <h3 class="country-name">Finland</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Ireland -->
+            <div class="country-card">
+                <div class="card-bg bg-ireland"></div>
+                <div class="card-overlay">
+                    <span class="card-number">32</span>
+                    <h3 class="country-name">Ireland</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Belgium -->
+            <div class="country-card">
+                <div class="card-bg bg-belgium"></div>
+                <div class="card-overlay">
+                    <span class="card-number">33</span>
+                    <h3 class="country-name">Belgium</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Austria -->
+            <div class="country-card">
+                <div class="card-bg bg-austria"></div>
+                <div class="card-overlay">
+                    <span class="card-number">34</span>
+                    <h3 class="country-name">Austria</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Poland -->
+            <div class="country-card">
+                <div class="card-bg bg-poland"></div>
+                <div class="card-overlay">
+                    <span class="card-number">35</span>
+                    <h3 class="country-name">Poland</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Portugal -->
+            <div class="country-card">
+                <div class="card-bg bg-portugal"></div>
+                <div class="card-overlay">
+                    <span class="card-number">36</span>
+                    <h3 class="country-name">Portugal</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- Greece -->
+            <div class="country-card">
+                <div class="card-bg bg-greece"></div>
+                <div class="card-overlay">
+                    <span class="card-number">37</span>
+                    <h3 class="country-name">Greece</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Europe</span>
+                </div>
+            </div>
+
+            <!-- New Zealand -->
+            <div class="country-card">
+                <div class="card-bg bg-newzealand"></div>
+                <div class="card-overlay">
+                    <span class="card-number">38</span>
+                    <h3 class="country-name">New Zealand</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Oceania</span>
+                </div>
+            </div>
+
+            <!-- Thailand -->
+            <div class="country-card">
+                <div class="card-bg bg-thailand"></div>
+                <div class="card-overlay">
+                    <span class="card-number">39</span>
+                    <h3 class="country-name">Thailand</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Indonesia -->
+            <div class="country-card">
+                <div class="card-bg bg-indonesia"></div>
+                <div class="card-overlay">
+                    <span class="card-number">40</span>
+                    <h3 class="country-name">Indonesia</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Vietnam -->
+            <div class="country-card">
+                <div class="card-bg bg-vietnam"></div>
+                <div class="card-overlay">
+                    <span class="card-number">41</span>
+                    <h3 class="country-name">Vietnam</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Philippines -->
+            <div class="country-card">
+                <div class="card-bg bg-philippines"></div>
+                <div class="card-overlay">
+                    <span class="card-number">42</span>
+                    <h3 class="country-name">Philippines</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Jordan -->
+            <div class="country-card">
+                <div class="card-bg bg-jordan"></div>
+                <div class="card-overlay">
+                    <span class="card-number">43</span>
+                    <h3 class="country-name">Jordan</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+
+            <!-- Lebanon -->
+            <div class="country-card">
+                <div class="card-bg bg-lebanon"></div>
+                <div class="card-overlay">
+                    <span class="card-number">44</span>
+                    <h3 class="country-name">Lebanon</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Middle East</span>
+                </div>
+            </div>
+
+            <!-- Mexico -->
+            <div class="country-card">
+                <div class="card-bg bg-mexico"></div>
+                <div class="card-overlay">
+                    <span class="card-number">45</span>
+                    <h3 class="country-name">Mexico</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> North America</span>
+                </div>
+            </div>
+
+            <!-- Argentina -->
+            <div class="country-card">
+                <div class="card-bg bg-argentina"></div>
+                <div class="card-overlay">
+                    <span class="card-number">46</span>
+                    <h3 class="country-name">Argentina</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> South America</span>
+                </div>
+            </div>
+
+            <!-- Chile -->
+            <div class="country-card">
+                <div class="card-bg bg-chile"></div>
+                <div class="card-overlay">
+                    <span class="card-number">47</span>
+                    <h3 class="country-name">Chile</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> South America</span>
+                </div>
+            </div>
+
+            <!-- Colombia -->
+            <div class="country-card">
+                <div class="card-bg bg-colombia"></div>
+                <div class="card-overlay">
+                    <span class="card-number">48</span>
+                    <h3 class="country-name">Colombia</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> South America</span>
+                </div>
+            </div>
+
+            <!-- Kenya -->
+            <div class="country-card">
+                <div class="card-bg bg-kenya"></div>
+                <div class="card-overlay">
+                    <span class="card-number">49</span>
+                    <h3 class="country-name">Kenya</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Africa</span>
+                </div>
+            </div>
+
+            <!-- Nigeria -->
+            <div class="country-card">
+                <div class="card-bg bg-nigeria"></div>
+                <div class="card-overlay">
+                    <span class="card-number">50</span>
+                    <h3 class="country-name">Nigeria</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Africa</span>
+                </div>
+            </div>
+
+            <!-- Morocco -->
+            <div class="country-card">
+                <div class="card-bg bg-morocco"></div>
+                <div class="card-overlay">
+                    <span class="card-number">51</span>
+                    <h3 class="country-name">Morocco</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Africa</span>
+                </div>
+            </div>
+
+            <!-- Sri Lanka -->
+            <div class="country-card">
+                <div class="card-bg bg-srilanka"></div>
+                <div class="card-overlay">
+                    <span class="card-number">52</span>
+                    <h3 class="country-name">Sri Lanka</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
+
+            <!-- Bangladesh -->
+            <div class="country-card">
+                <div class="card-bg bg-bangladesh"></div>
+                <div class="card-overlay">
+                    <span class="card-number">53</span>
+                    <h3 class="country-name">Bangladesh</h3>
+                    <span class="region-tag"><i class="fas fa-location-dot"></i> Asia</span>
+                </div>
+            </div>
 
         </div>
     </section>
 
-
-<!-- contact sectiion -->
- <section id="unique-contact-section" class="contact-section-wrapper">
-    <div class="contact-container">
-        
-        <!-- SECTION TOP HEADER -->
-        <div class="section-top-header">
-            <h1 class="main-section-title">
-                Let's Build Something <span class="gradient-text-alt">Amazing Together</span>
-            </h1>
-            <p class="main-section-desc">
-                Have a project in mind or looking for the right technology partner? Our team is ready to turn your ideas into innovative, scalable, and high-performing digital solutions. Get in touch and let's make it happen.
-            </p>
-        </div>
-
-        <!-- MAIN GLASS CARD CONTAINER -->
-        <div class="contact-card-frame">
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="unique-contact-section" class="contact-section-wrapper">
+        <div class="contact-container">
             
-            <!-- LEFT COLUMN: Compact Form -->
-            <div class="contact-left-col">
-                <div class="form-header">
-                    <span class="contact-badge"><i class="fa-solid fa-paper-plane"></i> GET IN TOUCH</span>
-                    <h2 class="contact-title">Let’s Start a <span class="gradient-text">Conversation</span></h2>
-                    <p class="contact-subtitle">Fill out the form below and our engineering team will get back to you shortly.</p>
-                </div>
+            <div class="section-top-header">
+                <h1 class="main-section-title">
+                    Let's Build Something <span class="gradient-text-alt">Amazing Together</span>
+                </h1>
+                <p class="main-section-desc">
+                    Have a project in mind or looking for the right technology partner? Our team is ready to turn your ideas into innovative, scalable, and high-performing digital solutions. Get in touch and let's make it happen.
+                </p>
+            </div>
 
-                <form id="contactForm" class="styled-form">
-                    <input type="hidden" name="selected_services" id="selected_services">
-
-                    <!-- Grid Row 1 -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <i class="fa-regular fa-user field-icon"></i>
-                                <input type="text" name="full_name" placeholder="Omaan Jallane" required class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Work Email <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <i class="fa-regular fa-envelope field-icon"></i>
-                                <input type="email" name="user_email" placeholder="email@company.com" required class="form-control">
-                            </div>
-                        </div>
+            <div class="contact-card-frame">
+                
+                <div class="contact-left-col">
+                    <div class="form-header">
+                        <span class="contact-badge"><i class="fa-solid fa-paper-plane"></i> GET IN TOUCH</span>
+                        <h2 class="contact-title">Let's Start a <span class="gradient-text">Conversation</span></h2>
+                        <p class="contact-subtitle">Fill out the form below and our engineering team will get back to you shortly.</p>
                     </div>
 
-                    <!-- Grid Row 2 -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Phone Number <span class="required">*</span></label>
-                            <div class="phone-input-group">
-                                <select name="country_code" required class="form-control phone-code">
-                                    <option value="+966">🇸🇦 +966</option>
-                                    <option value="+92">🇵🇰 +92</option>
-                                    <option value="+971">🇦🇪 +971</option>
-                                </select>
-                                <input type="tel" name="phone_number" placeholder="55 123 4567" required class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Company Name <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <i class="fa-regular fa-building field-icon"></i>
-                                <input type="text" name="company_name" placeholder="CodedCloud Ltd." required class="form-control">
-                            </div>
-                        </div>
-                    </div>
+                    <form id="contactForm" class="styled-form">
+                        <input type="hidden" name="selected_services" id="selected_services">
 
-                    <!-- Grid Row 3 -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Company Website</label>
-                            <div class="input-wrapper">
-                                <i class="fa-solid fa-globe field-icon"></i>
-                                <input type="url" name="company_url" placeholder="https://codedclouds.org" class="form-control">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user field-icon"></i>
+                                    <input type="text" name="full_name" placeholder="Omaan Jallane" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Work Email <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope field-icon"></i>
+                                    <input type="email" name="user_email" placeholder="email@company.com" required class="form-control">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Region <span class="required">*</span></label>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <div class="phone-input-group">
+                                    <select name="country_code" required class="form-control phone-code">
+                                        <option value="+966">🇸🇦 +966</option>
+                                        <option value="+92">🇵🇰 +92</option>
+                                        <option value="+971">🇦🇪 +971</option>
+                                    </select>
+                                    <input type="tel" name="phone_number" placeholder="55 123 4567" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Company Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-building field-icon"></i>
+                                    <input type="text" name="company_name" placeholder="CodedCloud Ltd." required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Company Website</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-globe field-icon"></i>
+                                    <input type="url" name="company_url" placeholder="https://codedclouds.org" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Region <span class="required">*</span></label>
+                                <div class="select-wrapper">
+                                    <select name="region" required class="form-control">
+                                        <option value="" disabled selected>Select Region</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Middle East">Middle East</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Services interested in <span class="required">*</span></label>
                             <div class="select-wrapper">
-                                <select name="region" required class="form-control">
-                                    <option value="" disabled selected>Select Region</option>
-                                    <option value="Saudi Arabia">Saudi Arabia</option>
-                                    <option value="Pakistan">Pakistan</option>
-                                    <option value="Middle East">Middle East</option>
-                                    <option value="Other">Other</option>
+                                <select class="form-control service-select" name="services" required>
+                                    <option value="" disabled selected>Click to select a service...</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Mobile App Development">Mobile App Development</option>
+                                    <option value="Custom Software">Custom Software Solutions</option>
+                                    <option value="PMS">PMS (Property Management Systems)</option>
+                                    <option value="CRM">Full CRM Integrations</option>
+                                    <option value="POS">POS Software Solutions</option>
+                                    <option value="Ecommerce">E-commerce Platforms</option>
+                                    <option value="Digital Marketing">Digital Marketing & SEO</option>
+                                    <option value="Branding">Branding & IT Consultancy</option>
+                                    <option value="AI Automation">AI & Workflow Automation</option>
                                 </select>
                                 <i class="fa-solid fa-chevron-down select-icon"></i>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Service Dropdown -->
-                    <div class="form-group full-width">
-                        <label>Services interested in <span class="required">*</span></label>
-                        <div class="select-wrapper">
-                            <select class="form-control service-select" name="services" required>
-                                <option value="" disabled selected>Click to select a service...</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Mobile App Development">Mobile App Development</option>
-                                <option value="Custom Software">Custom Software Solutions</option>
-                                <option value="PMS">PMS (Property Management Systems)</option>
-                                <option value="CRM">Full CRM Integrations</option>
-                                <option value="POS">POS Software Solutions</option>
-                                <option value="Ecommerce">E-commerce Platforms</option>
-                                <option value="Digital Marketing">Digital Marketing & SEO</option>
-                                <option value="Branding">Branding & IT Consultancy</option>
-                                <option value="AI Automation">AI & Workflow Automation</option>
-                            </select>
-                            <i class="fa-solid fa-chevron-down select-icon"></i>
+                        <div class="form-group full-width">
+                            <label>How can we help you?</label>
+                            <textarea name="message" rows="3" placeholder="Tell us briefly about your project requirements..." class="form-control textarea-control"></textarea>
                         </div>
-                    </div>
 
-                    <!-- Message Textarea -->
-                    <div class="form-group full-width">
-                        <label>How can we help you?</label>
-                        <textarea name="message" rows="3" placeholder="Tell us briefly about your project requirements..." class="form-control textarea-control"></textarea>
-                    </div>
+                        <div class="form-actions-row">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="looking_for_job">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-label">Career Opportunity?</span>
+                            </label>
 
-                    <!-- Actions Row -->
-                    <div class="form-actions-row">
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="looking_for_job">
-                            <span class="checkmark"></span>
-                            <span class="checkbox-label">Career Opportunity?</span>
-                        </label>
-
-                        <button type="submit" class="submit-btn">
-                            <span>Submit Inquiry</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- RIGHT COLUMN: Vibrant Glass Sidebar Tiles -->
-            <div class="contact-right-col">
-                <div class="sidebar-bg-glow glow-top"></div>
-                <div class="sidebar-bg-glow glow-bottom"></div>
-
-                <div class="sidebar-top">
-                    <div class="brand-chip">
-                        <i class="fa-solid fa-cloud"></i> Coded Clouds
-                    </div>
-                    <h3>Engineered for Global Excellence</h3>
-                    <p>Delivering high-impact digital products and next-gen enterprise software solutions worldwide.</p>
+                            <button type="submit" class="submit-btn">
+                                <span>Submit Inquiry</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
-                <!-- TILES / FEATURE CARDS CONTAINER -->
-                <div class="sidebar-cards-container">
-                    
-                    <!-- Global Presence Tile -->
-                    <div class="side-feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
-                        <div class="feature-content">
-                            <span class="feature-tag">GLOBAL PRESENCE</span>
-                            <h4>Active Across 5 Continents</h4>
-                            <a href="./Components/Presence.html" class="feature-link">
-                                Explore Footprint <i class="fas fa-arrow-right"></i>
-                            </a>
+                <div class="contact-right-col">
+                    <div class="sidebar-bg-glow glow-top"></div>
+                    <div class="sidebar-bg-glow glow-bottom"></div>
+
+                    <div class="sidebar-top">
+                        <div class="brand-chip">
+                            <i class="fa-solid fa-cloud"></i> Coded Clouds
+                        </div>
+                        <h3>Engineered for Global Excellence</h3>
+                        <p>Delivering high-impact digital products and next-gen enterprise software solutions worldwide.</p>
+                    </div>
+
+                    <div class="sidebar-cards-container">
+                        <div class="side-feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                            <div class="feature-content">
+                                <span class="feature-tag">GLOBAL PRESENCE</span>
+                                <h4>Active Across 5 Continents</h4>
+                                <a href="./Components/Presence.html" class="feature-link">
+                                    Explore Footprint <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="side-feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
+                            <div class="feature-content">
+                                <span class="feature-tag">LEADERSHIP</span>
+                                <h4>Seasoned Industry Experts</h4>
+                                <a href="./Components/Leaders.html" class="feature-link">
+                                    Meet Leaders <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Leadership Tile -->
-                    <div class="side-feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
-                        <div class="feature-content">
-                            <span class="feature-tag">LEADERSHIP</span>
-                            <h4>Seasoned Industry Experts</h4>
-                            <a href="./Components/Leaders.html" class="feature-link">
-                                Meet Leaders <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
+                    <div class="sidebar-metric">
+                        <div class="metric-num">99.9%</div>
+                        <div class="metric-desc">Client Satisfaction Rate Across Enterprise Deployments</div>
                     </div>
-
-                </div>
-
-                <!-- Footer Metric Badge Tile -->
-                <div class="sidebar-metric">
-                    <div class="metric-num">99.9%</div>
-                    <div class="metric-desc">Client Satisfaction Rate Across Enterprise Deployments</div>
                 </div>
 
             </div>
 
         </div>
+    </section>
 
+    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/+966594552890" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
-</section>
 
-<div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px;">    
-    <a href="https://wa.me/+966594552890" style="background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
-        <i class="fab fa-whatsapp" style="font-size: 30px;"></i>
-    </a>
-</div>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-bar">
+        <div class="container">
+            <p>© 2026 <strong>CodedClouds</strong>. All rights reserved.</p>
+        </div>
+    </footer>
 
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-
-    <!-- GSAP ELASTIC CURSOR SCRIPT -->
     <script>
-        const cursor = document.querySelector("#elastic-cursor");
-        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        let mouse = { x: pos.x, y: pos.y };
-        let speed = 0.15;
-        let fpms = 60 / 1000;
-        
-        window.addEventListener("mousemove", e => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        const xSet = gsap.quickSetter(cursor, "x", "px");
-        const ySet = gsap.quickSetter(cursor, "y", "px");
-
-        gsap.ticker.add((time, deltaTime) => {
-            let delta = deltaTime * fpms;
-            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+        // ===== THEME TOGGLE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
             
-            let dx = mouse.x - pos.x;
-            let dy = mouse.y - pos.y;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
             
-            pos.x += dx * dt;
-            pos.y += dy * dt;
-            
-            let velocity = Math.sqrt(dx * dx + dy * dy);
-            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-            
-            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
-
-            xSet(pos.x - 10);
-            ySet(pos.y - 10);
-            
-            gsap.set(cursor, {
-                rotation: setRotation,
-                scaleX: setScale,
-                scaleY: setScaleY
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
             });
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
         });
 
-        document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-        });
     </script>
+
 </body>
 </html>

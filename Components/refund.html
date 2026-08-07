@@ -4,20 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refund Policy | CodedClouds</title>
+    
+    <!-- External Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="../images/fav.png">
+    
     <style>
+        /* ==========================================
+           THEME SYSTEM
+           ========================================== */
+        
+        /* Light Theme (Default) */
         :root {
-            --navy: #11113a;
-            --cyan: #00d2ff;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --bg-color: #f8fafc;
-            --card-shadow: 0 20px 60px rgba(17, 17, 58, 0.06);
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f8fafc;
+            --bg-navbar: rgba(255, 255, 255, 0.95);
+            --bg-footer: #0f172a;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --accent-cyan: #00d4ff;
+            --accent-blue: #0284c7;
+            --accent-glow: rgba(0, 212, 255, 0.12);
+            
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
         }
 
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0B0E14;
+            --bg-secondary: #131A22;
+            --bg-card: #131A22;
+            --bg-input: #1C2633;
+            --bg-navbar: rgba(11, 14, 20, 0.95);
+            --bg-footer: #0B0E14;
+            
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8899AA;
+            --text-white: #ffffff;
+            
+            --border-color: #1C2633;
+            --border-light: #2A3644;
+            
+            --accent-cyan: #00D4FF;
+            --accent-blue: #00D4FF;
+            --accent-glow: rgba(0, 212, 255, 0.08);
+            
+            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
         * {
             margin: 0;
             padding: 0;
@@ -25,120 +76,175 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg-color);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
             line-height: 1.8;
+            padding: 0;
             min-height: 100vh;
+        }
+
+        /* ==========================================
+           THEME TOGGLE BUTTON
+           ========================================== */
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
-            padding: 50px 0;
-            position: relative;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
         }
 
-        /* ===== ANIMATED BACKGROUND ===== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(0, 210, 255, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(17, 17, 58, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            animation: bgFloat 22s ease-in-out infinite alternate;
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-cyan);
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        @keyframes bgFloat {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(30px, -30px) scale(1.06);
-            }
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
         }
 
-        /* ===== POLICY WRAPPER ===== */
-        .policy-wrapper {
-            max-width: 960px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 55px 60px;
-            border-radius: 28px;
-            box-shadow: var(--card-shadow), 0 8px 24px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 210, 255, 0.06);
-            position: relative;
-            overflow: hidden;
-            animation: cardSlideUp 0.8s ease forwards;
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
         }
 
-        @keyframes cardSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ===== TOP ACCENT LINE ===== */
-        .policy-wrapper::before {
-            content: '';
-            position: absolute;
+        /* ==========================================
+           NAVIGATION - Same as Other Legal Pages
+           ========================================== */
+        .main-nav {
+            background: var(--bg-navbar);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--navy), var(--cyan), #7c3aed, var(--cyan), var(--navy));
-            background-size: 300% 100%;
-            animation: gradientSlide 5s ease-in-out infinite;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
-        @keyframes gradientSlide {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* ===== DECORATIVE ELEMENT ===== */
-        .policy-wrapper::after {
-            content: '\f073';
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            bottom: 20px;
-            right: 25px;
-            font-size: 4rem;
-            color: rgba(0, 210, 255, 0.03);
-            pointer-events: none;
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        /* ===== HEADER ===== */
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background: var(--text-primary);
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--text-primary);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background: transparent;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        [data-theme="dark"] .back-btn {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        [data-theme="dark"] .back-btn:hover {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 576px) {
+            .nav-container { width: 95%; }
+            .logo img { height: 40px; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+        }
+
+        /* ==========================================
+           POLICY CONTENT - Same as Other Legal Pages
+           ========================================== */
+        .policy-wrapper {
+            padding: 40px 20px 60px;
+        }
+
+        .policy-card {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 60px 70px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border-top: 10px solid var(--accent-cyan);
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
         .policy-header {
             text-align: center;
-            margin-bottom: 45px;
-            padding-bottom: 35px;
-            border-bottom: 2px solid #f1f5f9;
-            position: relative;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+            transition: border-color 0.3s ease;
         }
 
         .policy-header .update-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(0, 210, 255, 0.08);
-            color: var(--cyan);
-            font-weight: 700;
+            background: rgba(0, 212, 255, 0.08);
+            color: var(--accent-cyan);
             font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             padding: 6px 18px;
             border-radius: 50px;
-            border: 1px solid rgba(0, 210, 255, 0.12);
-            margin-bottom: 14px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            margin-bottom: 12px;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .policy-header .update-tag i {
@@ -151,52 +257,57 @@
             justify-content: center;
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(17, 17, 58, 0.04));
+            background: rgba(0, 212, 255, 0.08);
             border-radius: 50%;
             font-size: 2rem;
-            color: var(--cyan);
+            color: var(--accent-cyan);
             margin-bottom: 15px;
-            border: 1px solid rgba(0, 210, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.08);
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .policy-header h1 {
-            color: var(--navy);
+            color: var(--text-primary);
             font-weight: 800;
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             letter-spacing: -0.03em;
             margin-bottom: 6px;
+            transition: color 0.3s ease;
         }
 
         .policy-header h1 span {
-            background: linear-gradient(135deg, var(--navy), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-cyan);
         }
 
         .policy-header .sub-head {
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 1.05rem;
             font-weight: 400;
+            transition: color 0.3s ease;
         }
 
-        /* ===== INTRO TEXT ===== */
+        /* Intro Text */
         .intro-text {
-            background: linear-gradient(135deg, rgba(17, 17, 58, 0.02), rgba(0, 210, 255, 0.04));
-            padding: 22px 28px;
+            background: var(--bg-input);
+            padding: 20px 28px;
             border-radius: 16px;
-            border-left: 4px solid var(--cyan);
+            border-left: 4px solid var(--accent-cyan);
             margin-bottom: 35px;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
         .intro-text p {
             margin: 0;
+            color: var(--text-secondary);
             font-size: 0.98rem;
-            color: var(--text);
+            transition: color 0.3s ease;
+        }
+        .intro-text p i {
+            color: var(--accent-cyan);
         }
 
-        /* ===== SECTION HEADINGS ===== */
+        /* Section Headings */
         h2 {
-            color: var(--navy);
+            color: var(--text-primary);
             font-size: 1.2rem;
             font-weight: 700;
             margin-top: 38px;
@@ -204,6 +315,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            transition: color 0.3s ease;
         }
 
         h2 .number-badge {
@@ -212,36 +324,39 @@
             justify-content: center;
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, var(--cyan), #0099cc);
-            color: #fff;
+            background: var(--accent-cyan);
+            color: var(--text-white);
             font-size: 0.8rem;
             font-weight: 800;
             border-radius: 50%;
             flex-shrink: 0;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         h2:hover .number-badge {
             transform: scale(1.1) rotate(-5deg);
-            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.3);
+            box-shadow: 0 8px 25px var(--accent-glow);
         }
 
         h2::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, #e2e8f0, transparent);
+            background: linear-gradient(90deg, var(--border-color), transparent);
             margin-left: 10px;
+            transition: background 0.3s ease;
         }
 
-        /* ===== PARAGRAPHS ===== */
+        /* Paragraphs */
         p {
             font-size: 0.98rem;
-            color: var(--text);
+            color: var(--text-secondary);
             margin-bottom: 14px;
+            text-align: justify;
+            transition: color 0.3s ease;
         }
 
-        /* ===== LISTS ===== */
+        /* Lists */
         ul {
             list-style: none;
             padding-left: 0;
@@ -253,8 +368,8 @@
             padding-left: 32px;
             margin-bottom: 10px;
             font-size: 0.96rem;
-            color: var(--text);
-            transition: 0.2s;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
         }
 
         ul li::before {
@@ -264,55 +379,70 @@
             position: absolute;
             left: 0;
             top: 2px;
-            color: var(--cyan);
+            color: var(--accent-cyan);
             font-size: 0.8rem;
-            background: rgba(0, 210, 255, 0.08);
+            background: rgba(0, 212, 255, 0.08);
             width: 22px;
             height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         ul li:hover {
             padding-left: 38px;
+            color: var(--text-primary);
         }
 
-        /* ===== HIGHLIGHT BOX ===== */
+        /* Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.04), rgba(17, 17, 58, 0.02));
+            background: var(--bg-input);
             border-radius: 14px;
             padding: 22px 26px;
             margin: 16px 0 20px 0;
-            border-left: 4px solid var(--cyan);
-            transition: 0.3s;
+            border-left: 4px solid var(--accent-cyan);
+            transition: all 0.3s ease;
         }
         .highlight-box:hover {
-            border-left-color: var(--navy);
-            background: rgba(0, 210, 255, 0.06);
+            border-left-color: var(--text-primary);
+            background: rgba(0, 212, 255, 0.04);
         }
         .highlight-box strong {
-            color: var(--navy);
+            color: var(--text-primary);
             display: block;
             margin-bottom: 4px;
             font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .highlight-box strong i {
+            color: var(--accent-cyan);
         }
         .highlight-box p {
             margin: 0;
             font-size: 0.95rem;
+            text-align: justify;
         }
 
-        /* ===== CONTACT BOX ===== */
+        /* ==========================================
+           CONTACT BOX - Same as Other Legal Pages
+           ========================================== */
         .contact-box {
             margin-top: 50px;
             padding: 35px 40px;
-            background: linear-gradient(135deg, var(--navy), #1a1a4e);
-            color: white;
+            background: var(--text-primary);
+            color: var(--text-white);
             border-radius: 18px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        [data-theme="dark"] .contact-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
         }
 
         .contact-box::before {
@@ -322,99 +452,112 @@
             right: -20%;
             width: 60%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.06), transparent 70%);
+            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
             pointer-events: none;
         }
 
         .contact-box .contact-icon {
             width: 60px;
             height: 60px;
-            background: rgba(0, 210, 255, 0.12);
+            background: rgba(0, 212, 255, 0.12);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             font-size: 1.6rem;
-            color: var(--cyan);
+            color: var(--accent-cyan);
             margin-bottom: 12px;
+            transition: background 0.3s ease;
         }
 
         .contact-box p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-white) !important;
             font-size: 1rem;
             margin-bottom: 10px;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .contact-box p {
+            color: var(--text-secondary) !important;
         }
 
         .contact-box .company-name {
             font-size: 1.2rem;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--text-white);
             display: block;
             margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        [data-theme="dark"] .contact-box .company-name {
+            color: var(--text-primary);
         }
 
         .contact-box a {
-            color: var(--cyan);
+            color: var(--accent-cyan) !important;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
         }
 
         .contact-box a:hover {
-            color: #ffffff;
+            color: var(--text-white) !important;
             transform: translateY(-2px);
         }
 
-        /* ===== BACK TO TOP ===== */
+        [data-theme="dark"] .contact-box a:hover {
+            color: var(--accent-cyan) !important;
+        }
+
+        .contact-box .sub-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        [data-theme="dark"] .contact-box .sub-text {
+            color: var(--text-muted);
+        }
+
+        /* Back to Top */
         .back-top {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
             margin-top: 25px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
             background: none;
         }
         .back-top:hover {
-            color: var(--cyan);
+            color: var(--accent-cyan);
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .policy-wrapper {
-                padding: 40px 35px;
-                margin: 0 20px;
-            }
-        }
-
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
         @media (max-width: 768px) {
-            body {
-                padding: 25px 0;
-            }
-            .policy-wrapper {
-                padding: 30px 22px;
-                margin: 0 12px;
-                border-radius: 20px;
+            .policy-card {
+                padding: 30px 20px;
+                margin: 15px;
             }
             .policy-header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-            .policy-header .sub-head {
-                font-size: 0.95rem;
+            .policy-wrapper {
+                padding: 20px 10px 40px;
             }
-            .policy-header .icon-badge {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
+            .contact-box {
+                padding: 28px 20px;
             }
             h2 {
                 font-size: 1.05rem;
@@ -427,25 +570,28 @@
             .highlight-box {
                 padding: 18px 20px;
             }
-            .contact-box {
-                padding: 28px 20px;
-            }
-            .contact-box a {
-                font-size: 1rem;
+            .policy-header .icon-badge {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .policy-wrapper {
-                padding: 24px 16px;
-                border-radius: 16px;
+        @media (max-width: 576px) {
+            .policy-card {
+                padding: 20px 16px;
+                margin: 10px;
+                border-top-width: 6px;
             }
             .policy-header h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             .policy-header .update-tag {
                 font-size: 0.65rem;
                 padding: 4px 14px;
+            }
+            .intro-text {
+                padding: 16px 18px;
             }
             ul li {
                 font-size: 0.9rem;
@@ -456,6 +602,9 @@
                 height: 18px;
                 font-size: 0.7rem;
             }
+            .highlight-box p {
+                font-size: 0.9rem;
+            }
             .contact-box .contact-icon {
                 width: 50px;
                 height: 50px;
@@ -464,158 +613,222 @@
             .contact-box .company-name {
                 font-size: 1rem;
             }
-            .highlight-box p {
-                font-size: 0.9rem;
+            .contact-box a {
+                font-size: 0.95rem;
             }
+            .contact-box .sub-text {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .main-nav { display: none; }
+            .policy-card { box-shadow: none; border: none; width: 100%; padding: 0; margin: 0; }
+            .no-print { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="policy-wrapper">
+    <div id="elastic-cursor"></div>
 
-        <!-- Header -->
-        <div class="policy-header">
-            <div class="icon-badge">
-                <i class="fas fa-hand-holding-usd"></i>
-            </div>
-            <div class="update-tag">
-                <i class="fas fa-calendar-alt"></i> Last Updated: March 2026
-            </div>
-            <h1>Refund <span>Policy</span></h1>
-            <p class="sub-head">Transparency, fairness, and operational clarity regarding our services.</p>
-        </div>
-
-        <!-- Intro -->
-        <div class="intro-text">
-            <p><i class="fas fa-shield-alt" style="color: var(--cyan); margin-right: 10px;"></i>
-                This Refund Policy governs the conditions under which refunds may be requested or issued for services purchased from CodedClouds (“Company”, “we”, “our”, or “us”). By purchasing or engaging our services, the client acknowledges and agrees to the terms outlined in this policy.
-            </p>
-        </div>
-
-        <!-- Sections -->
-        <h2>
-            <span class="number-badge">1</span>
-            Nature of Digital Services
-        </h2>
-        <p>CodedClouds provides professional digital services including but not limited to:</p>
-        <ul>
-            <li>website development</li>
-            <li>custom software development</li>
-            <li>mobile application development</li>
-            <li>digital marketing and advertising services</li>
-            <li>hosting and infrastructure services</li>
-            <li>consulting, automation, and technical solutions</li>
-        </ul>
-        <p>Due to the customized and labor-intensive nature of digital services, refunds are limited and subject to the conditions described below.</p>
-
-        <h2>
-            <span class="number-badge">2</span>
-            General Refund Eligibility
-        </h2>
-        <p>A refund request may be considered only under the following circumstances:</p>
-        <ul>
-            <li>the services delivered materially deviate from the agreed scope of work</li>
-            <li>the project cannot be completed due to a technical limitation caused solely by CodedClouds</li>
-            <li>the service has not yet been initiated or any work commenced</li>
-        </ul>
-        <p>All refund requests are subject to internal review and approval by CodedClouds. The Company reserves the right to determine whether the refund conditions have been met.</p>
-
-        <h2>
-            <span class="number-badge">3</span>
-            Non-Refundable Services
-        </h2>
-        <p>Unless otherwise explicitly agreed in writing, the following payments are non-refundable:</p>
-        <ul>
-            <li>payments for services where work has already commenced</li>
-            <li>custom development or design services</li>
-            <li>completed digital marketing campaigns</li>
-            <li>consulting sessions or technical advisory services</li>
-            <li>software architecture, planning, or system design work</li>
-            <li>domain registration, hosting purchases, or third-party services</li>
-            <li>platform setup, integrations, or configuration services</li>
-        </ul>
-
-        <h2>
-            <span class="number-badge">4</span>
-            Partial Refunds
-        </h2>
-        <p>In limited circumstances, a partial refund may be issued where a project has begun but cannot be completed. Any partial refund shall be determined based on the percentage of work already completed, technical resources already allocated, development hours already utilized, and third-party expenses already incurred.</p>
-
-        <h2>
-            <span class="number-badge">5</span>
-            Project Cancellation
-        </h2>
-        <div class="highlight-box">
-            <strong><i class="fas fa-hourglass-start" style="color: var(--cyan); margin-right: 8px;"></i>Before Project Initiation:</strong>
-            <p>If a cancellation request is submitted before any work has started, the client may be eligible for a refund minus any applicable administrative or processing fees.</p>
-        </div>
-        <div class="highlight-box">
-            <strong><i class="fas fa-hourglass-end" style="color: var(--cyan); margin-right: 8px;"></i>After Project Commencement:</strong>
-            <p>If a project has already begun, refunds may not be guaranteed and any refund issued will be determined based on the completed portion of the work.</p>
-        </div>
-
-        <h2>
-            <span class="number-badge">6</span>
-            Subsidized or Discounted Development Services
-        </h2>
-        <p>Where services are provided under a subsidized, discounted, or promotional pricing model, refunds may not be available once development work has started. Such pricing models reflect reduced upfront fees due to infrastructure support, hosting, and monetization systems.</p>
-
-        <h2>
-            <span class="number-badge">7</span>
-            Refund Request Procedure
-        </h2>
-        <p>To request a refund, clients must submit a formal request to <strong style="color: var(--cyan);">info@codedclouds.org</strong> including order reference number, description of the issue, and supporting documentation. Requests must be submitted within fourteen (14) days of service delivery or payment.</p>
-
-        <h2>
-            <span class="number-badge">8</span>
-            Refund Processing Time
-        </h2>
-        <p>Approved refunds will generally be processed within 7 to 14 business days. Refunds will typically be issued through the original payment method unless an alternative method is mutually agreed.</p>
-
-        <h2>
-            <span class="number-badge">9</span>
-            Third-Party Costs
-        </h2>
-        <p>CodedClouds is not responsible for refunding any fees associated with third-party services including domain registrations, hosting, advertising platforms, software licenses, API subscriptions, or payment processing charges.</p>
-
-        <h2>
-            <span class="number-badge">10</span>
-            Abuse of Refund Policy
-        </h2>
-        <p>CodedClouds reserves the right to decline refund requests where there is evidence of misuse of services, repeated requests, fraudulent activity, or violation of company policies.</p>
-
-        <h2>
-            <span class="number-badge">11</span>
-            Policy Modifications
-        </h2>
-        <p>CodedClouds reserves the right to update or modify this Refund Policy at any time. Updated versions will be published on the website and will become effective upon publication.</p>
-
-        <!-- Contact Box -->
-        <div class="contact-box">
-            <div class="contact-icon">
-                <i class="fas fa-headset"></i>
-            </div>
-            <p>For any questions regarding this Refund Policy, please contact:</p>
-            <span class="company-name">CodedClouds</span>
-            <a href="mailto:info@codedclouds.org">
-                <i class="fas fa-envelope me-2"></i>info@codedclouds.org
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
             </a>
-            <br>
-            <span style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">codedclouds.org</span>
-        </div>
 
-        <!-- Back to Top -->
-        <div class="text-center mt-4">
-            <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-                <i class="fas fa-arrow-up"></i> Back to Top
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
         </div>
+    </nav>
 
+    <!-- ===== POLICY CONTENT ===== -->
+    <div class="policy-wrapper">
+        <div class="policy-card">
+
+            <!-- Header -->
+            <div class="policy-header">
+                <div class="icon-badge">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="update-tag">
+                    <i class="fas fa-calendar-alt"></i> Last Updated: March 2026
+                </div>
+                <h1>Refund <span>Policy</span></h1>
+                <p class="sub-head">Transparency, fairness, and operational clarity regarding our services.</p>
+            </div>
+
+            <!-- Intro -->
+            <div class="intro-text">
+                <p><i class="fas fa-shield-alt"></i>
+                    This Refund Policy governs the conditions under which refunds may be requested or issued for services purchased from CodedClouds ("Company", "we", "our", or "us"). By purchasing or engaging our services, the client acknowledges and agrees to the terms outlined in this policy.
+                </p>
+            </div>
+
+            <!-- Sections -->
+            <h2>
+                <span class="number-badge">1</span>
+                Nature of Digital Services
+            </h2>
+            <p>CodedClouds provides professional digital services including but not limited to:</p>
+            <ul>
+                <li>website development</li>
+                <li>custom software development</li>
+                <li>mobile application development</li>
+                <li>digital marketing and advertising services</li>
+                <li>hosting and infrastructure services</li>
+                <li>consulting, automation, and technical solutions</li>
+            </ul>
+            <p>Due to the customized and labor-intensive nature of digital services, refunds are limited and subject to the conditions described below.</p>
+
+            <h2>
+                <span class="number-badge">2</span>
+                General Refund Eligibility
+            </h2>
+            <p>A refund request may be considered only under the following circumstances:</p>
+            <ul>
+                <li>the services delivered materially deviate from the agreed scope of work</li>
+                <li>the project cannot be completed due to a technical limitation caused solely by CodedClouds</li>
+                <li>the service has not yet been initiated or any work commenced</li>
+            </ul>
+            <p>All refund requests are subject to internal review and approval by CodedClouds. The Company reserves the right to determine whether the refund conditions have been met.</p>
+
+            <h2>
+                <span class="number-badge">3</span>
+                Non-Refundable Services
+            </h2>
+            <p>Unless otherwise explicitly agreed in writing, the following payments are non-refundable:</p>
+            <ul>
+                <li>payments for services where work has already commenced</li>
+                <li>custom development or design services</li>
+                <li>completed digital marketing campaigns</li>
+                <li>consulting sessions or technical advisory services</li>
+                <li>software architecture, planning, or system design work</li>
+                <li>domain registration, hosting purchases, or third-party services</li>
+                <li>platform setup, integrations, or configuration services</li>
+            </ul>
+
+            <h2>
+                <span class="number-badge">4</span>
+                Partial Refunds
+            </h2>
+            <p>In limited circumstances, a partial refund may be issued where a project has begun but cannot be completed. Any partial refund shall be determined based on the percentage of work already completed, technical resources already allocated, development hours already utilized, and third-party expenses already incurred.</p>
+
+            <h2>
+                <span class="number-badge">5</span>
+                Project Cancellation
+            </h2>
+            <div class="highlight-box">
+                <strong><i class="fas fa-hourglass-start"></i> Before Project Initiation:</strong>
+                <p>If a cancellation request is submitted before any work has started, the client may be eligible for a refund minus any applicable administrative or processing fees.</p>
+            </div>
+            <div class="highlight-box">
+                <strong><i class="fas fa-hourglass-end"></i> After Project Commencement:</strong>
+                <p>If a project has already begun, refunds may not be guaranteed and any refund issued will be determined based on the completed portion of the work.</p>
+            </div>
+
+            <h2>
+                <span class="number-badge">6</span>
+                Subsidized or Discounted Development Services
+            </h2>
+            <p>Where services are provided under a subsidized, discounted, or promotional pricing model, refunds may not be available once development work has started. Such pricing models reflect reduced upfront fees due to infrastructure support, hosting, and monetization systems.</p>
+
+            <h2>
+                <span class="number-badge">7</span>
+                Refund Request Procedure
+            </h2>
+            <p>To request a refund, clients must submit a formal request to <strong style="color: var(--accent-cyan);">info@codedclouds.org</strong> including order reference number, description of the issue, and supporting documentation. Requests must be submitted within fourteen (14) days of service delivery or payment.</p>
+
+            <h2>
+                <span class="number-badge">8</span>
+                Refund Processing Time
+            </h2>
+            <p>Approved refunds will generally be processed within 7 to 14 business days. Refunds will typically be issued through the original payment method unless an alternative method is mutually agreed.</p>
+
+            <h2>
+                <span class="number-badge">9</span>
+                Third-Party Costs
+            </h2>
+            <p>CodedClouds is not responsible for refunding any fees associated with third-party services including domain registrations, hosting, advertising platforms, software licenses, API subscriptions, or payment processing charges.</p>
+
+            <h2>
+                <span class="number-badge">10</span>
+                Abuse of Refund Policy
+            </h2>
+            <p>CodedClouds reserves the right to decline refund requests where there is evidence of misuse of services, repeated requests, fraudulent activity, or violation of company policies.</p>
+
+            <h2>
+                <span class="number-badge">11</span>
+                Policy Modifications
+            </h2>
+            <p>CodedClouds reserves the right to update or modify this Refund Policy at any time. Updated versions will be published on the website and will become effective upon publication.</p>
+
+            <!-- Contact Box -->
+            <div class="contact-box">
+                <div class="contact-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <p>For any questions regarding this Refund Policy, please contact:</p>
+                <span class="company-name">CodedClouds</span>
+                <a href="mailto:info@codedclouds.org">
+                    <i class="fas fa-envelope me-2"></i>info@codedclouds.org
+                </a>
+                <br>
+                <span class="sub-text">codedclouds.org</span>
+            </div>
+
+            <!-- Back to Top -->
+            <div class="text-center mt-4">
+                <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <i class="fas fa-arrow-up"></i> Back to Top
+                </button>
+            </div>
+
+        </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // ===== THEME TOGGLE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
+        });
+
+    </script>
+
 </body>
 </html>

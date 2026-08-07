@@ -4,20 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Level & Delivery Disclaimer | CodedClouds</title>
+    
+    <!-- External Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="../images/fav.png">
+    
     <style>
+        /* ==========================================
+           THEME SYSTEM
+           ========================================== */
+        
+        /* Light Theme (Default) */
         :root {
-            --navy: #11113a;
-            --cyan: #00d2ff;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --bg-color: #f8fafc;
-            --card-shadow: 0 20px 60px rgba(17, 17, 58, 0.06);
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f8fafc;
+            --bg-navbar: rgba(255, 255, 255, 0.95);
+            --bg-footer: #0f172a;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --accent-cyan: #00d4ff;
+            --accent-blue: #0284c7;
+            --accent-glow: rgba(0, 212, 255, 0.12);
+            
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
         }
 
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0B0E14;
+            --bg-secondary: #131A22;
+            --bg-card: #131A22;
+            --bg-input: #1C2633;
+            --bg-navbar: rgba(11, 14, 20, 0.95);
+            --bg-footer: #0B0E14;
+            
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8899AA;
+            --text-white: #ffffff;
+            
+            --border-color: #1C2633;
+            --border-light: #2A3644;
+            
+            --accent-cyan: #00D4FF;
+            --accent-blue: #00D4FF;
+            --accent-glow: rgba(0, 212, 255, 0.08);
+            
+            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
         * {
             margin: 0;
             padding: 0;
@@ -25,178 +76,239 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg-color);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
             line-height: 1.8;
+            padding: 0;
             min-height: 100vh;
+        }
+
+        
+        /* ==========================================
+           THEME TOGGLE BUTTON
+           ========================================== */
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
-            padding: 50px 0;
-            position: relative;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
         }
 
-        /* ===== ANIMATED BACKGROUND ===== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 70% 20%, rgba(0, 210, 255, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 30% 80%, rgba(17, 17, 58, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            animation: bgFloat 24s ease-in-out infinite alternate;
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-cyan);
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        @keyframes bgFloat {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(-30px, 30px) scale(1.07);
-            }
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
         }
 
-        /* ===== DISCLAIMER WRAPPER ===== */
-        .disclaimer-wrapper {
-            max-width: 960px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 55px 60px;
-            border-radius: 28px;
-            box-shadow: var(--card-shadow), 0 8px 24px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 210, 255, 0.06);
-            position: relative;
-            overflow: hidden;
-            animation: cardSlideUp 0.8s ease forwards;
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
         }
 
-        @keyframes cardSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ===== TOP ACCENT LINE ===== */
-        .disclaimer-wrapper::before {
-            content: '';
-            position: absolute;
+        /* ==========================================
+           NAVIGATION - Same as Other Legal Pages
+           ========================================== */
+        .main-nav {
+            background: var(--bg-navbar);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--navy), var(--cyan), #7c3aed, var(--cyan), var(--navy));
-            background-size: 300% 100%;
-            animation: gradientSlide 5s ease-in-out infinite;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
-        @keyframes gradientSlide {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* ===== DECORATIVE ELEMENT ===== */
-        .disclaimer-wrapper::after {
-            content: '\f0e6';
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            bottom: 20px;
-            right: 25px;
-            font-size: 4rem;
-            color: rgba(0, 210, 255, 0.03);
-            pointer-events: none;
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        /* ===== HEADER ===== */
-        .disclaimer-header {
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background: var(--text-primary);
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--text-primary);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background: transparent;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        [data-theme="dark"] .back-btn {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        [data-theme="dark"] .back-btn:hover {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 576px) {
+            .nav-container { width: 95%; }
+            .logo img { height: 40px; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+        }
+
+        /* ==========================================
+           POLICY CONTENT - Same as Other Legal Pages
+           ========================================== */
+        .policy-wrapper {
+            padding: 40px 20px 60px;
+        }
+
+        .policy-card {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 60px 70px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border-top: 10px solid var(--accent-cyan);
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .policy-header {
             text-align: center;
-            margin-bottom: 45px;
-            padding-bottom: 35px;
-            border-bottom: 2px solid #f1f5f9;
-            position: relative;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+            transition: border-color 0.3s ease;
         }
 
-        .disclaimer-header .update-tag {
+        .policy-header .update-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(0, 210, 255, 0.08);
-            color: var(--cyan);
-            font-weight: 700;
+            background: rgba(0, 212, 255, 0.08);
+            color: var(--accent-cyan);
             font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             padding: 6px 18px;
             border-radius: 50px;
-            border: 1px solid rgba(0, 210, 255, 0.12);
-            margin-bottom: 14px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            margin-bottom: 12px;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        .disclaimer-header .update-tag i {
+        .policy-header .update-tag i {
             font-size: 12px;
         }
 
-        .disclaimer-header .icon-badge {
+        .policy-header .icon-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(17, 17, 58, 0.04));
+            background: rgba(0, 212, 255, 0.08);
             border-radius: 50%;
             font-size: 2rem;
-            color: var(--cyan);
+            color: var(--accent-cyan);
             margin-bottom: 15px;
-            border: 1px solid rgba(0, 210, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.08);
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        .disclaimer-header h1 {
-            color: var(--navy);
+        .policy-header h1 {
+            color: var(--text-primary);
             font-weight: 800;
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             letter-spacing: -0.03em;
             margin-bottom: 6px;
+            transition: color 0.3s ease;
         }
 
-        .disclaimer-header h1 span {
-            background: linear-gradient(135deg, var(--navy), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .policy-header h1 span {
+            color: var(--accent-cyan);
         }
 
-        .disclaimer-header .sub-head {
-            color: var(--text-light);
+        .policy-header .sub-head {
+            color: var(--text-secondary);
             font-size: 1.05rem;
             font-weight: 400;
+            transition: color 0.3s ease;
         }
 
-        /* ===== INTRO TEXT ===== */
+        /* Intro Text */
         .intro-text {
-            background: linear-gradient(135deg, rgba(17, 17, 58, 0.02), rgba(0, 210, 255, 0.04));
-            padding: 22px 28px;
+            background: var(--bg-input);
+            padding: 20px 28px;
             border-radius: 16px;
-            border-left: 4px solid var(--cyan);
+            border-left: 4px solid var(--accent-cyan);
             margin-bottom: 35px;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
         .intro-text p {
             margin: 0;
+            color: var(--text-secondary);
             font-size: 0.98rem;
-            color: var(--text);
+            transition: color 0.3s ease;
+        }
+        .intro-text p i {
+            color: var(--accent-cyan);
         }
 
-        /* ===== SECTION HEADINGS ===== */
+        /* Section Headings */
         h2 {
-            color: var(--navy);
+            color: var(--text-primary);
             font-size: 1.2rem;
             font-weight: 700;
             margin-top: 38px;
@@ -204,6 +316,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            transition: color 0.3s ease;
         }
 
         h2 .number-badge {
@@ -212,36 +325,39 @@
             justify-content: center;
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, var(--cyan), #0099cc);
-            color: #fff;
+            background: var(--accent-cyan);
+            color: var(--text-white);
             font-size: 0.8rem;
             font-weight: 800;
             border-radius: 50%;
             flex-shrink: 0;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         h2:hover .number-badge {
             transform: scale(1.1) rotate(-5deg);
-            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.3);
+            box-shadow: 0 8px 25px var(--accent-glow);
         }
 
         h2::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, #e2e8f0, transparent);
+            background: linear-gradient(90deg, var(--border-color), transparent);
             margin-left: 10px;
+            transition: background 0.3s ease;
         }
 
-        /* ===== PARAGRAPHS ===== */
+        /* Paragraphs */
         p {
             font-size: 0.98rem;
-            color: var(--text);
+            color: var(--text-secondary);
             margin-bottom: 14px;
+            text-align: justify;
+            transition: color 0.3s ease;
         }
 
-        /* ===== LISTS ===== */
+        /* Lists */
         ul {
             list-style: none;
             padding-left: 0;
@@ -253,8 +369,8 @@
             padding-left: 32px;
             margin-bottom: 10px;
             font-size: 0.96rem;
-            color: var(--text);
-            transition: 0.2s;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
         }
 
         ul li::before {
@@ -264,35 +380,36 @@
             position: absolute;
             left: 0;
             top: 2px;
-            color: var(--cyan);
+            color: var(--accent-cyan);
             font-size: 0.8rem;
-            background: rgba(0, 210, 255, 0.08);
+            background: rgba(0, 212, 255, 0.08);
             width: 22px;
             height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         ul li:hover {
             padding-left: 38px;
+            color: var(--text-primary);
         }
 
-        /* ===== ALERT BOX ===== */
+        /* Alert Box */
         .alert-box {
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.05), rgba(17, 17, 58, 0.02));
-            border-left: 5px solid var(--cyan);
+            background: var(--bg-input);
+            border-left: 5px solid var(--accent-cyan);
             padding: 22px 26px;
             border-radius: 0 14px 14px 0;
             margin: 20px 0 25px 0;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
         .alert-box:hover {
-            border-left-color: #7c3aed;
-            background: rgba(0, 210, 255, 0.07);
+            border-left-color: var(--text-primary);
+            background: rgba(0, 212, 255, 0.04);
         }
-
         .alert-box h2 {
             margin-top: 0;
             font-size: 1.1rem;
@@ -303,18 +420,32 @@
         .alert-box p {
             margin-bottom: 0;
             font-size: 0.96rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .alert-box p strong {
+            color: var(--text-primary);
+            transition: color 0.3s ease;
         }
 
-        /* ===== CONTACT BOX ===== */
+        /* ==========================================
+           CONTACT BOX - Same as Other Legal Pages
+           ========================================== */
         .contact-box {
             margin-top: 50px;
             padding: 35px 40px;
-            background: linear-gradient(135deg, var(--navy), #1a1a4e);
-            color: white;
+            background: var(--text-primary);
+            color: var(--text-white);
             border-radius: 18px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        [data-theme="dark"] .contact-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
         }
 
         .contact-box::before {
@@ -324,117 +455,132 @@
             right: -20%;
             width: 60%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.06), transparent 70%);
+            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
             pointer-events: none;
         }
 
         .contact-box .contact-icon {
             width: 60px;
             height: 60px;
-            background: rgba(0, 210, 255, 0.12);
+            background: rgba(0, 212, 255, 0.12);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             font-size: 1.6rem;
-            color: var(--cyan);
+            color: var(--accent-cyan);
             margin-bottom: 12px;
+            transition: background 0.3s ease;
         }
 
         .contact-box h2 {
-            color: #ffffff;
+            color: var(--text-white) !important;
             justify-content: center;
             margin-top: 0;
         }
-        .contact-box h2 .number-badge {
-            background: rgba(0, 210, 255, 0.15);
-            color: var(--cyan);
+
+        [data-theme="dark"] .contact-box h2 {
+            color: var(--text-primary) !important;
         }
+
+        .contact-box h2 .number-badge {
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
         .contact-box h2::after {
             display: none;
         }
 
         .contact-box p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-white) !important;
             font-size: 1rem;
             margin-bottom: 10px;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .contact-box p {
+            color: var(--text-secondary) !important;
         }
 
         .contact-box .company-name {
             font-size: 1.2rem;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--text-white);
             display: block;
             margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        [data-theme="dark"] .contact-box .company-name {
+            color: var(--text-primary);
         }
 
         .contact-box a {
-            color: var(--cyan);
+            color: var(--accent-cyan) !important;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
         }
 
         .contact-box a:hover {
-            color: #ffffff;
+            color: var(--text-white) !important;
             transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .contact-box a:hover {
+            color: var(--accent-cyan) !important;
         }
 
         .contact-box .website {
             color: rgba(255, 255, 255, 0.4);
             font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
-        /* ===== BACK TO TOP ===== */
+        [data-theme="dark"] .contact-box .website {
+            color: var(--text-muted);
+        }
+
+        /* Back to Top */
         .back-top {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
             margin-top: 25px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
             background: none;
         }
         .back-top:hover {
-            color: var(--cyan);
+            color: var(--accent-cyan);
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            .disclaimer-wrapper {
-                padding: 40px 35px;
-                margin: 0 20px;
-            }
-        }
-
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
         @media (max-width: 768px) {
-            body {
-                padding: 25px 0;
+            .policy-card {
+                padding: 30px 20px;
+                margin: 15px;
             }
-            .disclaimer-wrapper {
-                padding: 30px 22px;
-                margin: 0 12px;
-                border-radius: 20px;
+            .policy-header h1 {
+                font-size: 1.8rem;
             }
-            .disclaimer-header h1 {
-                font-size: 2rem;
+            .policy-wrapper {
+                padding: 20px 10px 40px;
             }
-            .disclaimer-header .sub-head {
-                font-size: 0.95rem;
-            }
-            .disclaimer-header .icon-badge {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
+            .contact-box {
+                padding: 28px 20px;
             }
             h2 {
                 font-size: 1.05rem;
@@ -447,28 +593,28 @@
             .alert-box {
                 padding: 18px 20px;
             }
-            .contact-box {
-                padding: 28px 20px;
-            }
-            .contact-box a {
-                font-size: 1rem;
-            }
-            .contact-box .company-name {
-                font-size: 1rem;
+            .policy-header .icon-badge {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .disclaimer-wrapper {
-                padding: 24px 16px;
-                border-radius: 16px;
+        @media (max-width: 576px) {
+            .policy-card {
+                padding: 20px 16px;
+                margin: 10px;
+                border-top-width: 6px;
             }
-            .disclaimer-header h1 {
-                font-size: 1.6rem;
+            .policy-header h1 {
+                font-size: 1.5rem;
             }
-            .disclaimer-header .update-tag {
+            .policy-header .update-tag {
                 font-size: 0.65rem;
                 padding: 4px 14px;
+            }
+            .intro-text {
+                padding: 16px 18px;
             }
             ul li {
                 font-size: 0.9rem;
@@ -487,121 +633,188 @@
                 height: 50px;
                 font-size: 1.3rem;
             }
+            .contact-box .company-name {
+                font-size: 1rem;
+            }
+            .contact-box a {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .main-nav { display: none; }
+            .policy-card { box-shadow: none; border: none; width: 100%; padding: 0; margin: 0; }
+            .no-print { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="disclaimer-wrapper">
+    <div id="elastic-cursor"></div>
 
-        <!-- Header -->
-        <div class="disclaimer-header">
-            <div class="icon-badge">
-                <i class="fas fa-clipboard-check"></i>
-            </div>
-            <div class="update-tag">
-                <i class="fas fa-calendar-alt"></i> Last Updated: March 2024
-            </div>
-            <h1>Service <span>Disclaimer</span></h1>
-            <p class="sub-head">Operational standards, expectations, and limitations governing our services.</p>
-        </div>
-
-        <!-- Intro -->
-        <div class="intro-text">
-            <p><i class="fas fa-info-circle" style="color: var(--cyan); margin-right: 10px;"></i>
-                This Service Level and Delivery Disclaimer outlines the general expectations, limitations, and operational standards governing services provided by CodedClouds (“Company”, “we”, “our”, or “us”). By purchasing or engaging with our services, the client acknowledges and agrees to the terms described below.
-            </p>
-        </div>
-
-        <!-- Sections -->
-        <h2>
-            <span class="number-badge">1</span>
-            Nature of Digital Service Delivery
-        </h2>
-        <p>CodedClouds provides digital services that involve technical development, system configuration, design implementation, and integration with third-party technologies. Service delivery may be influenced by:</p>
-        <ul>
-            <li>third-party platforms and APIs</li>
-            <li>hosting provider performance</li>
-            <li>client response time and approvals</li>
-            <li>external platform policies and algorithm changes</li>
-            <li>regulatory or technical limitations</li>
-        </ul>
-        <p>Accordingly, all project timelines and service estimates should be considered reasonable projections rather than guaranteed deadlines.</p>
-
-        <h2>
-            <span class="number-badge">2</span>
-            Project Timelines
-        </h2>
-        <p>Project delivery timelines are estimated timeframes based on the agreed scope of work. Delays may occur due to missing client assets, scope modifications, third-party technical issues, or delayed approvals. CodedClouds shall not be considered in breach of service agreements due to these external or client-side factors.</p>
-
-        <!-- Alert Box -->
-        <div class="alert-box">
-            <h2>
-                <span class="number-badge">3</span>
-                Performance Disclaimer
-            </h2>
-            <p>CodedClouds does not guarantee specific business outcomes or performance results, including search engine rankings, website traffic levels, marketing campaign performance, advertising conversion rates, revenue generation, or user growth.</p>
-        </div>
-
-        <h2>
-            <span class="number-badge">4</span>
-            Third-Party Platforms
-        </h2>
-        <p>Many services rely on hosting providers, advertising networks, social media platforms, payment gateways, and APIs. CodedClouds shall not be responsible for service interruptions, policy changes, technical failures, or restrictions imposed by these third-party platforms.</p>
-
-        <h2>
-            <span class="number-badge">5</span>
-            Client Cooperation
-        </h2>
-        <p>Clients are responsible for providing accurate requirements, supplying content/credentials, and reviewing deliverables in a timely manner. Failure to cooperate may affect delivery timelines and overall service performance.</p>
-
-        <h2>
-            <span class="number-badge">6</span>
-            Maintenance and Support
-        </h2>
-        <p>Unless otherwise specified in a separate agreement, ongoing maintenance, updates, monitoring, or technical support are not automatically included with project delivery. Maintenance services may require a separate agreement.</p>
-
-        <h2>
-            <span class="number-badge">7</span>
-            Limitation of Responsibility
-        </h2>
-        <p>CodedClouds shall not be responsible for losses or damages resulting from system downtime (hosting), third-party software failures, security incidents outside our infrastructure, or misuse of systems by the client or third parties.</p>
-
-        <h2>
-            <span class="number-badge">8</span>
-            Policy Updates
-        </h2>
-        <p>CodedClouds reserves the right to update or modify this Service Level and Delivery Disclaimer at any time. Updated versions will be published on the website and continued use of services constitutes acceptance of the revised terms.</p>
-
-        <!-- Contact Box -->
-        <div class="contact-box">
-            <div class="contact-icon">
-                <i class="fas fa-headset"></i>
-            </div>
-            <h2>
-                <span class="number-badge">9</span>
-                Contact Information
-            </h2>
-            <p>For questions regarding this policy, please contact:</p>
-            <span class="company-name">CodedClouds</span>
-            <a href="mailto:info@codedclouds.org">
-                <i class="fas fa-envelope me-2"></i>info@codedclouds.org
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
             </a>
-            <br>
-            <span class="website">codedclouds.org</span>
-        </div>
 
-        <!-- Back to Top -->
-        <div class="text-center mt-4">
-            <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-                <i class="fas fa-arrow-up"></i> Back to Top
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
         </div>
+    </nav>
 
+    <!-- ===== POLICY CONTENT ===== -->
+    <div class="policy-wrapper">
+        <div class="policy-card">
+
+            <!-- Header -->
+            <div class="policy-header">
+                <div class="icon-badge">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div class="update-tag">
+                    <i class="fas fa-calendar-alt"></i> Last Updated: March 2024
+                </div>
+                <h1>Service <span>Disclaimer</span></h1>
+                <p class="sub-head">Operational standards, expectations, and limitations governing our services.</p>
+            </div>
+
+            <!-- Intro -->
+            <div class="intro-text">
+                <p><i class="fas fa-info-circle"></i>
+                    This Service Level and Delivery Disclaimer outlines the general expectations, limitations, and operational standards governing services provided by CodedClouds ("Company", "we", "our", or "us"). By purchasing or engaging with our services, the client acknowledges and agrees to the terms described below.
+                </p>
+            </div>
+
+            <!-- Sections -->
+            <h2>
+                <span class="number-badge">1</span>
+                Nature of Digital Service Delivery
+            </h2>
+            <p>CodedClouds provides digital services that involve technical development, system configuration, design implementation, and integration with third-party technologies. Service delivery may be influenced by:</p>
+            <ul>
+                <li>third-party platforms and APIs</li>
+                <li>hosting provider performance</li>
+                <li>client response time and approvals</li>
+                <li>external platform policies and algorithm changes</li>
+                <li>regulatory or technical limitations</li>
+            </ul>
+            <p>Accordingly, all project timelines and service estimates should be considered reasonable projections rather than guaranteed deadlines.</p>
+
+            <h2>
+                <span class="number-badge">2</span>
+                Project Timelines
+            </h2>
+            <p>Project delivery timelines are estimated timeframes based on the agreed scope of work. Delays may occur due to missing client assets, scope modifications, third-party technical issues, or delayed approvals. CodedClouds shall not be considered in breach of service agreements due to these external or client-side factors.</p>
+
+            <!-- Alert Box -->
+            <div class="alert-box">
+                <h2>
+                    <span class="number-badge">3</span>
+                    Performance Disclaimer
+                </h2>
+                <p><strong>Important:</strong> CodedClouds does not guarantee specific business outcomes or performance results, including search engine rankings, website traffic levels, marketing campaign performance, advertising conversion rates, revenue generation, or user growth.</p>
+            </div>
+
+            <h2>
+                <span class="number-badge">4</span>
+                Third-Party Platforms
+            </h2>
+            <p>Many services rely on hosting providers, advertising networks, social media platforms, payment gateways, and APIs. CodedClouds shall not be responsible for service interruptions, policy changes, technical failures, or restrictions imposed by these third-party platforms.</p>
+
+            <h2>
+                <span class="number-badge">5</span>
+                Client Cooperation
+            </h2>
+            <p>Clients are responsible for providing accurate requirements, supplying content/credentials, and reviewing deliverables in a timely manner. Failure to cooperate may affect delivery timelines and overall service performance.</p>
+
+            <h2>
+                <span class="number-badge">6</span>
+                Maintenance and Support
+            </h2>
+            <p>Unless otherwise specified in a separate agreement, ongoing maintenance, updates, monitoring, or technical support are not automatically included with project delivery. Maintenance services may require a separate agreement.</p>
+
+            <h2>
+                <span class="number-badge">7</span>
+                Limitation of Responsibility
+            </h2>
+            <p>CodedClouds shall not be responsible for losses or damages resulting from system downtime (hosting), third-party software failures, security incidents outside our infrastructure, or misuse of systems by the client or third parties.</p>
+
+            <h2>
+                <span class="number-badge">8</span>
+                Policy Updates
+            </h2>
+            <p>CodedClouds reserves the right to update or modify this Service Level and Delivery Disclaimer at any time. Updated versions will be published on the website and continued use of services constitutes acceptance of the revised terms.</p>
+
+            <!-- Contact Box -->
+            <div class="contact-box">
+                <div class="contact-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h2>
+                    <span class="number-badge">9</span>
+                    Contact Information
+                </h2>
+                <p>For questions regarding this policy, please contact:</p>
+                <span class="company-name">CodedClouds</span>
+                <a href="mailto:info@codedclouds.org">
+                    <i class="fas fa-envelope me-2"></i>info@codedclouds.org
+                </a>
+                <br>
+                <span class="website">codedclouds.org</span>
+            </div>
+
+            <!-- Back to Top -->
+            <div class="text-center mt-4">
+                <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <i class="fas fa-arrow-up"></i> Back to Top
+                </button>
+            </div>
+
+        </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // ===== THEME TOGGLE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
+        });
+
+    </script>
+
 </body>
 </html>

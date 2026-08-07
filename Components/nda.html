@@ -4,78 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Non-Disclosure Agreement (NDA) | CodedClouds</title>
+    
+    <!-- External Dependencies -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="../images/fav.png">
+    
     <style>
+        /* ==========================================
+           THEME SYSTEM
+           ========================================== */
+        
+        /* Light Theme (Default) */
         :root {
-            --navy: #11113a;
-            --cyan: #00d2ff;
-            --slate: #475569;
-            --bg: #f8fafc;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f8fafc;
+            --bg-navbar: rgba(255, 255, 255, 0.95);
+            --bg-footer: #0f172a;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --accent-cyan: #00d4ff;
+            --accent-blue: #0284c7;
+            --accent-glow: rgba(0, 212, 255, 0.12);
+            
+            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
+            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0B0E14;
+            --bg-secondary: #131A22;
+            --bg-card: #131A22;
+            --bg-input: #1C2633;
+            --bg-navbar: rgba(11, 14, 20, 0.95);
+            --bg-footer: #0B0E14;
+            
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8899AA;
+            --text-white: #ffffff;
+            
+            --border-color: #1C2633;
+            --border-light: #2A3644;
+            
+            --accent-cyan: #00D4FF;
+            --accent-blue: #00D4FF;
+            --accent-glow: rgba(0, 212, 255, 0.08);
+            
+            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--slate);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
             line-height: 1.7;
-            padding: 40px 0;
+            padding: 0;
+        }
+
+        /* ==========================================
+           ELASTIC CURSOR
+           ========================================== */
+        #elastic-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: var(--text-primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            box-shadow: 0 0 10px var(--accent-glow);
+            transform-origin: center center;
+            transition: background 0.3s ease;
+        }
+
+        .cursor-active {
+            mix-blend-mode: difference;
+            background-color: white !important;
+        }
+
+        @media (max-width: 768px) {
+            #elastic-cursor { display: none !important; }
+        }
+
+        /* ==========================================
+           THEME TOGGLE BUTTON
+           ========================================== */
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-cyan);
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
+        /* ==========================================
+           NAVIGATION - Simplified (Logo + Back + Toggle)
+           ========================================== */
+        .main-nav {
+            background: var(--bg-navbar);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .back-btn {
+            background: var(--text-primary);
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--text-primary);
+            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+        }
+
+        .back-btn:hover {
+            background: transparent;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        [data-theme="dark"] .back-btn {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        [data-theme="dark"] .back-btn:hover {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 576px) {
+            .nav-container { width: 95%; }
+            .logo img { height: 40px; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+        }
+
+        /* ==========================================
+           NDA CONTENT
+           ========================================== */
+        .nda-wrapper {
+            padding: 40px 20px 60px;
         }
 
         .nda-container {
             max-width: 950px;
             margin: 0 auto;
-            background: #ffffff;
-            padding: 70px;
+            background: var(--bg-card);
+            padding: 60px 70px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            border-top: 10px solid var(--navy);
+            box-shadow: var(--shadow-sm);
+            border-top: 10px solid var(--accent-cyan);
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .nda-header {
             text-align: center;
-            border-bottom: 2px solid #f1f5f9;
+            border-bottom: 2px solid var(--border-color);
             margin-bottom: 40px;
             padding-bottom: 30px;
+            transition: border-color 0.3s ease;
         }
 
         .nda-header h1 {
-            color: var(--navy);
+            color: var(--text-primary);
             font-weight: 800;
             font-size: 2.4rem;
             margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
 
         .last-update {
-            color: var(--cyan);
+            color: var(--accent-cyan);
             font-weight: 700;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
 
-        h2 {
-            color: var(--navy);
+        .nda-content h2 {
+            color: var(--text-primary);
             font-size: 1.3rem;
             font-weight: 700;
             margin-top: 35px;
             margin-bottom: 15px;
             padding-bottom: 5px;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
-        h3 {
-            color: var(--navy);
+        .nda-content h3 {
+            color: var(--text-primary);
             font-size: 1.1rem;
             font-weight: 600;
             margin-top: 25px;
+            transition: color 0.3s ease;
         }
 
-        p, li {
+        .nda-content p {
             font-size: 1rem;
             text-align: justify;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
         }
 
         .bullet-list {
@@ -86,8 +304,11 @@
 
         .bullet-list li {
             position: relative;
-            padding-left: 25px;
+            padding-left: 28px;
             margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: color 0.3s ease;
         }
 
         .bullet-list li::before {
@@ -96,125 +317,269 @@
             font-weight: 900;
             position: absolute;
             left: 0;
-            color: var(--cyan);
+            color: var(--accent-cyan);
             font-size: 0.9rem;
         }
 
         .highlight-section {
-            background: rgba(17, 17, 58, 0.02);
-            border: 1px solid #e2e8f0;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
             padding: 25px;
             border-radius: 8px;
             margin: 25px 0;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .highlight-section h2 {
+            margin-top: 0;
+            border-bottom: none;
         }
 
         .footer-info {
             margin-top: 50px;
             padding-top: 30px;
-            border-top: 2px solid #f1f5f9;
+            border-top: 2px solid var(--border-color);
             text-align: center;
+            transition: border-color 0.3s ease;
         }
 
+        .footer-info p {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-info strong {
+            color: var(--text-primary);
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
         @media (max-width: 768px) {
-            .nda-container { padding: 30px 20px; margin: 15px; }
-            .nda-header h1 { font-size: 1.8rem; }
+            .nda-container {
+                padding: 30px 20px;
+                margin: 15px;
+            }
+            .nda-header h1 {
+                font-size: 1.8rem;
+            }
+            .nda-wrapper {
+                padding: 20px 10px 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nda-container {
+                padding: 20px 16px;
+                margin: 10px;
+                border-top-width: 6px;
+            }
+            .nda-header h1 {
+                font-size: 1.5rem;
+            }
+            .nda-content h2 {
+                font-size: 1.1rem;
+            }
+            .bullet-list li {
+                padding-left: 24px;
+                font-size: 0.95rem;
+            }
         }
 
         @media print {
             body { background: white; padding: 0; }
-            .nda-container { box-shadow: none; border: none; width: 100%; padding: 0; }
+            .main-nav { display: none; }
+            .nda-container { box-shadow: none; border: none; width: 100%; padding: 0; margin: 0; }
             .no-print { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="nda-container">
-        <div class="nda-header">
-            <span class="last-update">Last Updated: 2024</span>
-            <h1>Non-Disclosure Agreement</h1>
-            <p>Confidentiality & Proprietary Rights Protocol</p>
+    <div id="elastic-cursor"></div>
+
+    <!-- ===== NAVIGATION - Simplified ===== -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
+            </a>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
         </div>
+    </nav>
 
-        <div class="nda-content">
-            <p>At CodedClouds, the protection of confidential and proprietary information is a fundamental part of our professional standards. During the course of consultations, project discussions, software development engagements, and business collaborations, sensitive information may be exchanged between CodedClouds and its clients, partners, contractors, or stakeholders.</p>
-            
-            <p>This Non-Disclosure Agreement (“NDA”) outlines the principles governing the protection, handling, and permitted use of confidential information shared with or by CodedClouds. The purpose of this policy is to ensure that all parties involved maintain the highest standards of confidentiality, integrity, and professional responsibility.</p>
-
-            <h2>What is a Non-Disclosure Agreement (NDA)</h2>
-            <p>A Non-Disclosure Agreement is a legally recognized arrangement between two or more parties that establishes obligations regarding the protection of confidential information. Such agreements ensure that sensitive business, technical, financial, or operational information shared during professional engagement is not disclosed to unauthorized individuals or entities and is used only for legitimate business purposes.</p>
-
-            <h2>Purpose of This Agreement</h2>
-            <p>The purpose of this NDA is to safeguard confidential and proprietary information disclosed during the course of business discussions or professional engagement with CodedClouds involving:</p>
-            <ul class="bullet-list">
-                <li>Project consultations & software development engagements</li>
-                <li>System architecture discussions</li>
-                <li>Business partnerships & technical collaborations</li>
-                <li>Internal or external consulting activities</li>
-            </ul>
-
-            <h2>Definition of Confidential Information</h2>
-            <p>Confidential Information refers to any non-public information disclosed by CodedClouds or its partners that is reasonably considered sensitive or proprietary, including:</p>
-            <ul class="bullet-list">
-                <li>Business plans, strategies, and operational processes</li>
-                <li>Financial data, projections, and internal reporting</li>
-                <li>Client databases, contact lists, and project documentation</li>
-                <li>Proprietary software systems and technical architecture</li>
-                <li>Source code, algorithms, and development frameworks</li>
-                <li>User interface (UI) and user experience (UX) designs</li>
-                <li>Product concepts, prototypes, and technical specifications</li>
-                <li>Marketing strategies, research data, and analytics</li>
-                <li>Intellectual property including patents, copyrights, and trademarks</li>
-                <li>Internal documentation, methods, or development tools</li>
-            </ul>
-
-            <h2>Obligations of the Receiving Party</h2>
-            <h3>Confidential Handling</h3>
-            <p>All confidential information must be treated with strict confidentiality and handled with a reasonable standard of care.</p>
-            <h3>Restricted Disclosure</h3>
-            <p>Confidential information shall not be disclosed, shared, or communicated to any third party without prior written consent from the disclosing party.</p>
-            <h3>Permitted Use</h3>
-            <p>The information may only be used for the specific business purpose for which it was disclosed.</p>
-
-            <h2>Exceptions to Confidentiality</h2>
-            <p>The confidentiality obligations outlined in this agreement shall not apply to information that is already publicly available, was lawfully obtained from a third party, or is required to be disclosed by applicable law, regulation, or court order.</p>
-
-            <h2>Duration of Confidentiality</h2>
-            <p>Unless otherwise agreed in writing, confidentiality obligations generally remain effective for five (5) years following the disclosure. Obligations may extend indefinitely for highly sensitive proprietary or intellectual property information.</p>
-
-            <div class="highlight-section">
-                <h2>8. Protection of Systems, Architecture, and Business Methods</h2>
-                <p>CodedClouds may disclose certain proprietary methodologies, technical structures, and operational strategies. The Receiving Party agrees that it shall not:</p>
-                <ul class="bullet-list">
-                    <li>Reproduce, replicate, or imitate any disclosed software architecture or technical framework.</li>
-                    <li>Reverse engineer or attempt to reconstruct proprietary systems or methodologies.</li>
-                    <li>Use disclosed technical concepts to independently develop similar software, platforms, or services.</li>
-                    <li>Disclose such methodologies to third parties for the purpose of building competing systems.</li>
-                </ul>
+    <!-- ===== NDA CONTENT ===== -->
+    <div class="nda-wrapper">
+        <div class="nda-container">
+            <div class="nda-header">
+                <span class="last-update">Last Updated: 2024</span>
+                <h1>Non-Disclosure Agreement</h1>
+                <p style="color: var(--text-secondary);">Confidentiality & Proprietary Rights Protocol</p>
             </div>
 
-            <div class="highlight-section">
-                <h2>9. Non-Circumvention</h2>
-                <p>The Receiving Party acknowledges that CodedClouds may introduce certain resources, personnel, or partners. The Receiving Party agrees that it shall not, without prior written consent:</p>
+            <div class="nda-content">
+                <p>At CodedClouds, the protection of confidential and proprietary information is a fundamental part of our professional standards. During the course of consultations, project discussions, software development engagements, and business collaborations, sensitive information may be exchanged between CodedClouds and its clients, partners, contractors, or stakeholders.</p>
+                
+                <p>This Non-Disclosure Agreement ("NDA") outlines the principles governing the protection, handling, and permitted use of confidential information shared with or by CodedClouds. The purpose of this policy is to ensure that all parties involved maintain the highest standards of confidentiality, integrity, and professional responsibility.</p>
+
+                <h2>What is a Non-Disclosure Agreement (NDA)</h2>
+                <p>A Non-Disclosure Agreement is a legally recognized arrangement between two or more parties that establishes obligations regarding the protection of confidential information. Such agreements ensure that sensitive business, technical, financial, or operational information shared during professional engagement is not disclosed to unauthorized individuals or entities and is used only for legitimate business purposes.</p>
+
+                <h2>Purpose of This Agreement</h2>
+                <p>The purpose of this NDA is to safeguard confidential and proprietary information disclosed during the course of business discussions or professional engagement with CodedClouds involving:</p>
                 <ul class="bullet-list">
-                    <li>Directly or indirectly solicit, hire, or engage any employee, contractor, or partner introduced by CodedClouds.</li>
-                    <li>Bypass or circumvent CodedClouds to establish direct business relationships with associated individuals or entities.</li>
-                    <li>Use professional connections provided by CodedClouds to obtain similar services outside the organization.</li>
+                    <li>Project consultations & software development engagements</li>
+                    <li>System architecture discussions</li>
+                    <li>Business partnerships & technical collaborations</li>
+                    <li>Internal or external consulting activities</li>
                 </ul>
-                <p>This restriction shall apply for a period of <strong>twenty-four (24) months</strong> following the last interaction.</p>
-            </div>
 
-            <h2>Enforcement and Legal Remedies</h2>
-            <p>Unauthorized disclosure may cause significant and irreparable harm. In the event of a breach, CodedClouds reserves the right to pursue legal remedies, including injunctive relief, financial damages, and recovery of legal costs.</p>
+                <h2>Definition of Confidential Information</h2>
+                <p>Confidential Information refers to any non-public information disclosed by CodedClouds or its partners that is reasonably considered sensitive or proprietary, including:</p>
+                <ul class="bullet-list">
+                    <li>Business plans, strategies, and operational processes</li>
+                    <li>Financial data, projections, and internal reporting</li>
+                    <li>Client databases, contact lists, and project documentation</li>
+                    <li>Proprietary software systems and technical architecture</li>
+                    <li>Source code, algorithms, and development frameworks</li>
+                    <li>User interface (UI) and user experience (UX) designs</li>
+                    <li>Product concepts, prototypes, and technical specifications</li>
+                    <li>Marketing strategies, research data, and analytics</li>
+                    <li>Intellectual property including patents, copyrights, and trademarks</li>
+                    <li>Internal documentation, methods, or development tools</li>
+                </ul>
 
-            <div class="footer-info">
-                <p>For questions regarding this Agreement, contact: <strong>info@codedclouds.org</strong></p>
-                <p>&copy; 2026 CodedClouds. All Rights Reserved.</p>
+                <h2>Obligations of the Receiving Party</h2>
+                <h3>Confidential Handling</h3>
+                <p>All confidential information must be treated with strict confidentiality and handled with a reasonable standard of care.</p>
+                <h3>Restricted Disclosure</h3>
+                <p>Confidential information shall not be disclosed, shared, or communicated to any third party without prior written consent from the disclosing party.</p>
+                <h3>Permitted Use</h3>
+                <p>The information may only be used for the specific business purpose for which it was disclosed.</p>
+
+                <h2>Exceptions to Confidentiality</h2>
+                <p>The confidentiality obligations outlined in this agreement shall not apply to information that is already publicly available, was lawfully obtained from a third party, or is required to be disclosed by applicable law, regulation, or court order.</p>
+
+                <h2>Duration of Confidentiality</h2>
+                <p>Unless otherwise agreed in writing, confidentiality obligations generally remain effective for five (5) years following the disclosure. Obligations may extend indefinitely for highly sensitive proprietary or intellectual property information.</p>
+
+                <div class="highlight-section">
+                    <h2>Protection of Systems, Architecture, and Business Methods</h2>
+                    <p>CodedClouds may disclose certain proprietary methodologies, technical structures, and operational strategies. The Receiving Party agrees that it shall not:</p>
+                    <ul class="bullet-list">
+                        <li>Reproduce, replicate, or imitate any disclosed software architecture or technical framework.</li>
+                        <li>Reverse engineer or attempt to reconstruct proprietary systems or methodologies.</li>
+                        <li>Use disclosed technical concepts to independently develop similar software, platforms, or services.</li>
+                        <li>Disclose such methodologies to third parties for the purpose of building competing systems.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-section">
+                    <h2>Non-Circumvention</h2>
+                    <p>The Receiving Party acknowledges that CodedClouds may introduce certain resources, personnel, or partners. The Receiving Party agrees that it shall not, without prior written consent:</p>
+                    <ul class="bullet-list">
+                        <li>Directly or indirectly solicit, hire, or engage any employee, contractor, or partner introduced by CodedClouds.</li>
+                        <li>Bypass or circumvent CodedClouds to establish direct business relationships with associated individuals or entities.</li>
+                        <li>Use professional connections provided by CodedClouds to obtain similar services outside the organization.</li>
+                    </ul>
+                    <p>This restriction shall apply for a period of <strong>twenty-four (24) months</strong> following the last interaction.</p>
+                </div>
+
+                <h2>Enforcement and Legal Remedies</h2>
+                <p>Unauthorized disclosure may cause significant and irreparable harm. In the event of a breach, CodedClouds reserves the right to pursue legal remedies, including injunctive relief, financial damages, and recovery of legal costs.</p>
+
+                <div class="footer-info">
+                    <p>For questions regarding this Agreement, contact: <strong>info@codedclouds.org</strong></p>
+                    <p>&copy; 2026 CodedClouds. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // ===== THEME TOGGLE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
+        });
+
+        // ===== ELASTIC CURSOR =====
+        const cursor = document.querySelector("#elastic-cursor");
+        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let mouse = { x: pos.x, y: pos.y };
+        let speed = 0.15;
+        let fpms = 60 / 1000;
+
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
+
+        gsap.ticker.add((time, deltaTime) => {
+            let delta = deltaTime * fpms;
+            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+
+            let dx = mouse.x - pos.x;
+            let dy = mouse.y - pos.y;
+
+            pos.x += dx * dt;
+            pos.y += dy * dt;
+
+            let velocity = Math.sqrt(dx * dx + dy * dy);
+            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
+            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
+            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
+
+            xSet(pos.x - 10);
+            ySet(pos.y - 10);
+
+            gsap.set(cursor, {
+                rotation: setRotation,
+                scaleX: setScale,
+                scaleY: setScaleY
+            });
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+        });
+    </script>
 </body>
 </html>

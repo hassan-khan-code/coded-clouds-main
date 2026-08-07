@@ -4,57 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quality Assurance - Coded Clouds</title>
+    
+    <!-- External Dependencies -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
+        /* ==========================================
+           THEME SYSTEM
+           ========================================== */
+        
+        /* Light Theme (Default) */
         :root {
-            --navy: rgb(17, 17, 58);
-            --navy-light: rgb(27, 27, 80);
-            --cyan: #00d4ff;
-            --white: #ffffff;
-            --gray-bg: #f4f6f9;
-            --text-dark: #2c3e50;
-            --text-muted: #666666;
+            /* Backgrounds */
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f8fafc;
+            --bg-navbar: rgba(255, 255, 255, 0.95);
+            --bg-footer: #0f172a;
+            
+            /* Text Colors */
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --text-white: #ffffff;
+            
+            /* Borders */
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            /* Accents */
+            --accent-cyan: #00d4ff;
+            --accent-blue: #0284c7;
+            --accent-glow: rgba(0, 212, 255, 0.12);
+            
+            /* Shadows */
             --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
-            --shadow-hover: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.4);
+            
+            /* Gradients */
+            --gradient-hero: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
+            --gradient-cta: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
         }
 
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-primary: #0B0E14;
+            --bg-secondary: #131A22;
+            --bg-card: #131A22;
+            --bg-input: #1C2633;
+            --bg-navbar: rgba(11, 14, 20, 0.95);
+            --bg-footer: #0B0E14;
+            
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C4DE;
+            --text-muted: #8899AA;
+            --text-white: #ffffff;
+            
+            --border-color: #1C2633;
+            --border-light: #2A3644;
+            
+            --accent-cyan: #00D4FF;
+            --accent-blue: #00D4FF;
+            --accent-glow: rgba(0, 212, 255, 0.08);
+            
+            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.25);
+            
+            --gradient-hero: linear-gradient(180deg, rgba(11, 14, 20, 0.6) 0%, rgba(11, 14, 20, 1) 100%);
+            --gradient-cta: linear-gradient(135deg, #0B0E14 0%, #131A22 100%);
+        }
+
+        /* ==========================================
+           BASE STYLES
+           ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            background-color: var(--white);
-            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
         }
 
-        /* --- Elastic Cursor --- */
-        #elastic-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background-color: var(--navy);
+        /* ==========================================
+           THEME TOGGLE BUTTON
+           ========================================== */
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            pointer-events: none;
-            z-index: 99999;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-            transform-origin: center center;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-right: 10px;
+            flex-shrink: 0;
         }
 
-        .cursor-active {
-            mix-blend-mode: difference;
-            background-color: white !important;
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-cyan);
+            transform: rotate(20deg) scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* --- Navigation --- */
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
+        /* ==========================================
+           ELASTIC CURSOR
+           ========================================== */
+      
+        @media (max-width: 768px) {
+            #elastic-cursor { display: none !important; }
+        }
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
         .main-nav {
-            background-color: rgba(255, 255, 255, 0.95);
+            background: var(--bg-navbar);
             backdrop-filter: blur(10px);
             height: 80px;
             width: 100%;
@@ -64,8 +153,9 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(17, 17, 58, 0.05);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .nav-container {
@@ -77,14 +167,20 @@
             align-items: center;
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .logo img {
             height: 50px;
             display: block;
         }
 
         .back-btn {
-            background-color: var(--navy);
-            color: var(--white);
+            background: var(--text-primary);
+            color: var(--text-white);
             text-decoration: none;
             padding: 10px 25px;
             border-radius: 50px;
@@ -94,76 +190,122 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--navy);
+            border: 2px solid var(--text-primary);
             box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
         }
 
         .back-btn:hover {
-            background-color: transparent;
-            color: var(--navy);
+            background: transparent;
+            color: var(--text-primary);
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(17, 17, 58, 0.2);
+            box-shadow: var(--shadow-md);
         }
 
-        /* --- Hero Section --- */
-        .hero-section {
-            padding: 110px 20px 70px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
-            animation: fadeInDown 1s ease-out;
+        [data-theme="dark"] .back-btn {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
         }
 
+        [data-theme="dark"] .back-btn:hover {
+            background: transparent;
+            color: var(--accent-cyan);
+        }
+
+        /* ==========================================
+           CONTAINER
+           ========================================== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================
+           HERO SECTION
+           ========================================== */
+        .hero-section {
+            padding: 110px 20px 70px;
+            text-align: center;
+            background: var(--gradient-hero);
+            animation: fadeInDown 1s ease-out;
+            transition: background 0.3s ease;
         }
 
         .hero-section h1 {
-            color: var(--navy);
-            font-size: 3.5rem;
-            font-weight: 800;
+            color: var(--text-primary);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 900;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
         .hero-underline {
             width: 80px;
             height: 5px;
-            background: var(--cyan);
+            background: var(--accent-cyan);
             margin: 20px auto;
             border-radius: 10px;
-            box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+            box-shadow: 0 0 12px var(--accent-glow);
+            transition: background 0.3s ease;
         }
 
         .hero-section p {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.7;
+            transition: color 0.3s ease;
         }
 
-        /* --- Features Section --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================
+           SECTION TITLES
+           ========================================== */
+        .section-title {
+            text-align: center;
+            color: var(--text-primary);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        /* ==========================================
+           FEATURES SECTION
+           ========================================== */
         .features-section {
             padding: 70px 20px 90px;
-            background: var(--gray-bg);
+            background: var(--bg-primary);
+            transition: background 0.3s ease;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 35px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
+        /* ==========================================
+           FEATURE CARDS
+           ========================================== */
         .feature-card {
-            background: var(--white);
+            background: var(--bg-card);
             padding: 40px 30px;
             border-radius: 24px;
             text-align: center;
             box-shadow: var(--shadow-sm);
-            border: 2px solid rgba(17, 17, 58, 0.05);
+            border: 2px solid var(--border-color);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             overflow: hidden;
@@ -172,7 +314,6 @@
             align-items: center;
         }
 
-        /* Top Gradient Accent on Hover */
         .feature-card::before {
             content: '';
             position: absolute;
@@ -180,65 +321,88 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            background: linear-gradient(90deg, var(--text-primary), var(--accent-cyan));
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-cyan);
         }
 
         .feature-card:hover::before {
             opacity: 1;
         }
 
+        /* ==========================================
+           ICON BOX
+           ========================================== */
         .icon-box {
             width: 80px;
             height: 80px;
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(0, 212, 255, 0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 25px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.1);
             transition: all 0.4s ease;
         }
 
         .feature-card:hover .icon-box {
-            background: var(--navy);
+            background: var(--text-primary);
             transform: scale(1.1) rotate(5deg);
-            border-color: var(--cyan);
+            border-color: var(--accent-cyan);
+        }
+
+        [data-theme="dark"] .feature-card:hover .icon-box {
+            background: var(--accent-cyan);
         }
 
         .feature-card i {
             font-size: 2.2rem;
-            color: var(--navy);
+            color: var(--text-primary);
             transition: color 0.4s ease;
         }
 
         .feature-card:hover i {
-            color: var(--cyan);
+            color: var(--accent-cyan);
         }
 
+        [data-theme="dark"] .feature-card i {
+            color: var(--accent-cyan);
+        }
+
+        [data-theme="dark"] .feature-card:hover i {
+            color: var(--text-primary);
+        }
+
+        /* ==========================================
+           CARD CONTENT
+           ========================================== */
         .feature-card h3 {
-            color: var(--navy);
+            color: var(--text-primary);
             font-size: 1.5rem;
             margin-bottom: 15px;
             font-weight: 800;
+            transition: color 0.3s ease;
         }
 
         .feature-card p {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 0.98rem;
             line-height: 1.7;
             margin-bottom: 20px;
             flex-grow: 1;
+            transition: color 0.3s ease;
         }
 
+        /* ==========================================
+           TECH TAGS
+           ========================================== */
         .tech-tags {
             display: flex;
             gap: 8px;
@@ -247,29 +411,32 @@
         }
 
         .tech-tags span {
-            background: var(--gray-bg);
-            color: var(--navy);
+            background: var(--bg-input);
+            color: var(--text-secondary);
             font-size: 0.78rem;
             font-weight: 600;
             padding: 5px 12px;
             border-radius: 20px;
-            border: 1px solid rgba(17, 17, 58, 0.08);
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
         .feature-card:hover .tech-tags span {
-            background: rgba(17, 17, 58, 0.05);
-            border-color: rgba(0, 212, 255, 0.3);
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
         }
 
-        /* --- CTA Section --- */
+        /* ==========================================
+           CTA SECTION
+           ========================================== */
         .cta-section {
             padding: 100px 20px;
             text-align: center;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            color: var(--white);
+            background: var(--gradient-cta);
+            color: var(--text-white);
             clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
             margin-top: -30px;
+            transition: background 0.3s ease;
         }
 
         .cta-section h2 {
@@ -287,36 +454,53 @@
         .cta-btn {
             display: inline-block;
             padding: 18px 45px;
-            background: var(--cyan);
-            color: var(--navy);
+            background: var(--accent-cyan);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 800;
             border-radius: 50px;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+            box-shadow: var(--shadow-lg);
         }
 
         .cta-btn:hover {
-            background: var(--white);
-            color: var(--navy);
+            background: var(--text-white);
+            color: var(--text-primary);
             transform: scale(1.05);
             box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
         }
 
-        /* --- Keyframe Animations & Responsive --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        [data-theme="dark"] .cta-btn {
+            color: var(--bg-primary);
         }
 
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
         @media (max-width: 768px) {
-            #elastic-cursor { display: none !important; }
             .hero-section h1 { font-size: 2.5rem; }
-            .feature-grid { grid-template-columns: 1fr; }
+            .hero-section { padding: 80px 20px 50px; }
+            .features-section { padding: 50px 20px 60px; }
+            .cta-section { padding: 70px 20px; }
             .cta-section h2 { font-size: 1.8rem; }
+            .feature-grid { grid-template-columns: 1fr; gap: 25px; }
             .back-btn span { display: none; }
             .back-btn::after { content: 'Back'; display: inline-block; }
+            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section h1 { font-size: 1.8rem; }
+            .hero-section p { font-size: 1rem; }
+            .section-title { font-size: 1.6rem; }
+            .feature-card { padding: 30px 20px; }
+            .feature-card h3 { font-size: 1.2rem; }
+            .cta-section h2 { font-size: 1.5rem; }
+            .cta-btn { padding: 14px 30px; font-size: 0.95rem; }
+            .nav-container { width: 95%; }
+            .logo img { height: 40px; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -332,6 +516,10 @@
             </a>
 
             <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
                 <a href="../index.html" class="back-btn">
                     <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
                 </a>
@@ -351,6 +539,7 @@
     <!-- QA Features Section -->
     <section class="features-section">
         <div class="container">
+            <h2 class="section-title">Our Testing Approach</h2>
             <div class="feature-grid">
                 
                 <div class="feature-card">
@@ -444,54 +633,36 @@
         </div>
     </section>
 
-    <!-- GSAP Cursor Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Theme Toggle Script -->
     <script>
-        const cursor = document.querySelector("#elastic-cursor");
-
-        let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        let mouse = { x: pos.x, y: pos.y };
-        let speed = 0.15;
-        let fpms = 60 / 1000;
-        
-        window.addEventListener("mousemove", e => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        const xSet = gsap.quickSetter(cursor, "x", "px");
-        const ySet = gsap.quickSetter(cursor, "y", "px");
-
-        gsap.ticker.add((time, deltaTime) => {
-            let delta = deltaTime * fpms;
-            let dt = 1.0 - Math.pow(1.0 - speed, delta);
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
             
-            let dx = mouse.x - pos.x;
-            let dy = mouse.y - pos.y;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
             
-            pos.x += dx * dt;
-            pos.y += dy * dt;
-            
-            let velocity = Math.sqrt(dx * dx + dy * dy);
-            let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-            
-            let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-            let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
-
-            xSet(pos.x - 10);
-            ySet(pos.y - 10);
-            
-            gsap.set(cursor, {
-                rotation: setRotation,
-                scaleX: setScale,
-                scaleY: setScaleY
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
             });
-        });
-
-        document.querySelectorAll('a, button, .feature-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            }
         });
     </script>
+
+    <!-- GSAP Cursor Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 </html>
