@@ -2297,7 +2297,7 @@ body {
 }
 
 .stars-wrap {
-  display: flex;
+  /* display: flex; */
   gap: 3px;
   color: #f59e0b;
   font-size: 1rem;
