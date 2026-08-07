@@ -979,7 +979,15 @@ body {
   .industry-card { padding: 20px 18px; min-height: 160px; }
 }
 @media (max-width: 480px) {
-  .industries-grid { grid-template-columns: 1fr; }
+ .industries-grid { 
+    /* Force 2 columns on all mobile screens */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+  }
+  .industry-card {
+    padding: 14px 12px;
+    min-height: 130px;
+  }
 }
 
 /* ==========================================
@@ -1095,7 +1103,7 @@ body {
   .journeys-wrapper .right-cards { width: 100%; }
 }
 @media (max-width: 576px) {
-  .journeys-wrapper .right-cards { grid-template-columns: 1fr; gap: 14px; }
+  .journeys-wrapper .right-cards { grid-template-columns: repeat(2, 1fr); }
   .journeys-wrapper .card { height: 130px; }
 }
 
@@ -1190,7 +1198,7 @@ body {
   .achievements-right { width: 100%; }
 }
 @media (max-width: 576px) {
-  .achievements-right { grid-template-columns: 1fr; gap: 14px; }
+  .achievements-right { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .stat-card { padding: 20px; }
 }
 
