@@ -23,72 +23,74 @@
 <body>
 
   <!-- Navbar section -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
 
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
+    <!-- Logo with Image Tag -->
+    <a href="#" class="navbar-brand p-0 m-0">
+      <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
+    </a>
 
-      <!-- Logo with Image Tag -->
-      <a href="#" class="navbar-brand p-0 m-0">
-        <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
-      </a>
+    <!-- Mobile Header Actions (Moon Icon + Hamburger Button Grouped Together) -->
+    <div class="mobile-nav-actions d-flex align-items-center gap-2 d-lg-none ms-auto">
+      <button id="themeToggleMobile" class="theme-toggle-btn" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
 
-      <!-- Mobile Toggler Button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+      <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
         aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <!-- Nav Items -->
-      <div class="collapse navbar-collapse" id="mainNavbar">
-
-        <!-- Center Links -->
-        <div class="center-nav-container d-flex align-items-center gap-1 mx-auto">
-          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDo"
-            aria-controls="offcanvasDo">
-            WHAT WE DO
-          </button>
-          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHelp"
-            aria-controls="offcanvasHelp">
-            WHO WE HELP
-          </button>
-          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWho"
-            aria-controls="offcanvasWho">
-            WHO WE ARE
-          </button>
-          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVentures"
-            aria-controls="offcanvasVentures">
-            LIVE CODE
-          </button>
-          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasJoin"
-            aria-controls="offcanvasJoin">
-            INTERSHIP
-          </button>
-          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam"
-            aria-controls="offcanvasTeam">
-            OUR TEAM
-          </button>
-          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasstory"
-            aria-controls="offcanvasstory">
-            OUR STORY
-          </button>
-        </div>
-
-        <!-- Right Action Button -->
-        <div class="right-nav-container d-flex align-items-center ms-auto">
-
-          <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-            <i class="fa-solid fa-moon"></i>
-          </button>
-
-          <a href="./Components/service.html" class="text-decoration-none">
-            <button class="btn nav-talk-btn" type="button">Explore Services</button>
-          </a>
-        </div>
-
-      </div>
     </div>
-  </nav>
 
+    <!-- Nav Items -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+      <!-- Center Links -->
+      <div class="center-nav-container d-flex align-items-center gap-1 mx-auto">
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDo"
+          aria-controls="offcanvasDo">
+          WHAT WE DO
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHelp"
+          aria-controls="offcanvasHelp">
+          WHO WE HELP
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWho"
+          aria-controls="offcanvasWho">
+          WHO WE ARE
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVentures"
+          aria-controls="offcanvasVentures">
+          LIVE CODE
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasJoin"
+          aria-controls="offcanvasJoin">
+          INTERSHIP
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam"
+          aria-controls="offcanvasTeam">
+          OUR TEAM
+        </button>
+        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasstory"
+          aria-controls="offcanvasstory">
+          OUR STORY
+        </button>
+      </div>
+
+      <!-- Right Action Button (Desktop Only Theme Toggle) -->
+      <div class="right-nav-container d-flex align-items-center ms-auto">
+        <button id="themeToggle" class="theme-toggle-btn d-none d-lg-flex" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="./Components/service.html" class="text-decoration-none w-100">
+          <button class="btn nav-talk-btn" type="button">Explore Services</button>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>
   <!-- Navbar section end -->
 
   <div

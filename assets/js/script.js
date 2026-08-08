@@ -1,35 +1,48 @@
 // ==========================================
 // THEME TOGGLE FUNCTIONALITY
 // ==========================================
-
 document.addEventListener('DOMContentLoaded', function() {
-  const themeToggle = document.getElementById('themeToggle');
-  const icon = themeToggle.querySelector('i');
+  const themeToggleDesktop = document.getElementById('themeToggle');
+  const themeToggleMobile = document.getElementById('themeToggleMobile');
   
   // Check saved theme
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  updateIcon(savedTheme);
+  updateAllIcons(savedTheme);
   
-  // Toggle on click
-  themeToggle.addEventListener('click', function() {
+  // Desktop toggle
+  themeToggleDesktop.addEventListener('click', function() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateIcon(newTheme);
+    updateAllIcons(newTheme);
   });
   
-  function updateIcon(theme) {
+  // Mobile toggle
+  themeToggleMobile.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateAllIcons(newTheme);
+  });
+  
+  function updateAllIcons(theme) {
+    const iconDesktop = themeToggleDesktop.querySelector('i');
+    const iconMobile = themeToggleMobile.querySelector('i');
+    
     if (theme === 'dark') {
-      icon.className = 'fa-solid fa-sun';
+      iconDesktop.className = 'fa-solid fa-sun';
+      iconMobile.className = 'fa-solid fa-sun';
     } else {
-      icon.className = 'fa-solid fa-moon';
+      iconDesktop.className = 'fa-solid fa-moon';
+      iconMobile.className = 'fa-solid fa-moon';
     }
   }
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.getElementById("achievements");
