@@ -284,6 +284,8 @@ body {
   box-shadow: none !important;
   background: transparent !important;
 }
+
+
 @media (max-width: 991px) {
   /* Grouping container for mobile toggle & burger menu */
   .mobile-nav-actions {
@@ -320,6 +322,64 @@ body {
 
   .nav-talk-btn {
     width: 100%;
+  }
+}
+
+/* Base Container (Desktop/Laptop default: Right side bottom) */
+.floating-widget-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+/* WhatsApp Floating Button Styling */
+.whatsapp-btn {
+  background: #25d366;
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn i {
+  font-size: 30px;
+}
+
+/* Hover Animation */
+.whatsapp-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
+  color: #ffffff;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE (Left side bottom)
+   ========================================== */
+@media (max-width: 768px) {
+  .floating-widget-container {
+    right: auto !important;     /* Right position override */
+    left: 20px !important;      /* Mobile par Left side shift */
+    bottom: 20px !important;    /* Bottom spacing slightly compact */
+  }
+
+  .whatsapp-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-btn i {
+    font-size: 26px;
   }
 }
 
