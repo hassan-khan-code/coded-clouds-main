@@ -256,30 +256,34 @@ body {
   box-shadow: 0 4px 12px var(--accent-glow);
 }
 
-/* Burger Button Size & Border Fix */
+/* Burger Button Container */
 .burger-btn {
-  padding: 4px 8px !important;       /* Size chhota karne ke liye padding kam ki hai */
-  font-size: 0.85rem !important;      /* Icon scale down karne ke liye */
-  border: none !important;            /* Default border khatam karne ke liye */
-  box-shadow: none !important;        /* Click/focus par aane wali outline/glow hatane ke liye */
+  padding: 6px 10px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   outline: none !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Toggler Icon Size Control */
-.burger-btn .navbar-toggler-icon {
-  width: 1.25em !important;
-  height: 1.25em !important;
+/* Burger Icon Color & Dynamic Theme Adjustment */
+.burger-icon {
+  font-size: 1.35rem;                      /* Clean size */
+  color: var(--text-primary) !important;  /* Light theme me dark, Dark theme me light automatic */
+  transition: color 0.3s ease;
 }
 
-/* Click / Focus state border cleanup */
+/* Hover & Active Clean Up */
 .burger-btn:focus,
 .burger-btn:active,
 .burger-btn:focus-visible {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
+  background: transparent !important;
 }
-
 @media (max-width: 991px) {
   /* Grouping container for mobile toggle & burger menu */
   .mobile-nav-actions {
