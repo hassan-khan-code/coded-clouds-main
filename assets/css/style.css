@@ -764,10 +764,58 @@ body {
   background: var(--bg-primary);
 }
 
-.card-image-wrapper img {
+/* Replacing Image Wrapper with Clean Tech Visual Box */
+.card-visual-box {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 180px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-card) 100%);
+  border: 1px dashed rgba(0, 212, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+/* Subtle Glowing Background Effect */
+.card-visual-box::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: var(--accent-cyan);
+  opacity: 0.08;
+  filter: blur(30px);
+  border-radius: 50%;
+  transition: all 0.35s ease;
+}
+
+/* Bada Glowing Tech Icon */
+.visual-icon {
+  font-size: 3.2rem;
+  color: var(--accent-cyan);
+  opacity: 0.85;
+  transition: all 0.35s ease;
+  z-index: 2;
+}
+
+/* Card Hover Animations */
+.service-card:hover .card-visual-box {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.04);
+}
+
+.service-card:hover .card-visual-box::before {
+  opacity: 0.2;
+  transform: scale(1.3);
+}
+
+.service-card:hover .visual-icon {
+  transform: scale(1.12);
+  opacity: 1;
 }
 
 .card-bottom-info h3 {
