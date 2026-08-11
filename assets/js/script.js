@@ -30,48 +30,50 @@ document.addEventListener('DOMContentLoaded', function () {
 // ==========================================
 // ACHIEVEMENT COUNTER
 // ==========================================
-document.addEventListener('DOMContentLoaded', function () {
-  const section = document.getElementById('achievements');
-  const counters = document.querySelectorAll('.counter');
-  if (!section || counters.length === 0) return;
-
-  const speed = 900;
-  const intervals = {};
-
-  function runCounter(counter, i) {
-    if (intervals[i]) clearInterval(intervals[i]);
-    const target = +counter.getAttribute('data-target');
-    counter.innerText = '0';
-    const inc = Math.max(1, Math.ceil(target / (speed / 20)));
-    intervals[i] = setInterval(function () {
-      const val = +counter.innerText;
-      if (val < target) {
-        counter.innerText = Math.min(val + inc, target);
-      } else {
-        counter.innerText = target;
-        clearInterval(intervals[i]);
-      }
-    }, 20);
+// ==========================================
+// COUNTER ANIMATION FOR ACHIEVEMENTS
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Function to animate counters
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const step = Math.max(1, Math.floor(target / 60)); // 60fps
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += step;
+        if (current >= target) {
+          counter.textContent = target;
+          return;
+        }
+        counter.textContent = current;
+        requestAnimationFrame(updateCounter);
+      };
+      
+      updateCounter();
+    });
   }
 
-  function resetCounter(counter, i) {
-    if (intervals[i]) clearInterval(intervals[i]);
-    counter.innerText = '0';
-  }
-
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
+  // Intersection Observer for scroll-triggered animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        counters.forEach(function (c, idx) { runCounter(c, idx); });
-      } else {
-        counters.forEach(function (c, idx) { resetCounter(c, idx); });
+        animateCounters();
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.25 });
+  }, { threshold: 0.3 });
 
-  observer.observe(section);
+  const achievementSection = document.querySelector('.achievements-merged');
+  if (achievementSection) {
+    observer.observe(achievementSection);
+  }
 });
-
 // ==========================================
 // INSIGHTS FEATURE CARDS
 // ==========================================
