@@ -1,141 +1,108 @@
 // ==========================================
-// THEME TOGGLE FUNCTIONALITY
+// THEME TOGGLE
 // ==========================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const themeToggleDesktop = document.getElementById('themeToggle');
   const themeToggleMobile = document.getElementById('themeToggleMobile');
-  
-  // Check saved theme
+
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  updateAllIcons(savedTheme);
-  
-  // Desktop toggle
-  themeToggleDesktop.addEventListener('click', function() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateAllIcons(newTheme);
-  });
-  
-  // Mobile toggle
-  themeToggleMobile.addEventListener('click', function() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateAllIcons(newTheme);
-  });
-  
-  function updateAllIcons(theme) {
-    const iconDesktop = themeToggleDesktop.querySelector('i');
-    const iconMobile = themeToggleMobile.querySelector('i');
-    
-    if (theme === 'dark') {
-      iconDesktop.className = 'fa-solid fa-sun';
-      iconMobile.className = 'fa-solid fa-sun';
-    } else {
-      iconDesktop.className = 'fa-solid fa-moon';
-      iconMobile.className = 'fa-solid fa-moon';
-    }
+  updateIcons(savedTheme);
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcons(next);
   }
+
+  function updateIcons(theme) {
+    const cls = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    if (themeToggleDesktop) themeToggleDesktop.querySelector('i').className = cls;
+    if (themeToggleMobile) themeToggleMobile.querySelector('i').className = cls;
+  }
+
+  if (themeToggleDesktop) themeToggleDesktop.addEventListener('click', toggleTheme);
+  if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const section = document.getElementById("achievements");
-  const counters = document.querySelectorAll(".counter");
-  const speed = 900; // Animation duration in ms
+// ==========================================
+// ACHIEVEMENT COUNTER
+// ==========================================
+document.addEventListener('DOMContentLoaded', function () {
+  const section = document.getElementById('achievements');
+  const counters = document.querySelectorAll('.counter');
+  if (!section || counters.length === 0) return;
 
-  // Har counter ki dynamic intervals save rakhne ke liye object
+  const speed = 900;
   const intervals = {};
 
-  const runCounter = (counter, index) => {
-    // Purani chalne wali interval stop karein agar active ho
-    if (intervals[index]) clearInterval(intervals[index]);
-
-    const target = +counter.getAttribute("data-target");
-    counter.innerText = "0";
-
+  function runCounter(counter, i) {
+    if (intervals[i]) clearInterval(intervals[i]);
+    const target = +counter.getAttribute('data-target');
+    counter.innerText = '0';
     const inc = Math.max(1, Math.ceil(target / (speed / 20)));
-
-    intervals[index] = setInterval(() => {
-      const count = +counter.innerText;
-      if (count < target) {
-        counter.innerText = Math.min(count + inc, target);
+    intervals[i] = setInterval(function () {
+      const val = +counter.innerText;
+      if (val < target) {
+        counter.innerText = Math.min(val + inc, target);
       } else {
         counter.innerText = target;
-        clearInterval(intervals[index]);
+        clearInterval(intervals[i]);
       }
     }, 20);
-  };
-
-  const resetCounter = (counter, index) => {
-    if (intervals[index]) clearInterval(intervals[index]);
-    counter.innerText = "0";
-  };
-
-  // IntersectionObserver setup
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Jab section viewport me AYEGA tab counting start hogi
-          counters.forEach((counter, idx) => runCounter(counter, idx));
-        } else {
-          // Jab section viewport se BAHAR NIKLEGA tab zero par reset ho jayega
-          counters.forEach((counter, idx) => resetCounter(counter, idx));
-        }
-      });
-    },
-    { threshold: 0.25 } // 25% section dikhte hi trigger hoga
-  );
-
-  if (section) {
-    observer.observe(section);
   }
+
+  function resetCounter(counter, i) {
+    if (intervals[i]) clearInterval(intervals[i]);
+    counter.innerText = '0';
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        counters.forEach(function (c, idx) { runCounter(c, idx); });
+      } else {
+        counters.forEach(function (c, idx) { resetCounter(c, idx); });
+      }
+    });
+  }, { threshold: 0.25 });
+
+  observer.observe(section);
 });
 
-
-
-    //  INSIGHTS / EXPERTISE SECTION
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.feature-card');
-  
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      cards.forEach(c => c.classList.remove('active'));
+// ==========================================
+// INSIGHTS FEATURE CARDS
+// ==========================================
+document.addEventListener('DOMContentLoaded', function () {
+  var cards = document.querySelectorAll('.feature-card');
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      cards.forEach(function (c) { c.classList.remove('active'); });
       card.classList.add('active');
     });
   });
 });
 
+// ==========================================
+// FAQ ACCORDION
+// ==========================================
+document.addEventListener('DOMContentLoaded', function () {
+  var faqItems = document.querySelectorAll('.faq-item');
 
+  faqItems.forEach(function (item) {
+    var question = item.querySelector('.faq-question');
+    var answer = item.querySelector('.faq-answer');
 
+    question.addEventListener('click', function () {
+      var isActive = item.classList.contains('active');
 
-//   COMMUNITY & HELP / FAQ & RATING
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* FAQ Accordion Logic */
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach((item) => {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
-
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-
-      faqItems.forEach((otherItem) => {
-        if (otherItem !== item) {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-          otherItem.querySelector('.faq-answer').style.maxHeight = null;
+      faqItems.forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove('active');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-answer').style.maxHeight = null;
         }
       });
 
@@ -151,97 +118,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* Cloud Rating System Logic */
-  const clouds = document.querySelectorAll('.rating-cloud');
-
-  clouds.forEach(cloud => {
-    cloud.addEventListener('click', (e) => {
-      clouds.forEach(c => c.classList.remove('selected'));
+  // Cloud Rating (clean, no particles)
+  var clouds = document.querySelectorAll('.rating-cloud');
+  clouds.forEach(function (cloud) {
+    cloud.addEventListener('click', function () {
+      clouds.forEach(function (c) { c.classList.remove('selected'); });
       cloud.classList.add('selected');
-
-      // Trigger hearts particle if 5th cloud (Excellent) is selected
-      if (cloud.getAttribute('data-value') === "5") {
-        for (let i = 0; i < 10; i++) {
-          createHeart(e.clientX, e.clientY);
-        }
-      }
     });
   });
-
-  function createHeart(x, y) {
-    const heart = document.createElement('i');
-    heart.className = 'fas fa-heart blue-heart';
-    
-    const dirX = (Math.random() - 0.5) * 160;
-    heart.style.setProperty('--dirX', `${dirX}px`);
-    
-    heart.style.left = `${x}px`;
-    heart.style.top = `${y}px`;
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 1300);
-  }
-
 });
 
+// ==========================================
+// SERVICES TOGGLE
+// ==========================================
+function toggleServices() {
+  var grid = document.querySelector('.services-grid');
+  var btn = document.getElementById('loadMoreBtn');
+  if (!grid || !btn) return;
 
-/// services script
+  var btnText = btn.querySelector('span');
+  grid.classList.toggle('show-all');
+  btn.classList.toggle('active');
 
-  function toggleServices() {
-    const grid = document.querySelector('.services-grid');
-    const btn = document.getElementById('loadMoreBtn');
-    const btnText = btn.querySelector('span');
-
-    grid.classList.toggle('show-all');
-    btn.classList.toggle('active');
-
-    if (grid.classList.contains('show-all')) {
-      btnText.textContent = 'Show Less';
-    } else {
-      btnText.textContent = 'Load More Services';
-      
-      document.querySelector('.services-section').scrollIntoView({ behavior: 'smooth' });
-    }
+  if (grid.classList.contains('show-all')) {
+    btnText.textContent = 'Show Less';
+  } else {
+    btnText.textContent = 'Load More Services';
+    document.querySelector('.services-section').scrollIntoView({ behavior: 'smooth' });
   }
+}
 
+// ==========================================
+// INDUSTRIES TOGGLE
+// ==========================================
+document.addEventListener('DOMContentLoaded', function () {
+  var toggleBtn = document.getElementById('toggleIndustriesBtn');
+  if (!toggleBtn) return;
 
+  var btnText = document.getElementById('btnText');
+  var btnIcon = document.getElementById('btnIcon');
+  var extraCards = document.querySelectorAll('.extra-card');
+  var isExpanded = false;
 
-  // industry script
-
-  document.addEventListener('DOMContentLoaded', function() {
-  const toggleBtn = document.getElementById('toggleIndustriesBtn');
-  const btnText = document.getElementById('btnText');
-  const btnIcon = document.getElementById('btnIcon');
-  const extraCards = document.querySelectorAll('.extra-card');
-
-  let isExpanded = false;
-
-  toggleBtn.addEventListener('click', function(e) {
+  toggleBtn.addEventListener('click', function (e) {
     e.preventDefault();
     isExpanded = !isExpanded;
 
     if (isExpanded) {
-      extraCards.forEach((card, index) => {
+      extraCards.forEach(function (card, i) {
         card.classList.remove('hidden-card');
-        setTimeout(() => {
-          card.style.opacity = '1';
-        }, index * 50);
+        setTimeout(function () { card.style.opacity = '1'; }, i * 50);
       });
-
       btnText.textContent = 'SHOW LESS';
       btnIcon.className = 'fa-solid fa-arrow-up-long';
     } else {
-      extraCards.forEach((card) => {
+      extraCards.forEach(function (card) {
         card.style.opacity = '0';
         card.classList.add('hidden-card');
       });
-
       btnText.textContent = 'EXPLORE ALL INDUSTRIES';
       btnIcon.className = 'fa-solid fa-arrow-right-long';
-
       document.querySelector('.industries-section').scrollIntoView({ behavior: 'smooth' });
     }
   });

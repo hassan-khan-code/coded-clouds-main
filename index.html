@@ -14,9 +14,8 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkTtD1Fp5lJnp4JwXrj5qK2gS39G1JQ8qVZ+4N1F5QkGPHqNq6Vb9anfg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
@@ -684,29 +683,6 @@
 
       </div>
     </section>
-
-
-    <!-- SCRIPT FOR TOGGLE -->
-    <script>
-      function toggleServices() {
-        const extraServices = document.getElementById('extraServices');
-        const viewMoreBtn = document.getElementById('viewMoreBtn');
-        const viewLessBtn = document.getElementById('viewLessBtn');
-
-        if (extraServices.style.display === "none") {
-          extraServices.style.display = "block"; // Show
-          viewMoreBtn.style.display = "none";
-          viewLessBtn.style.display = "inline-block";
-        } else {
-          extraServices.style.display = "none"; // Hide
-          viewMoreBtn.style.display = "inline-block";
-          viewLessBtn.style.display = "none";
-
-          // Scroll back slightly so user isn't lost
-          document.getElementById('service').scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    </script>
 
 
     <!-- =========================
