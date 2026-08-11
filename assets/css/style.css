@@ -1126,6 +1126,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(2, 132, 199, 0.1);
+  text-decoration: none !important;
 }
 
 .btn-explore:hover {
