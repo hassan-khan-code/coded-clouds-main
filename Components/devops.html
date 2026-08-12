@@ -5,84 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Solutions - Coded Clouds</title>
     
-    <!-- External Dependencies -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
         /* ==========================================
-           THEME SYSTEM
+           THEME VARIABLES - SAME AS HOME
            ========================================== */
-        
-        /* Light Theme (Default) */
         :root {
-            /* Backgrounds */
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
+            --bg-primary: #f4f4f5;
+            --bg-secondary: #ececec;
             --bg-card: #ffffff;
-            --bg-input: #f8fafc;
-            --bg-navbar: rgba(255, 255, 255, 0.95);
-            --bg-footer: #0f172a;
+            --bg-input: #ededed;
+            --bg-footer: #18181b;
             
-            /* Text Colors */
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
             --text-white: #ffffff;
             
-            /* Borders */
-            --border-color: #e2e8f0;
-            --border-light: #f1f5f9;
+            --border-color: #e4e4e7;
+            --border-light: #f4f4f5;
+            --border-dark: #27272a;
             
-            /* Accents */
-            --accent-cyan: #00d4ff;
-            --accent-blue: #0284c7;
-            --accent-glow: rgba(0, 212, 255, 0.12);
+            --accent-cyan: #0d9488;
+            --accent-blue: #18181b;
+            --accent-glow: rgba(13, 148, 136, 0.06);
             
-            /* Shadows */
-            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
-            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
-            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.4);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
             
-            /* Gradients */
-            --gradient-hero: linear-gradient(180deg, rgba(17, 17, 58, 0.04) 0%, rgba(255,255,255,1) 100%);
-            --gradient-cta: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            --gradient-concept: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-xxl: 20px;
         }
 
-        /* Dark Theme */
         [data-theme="dark"] {
-            --bg-primary: #0B0E14;
-            --bg-secondary: #131A22;
-            --bg-card: #131A22;
-            --bg-input: #1C2633;
-            --bg-navbar: rgba(11, 14, 20, 0.95);
-            --bg-footer: #0B0E14;
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #18181b;
+            --bg-input: #27272a;
+            --bg-footer: #09090b;
             
-            --text-primary: #F0F4FA;
-            --text-secondary: #B0C4DE;
-            --text-muted: #8899AA;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
             --text-white: #ffffff;
             
-            --border-color: #1C2633;
-            --border-light: #2A3644;
+            --border-color: #27272a;
+            --border-light: #3f3f46;
+            --border-dark: #18181b;
             
-            --accent-cyan: #00D4FF;
-            --accent-blue: #00D4FF;
-            --accent-glow: rgba(0, 212, 255, 0.08);
+            --accent-cyan: #34d399;
+            --accent-blue: #fafafa;
+            --accent-glow: rgba(52, 211, 153, 0.05);
             
-            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
-            --shadow-lg: 0 10px 25px rgba(0, 212, 255, 0.25);
-            
-            --gradient-hero: linear-gradient(180deg, rgba(11, 14, 20, 0.6) 0%, rgba(11, 14, 20, 1) 100%);
-            --gradient-cta: linear-gradient(135deg, #0B0E14 0%, #131A22 100%);
-            --gradient-concept: linear-gradient(135deg, #0B0E14 0%, #131A22 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
         }
 
         /* ==========================================
-           BASE STYLES
+           GLOBAL RESET
            ========================================== */
         * {
             margin: 0;
@@ -96,57 +85,13 @@
             color: var(--text-primary);
             overflow-x: hidden;
             transition: background 0.3s ease, color 0.3s ease;
-            line-height: 1.6;
         }
 
         /* ==========================================
-           THEME TOGGLE BUTTON
-           ========================================== */
-        .theme-toggle-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1.5px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        .theme-toggle-btn:hover {
-            border-color: var(--accent-cyan);
-            transform: rotate(20deg) scale(1.05);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .theme-toggle-btn i {
-            transition: transform 0.4s ease;
-        }
-
-        [data-theme="dark"] .theme-toggle-btn i {
-            transform: rotate(360deg);
-        }
-
-        /* ==========================================
-           ELASTIC CURSOR
-           ========================================== */
-
-        @media (max-width: 768px) {
-            #elastic-cursor { display: none !important; }
-        }
-
-        /* ==========================================
-           NAVIGATION
+           NAVIGATION - DARK (SAME AS HOME)
            ========================================== */
         .main-nav {
-            background: var(--bg-navbar);
-            backdrop-filter: blur(10px);
+            background: #0a0a0f !important;
             height: 80px;
             width: 100%;
             display: flex;
@@ -155,9 +100,9 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -172,7 +117,7 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo img {
@@ -180,406 +125,598 @@
             display: block;
         }
 
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #0d9488;
+            background: rgba(13, 148, 136, 0.12);
+            color: #0d9488 !important;
+            transform: rotate(20deg) scale(1.05);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
         .back-btn {
-            background: var(--text-primary);
-            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7) !important;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--text-primary);
-            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .back-btn:hover {
-            background: transparent;
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
-        [data-theme="dark"] .back-btn {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
+        .back-btn i {
+            color: #0d9488;
         }
 
-        [data-theme="dark"] .back-btn:hover {
-            background: transparent;
-            color: var(--accent-cyan);
-        }
-
-        /* ==========================================
-           CONTAINER
-           ========================================== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        @media (max-width: 768px) {
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .main-nav { height: 70px; }
+            .logo img { height: 40px; }
         }
 
         /* ==========================================
-           HERO SECTION
+           HERO SECTION - PREMIUM
            ========================================== */
         .hero-section {
-            padding: 110px 20px 70px;
+            position: relative;
+            padding: 120px 0 80px 0;
+            background: #07070d;
+            overflow: hidden;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
             text-align: center;
-            background: var(--gradient-hero);
-            animation: fadeInDown 1s ease-out;
-            transition: background 0.3s ease;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #34d399;
+            background: rgba(13, 148, 136, 0.12);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(13, 148, 136, 0.15);
+            margin-bottom: 16px;
         }
 
         .hero-section h1 {
-            color: var(--text-primary);
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
 
-        .hero-underline {
-            width: 80px;
-            height: 5px;
-            background: var(--accent-cyan);
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 0 12px var(--accent-glow);
-            transition: background 0.3s ease;
+        .hero-section h1 span {
+            background: linear-gradient(135deg, #ffffff 0%, #34d399 40%, #ffffff 70%, #34d399 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero-section p {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 620px;
+            margin: 0 auto 30px auto;
             line-height: 1.7;
-            transition: color 0.3s ease;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 36px;
+            background: #0d9488;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(13, 148, 136, 0.35);
+            background: #0f9d8f;
+            color: #ffffff;
+        }
+
+        .hero-btn-primary i {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-btn-primary:hover i {
+            transform: translateX(5px);
+        }
+
+        .hero-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .hero-btn-secondary i {
+            color: #0d9488;
         }
 
         /* ==========================================
-           SECTION TITLES
+           SECTION HEADER
            ========================================== */
-        .section-title {
+        .section-header {
             text-align: center;
-            color: var(--text-primary);
-            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.7rem;
             font-weight: 800;
-            margin-bottom: 40px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
+            color: var(--accent-cyan);
+            background: rgba(13, 148, 136, 0.08);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(13, 148, 136, 0.1);
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-header .highlight-text {
+            color: var(--accent-cyan);
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         /* ==========================================
-           FEATURES SECTION
+           DEVOPS FEATURES SECTION
            ========================================== */
-        .features-section {
-            padding: 70px 20px 90px;
+        .devops-features {
+            padding: 80px 0;
             background: var(--bg-primary);
             transition: background 0.3s ease;
         }
 
-        .feature-grid {
+        .devops-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-            margin-top: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
         }
 
-        /* ==========================================
-           FEATURE CARDS
-           ========================================== */
-        .feature-card {
+        .devops-card {
             background: var(--bg-card);
-            padding: 40px 30px;
-            border-radius: 24px;
-            text-align: center;
+            padding: 35px 28px;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
-            border: 2px solid var(--border-color);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
         }
 
-        .feature-card::before {
+        .devops-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--text-primary), var(--accent-cyan));
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-md);
+        .devops-card:hover {
+            transform: translateY(-6px);
             border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-md);
         }
 
-        .feature-card:hover::before {
+        .devops-card:hover::before {
             opacity: 1;
         }
 
-        /* ==========================================
-           ICON BOX
-           ========================================== */
-        .icon-box {
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 212, 255, 0.08);
-            border-radius: 50%;
+        .devops-card .icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            background: rgba(13, 148, 136, 0.08);
+            border: 1px solid rgba(13, 148, 136, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            margin-bottom: 18px;
             transition: all 0.4s ease;
         }
 
-        .feature-card:hover .icon-box {
-            background: var(--text-primary);
-            transform: scale(1.1) rotate(5deg);
-            border-color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .feature-card:hover .icon-box {
+        .devops-card:hover .icon-box {
             background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            color: #ffffff;
+            transform: scale(1.05) rotate(-4deg);
         }
 
-        .feature-card i {
-            font-size: 2.2rem;
-            color: var(--text-primary);
-            transition: color 0.4s ease;
-        }
-
-        .feature-card:hover i {
-            color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .feature-card i {
-            color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .feature-card:hover i {
-            color: var(--text-primary);
-        }
-
-        /* ==========================================
-           CARD CONTENT
-           ========================================== */
-        .feature-card h3 {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .devops-card h3 {
+            font-size: 1.2rem;
             font-weight: 800;
-            transition: color 0.3s ease;
+            color: var(--text-primary);
+            margin-bottom: 10px;
         }
 
-        .feature-card p {
+        .devops-card p {
+            font-size: 0.92rem;
             color: var(--text-secondary);
-            font-size: 0.98rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 16px;
             flex-grow: 1;
-            transition: color 0.3s ease;
         }
 
-        /* ==========================================
-           TECH TAGS
-           ========================================== */
-        .tech-tags {
+        .devops-card .tech-tags {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
-        .tech-tags span {
+        .devops-card .tech-tags span {
             background: var(--bg-input);
             color: var(--text-secondary);
-            font-size: 0.78rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            padding: 5px 12px;
+            padding: 4px 12px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
-        .feature-card:hover .tech-tags span {
-            border-color: var(--accent-cyan);
+        .devops-card:hover .tech-tags span {
+            border-color: rgba(13, 148, 136, 0.2);
             color: var(--text-primary);
         }
 
         /* ==========================================
-           CONCEPT SECTION
+           CONCEPT SECTION (DARK)
            ========================================== */
-        .concept-section {
-            padding: 90px 20px;
+        .concept-dark-section {
+            background: linear-gradient(165deg, #0a0a0f 0%, #14141e 40%, #0d0d14 100%);
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-dark-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .concept-content {
             text-align: center;
-            background: var(--gradient-concept);
-            color: var(--text-white);
-            transition: background 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
 
-        .concept-section h2 {
-            color: var(--accent-cyan);
-            margin-bottom: 15px;
-            font-size: 2.3rem;
-            font-weight: 800;
+        .concept-content .section-tag {
+            color: #34d399;
+            background: rgba(13, 148, 136, 0.12);
+            border-color: rgba(13, 148, 136, 0.15);
         }
 
-        .concept-section p {
-            max-width: 750px;
-            margin: 0 auto;
-            opacity: 0.85;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.85);
+        .concept-content h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .concept-content h2 span {
+            color: #34d399;
+        }
+
+        .concept-content p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            line-height: 1.7;
         }
 
         .concept-stats {
             display: flex;
             justify-content: center;
-            gap: 60px;
-            margin-top: 45px;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
-        .concept-stats .stat .number {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--accent-cyan);
+        .concept-stats .stat-item {
+            text-align: center;
         }
 
-        .concept-stats .stat .label {
+        .concept-stats .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #34d399;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .concept-stats .stat-item .label {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.5);
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* ==========================================
            CTA SECTION
            ========================================== */
         .cta-section {
-            padding: 90px 20px;
+            padding: 80px 0;
+            background: var(--bg-primary);
             text-align: center;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            transition: background 0.3s ease;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
             color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .cta-section .highlight-text {
+            color: var(--accent-cyan);
         }
 
         .cta-section p {
-            margin-bottom: 35px;
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
         }
 
         .cta-btn {
-            display: inline-block;
-            padding: 16px 42px;
-            background: var(--text-primary);
-            color: var(--text-white);
-            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: var(--accent-cyan);
+            color: #ffffff;
+            font-size: 0.95rem;
             font-weight: 700;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--text-primary);
-            box-shadow: 0 8px 20px rgba(17, 17, 58, 0.15);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.4s ease;
         }
 
         .cta-btn:hover {
-            background: transparent;
-            color: var(--text-primary);
             transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 12px 40px rgba(13, 148, 136, 0.35);
+            background: #0f9d8f;
+            color: #ffffff;
         }
 
-        [data-theme="dark"] .cta-btn {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
+        .cta-btn i {
+            transition: transform 0.3s ease;
         }
 
-        [data-theme="dark"] .cta-btn:hover {
-            background: transparent;
-            color: var(--accent-cyan);
+        .cta-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        [data-theme="dark"] .cta-section {
+            background: var(--bg-secondary);
         }
 
         /* ==========================================
            RESPONSIVE
            ========================================== */
-        @media (max-width: 768px) {
-            .hero-section h1 { font-size: 2.5rem; }
-            .hero-section { padding: 80px 20px 50px; }
-            .features-section { padding: 50px 20px 60px; }
-            .concept-section { padding: 60px 20px; }
-            .cta-section { padding: 60px 20px; }
-            .cta-section h2 { font-size: 1.8rem; }
-            .feature-grid { grid-template-columns: 1fr; gap: 25px; }
-            .concept-stats { gap: 30px; flex-direction: column; align-items: center; }
-            .concept-stats .stat .number { font-size: 2.2rem; }
-            .back-btn span { display: none; }
-            .back-btn::after { content: 'Back'; display: inline-block; }
-            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        @media (max-width: 991px) {
+            .devops-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .concept-stats {
+                gap: 30px;
+            }
         }
 
-        @media (max-width: 576px) {
-            .hero-section h1 { font-size: 1.8rem; }
-            .hero-section p { font-size: 1rem; }
-            .section-title { font-size: 1.6rem; }
-            .feature-card { padding: 30px 20px; }
-            .feature-card h3 { font-size: 1.2rem; }
-            .concept-section h2 { font-size: 1.6rem; }
-            .cta-section h2 { font-size: 1.5rem; }
-            .cta-btn { padding: 14px 30px; font-size: 0.95rem; }
-            .nav-container { width: 95%; }
-            .logo img { height: 40px; }
-            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px 0;
+            }
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            .devops-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .devops-card {
+                padding: 28px 20px;
+            }
+            .concept-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .concept-stats .stat-item .number {
+                font-size: 2rem;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-btn-primary,
+            .hero-btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            .devops-card h3 {
+                font-size: 1.05rem;
+            }
+            .devops-card p {
+                font-size: 0.85rem;
+            }
+            .concept-content h2 {
+                font-size: 1.6rem;
+            }
+            .concept-stats .stat-item .number {
+                font-size: 1.6rem;
+            }
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div id="elastic-cursor"></div>
-
-    <!-- Navigation Header -->
+    <!-- ==========================================
+    NAVIGATION - DARK
+    ========================================== -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="logo">
                 <img src="../images/logo.webp" alt="Coded Clouds Logo">
             </a>
-
             <div class="nav-actions">
-                <!-- Theme Toggle -->
                 <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -590,27 +727,46 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
+    <!-- ==========================================
+    HERO SECTION
+    ========================================== -->
+    <section class="hero-section">
         <div class="container">
-            <h1>DevOps Solutions</h1>
-            <div class="hero-underline"></div>
-            <p>Accelerate your release cycles, streamline cloud infrastructure, and achieve continuous delivery with robust DevOps practices.</p>
+            <span class="hero-badge">SERVICE</span>
+            <h1>DevOps <span>Solutions</span></h1>
+            <p>Accelerate your release cycles, streamline cloud infrastructure, and achieve continuous delivery with robust DevOps practices that bridge development and operations seamlessly.</p>
+            <div class="hero-cta">
+                <a href="#features" class="hero-btn-primary">
+                    <span>Explore Solutions</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="../Components/contact.html" class="hero-btn-secondary">
+                    <i class="fa-regular fa-circle-play"></i>
+                    <span>Start Your Journey</span>
+                </a>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Capabilities Section -->
-    <section class="features-section">
+    <!-- ==========================================
+    DEVOPS FEATURES SECTION
+    ========================================== -->
+    <section class="devops-features" id="features">
         <div class="container">
-            <h2 class="section-title">Our DevOps Capabilities</h2>
-            <div class="feature-grid">
-                
-                <div class="feature-card">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">AUTOMATION EXCELLENCE</span>
+                <h2>Our DevOps <span class="highlight-text">Capabilities</span></h2>
+                <p>End-to-end DevOps solutions that automate infrastructure, accelerate deployments, and ensure enterprise-grade reliability.</p>
+            </div>
+
+            <div class="devops-grid">
+                <!-- Card 1 -->
+                <div class="devops-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box">
-                        <i class="fas fa-code-branch"></i>
+                        <i class="fa-solid fa-code-branch"></i>
                     </div>
                     <h3>CI/CD Pipelines</h3>
-                    <p>Automated build, test, and deployment pipelines using GitHub Actions, Jenkins, or GitLab for instant updates.</p>
+                    <p>Automated build, test, and deployment pipelines using GitHub Actions, Jenkins, or GitLab CI — enabling instant, reliable releases with zero manual intervention.</p>
                     <div class="tech-tags">
                         <span>GitHub Actions</span>
                         <span>Jenkins</span>
@@ -618,12 +774,13 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <!-- Card 2 -->
+                <div class="devops-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box">
-                        <i class="fas fa-cloud-upload-alt"></i>
+                        <i class="fa-solid fa-cloud"></i>
                     </div>
                     <h3>Cloud Infrastructure</h3>
-                    <p>Design and deploy scalable cloud environments on AWS, Google Cloud, or Microsoft Azure.</p>
+                    <p>Design and deploy scalable cloud environments on AWS, Google Cloud Platform, or Microsoft Azure with best practices for security, cost, and performance.</p>
                     <div class="tech-tags">
                         <span>AWS</span>
                         <span>GCP</span>
@@ -631,12 +788,13 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <!-- Card 3 -->
+                <div class="devops-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box">
-                        <i class="fas fa-cubes"></i>
+                        <i class="fa-solid fa-cubes"></i>
                     </div>
-                    <h3>Docker & Kubernetes</h3>
-                    <p>Containerize applications and orchestrate microservices for maximum elasticity and uptime.</p>
+                    <h3>Container Orchestration</h3>
+                    <p>Containerize applications with Docker and orchestrate microservices using Kubernetes for maximum elasticity, scalability, and uptime.</p>
                     <div class="tech-tags">
                         <span>Docker</span>
                         <span>Kubernetes</span>
@@ -644,12 +802,13 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <!-- Card 4 -->
+                <div class="devops-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="icon-box">
-                        <i class="fas fa-terminal"></i>
+                        <i class="fa-solid fa-terminal"></i>
                     </div>
                     <h3>Infrastructure as Code</h3>
-                    <p>Automate resource provisioning using Terraform and Ansible for repeatable setup.</p>
+                    <p>Automate resource provisioning using Terraform, Ansible, and CloudFormation for consistent, repeatable, and version-controlled infrastructure.</p>
                     <div class="tech-tags">
                         <span>Terraform</span>
                         <span>Ansible</span>
@@ -657,12 +816,13 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <!-- Card 5 -->
+                <div class="devops-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="icon-box">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <h3>Monitoring & Alerts</h3>
-                    <p>Set up real-time server monitoring, logging, and automated failure recovery using Prometheus & Grafana.</p>
+                    <h3>Monitoring & Observability</h3>
+                    <p>Real-time server monitoring, centralized logging, and automated failure recovery using Prometheus, Grafana, and the ELK Stack.</p>
                     <div class="tech-tags">
                         <span>Prometheus</span>
                         <span>Grafana</span>
@@ -670,84 +830,78 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <!-- Card 6 -->
+                <div class="devops-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="icon-box">
-                        <i class="fas fa-coins"></i>
+                        <i class="fa-solid fa-coins"></i>
                     </div>
-                    <h3>FinOps & Cost Control</h3>
-                    <p>Audit cloud expenses and optimize resource allocation to eliminate wasteful cloud spending.</p>
+                    <h3>FinOps & Cost Optimization</h3>
+                    <p>Audit cloud expenses, identify waste, and implement auto-scaling strategies to optimize resource allocation and eliminate unnecessary spending.</p>
                     <div class="tech-tags">
                         <span>Cost Audit</span>
                         <span>Auto-Scaling</span>
                         <span>Optimization</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Concept / Stats Section -->
-    <section class="concept-section">
+    <!-- ==========================================
+    CONCEPT SECTION (DARK)
+    ========================================== -->
+    <section class="concept-dark-section">
         <div class="container">
-            <h2>Streamlined Deployment Automation</h2>
-            <p>From initial commit to live production, our DevOps workflows ensure reliable, fast, and automated release cycles.</p>
-            <div class="concept-stats">
-                <div class="stat">
-                    <div class="number">99.99%</div>
-                    <div class="label">Target Uptime</div>
-                </div>
-                <div class="stat">
-                    <div class="number">0s</div>
-                    <div class="label">Zero Downtime Releases</div>
-                </div>
-                <div class="stat">
-                    <div class="number">5x</div>
-                    <div class="label">Deployment Speed</div>
+            <div class="concept-content" data-aos="fade-up">
+                <span class="section-tag">STREAMLINED DEPLOYMENT</span>
+                <h2>Automation for <span>Reliable Releases</span></h2>
+                <p>From initial commit to live production, our DevOps workflows ensure reliable, fast, and automated release cycles — enabling your team to ship with confidence.</p>
+                <div class="concept-stats">
+                    <div class="stat-item">
+                        <span class="number">99.99%</span>
+                        <span class="label">Target Uptime</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">0s</span>
+                        <span class="label">Zero-Downtime Releases</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">5x</span>
+                        <span class="label">Faster Deployments</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- ==========================================
+    CTA SECTION
+    ========================================== -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Automate Your Infrastructure?</h2>
-            <p>Consult with our cloud engineers to modernize your delivery pipeline.</p>
-            <a href="./contact.html" class="cta-btn">Get Started Now</a>
+            <h2 data-aos="fade-up">Ready to Automate Your <span class="highlight-text">Infrastructure</span>?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Consult with our cloud engineers to modernize your delivery pipeline and achieve faster, more reliable deployments.</p>
+            <a href="../Components/contact.html" class="cta-btn" data-aos="fade-up" data-aos-delay="200">
+                <span>Get Started Now</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
-    <!-- Theme Toggle Script -->
+    <!-- ==========================================
+    SCRIPTS
+    ========================================== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
-            const icon = themeToggle.querySelector('i');
-            
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateIcon(savedTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(newTheme);
-            });
-            
-            function updateIcon(theme) {
-                if (theme === 'dark') {
-                    icon.className = 'fa-solid fa-sun';
-                } else {
-                    icon.className = 'fa-solid fa-moon';
-                }
-            }
+        AOS.init({
+            offset: 50,
+            duration: 600,
+            once: true,
+            disable: 'mobile'
         });
     </script>
+    
+    <script src="/assets/js/script.js"></script>
 
-    <!-- GSAP Cursor Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
 </html>
