@@ -153,34 +153,33 @@ function toggleServices() {
 // ==========================================
 // INDUSTRIES TOGGLE
 // ==========================================
-document.addEventListener('DOMContentLoaded', function () {
-  var toggleBtn = document.getElementById('toggleIndustriesBtn');
-  if (!toggleBtn) return;
+// ==========================================
+// INDUSTRIES TOGGLE - DARK
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.getElementById('toggleIndustriesDark');
+  const grid = document.getElementById('industriesGridDark');
+  const btnText = document.getElementById('btnTextDark');
+  const btnIcon = document.getElementById('btnIconDark');
 
-  var btnText = document.getElementById('btnText');
-  var btnIcon = document.getElementById('btnIcon');
-  var extraCards = document.querySelectorAll('.extra-card');
-  var isExpanded = false;
-
-  toggleBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    isExpanded = !isExpanded;
-
-    if (isExpanded) {
-      extraCards.forEach(function (card, i) {
-        card.classList.remove('hidden-card');
-        setTimeout(function () { card.style.opacity = '1'; }, i * 50);
-      });
-      btnText.textContent = 'SHOW LESS';
-      btnIcon.className = 'fa-solid fa-arrow-up-long';
-    } else {
-      extraCards.forEach(function (card) {
-        card.style.opacity = '0';
-        card.classList.add('hidden-card');
-      });
-      btnText.textContent = 'EXPLORE ALL INDUSTRIES';
-      btnIcon.className = 'fa-solid fa-arrow-right-long';
-      document.querySelector('.industries-section').scrollIntoView({ behavior: 'smooth' });
-    }
-  });
+  if (toggleBtn && grid) {
+    toggleBtn.addEventListener('click', function() {
+      grid.classList.toggle('show-all');
+      
+      if (grid.classList.contains('show-all')) {
+        btnText.textContent = 'SHOW LESS';
+        btnIcon.style.transform = 'rotate(180deg)';
+        btnIcon.style.transition = 'transform 0.3s ease';
+      } else {
+        btnText.textContent = 'EXPLORE ALL INDUSTRIES';
+        btnIcon.style.transform = 'rotate(0deg)';
+        btnIcon.style.transition = 'transform 0.3s ease';
+        
+        // Smooth scroll to section
+        document.querySelector('.industries-section-dark').scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      }
+    });
+  }
 });
