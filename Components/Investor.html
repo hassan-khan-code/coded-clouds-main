@@ -9,71 +9,71 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
         /* ==========================================
-           THEME SYSTEM - Same as Other Pages
+           THEME VARIABLES - SAME AS HOME
            ========================================== */
-        
-        /* Light Theme (Default) */
         :root {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
+            --bg-primary: #f4f4f5;
+            --bg-secondary: #ececec;
             --bg-card: #ffffff;
-            --bg-input: #f8fafc;
-            --bg-navbar: rgba(255, 255, 255, 0.95);
-            --bg-footer: #0f172a;
+            --bg-input: #ededed;
+            --bg-footer: #18181b;
             
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
             --text-white: #ffffff;
             
-            --border-color: #e2e8f0;
-            --border-light: #f1f5f9;
+            --border-color: #e4e4e7;
+            --border-light: #f4f4f5;
+            --border-dark: #27272a;
             
-            --accent-cyan: #00d4ff;
-            --accent-blue: #0284c7;
-            --accent-glow: rgba(0, 212, 255, 0.12);
+            --accent-cyan: #0d9488;
+            --accent-blue: #18181b;
+            --accent-glow: rgba(13, 148, 136, 0.06);
             
-            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
-            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
             
-            --gradient-hero: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92));
-            --gradient-text: linear-gradient(135deg, #00d4ff, #3b82f6);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-xxl: 20px;
         }
 
-        /* Dark Theme */
         [data-theme="dark"] {
-            --bg-primary: #0B0E14;
-            --bg-secondary: #131A22;
-            --bg-card: #131A22;
-            --bg-input: #1C2633;
-            --bg-navbar: rgba(11, 14, 20, 0.95);
-            --bg-footer: #0B0E14;
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #18181b;
+            --bg-input: #27272a;
+            --bg-footer: #09090b;
             
-            --text-primary: #F0F4FA;
-            --text-secondary: #B0C4DE;
-            --text-muted: #8899AA;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
             --text-white: #ffffff;
             
-            --border-color: #1C2633;
-            --border-light: #2A3644;
+            --border-color: #27272a;
+            --border-light: #3f3f46;
+            --border-dark: #18181b;
             
-            --accent-cyan: #00D4FF;
-            --accent-blue: #00D4FF;
-            --accent-glow: rgba(0, 212, 255, 0.08);
+            --accent-cyan: #34d399;
+            --accent-blue: #fafafa;
+            --accent-glow: rgba(52, 211, 153, 0.05);
             
-            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
-            
-            --gradient-hero: linear-gradient(rgba(11,14,20,0.92), rgba(11,14,20,0.92));
-            --gradient-text: linear-gradient(135deg, #00D4FF, #0099CC);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
         }
 
         /* ==========================================
-           BASE STYLES
+           GLOBAL RESET
            ========================================== */
         * {
             margin: 0;
@@ -90,47 +90,11 @@
             line-height: 1.6;
         }
 
-     
-
         /* ==========================================
-           THEME TOGGLE BUTTON
-           ========================================== */
-        .theme-toggle-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1.5px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-shrink: 0;
-        }
-
-        .theme-toggle-btn:hover {
-            border-color: var(--accent-cyan);
-            transform: rotate(20deg) scale(1.05);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .theme-toggle-btn i {
-            transition: transform 0.4s ease;
-        }
-
-        [data-theme="dark"] .theme-toggle-btn i {
-            transform: rotate(360deg);
-        }
-
-        /* ==========================================
-           NAVIGATION
+           NAVIGATION - DARK (SAME AS HOME)
            ========================================== */
         .main-nav {
-            background: var(--bg-navbar);
-            backdrop-filter: blur(10px);
+            background: #0a0a0f !important;
             height: 80px;
             width: 100%;
             display: flex;
@@ -139,9 +103,9 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -164,43 +128,69 @@
             display: block;
         }
 
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #0d9488;
+            background: rgba(13, 148, 136, 0.12);
+            color: #0d9488 !important;
+            transform: rotate(20deg) scale(1.05);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
         .back-btn {
-            background: var(--text-primary);
-            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7) !important;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--text-primary);
-            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .back-btn:hover {
-            background: transparent;
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
-        [data-theme="dark"] .back-btn {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .back-btn:hover {
-            background: transparent;
-            color: var(--accent-cyan);
+        .back-btn i {
+            color: #0d9488;
         }
 
         @media (max-width: 768px) {
             .back-btn span { display: none; }
             .back-btn::after { content: 'Back'; display: inline-block; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .main-nav { height: 70px; }
+            .logo img { height: 40px; }
             .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
         }
 
@@ -214,177 +204,306 @@
            INVESTOR HERO
            ========================================== */
         .investor-hero {
-            padding: 100px 0 80px;
-            background: var(--gradient-hero), url('https://www.transparenttextures.com/patterns/cubes.png');
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            padding: 120px 0 80px;
+            background: #07070d;
+            overflow: hidden;
             text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .investor-hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .investor-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
         }
 
         .badge-finance {
-            background: rgba(0, 212, 255, 0.08);
-            color: var(--accent-cyan);
-            padding: 8px 20px;
+            background: rgba(13, 148, 136, 0.12);
+            color: #34d399;
+            padding: 6px 20px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 12px;
+            font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(13, 148, 136, 0.15);
             display: inline-block;
             margin-bottom: 20px;
             transition: all 0.3s ease;
         }
 
+        .badge-finance i {
+            margin-right: 8px;
+        }
+
         .investor-hero h1 {
             font-weight: 900;
-            color: var(--text-primary);
-            transition: color 0.3s ease;
+            color: #ffffff;
+            line-height: 1.15;
         }
 
         .investor-hero h1 span {
-            color: var(--accent-cyan);
-            transition: color 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #34d399 40%, #ffffff 70%, #34d399 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .investor-hero .lead {
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .btn-corporate {
-            background: var(--text-primary);
-            color: var(--text-white);
-            padding: 16px 40px;
-            border-radius: 12px;
+            background: #0d9488;
+            color: #ffffff;
+            padding: 14px 36px;
+            border-radius: 8px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-            border: 2px solid var(--text-primary);
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
         }
 
         .btn-corporate:hover {
-            background: var(--accent-cyan);
-            color: var(--text-primary);
-            border-color: var(--accent-cyan);
+            background: #0f9d8f;
+            color: #ffffff;
             transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        [data-theme="dark"] .btn-corporate {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .btn-corporate:hover {
-            background: var(--text-white);
-            color: var(--bg-primary);
-            border-color: var(--text-white);
+            box-shadow: 0 12px 40px rgba(13, 148, 136, 0.35);
         }
 
         .btn-outline-dark-custom {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-            padding: 16px 40px;
-            border-radius: 12px;
-            font-weight: 700;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-outline-dark-custom:hover {
-            background: var(--accent-cyan);
-            color: var(--text-white);
-            border-color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
         }
 
-        [data-theme="dark"] .btn-outline-dark-custom {
-            color: var(--text-white);
-            border-color: var(--border-color);
+        .btn-outline-dark-custom i {
+            color: #0d9488;
         }
 
-        [data-theme="dark"] .btn-outline-dark-custom:hover {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
+        /* ==========================================
+           SECTION HEADER
+           ========================================== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            background: rgba(13, 148, 136, 0.08);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(13, 148, 136, 0.1);
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-header .highlight-text {
+            color: var(--accent-cyan);
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         /* ==========================================
            FEATURE CARDS
            ========================================== */
+        .features-section {
+            padding: 80px 0;
+            background: var(--bg-primary);
+            transition: background 0.3s ease;
+        }
+
         .feature-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 30px;
+            padding: 35px 28px;
+            border-radius: var(--radius-xl);
             height: 100%;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s ease;
             box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .feature-card:hover {
             box-shadow: var(--shadow-md);
             border-color: var(--accent-cyan);
-            transform: translateY(-10px);
+            transform: translateY(-6px);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .icon-box {
-            width: 70px;
-            height: 70px;
-            background: var(--bg-input);
-            border-radius: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            background: rgba(13, 148, 136, 0.08);
+            border: 1px solid rgba(13, 148, 136, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            color: var(--text-primary);
-            font-size: 28px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
+            margin-bottom: 18px;
+            color: var(--accent-cyan);
+            font-size: 1.4rem;
+            transition: all 0.4s ease;
         }
 
         .feature-card:hover .icon-box {
-            background: var(--text-primary);
-            color: var(--text-white);
-            border-color: var(--text-primary);
-        }
-
-        [data-theme="dark"] .feature-card:hover .icon-box {
             background: var(--accent-cyan);
-            color: var(--bg-primary);
             border-color: var(--accent-cyan);
+            color: #ffffff;
+            transform: scale(1.05) rotate(-4deg);
         }
 
         .feature-card h4 {
             color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 10px;
             transition: color 0.3s ease;
+        }
+
+        .feature-card:hover h4 {
+            color: var(--accent-cyan);
         }
 
         .feature-card p {
             color: var(--text-secondary);
             transition: color 0.3s ease;
+            margin: 0;
         }
 
         /* ==========================================
-           ROADMAP
+           ROADMAP (DARK)
            ========================================== */
+        .roadmap-dark-section {
+            background: linear-gradient(165deg, #0a0a0f 0%, #14141e 40%, #0d0d14 100%);
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roadmap-dark-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .roadmap-dark-section .section-header h2 {
+            color: #ffffff;
+        }
+
+        .roadmap-dark-section .section-header .highlight-text {
+            color: #34d399;
+        }
+
+        .roadmap-dark-section .section-header p {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .roadmap-dark-section .section-tag {
+            color: #34d399;
+            background: rgba(13, 148, 136, 0.12);
+            border-color: rgba(13, 148, 136, 0.15);
+        }
+
         .roadmap-container {
-            border-left: 3px dashed var(--accent-cyan);
+            border-left: 3px dashed #34d399;
             margin-left: 20px;
             padding-left: 40px;
             position: relative;
-            transition: border-color 0.3s ease;
         }
 
         .roadmap-item {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .roadmap-item::before {
@@ -395,46 +514,117 @@
             width: 22px;
             height: 22px;
             background: var(--bg-card);
-            border: 4px solid var(--text-primary);
+            border: 4px solid #34d399;
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .roadmap-item:hover::before {
-            border-color: var(--accent-cyan);
-            background: var(--accent-cyan);
+            background: #34d399;
+            border-color: #34d399;
+            box-shadow: 0 0 30px rgba(52, 211, 153, 0.2);
         }
 
         .roadmap-item h5 {
-            color: var(--text-primary);
-            transition: color 0.3s ease;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 6px;
         }
 
         .roadmap-item p {
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .roadmap-item .phase-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #34d399;
+            background: rgba(13, 148, 136, 0.12);
+            padding: 2px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(13, 148, 136, 0.15);
+            margin-bottom: 6px;
         }
 
         /* ==========================================
            CTA SECTION
            ========================================== */
-        .cta-investor {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 30px;
-            padding: 60px;
+        .cta-section {
+            padding: 80px 0;
+            background: var(--bg-primary);
             text-align: center;
-            transition: background 0.3s ease, border-color 0.3s ease;
+            transition: background 0.3s ease;
         }
 
-        .cta-investor h2 {
+        .cta-section .cta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 50px 60px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+        }
+
+        .cta-section .cta-box:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
             color: var(--text-primary);
-            transition: color 0.3s ease;
+            margin-bottom: 12px;
         }
 
-        .cta-investor p {
+        .cta-section .highlight-text {
+            color: var(--accent-cyan);
+        }
+
+        .cta-section p {
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            transition: color 0.3s ease;
+            max-width: 550px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: var(--accent-cyan);
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(13, 148, 136, 0.35);
+            background: #0f9d8f;
+            color: #ffffff;
+        }
+
+        .cta-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        [data-theme="dark"] .cta-section {
+            background: var(--bg-secondary);
         }
 
         /* ==========================================
@@ -465,7 +655,7 @@
            ========================================== */
         @media (max-width: 768px) {
             .investor-hero {
-                padding: 80px 0 60px;
+                padding: 100px 0 60px;
             }
             .investor-hero h1 {
                 font-size: 2.2rem;
@@ -475,15 +665,18 @@
             }
             .btn-corporate,
             .btn-outline-dark-custom {
-                padding: 14px 28px;
-                font-size: 0.9rem;
+                padding: 12px 24px;
+                font-size: 0.85rem;
+            }
+            .investor-hero .d-flex {
+                flex-direction: column;
+                align-items: center;
             }
             .feature-card {
-                padding: 30px 20px;
+                padding: 28px 20px;
             }
-            .cta-investor {
-                padding: 40px 20px;
-                border-radius: 20px;
+            .cta-section .cta-box {
+                padding: 30px 20px;
             }
             .roadmap-container {
                 margin-left: 10px;
@@ -501,31 +694,30 @@
             .investor-hero h1 {
                 font-size: 1.8rem;
             }
-            .investor-hero .d-flex {
-                flex-direction: column;
-                gap: 12px !important;
-            }
             .btn-corporate,
             .btn-outline-dark-custom {
                 width: 100%;
-                text-align: center;
+                justify-content: center;
             }
             .feature-card {
-                padding: 24px 16px;
+                padding: 20px 16px;
             }
             .icon-box {
-                width: 56px;
-                height: 56px;
-                font-size: 22px;
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+            }
+            .roadmap-item p {
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div id="elastic-cursor"></div>
-
-    <!-- ===== NAVIGATION ===== -->
+    <!-- ==========================================
+    NAVIGATION - DARK
+    ========================================== -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="logo">
@@ -543,73 +735,93 @@
         </div>
     </nav>
 
-    <!-- ===== INVESTOR HERO ===== -->
+    <!-- ==========================================
+    INVESTOR HERO
+    ========================================== -->
     <section class="investor-hero">
-        <div class="container">
-            <span class="badge-finance"><i class="fas fa-chart-line me-2"></i>Institutional Growth Phase 2026</span>
-            <h1 class="display-3 fw-bolder mb-4">Invest in a <span>Tech Ecosystem</span>, <br>Not Just a Service Provider.</h1>
-            <p class="lead mb-5 mx-auto" style="max-width: 800px;">
+        <div class="container" data-aos="fade-up">
+            <span class="badge-finance"><i class="fas fa-chart-line"></i>Institutional Growth Phase 2026</span>
+            <h1 class="display-4 fw-bolder mb-4">Invest in a <span>Tech Ecosystem</span>, <br>Not Just a Service Provider.</h1>
+            <p class="lead">
                 Coded Clouds is scaling rapidly. We are inviting strategic partners to join our journey as we integrate AI automation, proprietary SaaS products, and global IT consulting into one powerful entity.
             </p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="#" class="btn-corporate"><i class="fas fa-file-pdf me-2"></i>Download Pitch Deck</a>
-                <a href="https://wa.me/+966594552890" class="btn-outline-dark-custom"><i class="fab fa-whatsapp me-2"></i>Speak with Founders</a>
+                <a href="#" class="btn-corporate"><i class="fas fa-file-pdf"></i>Download Pitch Deck</a>
+                <a href="https://wa.me/+966594552890" class="btn-outline-dark-custom"><i class="fab fa-whatsapp"></i>Speak with Founders</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== FEATURES ===== -->
-    <section class="py-5">
-        <div class="container py-5">
+    <!-- ==========================================
+    FEATURES SECTION
+    ========================================== -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">WHY INVEST</span>
+                <h2>Strategic <span class="highlight-text">Investment Pillars</span></h2>
+                <p>We offer institutional and angel investors a unique opportunity to be part of a rapidly scaling global technology ecosystem.</p>
+            </div>
+
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon-box"><i class="fas fa-chart-pie"></i></div>
                         <h4 class="fw-bold">Entity-Level Equity</h4>
-                        <p class="">Your investment covers the entire umbrella of Coded Clouds, including our services, AI lab, and future SaaS products.</p>
+                        <p>Your investment covers the entire umbrella of Coded Clouds, including our services, AI lab, and future SaaS products.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box"><i class="fas fa-globe"></i></div>
                         <h4 class="fw-bold">Global Expansion</h4>
-                        <p class="">We are actively targeting the MENA and European markets to triple our offshore revenue by Q4 2026.</p>
+                        <p>We are actively targeting the MENA and European markets to triple our offshore revenue by Q4 2026.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon-box"><i class="fas fa-microchip"></i></div>
                         <h4 class="fw-bold">Intellectual Property</h4>
-                        <p class="">Part of your capital funds the R&D of our proprietary AI-driven POS and CRM systems, building long-term asset value.</p>
+                        <p>Part of your capital funds the R&D of our proprietary AI-driven POS and CRM systems, building long-term asset value.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ROADMAP ===== -->
-    <section class="py-5" style="background: var(--bg-primary); transition: background 0.3s ease;">
-        <div class="container py-5">
+    <!-- ==========================================
+    ROADMAP (DARK)
+    ========================================== -->
+    <section class="roadmap-dark-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">OUR ROADMAP</span>
+                <h2>Scaling to <span class="highlight-text">2027</span></h2>
+                <p>Our strategic roadmap outlines the key milestones we aim to achieve in the coming years.</p>
+            </div>
+
             <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h2 class="display-5 fw-bold mb-4">Our Roadmap to <span style="color: var(--accent-cyan);">2027</span></h2>
+                <div class="col-lg-8">
                     <div class="roadmap-container">
-                        <div class="roadmap-item">
-                            <h5 class="fw-bold">Phase 1: Service Optimization</h5>
-                            <p class="small">Scaling offshore teams and automating project delivery for 40% higher margins.</p>
+                        <div class="roadmap-item" data-aos="fade-up" data-aos-delay="100">
+                            <span class="phase-badge">Phase 1</span>
+                            <h5 class="fw-bold">Service Optimization</h5>
+                            <p>Scaling offshore teams and automating project delivery for 40% higher margins.</p>
                         </div>
-                        <div class="roadmap-item">
-                            <h5 class="fw-bold">Phase 2: SaaS Launch</h5>
-                            <p class="small">Releasing our Cloud-based PMS (Property Management System) for global markets.</p>
+                        <div class="roadmap-item" data-aos="fade-up" data-aos-delay="200">
+                            <span class="phase-badge">Phase 2</span>
+                            <h5 class="fw-bold">SaaS Launch</h5>
+                            <p>Releasing our Cloud-based PMS (Property Management System) for global markets.</p>
                         </div>
-                        <div class="roadmap-item">
-                            <h5 class="fw-bold">Phase 3: AI Product Integration</h5>
-                            <p class="small">Commercializing our AI-driven workflow tools as independent subscription products.</p>
+                        <div class="roadmap-item" data-aos="fade-up" data-aos-delay="300">
+                            <span class="phase-badge">Phase 3</span>
+                            <h5 class="fw-bold">AI Product Integration</h5>
+                            <p>Commercializing our AI-driven workflow tools as independent subscription products.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 text-center">
-                    <div style="font-size: 8rem; color: var(--accent-cyan); opacity: 0.15;">
+                <div class="col-lg-4 text-center d-none d-lg-block">
+                    <div style="font-size: 8rem; color: #34d399; opacity: 0.15;">
                         <i class="fas fa-rocket"></i>
                     </div>
                 </div>
@@ -617,57 +829,46 @@
         </div>
     </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="py-5">
+    <!-- ==========================================
+    CTA SECTION
+    ========================================== -->
+    <section class="cta-section">
         <div class="container">
-            <div class="cta-investor">
-                <h2 class="fw-bold mb-3">Ready to Discuss Equity?</h2>
-                <p class="mb-4">Serious institutional or angel inquiries only. Let's build the future together.</p>
-                <a href="mailto:info@codedclouds.org" class="btn-corporate px-5"><i class="fas fa-envelope me-2"></i>Get Financial Reports</a>
+            <div class="cta-box" data-aos="fade-up">
+                <h2>Ready to Discuss <span class="highlight-text">Equity</span>?</h2>
+                <p>Serious institutional or angel inquiries only. Let's build the future together.</p>
+                <a href="mailto:info@codedclouds.org" class="cta-btn">
+                    <span>Get Financial Reports</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ==========================================
+    FOOTER
+    ========================================== -->
     <footer class="footer-bar">
         <div class="container">
-            <p>© 2026 <strong>CodedClouds</strong>. All rights reserved.</p>
+            <p>© 2026 <strong>CodedClouds</strong> Pvt. Ltd. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
+    <!-- ==========================================
+    SCRIPTS
+    ========================================== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // ===== THEME TOGGLE =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
-            const icon = themeToggle.querySelector('i');
-            
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateIcon(savedTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(newTheme);
-            });
-            
-            function updateIcon(theme) {
-                if (theme === 'dark') {
-                    icon.className = 'fa-solid fa-sun';
-                } else {
-                    icon.className = 'fa-solid fa-moon';
-                }
-            }
+        AOS.init({
+            offset: 50,
+            duration: 600,
+            once: true,
+            disable: 'mobile'
         });
-
     </script>
+    
+    <script src="../assets/js/script.js"></script>
 
 </body>
 </html>

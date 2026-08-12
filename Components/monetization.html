@@ -13,61 +13,66 @@
     
     <style>
         /* ==========================================
-           THEME SYSTEM
+           THEME VARIABLES - SAME AS HOME
            ========================================== */
-        
-        /* Light Theme (Default) */
         :root {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
+            --bg-primary: #f4f4f5;
+            --bg-secondary: #ececec;
             --bg-card: #ffffff;
-            --bg-input: #f8fafc;
-            --bg-navbar: rgba(255, 255, 255, 0.95);
-            --bg-footer: #0f172a;
+            --bg-input: #ededed;
+            --bg-footer: #18181b;
             
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
             --text-white: #ffffff;
             
-            --border-color: #e2e8f0;
-            --border-light: #f1f5f9;
+            --border-color: #e4e4e7;
+            --border-light: #f4f4f5;
+            --border-dark: #27272a;
             
-            --accent-cyan: #00d4ff;
-            --accent-blue: #0284c7;
-            --accent-glow: rgba(0, 212, 255, 0.12);
+            --accent-cyan: #0d9488;
+            --accent-blue: #18181b;
+            --accent-glow: rgba(13, 148, 136, 0.06);
             
-            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
-            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-xxl: 20px;
         }
 
-        /* Dark Theme */
         [data-theme="dark"] {
-            --bg-primary: #0B0E14;
-            --bg-secondary: #131A22;
-            --bg-card: #131A22;
-            --bg-input: #1C2633;
-            --bg-navbar: rgba(11, 14, 20, 0.95);
-            --bg-footer: #0B0E14;
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #18181b;
+            --bg-input: #27272a;
+            --bg-footer: #09090b;
             
-            --text-primary: #F0F4FA;
-            --text-secondary: #B0C4DE;
-            --text-muted: #8899AA;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
             --text-white: #ffffff;
             
-            --border-color: #1C2633;
-            --border-light: #2A3644;
+            --border-color: #27272a;
+            --border-light: #3f3f46;
+            --border-dark: #18181b;
             
-            --accent-cyan: #00D4FF;
-            --accent-blue: #00D4FF;
-            --accent-glow: rgba(0, 212, 255, 0.08);
+            --accent-cyan: #34d399;
+            --accent-blue: #fafafa;
+            --accent-glow: rgba(52, 211, 153, 0.05);
             
-            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
         }
 
         /* ==========================================
-           BASE STYLES
+           GLOBAL RESET
            ========================================== */
         * {
             margin: 0;
@@ -86,46 +91,11 @@
             min-height: 100vh;
         }
 
-
         /* ==========================================
-           THEME TOGGLE BUTTON
-           ========================================== */
-        .theme-toggle-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1.5px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-shrink: 0;
-        }
-
-        .theme-toggle-btn:hover {
-            border-color: var(--accent-cyan);
-            transform: rotate(20deg) scale(1.05);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .theme-toggle-btn i {
-            transition: transform 0.4s ease;
-        }
-
-        [data-theme="dark"] .theme-toggle-btn i {
-            transform: rotate(360deg);
-        }
-
-        /* ==========================================
-           NAVIGATION - Same as Other Legal Pages
+           NAVIGATION - DARK (SAME AS HOME)
            ========================================== */
         .main-nav {
-            background: var(--bg-navbar);
-            backdrop-filter: blur(10px);
+            background: #0a0a0f !important;
             height: 80px;
             width: 100%;
             display: flex;
@@ -134,9 +104,9 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -159,43 +129,69 @@
             display: block;
         }
 
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #0d9488;
+            background: rgba(13, 148, 136, 0.12);
+            color: #0d9488 !important;
+            transform: rotate(20deg) scale(1.05);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
         .back-btn {
-            background: var(--text-primary);
-            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7) !important;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--text-primary);
-            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .back-btn:hover {
-            background: transparent;
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
-        [data-theme="dark"] .back-btn {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .back-btn:hover {
-            background: transparent;
-            color: var(--accent-cyan);
+        .back-btn i {
+            color: #0d9488;
         }
 
         @media (max-width: 768px) {
             .back-btn span { display: none; }
             .back-btn::after { content: 'Back'; display: inline-block; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .main-nav { height: 70px; }
+            .logo img { height: 40px; }
             .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
         }
 
@@ -206,7 +202,7 @@
         }
 
         /* ==========================================
-           POLICY CONTENT - Same as Other Legal Pages
+           POLICY CONTENT
            ========================================== */
         .policy-wrapper {
             padding: 40px 20px 60px;
@@ -217,15 +213,15 @@
             margin: 0 auto;
             background: var(--bg-card);
             padding: 60px 70px;
-            border-radius: 12px;
+            border-radius: var(--radius-xl);
             box-shadow: var(--shadow-sm);
-            border-top: 10px solid var(--accent-cyan);
+            border-top: 4px solid var(--accent-cyan);
             transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .policy-header {
             text-align: center;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 32px;
             margin-bottom: 40px;
             transition: border-color 0.3s ease;
@@ -235,15 +231,15 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(0, 212, 255, 0.08);
+            background: rgba(13, 148, 136, 0.08);
             color: var(--accent-cyan);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             padding: 6px 18px;
             border-radius: 50px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(13, 148, 136, 0.1);
             margin-bottom: 12px;
             transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
@@ -258,12 +254,12 @@
             justify-content: center;
             width: 70px;
             height: 70px;
-            background: rgba(0, 212, 255, 0.08);
+            background: rgba(13, 148, 136, 0.08);
             border-radius: 50%;
             font-size: 2rem;
             color: var(--accent-cyan);
             margin-bottom: 15px;
-            border: 1px solid rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(13, 148, 136, 0.08);
             transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
@@ -275,6 +271,10 @@
             transition: color 0.3s ease;
         }
 
+        .policy-header h1 span {
+            color: var(--accent-cyan);
+        }
+
         .policy-header .sub-head {
             color: var(--text-secondary);
             font-size: 1.05rem;
@@ -282,7 +282,6 @@
             transition: color 0.3s ease;
         }
 
-        /* Section Headings */
         h2 {
             color: var(--text-primary);
             font-size: 1.2rem;
@@ -310,6 +309,11 @@
             transition: all 0.3s ease;
         }
 
+        h2:hover .number-badge {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 8px 25px var(--accent-glow);
+        }
+
         h2::after {
             content: '';
             flex: 1;
@@ -319,7 +323,6 @@
             transition: background 0.3s ease;
         }
 
-        /* Paragraphs */
         p {
             font-size: 1rem;
             color: var(--text-secondary);
@@ -328,7 +331,6 @@
             transition: color 0.3s ease;
         }
 
-        /* Lists */
         ul {
             list-style: none;
             padding-left: 0;
@@ -361,12 +363,11 @@
             color: var(--text-primary);
         }
 
-        /* Revenue Box */
         .revenue-box {
             background: var(--bg-input);
-            border: 1px dashed var(--accent-cyan);
+            border: 1px solid rgba(13, 148, 136, 0.15);
             padding: 25px 28px;
-            border-radius: 12px;
+            border-radius: var(--radius-lg);
             margin: 25px 0;
             transition: background 0.3s ease, border-color 0.3s ease;
         }
@@ -399,14 +400,14 @@
         }
 
         /* ==========================================
-           CONTACT BOX - Same as Other Legal Pages
+           CONTACT BOX
            ========================================== */
         .contact-box {
             margin-top: 50px;
             padding: 35px 40px;
             background: var(--text-primary);
             color: var(--text-white);
-            border-radius: 18px;
+            border-radius: var(--radius-xl);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -427,6 +428,20 @@
             height: 200%;
             background: radial-gradient(circle, var(--accent-glow), transparent 70%);
             pointer-events: none;
+        }
+
+        .contact-box .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(13, 148, 136, 0.12);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+            transition: background 0.3s ease;
         }
 
         .contact-box p {
@@ -483,21 +498,6 @@
             color: var(--text-muted);
         }
 
-        .contact-box .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 212, 255, 0.12);
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            color: var(--accent-cyan);
-            margin-bottom: 12px;
-            transition: background 0.3s ease;
-        }
-
-        /* Back to Top */
         .back-top {
             display: inline-flex;
             align-items: center;
@@ -514,6 +514,30 @@
         }
         .back-top:hover {
             color: var(--accent-cyan);
+        }
+
+         /* ==========================================
+           FOOTER
+           ========================================== */
+        .footer-bar {
+            background: var(--bg-footer);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-bar p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .footer-bar strong {
+            color: var(--text-white);
+            transition: color 0.3s ease;
         }
 
         /* ==========================================
@@ -542,7 +566,7 @@
             .policy-card {
                 padding: 20px 16px;
                 margin: 10px;
-                border-top-width: 6px;
+                border-top-width: 4px;
             }
             .policy-header h1 {
                 font-size: 1.5rem;
@@ -568,20 +592,13 @@
                 font-size: 0.75rem;
             }
         }
-
-        @media print {
-            body { background: white; padding: 0; }
-            .main-nav { display: none; }
-            .policy-card { box-shadow: none; border: none; width: 100%; padding: 0; margin: 0; }
-            .no-print { display: none; }
-        }
     </style>
 </head>
 <body>
 
-    <div id="elastic-cursor"></div>
-
-    <!-- ===== NAVIGATION ===== -->
+    <!-- ==========================================
+    NAVIGATION - DARK
+    ========================================== -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="logo">
@@ -599,7 +616,9 @@
         </div>
     </nav>
 
-    <!-- ===== POLICY CONTENT ===== -->
+    <!-- ==========================================
+    POLICY CONTENT
+    ========================================== -->
     <div class="policy-wrapper">
         <div class="policy-card">
 
@@ -611,7 +630,7 @@
                 <div class="update-tag">
                     <i class="fas fa-calendar-alt"></i> Last Updated: March 2024
                 </div>
-                <h1>Monetization &amp; Platform Control Policy</h1>
+                <h1>Monetization &amp; Platform <span>Control Policy</span></h1>
                 <p class="sub-head">Terms governing digital platforms, subsidized development, and monetization infrastructure.</p>
             </div>
 
@@ -697,39 +716,22 @@
         </div>
     </div>
 
-    <!-- ===== SCRIPTS ===== -->
+      <!-- ==========================================
+    FOOTER
+    ========================================== -->
+    <footer class="footer-bar">
+        <div class="container">
+            <p>© 2026 <strong>CodedClouds</strong> Pvt. Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+    SCRIPTS
+    ========================================== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-    <script>
-        // ===== THEME TOGGLE =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
-            const icon = themeToggle.querySelector('i');
-            
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateIcon(savedTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(newTheme);
-            });
-            
-            function updateIcon(theme) {
-                if (theme === 'dark') {
-                    icon.className = 'fa-solid fa-sun';
-                } else {
-                    icon.className = 'fa-solid fa-moon';
-                }
-            }
-        });
-
-    </script>
+    
+    <script src="../assets/js/script.js"></script>
 
 </body>
 </html>

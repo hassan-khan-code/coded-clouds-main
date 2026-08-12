@@ -4,123 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Leader - CodedCloud</title>
-    <!-- Google Fonts for Modern Look -->
     <link rel="icon" type="image/png" href="../images/fav.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<div id="elastic-cursor"></div>
-
-<style>
-    #elastic-cursor {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background-color: rgb(17, 17, 58); /* Aapka Navy Blue Color */
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 99999;
-        /* Glow effect taake dark bg par nazar aaye */
-        box-shadow: 0 0 10px rgba(17, 17, 58, 0.4);
-        transform-origin: center center;
-    }
-
-    /* Jab link par jaye to cursor white ho jaye ya invert ho */
-    .cursor-active {
-        mix-blend-mode: difference;
-        background-color: white !important;
-    }
-     @media (max-width: 768px) {
-    #elastic-cursor {
-        display: none !important;
-    }
-}
-</style>
-
-<script>
-    const cursor = document.querySelector("#elastic-cursor");
-
-    // Cursor position and scale settings
-    let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    let mouse = { x: pos.x, y: pos.y };
-    let speed = 0.15; // Smoothness factor
-
-    // Speed/Stretch Calculation
-    let fpms = 60 / 1000;
-    
-    window.addEventListener("mousemove", e => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
-
-    const xSet = gsap.quickSetter(cursor, "x", "px");
-    const ySet = gsap.quickSetter(cursor, "y", "px");
-
-    gsap.ticker.add((time, deltaTime) => {
-        let delta = deltaTime * fpms;
-        let dt = 1.0 - Math.pow(1.0 - speed, delta);
-        
-        // Calculate distance moved
-        let dx = mouse.x - pos.x;
-        let dy = mouse.y - pos.y;
-        
-        pos.x += dx * dt;
-        pos.y += dy * dt;
-        
-        // Calculate velocity for stretching
-        let velocity = Math.sqrt(dx * dx + dy * dy);
-        let setRotation = Math.atan2(dy, dx) * (180 / Math.PI);
-        
-        // Velocity ke hisab se stretch (Max stretch limit 2.5 rakhi hai)
-        let setScale = Math.min(velocity * 0.015 + 1, 2.5);
-        let setScaleY = Math.max(1 - velocity * 0.008, 0.5);
-
-        xSet(pos.x - 10); // 10 is half of width
-        ySet(pos.y - 10);
-        
-        // Apply rotation and stretching
-        gsap.set(cursor, {
-            rotation: setRotation,
-            scaleX: setScale,
-            scaleY: setScaleY
-        });
-    });
-
-    // Hover effect on links
-    document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-    });
-</script>
-    
-
     <style>
-        /* --- CSS VARIABLES & RESET --- */
+        /* ==========================================
+           THEME VARIABLES - SAME AS HOME
+           ========================================== */
         :root {
-            --primary-color: #0d1226; /* Dark Navy from your image */
-            --accent-color: #ffffff;
-            --text-gray: #b0b8d6;
-            --overlay-color: rgba(13, 18, 38, 0.92); /* Strong overlay to match theme */
+            --bg-primary: #f4f4f5;
+            --bg-secondary: #ececec;
+            --bg-card: #ffffff;
+            --bg-input: #ededed;
+            --bg-footer: #18181b;
+            
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
+            --text-white: #ffffff;
+            
+            --border-color: #e4e4e7;
+            --border-light: #f4f4f5;
+            --border-dark: #27272a;
+            
+            --accent-cyan: #0d9488;
+            --accent-blue: #18181b;
+            --accent-glow: rgba(13, 148, 136, 0.06);
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-xxl: 20px;
+            
+            --overlay-color: rgba(10, 10, 15, 0.88);
         }
 
+        [data-theme="dark"] {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #18181b;
+            --bg-input: #27272a;
+            --bg-footer: #09090b;
+            
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --text-white: #ffffff;
+            
+            --border-color: #27272a;
+            --border-light: #3f3f46;
+            --border-dark: #18181b;
+            
+            --accent-cyan: #34d399;
+            --accent-blue: #fafafa;
+            --accent-glow: rgba(52, 211, 153, 0.05);
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+            
+            --overlay-color: rgba(9, 9, 11, 0.92);
+        }
+
+        /* ==========================================
+           GLOBAL RESET
+           ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: var(--primary-color);
-            color: var(--accent-color);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* --- CEO SECTION WRAPPER --- */
+        /* ==========================================
+           NAVIGATION - DARK (SAME AS HOME)
+           ========================================== */
+        .main-nav {
+            background: #0a0a0f !important;
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #0d9488;
+            background: rgba(13, 148, 136, 0.12);
+            color: #0d9488 !important;
+            transform: rotate(20deg) scale(1.05);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7) !important;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .back-btn i {
+            color: #0d9488;
+        }
+
+        @media (max-width: 768px) {
+            .back-btn span { display: none; }
+            .back-btn::after { content: 'Back'; display: inline-block; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .main-nav { height: 70px; }
+            .logo img { height: 40px; }
+            .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 576px) {
+            .nav-container { width: 95%; }
+            .logo img { height: 40px; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+        }
+
+        /* ==========================================
+           CEO SECTION
+           ========================================== */
         .ceo-section {
             position: relative;
             min-height: 100vh;
@@ -128,10 +210,9 @@
             align-items: center;
             justify-content: center;
             background: url('../images/Leader.png') no-repeat center center/cover;
-            padding: 20px;
+            padding: 100px 20px 60px;
         }
 
-        /* Dark Overlay to make text pop and match theme */
         .ceo-overlay {
             position: absolute;
             top: 0;
@@ -140,77 +221,88 @@
             height: 100%;
             background: var(--overlay-color);
             z-index: 1;
+            transition: background 0.3s ease;
         }
 
-        /* --- MAIN CONTENT CONTAINER --- */
         .content-container {
             position: relative;
             z-index: 2;
             max-width: 800px;
             text-align: center;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.03); /* Glass effect */
+            padding: 50px 60px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-xl);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            
-            /* Animation Initial State */
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out forwards;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
         }
 
-        /* --- TYPOGRAPHY & ELEMENTS --- */
+        .content-container:hover {
+            border-color: rgba(13, 148, 136, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
         .section-subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 4px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--text-gray);
+            color: var(--accent-cyan);
             margin-bottom: 20px;
             display: block;
-            font-weight: 600;
+            font-weight: 700;
+            background: rgba(13, 148, 136, 0.08);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(13, 148, 136, 0.1);
+            display: inline-block;
         }
 
         .quote-icon {
-            font-size: 3rem;
-            color: rgba(255,255,255,0.2);
+            font-size: 2.8rem;
+            color: rgba(255, 255, 255, 0.1);
             margin-bottom: 20px;
             display: block;
         }
 
         .ceo-quote {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             line-height: 1.8;
             font-weight: 300;
             font-style: italic;
             margin-bottom: 30px;
-            color: #e0e6ff;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .ceo-quote strong {
+            color: var(--accent-cyan);
+            font-weight: 600;
         }
 
         .divider {
-            height: 3px;
+            height: 2px;
             width: 60px;
-            background: #fff;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
             margin: 0 auto 30px auto;
             border-radius: 2px;
         }
 
         .ceo-name {
             font-size: 2rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 1px;
             margin-bottom: 5px;
             text-transform: uppercase;
+            color: #ffffff;
         }
 
         .ceo-title {
-            font-size: 1rem;
-            color: var(--text-gray);
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
             margin-bottom: 35px;
+            font-weight: 500;
         }
 
-        /* --- LINKEDIN BUTTON --- */
         .linkedin-btn {
             text-decoration: none;
             display: inline-flex;
@@ -218,82 +310,129 @@
             gap: 10px;
             padding: 12px 35px;
             background-color: transparent;
-            border: 2px solid #fff;
-            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
             cursor: pointer;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
+        }
+
+        .linkedin-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(13, 148, 136, 0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .linkedin-btn:hover::before {
+            left: 100%;
         }
 
         .linkedin-btn:hover {
-            background-color: #fff;
-            color: var(--primary-color);
+            background: var(--accent-cyan);
+            color: #ffffff;
+            border-color: var(--accent-cyan);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.2);
         }
 
         .linkedin-btn i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            color: #0a66c2;
+            transition: color 0.3s ease;
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .linkedin-btn:hover i {
+            color: #ffffff;
         }
 
-        /* Staggered Animations for inner elements */
-        .content-container > * {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .content-container .section-subtitle { animation-delay: 0.2s; }
-        .content-container .quote-icon { animation-delay: 0.4s; }
-        .content-container .ceo-quote { animation-delay: 0.6s; }
-        .content-container .divider { animation-delay: 0.7s; }
-        .content-container .ceo-name { animation-delay: 0.8s; }
-        .content-container .ceo-title { animation-delay: 0.9s; }
-        .content-container .linkedin-btn { animation-delay: 1.0s; }
-
-        /* --- RESPONSIVE DESIGN --- */
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
         @media (max-width: 768px) {
             .content-container {
-                padding: 30px 20px;
-                width: 90%;
+                padding: 35px 25px;
+                width: 95%;
             }
-
             .ceo-quote {
                 font-size: 1rem;
             }
-
             .ceo-name {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+            .ceo-section {
+                padding: 80px 15px 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .content-container {
+                padding: 25px 18px;
+            }
+            .ceo-quote {
+                font-size: 0.9rem;
+            }
+            .ceo-name {
+                font-size: 1.3rem;
+            }
+            .ceo-title {
+                font-size: 0.8rem;
+            }
+            .section-subtitle {
+                font-size: 0.6rem;
+                padding: 4px 14px;
+            }
+            .quote-icon {
+                font-size: 2rem;
+            }
+            .linkedin-btn {
+                padding: 10px 28px;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <section class="ceo-section">
-        <!-- Dark Overlay -->
-        <div class="ceo-overlay"></div>
+    <!-- ==========================================
+    NAVIGATION - DARK
+    ========================================== -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.webp" alt="Coded Clouds Logo">
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 
-        <!-- Main Content Card -->
-        <div class="content-container">
+    <!-- ==========================================
+    CEO SECTION
+    ========================================== -->
+    <section class="ceo-section">
+        <div class="ceo-overlay"></div>
+        <div class="content-container" data-aos="fade-up" data-aos-duration="800">
             <span class="section-subtitle">Our Global Leader / CEO</span>
             
             <i class="fas fa-quote-left quote-icon"></i>
             
             <p class="ceo-quote">
-                "Innovation is our foundation, and your growth is our metric of success. At Coded Clouds, we combine global experience with local precision to deliver tech solutions that actually move the needle. Your vision, our engineering—let’s build the future, one cloud at a time."
+                "Innovation is our foundation, and your growth is our metric of success. At Coded Clouds, we combine global experience with local precision to deliver tech solutions that actually move the needle. Your vision, our engineering — let's build the future, <strong>one cloud at a time</strong>."
             </p>
             
             <div class="divider"></div>
@@ -301,12 +440,26 @@
             <h2 class="ceo-name">Hashim Saqib</h2>
             <p class="ceo-title">Chief Executive Officer</p>
 
-            <!-- LinkedIn Button -->
             <a href="https://www.linkedin.com/in/hashim-saqib-205527371?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn">
                 <i class="fab fa-linkedin"></i> Connect
             </a>
         </div>
     </section>
+
+    <!-- ==========================================
+    SCRIPTS
+    ========================================== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 50,
+            duration: 600,
+            once: true,
+            disable: 'mobile'
+        });
+    </script>
+    
+    <script src="../assets/js/script.js"></script>
 
 </body>
 </html>

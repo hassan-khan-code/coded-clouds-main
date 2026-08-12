@@ -8,71 +8,75 @@
     <!-- External Dependencies -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
         /* ==========================================
-           THEME SYSTEM - Same as Other Pages
+           THEME VARIABLES - SAME AS HOME
            ========================================== */
-        
-        /* Light Theme (Default) */
         :root {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
+            --bg-primary: #f4f4f5;
+            --bg-secondary: #ececec;
             --bg-card: #ffffff;
-            --bg-input: #f8fafc;
-            --bg-navbar: rgba(255, 255, 255, 0.95);
-            --bg-footer: #0f172a;
+            --bg-input: #ededed;
+            --bg-footer: #18181b;
             
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
             --text-white: #ffffff;
             
-            --border-color: #e2e8f0;
-            --border-light: #f1f5f9;
+            --border-color: #e4e4e7;
+            --border-light: #f4f4f5;
+            --border-dark: #27272a;
             
-            --accent-cyan: #00d4ff;
-            --accent-blue: #0284c7;
-            --accent-glow: rgba(0, 212, 255, 0.12);
+            --accent-cyan: #0d9488;
+            --accent-blue: #18181b;
+            --accent-glow: rgba(13, 148, 136, 0.06);
             
-            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
-            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
             
-            --gradient-text: linear-gradient(135deg, #00d4ff, #3b82f6);
-            --gradient-overlay: linear-gradient(to top, rgba(13, 18, 38, 0.95) 10%, rgba(13, 18, 38, 0) 65%);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-xxl: 20px;
+            
+            --gradient-overlay: linear-gradient(to top, rgba(10, 10, 15, 0.92) 10%, rgba(10, 10, 15, 0) 65%);
         }
 
-        /* Dark Theme */
         [data-theme="dark"] {
-            --bg-primary: #0B0E14;
-            --bg-secondary: #131A22;
-            --bg-card: #131A22;
-            --bg-input: #1C2633;
-            --bg-navbar: rgba(11, 14, 20, 0.95);
-            --bg-footer: #0B0E14;
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #18181b;
+            --bg-input: #27272a;
+            --bg-footer: #09090b;
             
-            --text-primary: #F0F4FA;
-            --text-secondary: #B0C4DE;
-            --text-muted: #8899AA;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
             --text-white: #ffffff;
             
-            --border-color: #1C2633;
-            --border-light: #2A3644;
+            --border-color: #27272a;
+            --border-light: #3f3f46;
+            --border-dark: #18181b;
             
-            --accent-cyan: #00D4FF;
-            --accent-blue: #00D4FF;
-            --accent-glow: rgba(0, 212, 255, 0.08);
+            --accent-cyan: #34d399;
+            --accent-blue: #fafafa;
+            --accent-glow: rgba(52, 211, 153, 0.05);
             
-            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
             
-            --gradient-text: linear-gradient(135deg, #00D4FF, #0099CC);
-            --gradient-overlay: linear-gradient(to top, rgba(11, 14, 20, 0.95) 10%, rgba(11, 14, 20, 0) 65%);
+            --gradient-overlay: linear-gradient(to top, rgba(9, 9, 11, 0.92) 10%, rgba(9, 9, 11, 0) 65%);
         }
 
         /* ==========================================
-           BASE STYLES
+           GLOBAL RESET
            ========================================== */
         * {
             margin: 0;
@@ -89,46 +93,11 @@
             line-height: 1.6;
         }
 
-
         /* ==========================================
-           THEME TOGGLE BUTTON
-           ========================================== */
-        .theme-toggle-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1.5px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-shrink: 0;
-        }
-
-        .theme-toggle-btn:hover {
-            border-color: var(--accent-cyan);
-            transform: rotate(20deg) scale(1.05);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .theme-toggle-btn i {
-            transition: transform 0.4s ease;
-        }
-
-        [data-theme="dark"] .theme-toggle-btn i {
-            transform: rotate(360deg);
-        }
-
-        /* ==========================================
-           NAVIGATION
+           NAVIGATION - DARK (SAME AS HOME)
            ========================================== */
         .main-nav {
-            background: var(--bg-navbar);
-            backdrop-filter: blur(10px);
+            background: #0a0a0f !important;
             height: 80px;
             width: 100%;
             display: flex;
@@ -137,9 +106,9 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -162,43 +131,69 @@
             display: block;
         }
 
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #0d9488;
+            background: rgba(13, 148, 136, 0.12);
+            color: #0d9488 !important;
+            transform: rotate(20deg) scale(1.05);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
+        }
+
         .back-btn {
-            background: var(--text-primary);
-            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7) !important;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--text-primary);
-            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .back-btn:hover {
-            background: transparent;
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
-        [data-theme="dark"] .back-btn {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .back-btn:hover {
-            background: transparent;
-            color: var(--accent-cyan);
+        .back-btn i {
+            color: #0d9488;
         }
 
         @media (max-width: 768px) {
             .back-btn span { display: none; }
             .back-btn::after { content: 'Back'; display: inline-block; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .main-nav { height: 70px; }
+            .logo img { height: 40px; }
             .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
         }
 
@@ -209,28 +204,28 @@
         }
 
         /* ==========================================
-           PRESENCE SECTION
+           SECTION STYLES
            ========================================== */
-        .presence-section {
-            padding: 60px 20px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
         .section-tag {
             color: var(--accent-cyan);
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 10px;
-            background: rgba(0, 212, 255, 0.08);
+            background: rgba(13, 148, 136, 0.08);
             padding: 6px 20px;
             border-radius: 50px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(13, 148, 136, 0.1);
             transition: all 0.3s ease;
+        }
+
+        .presence-section {
+            padding: 60px 20px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .main-heading {
@@ -269,12 +264,12 @@
         .country-card {
             position: relative;
             height: 300px;
-            border-radius: 16px;
+            border-radius: var(--radius-xl);
             overflow: hidden;
             cursor: pointer;
             box-shadow: var(--shadow-sm);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 2px solid var(--border-color);
+            border: 1px solid var(--border-color);
         }
 
         .country-card:hover {
@@ -406,456 +401,6 @@
         .bg-bangladesh { background-image: url('../images/presence/\ Bangladesh.jpg'); }
 
         /* ==========================================
-           CONTACT SECTION - Same as Contact Page
-           ========================================== */
-        .contact-section-wrapper {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            width: 100%;
-            padding: 80px 20px;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.3s ease;
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-top-header {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto 55px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .main-section-title {
-            font-size: clamp(32px, 4vw, 46px);
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1.2;
-            margin: 0 0 16px 0;
-            letter-spacing: -0.5px;
-            transition: color 0.3s ease;
-        }
-
-        .gradient-text-alt {
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .main-section-desc {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin: 0;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card-frame {
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            background: var(--bg-secondary);
-            border-radius: 28px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            overflow: hidden;
-            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-left-col {
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 12px;
-            background: rgba(0, 212, 255, 0.08);
-            color: var(--accent-cyan);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .contact-title {
-            font-size: clamp(24px, 3vw, 32px);
-            margin: 0 0 6px 0;
-            color: var(--text-primary);
-            font-weight: 800;
-            line-height: 1.2;
-            transition: color 0.3s ease;
-        }
-
-        .gradient-text {
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-subtitle {
-            font-size: 13.5px;
-            margin: 0 0 28px 0;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .styled-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-size: 12.5px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-            transition: color 0.3s ease;
-        }
-
-        .required {
-            color: #ef4444;
-        }
-
-        .input-wrapper,
-        .select-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .field-icon {
-            position: absolute;
-            left: 14px;
-            color: var(--text-muted);
-            font-size: 13px;
-            pointer-events: none;
-            transition: color 0.25s ease;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 11px 14px 11px 38px;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            background: var(--bg-input);
-            font-size: 13.5px;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            outline: none;
-            transition: all 0.25s ease;
-            box-sizing: border-box;
-        }
-
-        .form-control::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-control:focus {
-            background: var(--bg-secondary);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 4px var(--accent-glow);
-            color: var(--text-primary);
-        }
-
-        .phone-input-group {
-            display: flex;
-            gap: 8px;
-        }
-
-        .phone-code {
-            width: 98px !important;
-            padding: 11px 8px !important;
-            flex-shrink: 0;
-            cursor: pointer;
-        }
-
-        .phone-input-group .form-control {
-            padding-left: 14px;
-        }
-
-        .select-wrapper .form-control {
-            padding-left: 14px;
-            padding-right: 30px;
-            appearance: none;
-            cursor: pointer;
-        }
-
-        .select-icon {
-            position: absolute;
-            right: 14px;
-            pointer-events: none;
-            color: var(--text-muted);
-            font-size: 11px;
-            transition: color 0.3s ease;
-        }
-
-        .textarea-control {
-            padding: 12px 14px !important;
-            resize: none;
-            min-height: 85px;
-        }
-
-        .form-actions-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-            gap: 15px;
-        }
-
-        .custom-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .custom-checkbox input {
-            width: 16px;
-            height: 16px;
-            accent-color: var(--accent-cyan);
-            cursor: pointer;
-        }
-
-        .checkbox-label {
-            font-size: 12.5px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-        }
-
-        .submit-btn {
-            background: var(--gradient-text);
-            color: var(--text-white);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            padding: 13px 30px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 20px var(--accent-glow);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px var(--accent-glow);
-        }
-
-        /* Right Column */
-        .contact-right-col {
-            background: radial-gradient(circle at 85% 15%, rgba(0, 212, 255, 0.15) 0%, transparent 45%),
-                        radial-gradient(circle at 15% 85%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-                        linear-gradient(150deg, #060913 0%, #0B0E14 50%, #0B0E14 100%);
-            padding: 50px 38px;
-            color: var(--text-white);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.3s ease;
-        }
-
-        [data-theme="light"] .contact-right-col {
-            background: radial-gradient(circle at 85% 15%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
-                        radial-gradient(circle at 15% 85%, rgba(2, 132, 199, 0.15) 0%, transparent 50%),
-                        linear-gradient(150deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        }
-
-        .sidebar-bg-glow {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-        }
-
-        .sidebar-bg-glow.glow-top {
-            top: -40px;
-            right: -40px;
-            width: 200px;
-            height: 200px;
-            background: var(--accent-cyan);
-            opacity: 0.2;
-        }
-
-        .sidebar-bg-glow.glow-bottom {
-            bottom: -50px;
-            left: -50px;
-            width: 220px;
-            height: 220px;
-            background: var(--accent-blue);
-            opacity: 0.2;
-        }
-
-        .brand-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 16px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(0, 212, 255, 0.35);
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.2px;
-            color: var(--accent-cyan);
-            margin-bottom: 18px;
-            backdrop-filter: blur(12px);
-        }
-
-        .sidebar-top h3 {
-            font-size: 23px;
-            font-weight: 800;
-            margin: 0 0 10px 0;
-            line-height: 1.3;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .sidebar-top p {
-            font-size: 13.5px;
-            color: #94a3b8;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .sidebar-cards-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin: 30px 0;
-        }
-
-        .side-feature-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
-            padding: 20px;
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            backdrop-filter: blur(20px);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .side-feature-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(0, 212, 255, 0.5);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.15);
-        }
-
-        .feature-icon {
-            width: 46px;
-            height: 46px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            color: var(--accent-cyan);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
-        }
-
-        .feature-tag {
-            font-size: 9.5px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--accent-cyan);
-            display: block;
-        }
-
-        .feature-content h4 {
-            margin: 2px 0 4px 0;
-            font-size: 14.5px;
-            font-weight: 700;
-            color: var(--text-white);
-        }
-
-        .feature-link {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 11.5px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.25s ease;
-        }
-
-        .feature-link:hover {
-            color: var(--accent-cyan);
-            transform: translateX(4px);
-        }
-
-        .sidebar-metric {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .metric-num {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-cyan), #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .metric-desc {
-            font-size: 11.5px;
-            color: #94a3b8;
-            line-height: 1.45;
-        }
-
-        /* ==========================================
            FOOTER
            ========================================== */
         .footer-bar {
@@ -914,22 +459,42 @@
             font-size: 30px;
         }
 
-        /* ==========================================
-           RESPONSIVE
+          /* ==========================================
+           FOOTER
            ========================================== */
-        @media (max-width: 992px) {
-            .contact-card-frame {
-                grid-template-columns: 1fr;
+        .footer-bar {
+            background: var(--bg-footer);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-bar p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .footer-bar strong {
+            color: var(--text-white);
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float a {
+                width: 50px;
+                height: 50px;
             }
-            .contact-right-col {
-                padding: 40px 30px;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            .section-top-header {
-                margin-bottom: 35px;
+            .whatsapp-float i {
+                font-size: 24px;
             }
         }
 
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
         @media (max-width: 768px) {
             .presence-section {
                 padding: 40px 15px 60px;
@@ -941,29 +506,6 @@
             .country-card {
                 height: 240px;
             }
-            .contact-section-wrapper {
-                padding: 50px 15px;
-            }
-            .contact-left-col {
-                padding: 30px 20px;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            .form-actions-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .submit-btn {
-                justify-content: center;
-            }
-            .whatsapp-float a {
-                width: 50px;
-                height: 50px;
-            }
-            .whatsapp-float i {
-                font-size: 24px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -973,7 +515,7 @@
             }
             .country-card {
                 height: 180px;
-                border-radius: 12px;
+                border-radius: var(--radius-lg);
             }
             .card-overlay {
                 padding: 16px 14px;
@@ -1014,9 +556,7 @@
 </head>
 <body>
 
-    <div id="elastic-cursor"></div>
-
-    <!-- ===== NAVIGATION ===== -->
+    <!-- ===== NAVIGATION - DARK ===== -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="logo">
@@ -1575,182 +1115,6 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT SECTION ===== -->
-    <section id="unique-contact-section" class="contact-section-wrapper">
-        <div class="contact-container">
-            
-            <div class="section-top-header">
-                <h1 class="main-section-title">
-                    Let's Build Something <span class="gradient-text-alt">Amazing Together</span>
-                </h1>
-                <p class="main-section-desc">
-                    Have a project in mind or looking for the right technology partner? Our team is ready to turn your ideas into innovative, scalable, and high-performing digital solutions. Get in touch and let's make it happen.
-                </p>
-            </div>
-
-            <div class="contact-card-frame">
-                
-                <div class="contact-left-col">
-                    <div class="form-header">
-                        <span class="contact-badge"><i class="fa-solid fa-paper-plane"></i> GET IN TOUCH</span>
-                        <h2 class="contact-title">Let's Start a <span class="gradient-text">Conversation</span></h2>
-                        <p class="contact-subtitle">Fill out the form below and our engineering team will get back to you shortly.</p>
-                    </div>
-
-                    <form id="contactForm" class="styled-form">
-                        <input type="hidden" name="selected_services" id="selected_services">
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Full Name <span class="required">*</span></label>
-                                <div class="input-wrapper">
-                                    <i class="fa-regular fa-user field-icon"></i>
-                                    <input type="text" name="full_name" placeholder="Omaan Jallane" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Work Email <span class="required">*</span></label>
-                                <div class="input-wrapper">
-                                    <i class="fa-regular fa-envelope field-icon"></i>
-                                    <input type="email" name="user_email" placeholder="email@company.com" required class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Phone Number <span class="required">*</span></label>
-                                <div class="phone-input-group">
-                                    <select name="country_code" required class="form-control phone-code">
-                                        <option value="+966">🇸🇦 +966</option>
-                                        <option value="+92">🇵🇰 +92</option>
-                                        <option value="+971">🇦🇪 +971</option>
-                                    </select>
-                                    <input type="tel" name="phone_number" placeholder="55 123 4567" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Company Name <span class="required">*</span></label>
-                                <div class="input-wrapper">
-                                    <i class="fa-regular fa-building field-icon"></i>
-                                    <input type="text" name="company_name" placeholder="CodedCloud Ltd." required class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Company Website</label>
-                                <div class="input-wrapper">
-                                    <i class="fa-solid fa-globe field-icon"></i>
-                                    <input type="url" name="company_url" placeholder="https://codedclouds.org" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Region <span class="required">*</span></label>
-                                <div class="select-wrapper">
-                                    <select name="region" required class="form-control">
-                                        <option value="" disabled selected>Select Region</option>
-                                        <option value="Saudi Arabia">Saudi Arabia</option>
-                                        <option value="Pakistan">Pakistan</option>
-                                        <option value="Middle East">Middle East</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                    <i class="fa-solid fa-chevron-down select-icon"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                                <!-- Service Dropdown -->
-                     <div class="form-group full-width">
-                <label>Services interested in <span class="required">*</span></label>
-                <div class="select-wrapper">
-                  <select class="form-control service-select" name="services" required>
-                    <option value="" disabled selected>Click to select a service...</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="Mobile App Development">App Development</option>
-                    <option value="PMS Development">PMS Development</option>
-                    <option value="Digital Marketing">Digital Marketing</option>
-                    <option value="CRM">Full CRM System</option>
-                    <option value="POS">POS Software</option>
-                    <option value="Ecommerce">Ecommerce Services</option>
-                    <option value="AI & Automation">AI & Automation</option>
-                    <option value="Blockchain Development">Blockchain Development</option>
-                    <option value="Quality Assurance">Quality Assurance</option>
-                    <option value="DevOps Solutions">DevOps Solutions</option>
-                    <option value="Cybersecurity">Cybersecurity</option>
-                  </select>
-                  <i class="fa-solid fa-chevron-down select-icon"></i>
-                </div>
-              </div>
-
-                        <div class="form-group full-width">
-                            <label>How can we help you?</label>
-                            <textarea name="message" rows="3" placeholder="Tell us briefly about your project requirements..." class="form-control textarea-control"></textarea>
-                        </div>
-
-                        <div class="form-actions-row">
-                            <label class="custom-checkbox">
-                                <input type="checkbox" name="looking_for_job">
-                                <span class="checkmark"></span>
-                                <span class="checkbox-label">Career Opportunity?</span>
-                            </label>
-
-                            <button type="submit" class="submit-btn">
-                                <span>Submit Inquiry</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="contact-right-col">
-                    <div class="sidebar-bg-glow glow-top"></div>
-                    <div class="sidebar-bg-glow glow-bottom"></div>
-
-                    <div class="sidebar-top">
-                        <div class="brand-chip">
-                            <i class="fa-solid fa-cloud"></i> Coded Clouds
-                        </div>
-                        <h3>Engineered for Global Excellence</h3>
-                        <p>Delivering high-impact digital products and next-gen enterprise software solutions worldwide.</p>
-                    </div>
-
-                    <div class="sidebar-cards-container">
-                        <div class="side-feature-card">
-                            <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
-                            <div class="feature-content">
-                                <span class="feature-tag">GLOBAL PRESENCE</span>
-                                <h4>Active Across 5 Continents</h4>
-                                <a href="./Components/Presence.html" class="feature-link">
-                                    Explore Footprint <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="side-feature-card">
-                            <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
-                            <div class="feature-content">
-                                <span class="feature-tag">LEADERSHIP</span>
-                                <h4>Seasoned Industry Experts</h4>
-                                <a href="./Components/Leaders.html" class="feature-link">
-                                    Meet Leaders <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-metric">
-                        <div class="metric-num">99.9%</div>
-                        <div class="metric-desc">Client Satisfaction Rate Across Enterprise Deployments</div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
     <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
     <div class="whatsapp-float">
         <a href="https://wa.me/+966594552890" target="_blank" aria-label="WhatsApp">
@@ -1758,45 +1122,21 @@
         </a>
     </div>
 
-    <!-- ===== FOOTER ===== -->
+  <!-- ==========================================
+    FOOTER
+    ========================================== -->
     <footer class="footer-bar">
         <div class="container">
-            <p>© 2026 <strong>CodedClouds</strong>. All rights reserved.</p>
+            <p>© 2026 <strong>CodedClouds</strong> Pvt. Ltd. All rights reserved.</p>
         </div>
     </footer>
 
+
     <!-- ===== SCRIPTS ===== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-    <script>
-        // ===== THEME TOGGLE =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
-            const icon = themeToggle.querySelector('i');
-            
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateIcon(savedTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(newTheme);
-            });
-            
-            function updateIcon(theme) {
-                if (theme === 'dark') {
-                    icon.className = 'fa-solid fa-sun';
-                } else {
-                    icon.className = 'fa-solid fa-moon';
-                }
-            }
-        });
-
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script src="../assets/js/script.js"></script>
 
 </body>
 </html>

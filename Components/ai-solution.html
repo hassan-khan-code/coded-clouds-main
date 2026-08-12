@@ -6,76 +6,73 @@
     <title>AI Solutions - Coded Clouds</title>
     
     <!-- External Dependencies -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="icon" type="image/png" href="../images/fav.png">
     
     <style>
         /* ==========================================
-           THEME SYSTEM
+           THEME VARIABLES - SAME AS HOME
            ========================================== */
-        
-        /* Light Theme (Default) */
         :root {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
+            --bg-primary: #f4f4f5;
+            --bg-secondary: #ececec;
             --bg-card: #ffffff;
-            --bg-input: #f8fafc;
-            --bg-navbar: rgba(255, 255, 255, 0.95);
-            --bg-footer: #0f172a;
+            --bg-input: #ededed;
+            --bg-footer: #18181b;
             
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
             --text-white: #ffffff;
             
-            --border-color: #e2e8f0;
-            --border-light: #f1f5f9;
+            --border-color: #e4e4e7;
+            --border-light: #f4f4f5;
+            --border-dark: #27272a;
             
-            --accent-cyan: #00d4ff;
-            --accent-blue: #0284c7;
-            --accent-glow: rgba(0, 212, 255, 0.12);
+            --accent-cyan: #0d9488;
+            --accent-blue: #18181b;
+            --accent-glow: rgba(13, 148, 136, 0.06);
             
-            --shadow-sm: 0 8px 25px rgba(17, 17, 58, 0.06);
-            --shadow-md: 0 20px 40px rgba(17, 17, 58, 0.12);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
             
-            --gradient-hero: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-            --gradient-concept: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            --gradient-text: linear-gradient(135deg, #00d4ff, #3b82f6);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-xxl: 20px;
         }
 
-        /* Dark Theme */
         [data-theme="dark"] {
-            --bg-primary: #0B0E14;
-            --bg-secondary: #131A22;
-            --bg-card: #131A22;
-            --bg-input: #1C2633;
-            --bg-navbar: rgba(11, 14, 20, 0.95);
-            --bg-footer: #0B0E14;
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #18181b;
+            --bg-input: #27272a;
+            --bg-footer: #09090b;
             
-            --text-primary: #F0F4FA;
-            --text-secondary: #B0C4DE;
-            --text-muted: #8899AA;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
             --text-white: #ffffff;
             
-            --border-color: #1C2633;
-            --border-light: #2A3644;
+            --border-color: #27272a;
+            --border-light: #3f3f46;
+            --border-dark: #18181b;
             
-            --accent-cyan: #00D4FF;
-            --accent-blue: #00D4FF;
-            --accent-glow: rgba(0, 212, 255, 0.08);
+            --accent-cyan: #34d399;
+            --accent-blue: #fafafa;
+            --accent-glow: rgba(52, 211, 153, 0.05);
             
-            --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.5);
-            
-            --gradient-hero: linear-gradient(180deg, #0B0E14 0%, #131A22 100%);
-            --gradient-concept: linear-gradient(135deg, #0B0E14 0%, #131A22 100%);
-            --gradient-text: linear-gradient(135deg, #00D4FF, #0099CC);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
         }
 
         /* ==========================================
-           BASE STYLES
+           GLOBAL RESET
            ========================================== */
         * {
             margin: 0;
@@ -93,59 +90,26 @@
         }
 
         /* ==========================================
-           THEME TOGGLE BUTTON
-           ========================================== */
-        .theme-toggle-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1.5px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-shrink: 0;
-        }
-
-        .theme-toggle-btn:hover {
-            border-color: var(--accent-cyan);
-            transform: rotate(20deg) scale(1.05);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .theme-toggle-btn i {
-            transition: transform 0.4s ease;
-        }
-
-        [data-theme="dark"] .theme-toggle-btn i {
-            transform: rotate(360deg);
-        }
-
-        /* ==========================================
-           NAVIGATION
+           NAVIGATION - DARK (SAME AS HOME)
            ========================================== */
         .main-nav {
-            background: var(--bg-navbar);
-            backdrop-filter: blur(10px);
+            background: #0a0a0f !important;
             height: 80px;
             width: 100%;
             display: flex;
             align-items: center;
             position: sticky;
             top: 0;
+            left: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
             width: 90%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -161,49 +125,71 @@
         .logo img {
             height: 50px;
             display: block;
-            transition: 0.3s;
         }
-        .logo img:hover {
-            transform: scale(1.05);
+
+        .theme-toggle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #0d9488;
+            background: rgba(13, 148, 136, 0.12);
+            color: #0d9488 !important;
+            transform: rotate(20deg) scale(1.05);
+        }
+
+        .theme-toggle-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(360deg);
         }
 
         .back-btn {
-            background: var(--text-primary);
-            color: var(--text-white);
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7) !important;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--text-primary);
-            box-shadow: 0 4px 12px rgba(17, 17, 58, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .back-btn:hover {
-            background: transparent;
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
-        [data-theme="dark"] .back-btn {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
-            border-color: var(--accent-cyan);
-        }
-
-        [data-theme="dark"] .back-btn:hover {
-            background: transparent;
-            color: var(--accent-cyan);
+        .back-btn i {
+            color: #0d9488;
         }
 
         @media (max-width: 768px) {
             .back-btn span { display: none; }
             .back-btn::after { content: 'Back'; display: inline-block; }
+            .back-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .main-nav { height: 70px; }
+            .logo img { height: 40px; }
             .theme-toggle-btn { width: 38px; height: 38px; font-size: 0.9rem; }
         }
 
@@ -214,135 +200,225 @@
         }
 
         /* ==========================================
-           HERO SECTION
+           HERO SECTION - PREMIUM
            ========================================== */
         .hero-section {
-            padding: 80px 20px 60px;
-            text-align: center;
-            background: var(--gradient-hero);
             position: relative;
+            padding: 120px 0 80px 0;
+            background: #07070d;
             overflow: hidden;
-            transition: background 0.3s ease;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
         }
 
         .hero-section::before {
             content: '';
             position: absolute;
-            top: -30%;
-            right: -20%;
-            width: 60%;
-            height: 80%;
-            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.06) 0%, transparent 70%);
             pointer-events: none;
-        }
-
-        .hero-section .icon-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 212, 255, 0.08);
             border-radius: 50%;
-            font-size: 2.5rem;
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            animation: pulseGlow 3s ease-in-out infinite;
-            transition: all 0.3s ease;
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.1); }
-            50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.2); }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #34d399;
+            background: rgba(13, 148, 136, 0.12);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(13, 148, 136, 0.15);
+            margin-bottom: 16px;
         }
 
         .hero-section h1 {
-            color: var(--text-primary);
-            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
 
         .hero-section h1 span {
-            background: var(--gradient-text);
+            background: linear-gradient(135deg, #ffffff 0%, #34d399 40%, #ffffff 70%, #34d399 100%);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: inline-block;
+            animation: gradientShift 5s ease-in-out infinite;
         }
 
-        .hero-underline {
-            width: 80px;
-            height: 5px;
-            background: var(--gradient-text);
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 0 30px var(--accent-glow);
-            transition: background 0.3s ease;
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero-section p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 620px;
+            margin: 0 auto 30px auto;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 36px;
+            background: #0d9488;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(13, 148, 136, 0.35);
+            background: #0f9d8f;
+            color: #ffffff;
+        }
+
+        .hero-btn-primary i {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-btn-primary:hover i {
+            transform: translateX(5px);
+        }
+
+        .hero-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .hero-btn-secondary i {
+            color: #0d9488;
+        }
+
+        /* ==========================================
+           SECTION HEADER
+           ========================================== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            background: rgba(13, 148, 136, 0.08);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(13, 148, 136, 0.1);
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-header .highlight-text {
+            color: var(--accent-cyan);
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            font-size: 1.15rem;
-            max-width: 750px;
+            max-width: 600px;
             margin: 0 auto;
-            line-height: 1.8;
-            transition: color 0.3s ease;
+            line-height: 1.6;
         }
 
         /* ==========================================
            AI FEATURES SECTION
            ========================================== */
         .ai-features {
-            padding: 80px 20px 100px;
+            padding: 80px 0;
             background: var(--bg-primary);
             transition: background 0.3s ease;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-heading {
-            text-align: center;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-            font-size: 2.2rem;
-            font-weight: 800;
-            transition: color 0.3s ease;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-bottom: 50px;
-            transition: color 0.3s ease;
-        }
-
         .ai-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
         }
 
-        /* ==========================================
-           AI CARDS
-           ========================================== */
         .ai-card {
             background: var(--bg-card);
-            padding: 40px 30px;
-            border-radius: 24px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 35px 28px;
+            border-radius: var(--radius-xl);
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .ai-card::before {
@@ -351,220 +427,221 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: var(--gradient-text);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: 0.5s ease;
-        }
-
-        .ai-card:hover::before {
-            transform: scaleX(1);
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .ai-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-6px);
             border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Card Icon */
+        .ai-card:hover::before {
+            opacity: 1;
+        }
+
         .ai-card .card-icon {
-            display: inline-flex;
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            background: rgba(13, 148, 136, 0.08);
+            border: 1px solid rgba(13, 148, 136, 0.12);
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 212, 255, 0.08);
-            border-radius: 18px;
-            font-size: 2.2rem;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 212, 255, 0.06);
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            margin-bottom: 18px;
+            transition: all 0.4s ease;
         }
 
         .ai-card:hover .card-icon {
-            background: var(--gradient-text);
-            color: var(--text-white);
-            transform: scale(1.05) rotate(-5deg);
-            box-shadow: 0 10px 30px var(--accent-glow);
-        }
-
-        [data-theme="dark"] .ai-card:hover .card-icon {
             background: var(--accent-cyan);
-            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+            color: #ffffff;
+            transform: scale(1.05) rotate(-4deg);
         }
 
         .ai-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            transition: color 0.3s ease;
+            margin-bottom: 10px;
         }
 
         .ai-card p {
+            font-size: 0.92rem;
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            transition: color 0.3s ease;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
         }
 
         .ai-card .tag {
             display: inline-block;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding: 4px 14px;
-            background: rgba(0, 212, 255, 0.08);
+            background: rgba(13, 148, 136, 0.08);
             color: var(--accent-cyan);
             border-radius: 50px;
-            border: 1px solid rgba(0, 212, 255, 0.06);
-            margin-top: 12px;
+            border: 1px solid rgba(13, 148, 136, 0.08);
             transition: all 0.3s ease;
+            margin-top: 4px;
         }
 
         .ai-card:hover .tag {
             background: var(--accent-cyan);
-            color: var(--text-white);
-        }
-
-        [data-theme="dark"] .ai-card:hover .tag {
-            background: var(--accent-cyan);
-            color: var(--bg-primary);
+            color: #ffffff;
+            border-color: var(--accent-cyan);
         }
 
         /* ==========================================
-           CONCEPT SECTION
+           CONCEPT SECTION (DARK)
            ========================================== */
-        .concept-section {
-            padding: 100px 20px;
-            text-align: center;
-            background: var(--gradient-concept);
-            color: var(--text-white);
+        .concept-dark-section {
+            background: linear-gradient(165deg, #0a0a0f 0%, #14141e 40%, #0d0d14 100%);
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             position: relative;
             overflow: hidden;
-            transition: background 0.3s ease;
         }
 
-        .concept-section::before {
+        .concept-dark-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 60%;
-            height: 200%;
-            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
             pointer-events: none;
+            border-radius: 50%;
         }
 
-        .concept-section .concept-icon {
-            font-size: 3rem;
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
+        .concept-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .concept-section h2 {
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            font-weight: 800;
+        .concept-content .section-tag {
+            color: #34d399;
+            background: rgba(13, 148, 136, 0.12);
+            border-color: rgba(13, 148, 136, 0.15);
         }
 
-        .concept-section p {
-            max-width: 750px;
-            margin: 0 auto;
-            opacity: 0.85;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.85);
+        .concept-content h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .concept-content h2 span {
+            color: #34d399;
+        }
+
+        .concept-content p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            line-height: 1.7;
         }
 
         .concept-stats {
             display: flex;
             justify-content: center;
-            gap: 60px;
-            margin-top: 40px;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
-        .concept-stats .stat {
+        .concept-stats .stat-item {
             text-align: center;
         }
 
-        .concept-stats .stat .number {
+        .concept-stats .stat-item .number {
             font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-cyan);
+            font-weight: 900;
+            color: #34d399;
+            display: block;
+            line-height: 1.2;
         }
 
-        .concept-stats .stat .label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .concept-stats .stat-item .label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* ==========================================
            CTA SECTION
            ========================================== */
         .cta-section {
-            padding: 80px 20px 100px;
-            text-align: center;
+            padding: 80px 0;
             background: var(--bg-primary);
+            text-align: center;
             transition: background 0.3s ease;
         }
 
         .cta-section h2 {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 900;
             color: var(--text-primary);
-            font-weight: 800;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            transition: color 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .cta-section .highlight-text {
+            color: var(--accent-cyan);
         }
 
         .cta-section p {
-            color: var(--text-secondary);
             font-size: 1.05rem;
-            margin-bottom: 35px;
-            transition: color 0.3s ease;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
         }
 
         .cta-btn {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 18px 50px;
-            background: var(--gradient-text);
-            color: var(--text-white);
-            text-decoration: none;
+            padding: 16px 40px;
+            background: var(--accent-cyan);
+            color: #ffffff;
+            font-size: 0.95rem;
             font-weight: 700;
-            font-size: 1rem;
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--accent-cyan);
-            box-shadow: 0 10px 30px var(--accent-glow);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.4s ease;
         }
 
         .cta-btn:hover {
-            background: transparent;
-            color: var(--accent-cyan);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px var(--accent-glow);
-        }
-
-        [data-theme="dark"] .cta-btn {
-            color: var(--bg-primary);
-        }
-
-        [data-theme="dark"] .cta-btn:hover {
-            color: var(--accent-cyan);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(13, 148, 136, 0.35);
+            background: #0f9d8f;
+            color: #ffffff;
         }
 
         .cta-btn i {
-            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        [data-theme="dark"] .cta-section {
+            background: var(--bg-secondary);
         }
 
         /* ==========================================
@@ -590,82 +667,72 @@
             transition: color 0.3s ease;
         }
 
+        
         /* ==========================================
            RESPONSIVE
            ========================================== */
-        @media (max-width: 992px) {
+        @media (max-width: 991px) {
+            .ai-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
             .concept-stats {
-                gap: 40px;
+                gap: 30px;
             }
         }
 
         @media (max-width: 768px) {
             .hero-section {
-                padding: 60px 20px 40px;
+                padding: 100px 0 60px 0;
             }
             .hero-section h1 {
                 font-size: 2.2rem;
             }
-            .hero-section .icon-badge {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
+            .ai-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
-            .ai-features {
-                padding: 50px 20px 70px;
-            }
-            .section-heading {
-                font-size: 1.8rem;
-            }
-            .concept-section {
-                padding: 60px 20px;
-            }
-            .concept-section h2 {
-                font-size: 2rem;
+            .ai-card {
+                padding: 28px 20px;
             }
             .concept-stats {
-                gap: 30px;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .concept-stats .stat-item .number {
+                font-size: 2rem;
+            }
+            .hero-cta {
                 flex-direction: column;
                 align-items: center;
             }
-            .concept-stats .stat .number {
-                font-size: 2rem;
-            }
-            .cta-section {
-                padding: 60px 20px;
-            }
-            .cta-section h2 {
-                font-size: 1.8rem;
-            }
-            .cta-btn {
-                padding: 14px 35px;
-                font-size: 0.9rem;
+            .hero-btn-primary,
+            .hero-btn-secondary {
+                width: 100%;
+                justify-content: center;
             }
         }
 
-        @media (max-width: 576px) {
-            .ai-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .ai-card {
-                padding: 30px 20px;
-            }
-            .ai-card .card-icon {
-                width: 55px;
-                height: 55px;
-                font-size: 1.8rem;
-            }
-            .ai-card h3 {
-                font-size: 1.1rem;
-            }
+        @media (max-width: 480px) {
             .hero-section h1 {
                 font-size: 1.8rem;
             }
-            .hero-section .icon-badge {
-                width: 50px;
-                height: 50px;
+            .ai-card h3 {
+                font-size: 1.05rem;
+            }
+            .ai-card p {
+                font-size: 0.85rem;
+            }
+            .concept-content h2 {
                 font-size: 1.6rem;
+            }
+            .concept-stats .stat-item .number {
+                font-size: 1.6rem;
+            }
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -673,15 +740,15 @@
 
 <body>
 
-    <!-- ===== ELASTIC CURSOR ===== -->
-    <div id="elastic-cursor"></div>
-
-    <!-- ===== NAVIGATION ===== -->
+    <!-- ==========================================
+    NAVIGATION - DARK
+    ========================================== -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="../index.html" class="logo">
                 <img src="../images/logo.webp" alt="Coded Clouds Logo">
             </a>
+
             <div class="nav-actions">
                 <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
                     <i class="fa-solid fa-moon"></i>
@@ -693,155 +760,154 @@
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION ===== -->
-    <header class="hero-section" data-aos="fade-up">
+    <!-- ==========================================
+    HERO SECTION
+    ========================================== -->
+    <section class="hero-section">
         <div class="container">
-            <div class="icon-badge">
-                <i class="fas fa-brain"></i>
+            <span class="hero-badge"><i class="fas fa-brain me-2"></i>AI SOLUTIONS</span>
+            <h1>AI & <span>Automation</span></h1>
+            <p>Harness the power of artificial intelligence to transform your business. From machine learning to natural language processing, we build intelligent systems that drive growth and efficiency.</p>
+            <div class="hero-cta">
+                <a href="#features" class="hero-btn-primary">
+                    <span>Explore Solutions</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="../Components/contact.html" class="hero-btn-secondary">
+                    <i class="fa-regular fa-circle-play"></i>
+                    <span>Book a Consultation</span>
+                </a>
             </div>
-            <h1>AI <span>Solutions</span></h1>
-            <div class="hero-underline"></div>
-            <p>Harness the power of artificial intelligence to transform your business. From machine learning to natural language processing, we build intelligent systems that drive growth.</p>
         </div>
-    </header>
+    </section>
 
-    <!-- ===== AI FEATURES ===== -->
-    <section class="ai-features">
+    <!-- ==========================================
+    AI FEATURES SECTION
+    ========================================== -->
+    <section class="ai-features" id="features">
         <div class="container">
-            <h2 class="section-heading" data-aos="fade-up">Intelligent Solutions</h2>
-            <p class="section-subtitle" data-aos="fade-up">Custom AI-powered solutions designed for your unique business challenges</p>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">INTELLIGENT SOLUTIONS</span>
+                <h2>Custom AI <span class="highlight-text">Powered Systems</span></h2>
+                <p>Tailor-made artificial intelligence solutions designed to address your unique business challenges and unlock new opportunities.</p>
+            </div>
 
             <div class="ai-grid">
+                <!-- Card 1 -->
                 <div class="ai-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon"><i class="fas fa-robot"></i></div>
+                    <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
                     <h3>Smart Chatbots</h3>
-                    <p>AI-powered virtual assistants that provide 24/7 customer support, learn from interactions, and deliver human-like conversations.</p>
+                    <p>AI-powered virtual assistants that provide 24/7 customer support, learn from every interaction, and deliver natural, human-like conversations.</p>
                     <span class="tag">NLP</span>
                 </div>
 
+                <!-- Card 2 -->
                 <div class="ai-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <h3>Predictive Analytics</h3>
-                    <p>Leverage machine learning algorithms to forecast trends, customer behavior, inventory needs, and business outcomes with high accuracy.</p>
+                    <p>Leverage advanced machine learning algorithms to forecast trends, customer behavior, inventory needs, and business outcomes with high accuracy.</p>
                     <span class="tag">ML</span>
                 </div>
 
+                <!-- Card 3 -->
                 <div class="ai-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="card-icon"><i class="fa-solid fa-cogs"></i></div>
                     <h3>Workflow Automation</h3>
-                    <p>Automate repetitive tasks, data entry, and business processes with intelligent workflow engines and seamless API integrations.</p>
+                    <p>Automate repetitive tasks, eliminate manual data entry, and optimize business processes with intelligent workflow engines and seamless API integrations.</p>
                     <span class="tag">RPA</span>
                 </div>
 
+                <!-- Card 4 -->
                 <div class="ai-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
                     <h3>Custom ML Models</h3>
-                    <p>Tailor-made machine learning solutions including classification, regression, clustering, and deep learning for your specific needs.</p>
+                    <p>Tailor-made machine learning solutions including classification, regression, clustering, and deep learning architectures for your specific needs.</p>
                     <span class="tag">Deep Learning</span>
                 </div>
 
+                <!-- Card 5 -->
                 <div class="ai-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card-icon"><i class="fas fa-eye"></i></div>
+                    <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
                     <h3>Computer Vision</h3>
-                    <p>Image and video analysis solutions for object detection, facial recognition, quality control, and visual inspection systems.</p>
+                    <p>Advanced image and video analysis solutions for object detection, facial recognition, quality control, and intelligent visual inspection systems.</p>
                     <span class="tag">Vision AI</span>
                 </div>
 
+                <!-- Card 6 -->
                 <div class="ai-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
-                    <h3>NLP Solutions</h3>
-                    <p>Natural language processing for text analysis, sentiment analysis, document summarization, and intelligent search systems.</p>
+                    <div class="card-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <h3>NLP & Text Processing</h3>
+                    <p>Natural language processing solutions for sentiment analysis, document summarization, intelligent search, and automated text classification.</p>
                     <span class="tag">NLP</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONCEPT SECTION ===== -->
-    <section class="concept-section" data-aos="fade-up">
+    <!-- ==========================================
+    CONCEPT SECTION (DARK)
+    ========================================== -->
+    <section class="concept-dark-section">
         <div class="container">
-            <div class="concept-icon">
-                <i class="fas fa-rocket"></i>
-            </div>
-            <h2>Human Intelligence, AI Speed</h2>
-            <p>Our goal isn't just to automate tasks, but to empower your team to focus on strategic, creative, and high-value work while AI handles the heavy lifting.</p>
-
-            <div class="concept-stats">
-                <div class="stat">
-                    <div class="number">95%</div>
-                    <div class="label">Accuracy Rate</div>
-                </div>
-                <div class="stat">
-                    <div class="number">10x</div>
-                    <div class="label">Faster Processing</div>
-                </div>
-                <div class="stat">
-                    <div class="number">24/7</div>
-                    <div class="label">Uptime Availability</div>
+            <div class="concept-content" data-aos="fade-up">
+                <span class="section-tag">OUR PHILOSOPHY</span>
+                <h2>Human Intelligence, <span>AI Speed</span></h2>
+                <p>Our goal isn't just to automate tasks — it's to empower your team to focus on strategic, creative, and high-value work while AI handles the heavy lifting and complex data processing.</p>
+                <div class="concept-stats">
+                    <div class="stat-item">
+                        <span class="number">95%</span>
+                        <span class="label">Accuracy Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">10x</span>
+                        <span class="label">Faster Processing</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">24/7</span>
+                        <span class="label">Uptime Availability</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CTA SECTION ===== -->
-    <section class="cta-section" data-aos="fade-up">
+    <!-- ==========================================
+    CTA SECTION
+    ========================================== -->
+    <section class="cta-section">
         <div class="container">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Book a consultation to discover how AI can revolutionize your operations and drive growth.</p>
-            <a href="./contact.html" class="cta-btn">
-                <i class="fas fa-rocket"></i> Get Started
+            <h2 data-aos="fade-up">Ready to Transform <span class="highlight-text">Your Business</span>?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Book a consultation to discover how AI can revolutionize your operations, automate workflows, and drive sustainable growth.</p>
+            <a href="../Components/contact.html" class="cta-btn" data-aos="fade-up" data-aos-delay="200">
+                <span>Get Started</span>
+                <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ==========================================
+    FOOTER
+    ========================================== -->
     <footer class="footer-bar">
         <div class="container">
-            <p>© 2026 <strong>CodedClouds</strong>. All rights reserved.</p>
+            <p>© 2026 <strong>CodedClouds</strong> Pvt. Ltd. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- ==========================================
+    SCRIPTS
+    ========================================== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script>
-        // ===== AOS INIT =====
         AOS.init({
-            duration: 800,
+            offset: 50,
+            duration: 600,
             once: true,
-            offset: 50
+            disable: 'mobile'
         });
-
-        // ===== THEME TOGGLE =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
-            const icon = themeToggle.querySelector('i');
-            
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateIcon(savedTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(newTheme);
-            });
-            
-            function updateIcon(theme) {
-                if (theme === 'dark') {
-                    icon.className = 'fa-solid fa-sun';
-                } else {
-                    icon.className = 'fa-solid fa-moon';
-                }
-            }
-        });
-
-        
     </script>
+    
+    <script src="../assets/js/script.js"></script>
 
 </body>
 </html>

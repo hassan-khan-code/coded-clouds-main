@@ -644,6 +644,29 @@
             background: var(--bg-secondary);
         }
 
+          /* ==========================================
+           FOOTER
+           ========================================== */
+        .footer-bar {
+            background: var(--bg-footer);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-bar p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .footer-bar strong {
+            color: var(--text-white);
+            transition: color 0.3s ease;
+        }
+
         /* ==========================================
            RESPONSIVE
            ========================================== */
@@ -879,6 +902,15 @@
             </a>
         </div>
     </section>
+
+      <!-- ==========================================
+    FOOTER
+    ========================================== -->
+    <footer class="footer-bar">
+        <div class="container">
+            <p>© 2026 <strong>CodedClouds</strong> Pvt. Ltd. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- ==========================================
     SCRIPTS
