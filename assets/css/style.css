@@ -4416,9 +4416,13 @@ body {
   color: var(--text-secondary);
 }
 
+/* ==========================================
+   SUBMIT BUTTON - FIXED FOR DARK MODE
+   ========================================== */
+
 .submit-btn {
   background: var(--gradient-btn);
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -4435,9 +4439,23 @@ body {
 
 .submit-btn:hover {
   background: var(--gradient-btn-hover);
-  color: var(--text-white);
+  color: var(--text-white) !important;
   transform: translateY(-2px);
   box-shadow: 0 12px 25px rgba(0, 212, 255, 0.35);
+}
+
+/* ===== DARK MODE OVERRIDE ===== */
+[data-theme="dark"] .submit-btn {
+  background: var(--accent-cyan) !important;
+  color: var(--text-white) !important;
+  box-shadow: 0 10px 20px rgba(13, 148, 136, 0.3);
+}
+
+[data-theme="dark"] .submit-btn:hover {
+  background: #0f9d8f !important;
+  color: var(--text-white) !important;
+  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.5);
+  transform: translateY(-2px);
 }
 
 .contact-right-col {
@@ -5318,7 +5336,7 @@ body {
   color: var(--accent-cyan);
 }
 
-/* Call To Action Box */
+/* CTA Box */
 .offcanvas-cta-box {
   max-width: 950px;
   margin: 35px auto 0 auto;
@@ -5331,6 +5349,7 @@ body {
   justify-content: space-between;
   gap: 20px;
   box-shadow: var(--shadow-lg);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .cta-text h4 {
@@ -5338,17 +5357,20 @@ body {
   font-weight: 800;
   font-size: 1.25rem;
   margin: 0 0 4px 0;
+  transition: color 0.3s ease;
 }
 
 .cta-text p {
   color: var(--text-secondary) !important;
   font-size: 0.92rem;
   margin: 0;
+  transition: color 0.3s ease;
 }
 
+/* ===== CTA BUTTON - FIXED FOR DARK MODE ===== */
 .cta-btn {
   background: var(--gradient-btn);
-  color: var(--text-white);
+  color: var(--text-white) !important;
   font-weight: 800;
   font-size: 0.95rem;
   padding: 12px 24px;
@@ -5360,12 +5382,29 @@ body {
   white-space: nowrap;
   transition: all 0.3s ease;
   border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .cta-btn:hover {
   background: var(--gradient-btn-hover);
   transform: translateX(4px);
   box-shadow: 0 8px 25px var(--accent-glow);
+  color: var(--text-white) !important;
+}
+
+/* ===== DARK MODE OVERRIDE ===== */
+[data-theme="dark"] .cta-btn {
+  background: var(--accent-cyan) !important;
+  color: var(--text-white) !important;
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3);
+}
+
+[data-theme="dark"] .cta-btn:hover {
+  background: #0f9d8f !important;
+  color: var(--text-white) !important;
+  box-shadow: 0 8px 30px rgba(13, 148, 136, 0.5);
+  transform: translateX(4px);
 }
 
 /* Responsive */
