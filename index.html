@@ -14,254 +14,264 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkTtD1Fp5lJnp4JwXrj5qK2gS39G1JQ8qVZ+4N1F5QkGPHqNq6Vb9anfg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <body>
 
   <!-- Navbar section -->
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
 
-    <!-- Logo with Image Tag -->
-    <a href="#" class="navbar-brand p-0 m-0">
-      <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
-    </a>
+      <!-- Logo with Image Tag -->
+      <a href="#" class="navbar-brand p-0 m-0">
+        <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
+      </a>
 
-    <!-- Mobile Header Actions (Moon Icon + Hamburger Button Grouped Together) -->
-    <div class="mobile-nav-actions d-flex align-items-center gap-2 d-lg-none ms-auto">
-      <button id="themeToggleMobile" class="theme-toggle-btn" aria-label="Toggle Theme">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-
-      <button class="navbar-toggler burger-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-  aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-  <i class="fa-solid fa-bars burger-icon"></i>
-</button>
-    </div>
-
-    <!-- Nav Items -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
-
-      <!-- Center Links -->
-      <div class="center-nav-container d-flex align-items-center gap-1 mx-auto">
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDo"
-          aria-controls="offcanvasDo">
-          WHAT WE DO
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHelp"
-          aria-controls="offcanvasHelp">
-          WHO WE HELP
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWho"
-          aria-controls="offcanvasWho">
-          WHO WE ARE
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVentures"
-          aria-controls="offcanvasVentures">
-          LIVE CODE
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasJoin"
-          aria-controls="offcanvasJoin">
-          INTERSHIP
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam"
-          aria-controls="offcanvasTeam">
-          OUR TEAM
-        </button>
-        <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasstory"
-          aria-controls="offcanvasstory">
-          OUR STORY
-        </button>
-      </div>
-
-      <!-- Right Action Button (Desktop Only Theme Toggle) -->
-      <div class="right-nav-container d-flex align-items-center ms-auto">
-        <button id="themeToggle" class="theme-toggle-btn d-none d-lg-flex" aria-label="Toggle Theme">
+      <!-- Mobile Header Actions (Moon Icon + Hamburger Button Grouped Together) -->
+      <div class="mobile-nav-actions d-flex align-items-center gap-2 d-lg-none ms-auto">
+        <button id="themeToggleMobile" class="theme-toggle-btn" aria-label="Toggle Theme">
           <i class="fa-solid fa-moon"></i>
         </button>
-        <a href="./Components/service.html" class="text-decoration-none w-100">
-          <button class="btn  e-nav-talk-btn" type="button">Explore Services</button>
-        </a>
+
+        <button class="navbar-toggler burger-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars burger-icon"></i>
+        </button>
       </div>
 
+      <!-- Nav Items -->
+      <div class="collapse navbar-collapse" id="mainNavbar">
+
+        <!-- Center Links -->
+        <div class="center-nav-container d-flex align-items-center gap-1 mx-auto">
+          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDo"
+            aria-controls="offcanvasDo">
+            WHAT WE DO
+          </button>
+          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHelp"
+            aria-controls="offcanvasHelp">
+            WHO WE HELP
+          </button>
+          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWho"
+            aria-controls="offcanvasWho">
+            WHO WE ARE
+          </button>
+          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVentures"
+            aria-controls="offcanvasVentures">
+            LIVE CODE
+          </button>
+          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasJoin"
+            aria-controls="offcanvasJoin">
+            INTERSHIP
+          </button>
+          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam"
+            aria-controls="offcanvasTeam">
+            OUR TEAM
+          </button>
+          <button class="btn nav-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasstory"
+            aria-controls="offcanvasstory">
+            OUR STORY
+          </button>
+        </div>
+
+        <!-- Right Action Button (Desktop Only Theme Toggle) -->
+        <div class="right-nav-container d-flex align-items-center ms-auto">
+          <button id="themeToggle" class="theme-toggle-btn d-none d-lg-flex" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <a href="./Components/service.html" class="text-decoration-none w-100">
+            <button class="btn  e-nav-talk-btn" type="button">Explore Services</button>
+          </a>
+        </div>
+
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
   <!-- Navbar section end -->
 
-<div class="floating-widget-container">
-  <a href="https://wa.me/+966594552890" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
+  <div class="floating-widget-container">
+    <a href="https://wa.me/+966594552890" class="whatsapp-btn" target="_blank" rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
 
   <div>
 
 
-<!-- ==========================================
+    <!-- ==========================================
    HERO SECTION - ULTRA PREMIUM ANIMATIONS
    ========================================== -->
-<section class="hero-section-ultra" data-aos="fade-up">
-  
-  <!-- ===== ANIMATED BACKGROUND LAYERS ===== -->
-  
-  <!-- Layer 1: Moving Gradient -->
-  <div class="hero-bg-layer-1"></div>
-  
-  <!-- Layer 2: Floating Orbs -->
-  <div class="hero-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="orb orb-4"></div>
-    <div class="orb orb-5"></div>
-  </div>
-  
-  <!-- Layer 3: Grid Pattern with Animation -->
-  <div class="hero-grid-animated"></div>
-  
-  <!-- Layer 4: Floating Particles -->
-  <div class="hero-particles-heavy">
-    <span class="particle-h p1"></span>
-    <span class="particle-h p2"></span>
-    <span class="particle-h p3"></span>
-    <span class="particle-h p4"></span>
-    <span class="particle-h p5"></span>
-    <span class="particle-h p6"></span>
-    <span class="particle-h p7"></span>
-    <span class="particle-h p8"></span>
-    <span class="particle-h p9"></span>
-    <span class="particle-h p10"></span>
-    <span class="particle-h p11"></span>
-    <span class="particle-h p12"></span>
-    <span class="particle-h p13"></span>
-    <span class="particle-h p14"></span>
-    <span class="particle-h p15"></span>
-     <span class="particle-h p15"></span>
-      <span class="particle-h p15"></span>
-    <span class="particle-h p15"></span>
+    <section class="hero-section-ultra" data-aos="fade-up">
+
+      <!-- ===== ANIMATED BACKGROUND LAYERS ===== -->
+
+      <!-- Layer 1: Moving Gradient -->
+      <div class="hero-bg-layer-1"></div>
+
+      <!-- Layer 2: Floating Orbs -->
+      <div class="hero-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+        <div class="orb orb-5"></div>
+      </div>
+
+      <!-- Layer 3: Grid Pattern with Animation -->
+      <div class="hero-grid-animated"></div>
+
+      <!-- Layer 4: Floating Particles -->
+      <div class="hero-particles-heavy">
+        <span class="particle-h p1"></span>
+        <span class="particle-h p2"></span>
+        <span class="particle-h p3"></span>
+        <span class="particle-h p4"></span>
+        <span class="particle-h p5"></span>
+        <span class="particle-h p6"></span>
+        <span class="particle-h p7"></span>
+        <span class="particle-h p8"></span>
+        <span class="particle-h p9"></span>
+        <span class="particle-h p10"></span>
+        <span class="particle-h p11"></span>
+        <span class="particle-h p12"></span>
+        <span class="particle-h p13"></span>
+        <span class="particle-h p14"></span>
         <span class="particle-h p15"></span>
-         <span class="particle-h p15"></span>
-          <span class="particle-h p15"></span>
-           <span class="particle-h p15"></span>
-            <span class="particle-h p15"></span>
-             <span class="particle-h p15"></span>
-              <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
 
-               <span class="particle-h p15"></span>
-                <span class="particle-h p15"></span>
-                 <span class="particle-h p15"></span>
-                  <span class="particle-h p15"></span>
-                   <span class="particle-h p15"></span>
-                    <span class="particle-h p15"></span>
-                     <span class="particle-h p15"></span>
-                      <span class="particle-h p15"></span>
-                       <span class="particle-h p15"></span>
-  </div>
-  
-  <!-- Layer 5: Scanning Line Effect -->
-  <div class="hero-scan-line"></div>
-
-  <!-- Layer 6: Overlay -->
-  <div class="hero-overlay-ultra"></div>
-
-  <!-- ===== CONTENT ===== -->
-  <div class="container hero-container-ultra">
-    <div class="hero-content-ultra">
-
-      <!-- Title -->
-      <h1 class="hero-title-ultra">
-        Your Cloud <span class="text-gradient-ultra">Our Code</span>
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="hero-sub-ultra">
-       Bridging the gap between ambitious vision and powerful technology. At <b>Coded Clouds</b>, we architect bespoke digital solutions—web, mobile, and desktop—crafted to streamline operations and elevate modern brands globally.
-      </p>
-
-      <!-- Buttons -->
-      <div class="hero-btn-group-ultra">
-        <a href="./Components/contact.html" class="hero-btn-primary-ultra">
-          <span>Get in Touch</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="./Components/service.html" class="hero-btn-secondary-ultra">
-          <i class="fa-regular fa-circle-play"></i>
-          <span>Explore Services</span>
-        </a>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
+        <span class="particle-h p15"></span>
       </div>
 
-      <!-- Trust -->
-      <div class="hero-trust-ultra">
-        <div class="trust-item-ultra">
-          <span class="trust-icon-ultra"><i class="fa-solid fa-check-circle"></i></span>
-          <span>Tailored Tech Solutions</span>
-        </div>
-        <span class="trust-dot-ultra"></span>
-        <div class="trust-item-ultra">
-          <span class="trust-icon-ultra"><i class="fa-solid fa-check-circle"></i></span>
-          <span>Proven Track Record</span>
-        </div>
-        <span class="trust-dot-ultra"></span>
-        <div class="trust-item-ultra">
-          <span class="trust-icon-ultra"><i class="fa-solid fa-check-circle"></i></span>
-          <span>24/7 Strategic Support</span>
+      <!-- Layer 5: Scanning Line Effect -->
+      <div class="hero-scan-line"></div>
+
+      <!-- Layer 6: Overlay -->
+      <div class="hero-overlay-ultra"></div>
+
+      <!-- ===== CONTENT ===== -->
+      <div class="container hero-container-ultra">
+        <div class="hero-content-ultra">
+
+          <!-- Title -->
+          <h1 class="hero-title-ultra">
+            Your Cloud <span class="text-gradient-ultra">Our Code</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-sub-ultra">
+            We help businesses like yours turn messy operations into smooth,
+            automated systems. No fluff. Just software that solves real problems
+            and makes you money.
+          </p>
+
+          <!-- Buttons -->
+          <div class="hero-btn-group-ultra">
+            <a href="./Components/contact.html" class="hero-btn-primary-ultra">
+              <span>Start Your Project</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="./Components/service.html" class="hero-btn-secondary-ultra">
+              <i class="fa-regular fa-circle-play"></i>
+              <span>See What We've Built</span>
+            </a>
+          </div>
+
+          <!-- Trust -->
+          <div class="hero-trust-ultra">
+            <div class="trust-item-ultra">
+              <span class="trust-icon-ultra"><i class="fa-solid fa-check-circle"></i></span>
+              <span>Tailored Tech Solutions</span>
+            </div>
+            <span class="trust-dot-ultra"></span>
+            <div class="trust-item-ultra">
+              <span class="trust-icon-ultra"><i class="fa-solid fa-check-circle"></i></span>
+              <span>Proven Track Record</span>
+            </div>
+            <span class="trust-dot-ultra"></span>
+            <div class="trust-item-ultra">
+              <span class="trust-icon-ultra"><i class="fa-solid fa-check-circle"></i></span>
+              <span>24/7 Strategic Support</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
-    </div>
-  </div>
+      <!-- Scroll Indicator -->
+      <div class="hero-scroll-ultra">
+        <span>Scroll</span>
+        <div class="scroll-line-ultra"></div>
+      </div>
 
-  <!-- Scroll Indicator -->
-  <div class="hero-scroll-ultra">
-    <span>Scroll</span>
-    <div class="scroll-line-ultra"></div>
-  </div>
-
-</section>
+    </section>
 
     <!-- ==========================================
    MISSION, VISION, VALUES SECTION
    ========================================== -->
-<section class="mission-vision-section">
-  <div class="container">
-    <div class="section-header text-center" data-aos="fade-up">
-      <h2>Built for Growth, <span class="highlight-text"> Engineered </span> for Scale</h2>
-    </div>
-
-    <div class="mv-grid">
-      <!-- Mission Card -->
-      <div class="mv-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="mv-icon">
-          <i class="fa-solid fa-bullseye"></i>
+    <section class="mission-vision-section">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <h2>Built for Growth, <span class="highlight-text"> Engineered </span> for Scale</h2>
         </div>
-        <h3>Our Mission</h3>
-        <p>To engineer high-performance digital ecosystems that simplify complex business challenges, automate core operations, and create measurable commercial value for every client.</p>
-      </div>
 
-      <!-- Vision Card -->
-      <div class="mv-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="mv-icon">
-          <i class="fa-solid fa-eye"></i>
-        </div>
-        <h3>Our Vision</h3>
-        <p>To be a globally trusted software organization known for building secure, scalable, and future-proof digital infrastructure that powers the next generation of enterprises.</p>
-      </div>
+        <div class="mv-grid">
+          <!-- Mission Card -->
+          <div class="mv-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="mv-icon">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>Our Mission</h3>
+            <p>We turn messy business problems into clean, working solutions.
+              That's it. No jargon, no over-promising. Just software that solves
+              real problems and helps you make more money.</p>
+          </div>
 
-      <!-- Values Card -->
-      <div class="mv-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="mv-icon">
-          <i class="fa-solid fa-heart"></i>
+          <!-- Vision Card -->
+          <div class="mv-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="mv-icon">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3>Our Vision</h3>
+            <p>We want to be the software company you trust most. The one that
+              delivers secure systems, fast performance, and real support. The one
+              that's still here three years from now, making your software better.</p>
+          </div>
+
+          <!-- Values Card -->
+          <div class="mv-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="mv-icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3>Our Values</h3>
+            <p>We write code that lasts. We show up when we say we will. We tell
+              you the truth, even when it's not what you want to hear. We're here
+              for the long game, not just the paycheck.</p>
+          </div>
         </div>
-        <h3>Our Values</h3>
-        <p>Grounded in engineering precision, transparent collaboration, and relentless innovation. We prioritize code quality, integrity, and long-term technical excellence in every solution we build.</p>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
     <!-- ==========================================
@@ -272,7 +282,7 @@
 
         <!-- Header -->
         <div class="client-header" data-aos="fade-up">
-          <h2>Meet Our <span class="client-highlight">Clients</span></h2>
+          <h2>Businesses Like <span class="highlight-text">Yours Trust Us</span></h2>
           <div class="client-divider"></div>
         </div>
 
@@ -354,304 +364,313 @@
       </div>
     </section>
 
-<!-- ==========================================
+    <!-- ==========================================
    WHY CHOOSE US + ACHIEVEMENTS (MERGED WITH COUNTER)
    ========================================== -->
-<section class="why-enterprise-section" id="why-choose">
-  <div class="container">
-    
-    <!-- Section Header -->
-    <div class="enterprise-header text-center" data-aos="fade-up">
-      <span class="enterprise-badge">
-        <i class="fa-solid fa-building-columns"></i> ENTERPRISE PARTNER
-      </span>
-      <h2>Why Growing <span class="highlight-text">Businesses</span> Partner With Us</h2>
-      <p class="header-desc">
-        We combine technical precision with structured delivery models, building software systems that solve operational bottlenecks and drive measurable business ROI.
-      </p>
-    </div>
+    <section class="why-enterprise-section" id="why-choose">
+      <div class="container">
 
-    <!-- ===== TOP ROW: 4 Enterprise Cards ===== -->
-    <div class="enterprise-grid">
+        <!-- Section Header -->
+        <div class="enterprise-header text-center" data-aos="fade-up">
+          <span class="enterprise-badge">
+            <i class="fa-solid fa-building-columns"></i> ENTERPRISE PARTNER
+          </span>
+          <h2>Four Reasons Businesses Pick Us Over <span class="highlight-text">Other Tech Companies </span></h2>
+          <p class="header-desc">
+            We combine technical precision with structured delivery models, building software systems that solve
+            operational bottlenecks and drive measurable business ROI.
+          </p>
+        </div>
 
-      <!-- Card 1: Security & Compliance -->
-      <div class="enterprise-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-top">
-          <div class="card-icon-wrapper">
-            <div class="card-icon">
-              <i class="fa-solid fa-shield-halved"></i>
+        <!-- ===== TOP ROW: 4 Enterprise Cards ===== -->
+        <div class="enterprise-grid">
+
+          <!-- Card 1: Security & Compliance -->
+          <div class="enterprise-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-top">
+              <div class="card-icon-wrapper">
+                <div class="card-icon">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+              </div>
+              <span class="card-number">01</span>
+            </div>
+            <h3>Security You Can Actually Trust</h3>
+            <p>Your customer data is gold. We protect it like it's our own.
+              We use industry-standard encryption, strict access controls, and
+              catch security issues before they become problems. Your data stays yours.</p>
+            <ul class="card-features">
+              <li><i class="fa-regular fa-circle-check"></i> End-to-End Data Encryption</li>
+              <li><i class="fa-regular fa-circle-check"></i> Compliance-First Codebase</li>
+              <li><i class="fa-regular fa-circle-check"></i> Secure Role-Based Access</li>
+            </ul>
+            <div class="card-trust-badge">
+              <i class="fa-solid fa-lock"></i>
+              <span>Data Protection Built-In</span>
             </div>
           </div>
-          <span class="card-number">01</span>
-        </div>
-        <h3>Production-Ready Security</h3>
-        <p>We engineer robust systems with industry-standard encryption, strict data access controls, and proactive vulnerability protection built directly into the codebase.</p>
-        <ul class="card-features">
-          <li><i class="fa-regular fa-circle-check"></i> End-to-End Data Encryption</li>
-          <li><i class="fa-regular fa-circle-check"></i> Compliance-First Codebase</li>
-          <li><i class="fa-regular fa-circle-check"></i> Secure Role-Based Access</li>
-        </ul>
-        <div class="card-trust-badge">
-          <i class="fa-solid fa-lock"></i>
-          <span>Data Protection Built-In</span>
-        </div>
-      </div>
 
-      <!-- Card 2: Scalability -->
-      <div class="enterprise-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-top">
-          <div class="card-icon-wrapper">
-            <div class="card-icon">
-              <i class="fa-solid fa-arrows-spin"></i>
+          <!-- Card 2: Scalability -->
+          <div class="enterprise-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-top">
+              <div class="card-icon-wrapper">
+                <div class="card-icon">
+                  <i class="fa-solid fa-arrows-spin"></i>
+                </div>
+              </div>
+              <span class="card-number">02</span>
+            </div>
+            <h3>Software That Grows With You</h3>
+            <p>Whether you have 10 customers today or 10,000 tomorrow, your system
+              stays fast and reliable. We build with modern cloud tools and clean code
+              that doesn't slow down as you expand.</p>
+            <ul class="card-features">
+              <li><i class="fa-regular fa-circle-check"></i> Fast Performance</li>
+              <li><i class="fa-regular fa-circle-check"></i> Automated Scaling</li>
+              <li><i class="fa-regular fa-circle-check"></i> Rock-solid Databases Otimized for Speed</li>
+            </ul>
+            <div class="card-trust-badge">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>Cloud-Native Design</span>
             </div>
           </div>
-          <span class="card-number">02</span>
-        </div>
-        <h3>Engineered for Scale & Speed</h3>
-        <p>Modular architectures, clean database indexing, and cloud-native hosting setup designed to keep your platform fast, reliable, and smooth as your user base expands.</p>
-        <ul class="card-features">
-          <li><i class="fa-regular fa-circle-check"></i> High-Performance Architecture</li>
-          <li><i class="fa-regular fa-circle-check"></i> Automated Cloud Scaling</li>
-          <li><i class="fa-regular fa-circle-check"></i> Optimized Database Queries</li>
-        </ul>
-        <div class="card-trust-badge">
-          <i class="fa-solid fa-cloud-arrow-up"></i>
-          <span>Cloud-Native Design</span>
-        </div>
-      </div>
 
-      <!-- Card 3: Innovation -->
-      <div class="enterprise-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-top">
-          <div class="card-icon-wrapper">
-            <div class="card-icon">
-              <i class="fa-solid fa-microchip"></i>
+          <!-- Card 3: Innovation -->
+          <div class="enterprise-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-top">
+              <div class="card-icon-wrapper">
+                <div class="card-icon">
+                  <i class="fa-solid fa-microchip"></i>
+                </div>
+              </div>
+              <span class="card-number">03</span>
+            </div>
+            <h3>We Actually Communicate</h3>
+            <p>We use modern, proven tools so your system isn't built on old tech.
+              That means your code is easy to update, fast to deploy, and built for the future.</p>
+            <ul class="card-features">
+              <li><i class="fa-regular fa-circle-check"></i> Direct Communication</li>
+              <li><i class="fa-regular fa-circle-check"></i> Transparent Roadmaps</li>
+              <li><i class="fa-regular fa-circle-check"></i> Post-launch Support and Improvements</li>
+            </ul>
+            <div class="card-trust-badge">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Future-Proof Stack</span>
             </div>
           </div>
-          <span class="card-number">03</span>
-        </div>
-        <h3>Modern Technical Stacks</h3>
-        <p>We build with battle-tested frameworks and modern engineering standards—ensuring your platform remains fast, maintainable, and easily extendable for future updates.</p>
-        <ul class="card-features">
-          <li><i class="fa-regular fa-circle-check"></i> Modern Web & Mobile Frameworks</li>
-          <li><i class="fa-regular fa-circle-check"></i> API-First Development</li>
-          <li><i class="fa-regular fa-circle-check"></i> Clean, Maintainable Codebase</li>
-        </ul>
-        <div class="card-trust-badge">
-          <i class="fa-solid fa-bolt"></i>
-          <span>Future-Proof Stack</span>
-        </div>
-      </div>
 
-      <!-- Card 4: Dedicated Support -->
-      <div class="enterprise-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="card-top">
-          <div class="card-icon-wrapper">
-            <div class="card-icon">
-              <i class="fa-solid fa-headset"></i>
+          <!-- Card 4: Dedicated Support -->
+          <div class="enterprise-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-top">
+              <div class="card-icon-wrapper">
+                <div class="card-icon">
+                  <i class="fa-solid fa-headset"></i>
+                </div>
+              </div>
+              <span class="card-number">04</span>
+            </div>
+            <h3>Real Partnership, Not Just Vendor</h3>
+            <p>You won't be ghosted. You get direct access to the team, weekly updates
+              on progress, and support after launch. We function as your tech partner,
+              not just a vendor.</p>
+            <ul class="card-features">
+              <li><i class="fa-regular fa-circle-check"></i> Direct Communication Channels</li>
+              <li><i class="fa-regular fa-circle-check"></i> Structured Sprint Updates</li>
+              <li><i class="fa-regular fa-circle-check"></i> Post-Launch Support & Optimization</li>
+            </ul>
+            <div class="card-trust-badge">
+              <i class="fa-solid fa-handshake"></i>
+              <span>Dedicated Engineering Pods</span>
             </div>
           </div>
-          <span class="card-number">04</span>
+
         </div>
-        <h3>True Technical Collaboration</h3>
-        <p>We don't operate as a disconnected vendor; we function as a dedicated technical partner—maintaining complete transparency with clear roadmaps, code reviews, and constant syncs.</p>
-        <ul class="card-features">
-          <li><i class="fa-regular fa-circle-check"></i> Direct Communication Channels</li>
-          <li><i class="fa-regular fa-circle-check"></i> Structured Sprint Updates</li>
-          <li><i class="fa-regular fa-circle-check"></i> Post-Launch Support & Optimization</li>
-        </ul>
-        <div class="card-trust-badge">
-          <i class="fa-solid fa-handshake"></i>
-          <span>Dedicated Engineering Pods</span>
+
+        <!-- ===== DIVIDER WITH "OUR TRACK RECORD" ===== -->
+        <div class="track-record-divider" data-aos="fade-up">
+          <span class="divider-line"></span>
+          <span class="divider-text">Our Track Record</span>
+          <span class="divider-line"></span>
         </div>
+
+        <!-- ===== BOTTOM ROW: ACHIEVEMENTS STATS WITH COUNTER ===== -->
+        <div class="achievements-merged" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number counter" data-target="1200">0</span><span class="plus-sign">+</span>
+            </div>
+            <span class="stat-label">Successful Projects</span>
+            <p class="stat-desc">Delivered across 30+ industries</p>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number counter" data-target="50">0</span><span class="plus-sign">+</span>
+            </div>
+            <span class="stat-label">Countries Supported</span>
+            <p class="stat-desc">Global footprint across 5 continents</p>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number counter" data-target="150">0</span><span class="plus-sign">+</span>
+            </div>
+            <span class="stat-label">Active Clients</span>
+            <p class="stat-desc">From startups to Fortune 500</p>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number counter" data-target="6">0</span><span class="plus-sign">+</span>
+            </div>
+            <span class="stat-label">Years of Excellence</span>
+            <p class="stat-desc">Driving innovation since 2020</p>
+          </div>
+
+        </div>
+
       </div>
+    </section>
 
-    </div>
-
-    <!-- ===== DIVIDER WITH "OUR TRACK RECORD" ===== -->
-    <div class="track-record-divider" data-aos="fade-up">
-      <span class="divider-line"></span>
-      <span class="divider-text">Our Track Record</span>
-      <span class="divider-line"></span>
-    </div>
-
-    <!-- ===== BOTTOM ROW: ACHIEVEMENTS STATS WITH COUNTER ===== -->
-    <div class="achievements-merged" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="stat-item">
-        <div class="stat-number-wrapper">
-          <span class="stat-number counter" data-target="1200">0</span><span class="plus-sign">+</span>
-        </div>
-        <span class="stat-label">Successful Projects</span>
-        <p class="stat-desc">Delivered across 30+ industries</p>
-      </div>
-
-      <div class="stat-divider"></div>
-
-      <div class="stat-item">
-        <div class="stat-number-wrapper">
-          <span class="stat-number counter" data-target="50">0</span><span class="plus-sign">+</span>
-        </div>
-        <span class="stat-label">Countries Supported</span>
-        <p class="stat-desc">Global footprint across 5 continents</p>
-      </div>
-
-      <div class="stat-divider"></div>
-
-      <div class="stat-item">
-        <div class="stat-number-wrapper">
-          <span class="stat-number counter" data-target="150">0</span><span class="plus-sign">+</span>
-        </div>
-        <span class="stat-label">Active Clients</span>
-        <p class="stat-desc">From startups to Fortune 500</p>
-      </div>
-
-      <div class="stat-divider"></div>
-
-      <div class="stat-item">
-        <div class="stat-number-wrapper">
-          <span class="stat-number counter" data-target="6">0</span><span class="plus-sign">+</span>
-        </div>
-        <span class="stat-label">Years of Excellence</span>
-        <p class="stat-desc">Driving innovation since 2020</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ==========================================
+    <!-- ==========================================
    OUR VENTURES / PARTNERS SECTION
    ========================================== -->
-<section class="ventures-partners-section">
-  <div class="container">
-    
-    <!-- Section Header -->
-    <div class="ventures-header text-center" data-aos="fade-up">
-      <span class="ventures-badge">
-        <i class="fa-solid fa-handshake"></i> STRATEGIC PARTNERS
-      </span>
-      <h2>Our <span class="highlight-text">Ventures</span></h2>
-      <p class="ventures-desc">
-        We collaborate with industry leaders to deliver exceptional technology solutions 
-        that drive innovation and growth across the globe.
-      </p>
-    </div>
+    <section class="ventures-partners-section">
+      <div class="container">
 
-    <!-- Partners Grid -->
-    <div class="partners-grid">
-
-      <!-- Partner 1 -->
-      <div class="partner-card" data-aos="fade-up" data-aos-delay="100">
-        <!-- Glow Effect -->
-        <div class="partner-glow"></div>
-        
-        <!-- Card Content -->
-        <div class="partner-content">
-          <!-- Logo Area -->
-          <div class="partner-logo-wrapper">
-            <div class="partner-logo-box">
-              <img src="./images/PRO.webp" alt="Partner 1 Logo" loading="lazy">
-            </div>
-            <span class="partner-badge">Official Partner</span>
-          </div>
-
-          <!-- Title -->
-          <h3 class="partner-title">Pakistan Recovery Oasis</h3>
-          
-          <!-- Description -->
-          <p class="partner-description">
-           We provide professional services for addiction treatment, psychological services, and mental health recovery solutions with a compassionate approach.
+        <!-- Section Header -->
+        <div class="ventures-header text-center" data-aos="fade-up">
+          <span class="ventures-badge">
+            <i class="fa-solid fa-handshake"></i> STRATEGIC PARTNERS
+          </span>
+          <h2>Our <span class="highlight-text">Ventures</span></h2>
+          <p class="ventures-desc">
+            Real Businesses We Work With
           </p>
-
-          <!-- Key Highlights -->
-          <div class="partner-highlights">
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Precontemplation
-            </span>
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Contemplation
-            </span>
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Preparation
-            </span>
-             <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Action
-            </span>
-             <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Maintenance
-            </span>
-             <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Relapse Prevention
-            </span>
-          </div>
-
-          <!-- Visit Button -->
-          <a href="https://pakistanrecoveryoasis.com/" target="_blank" class="partner-visit-btn">
-            <span>Visit Website</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
         </div>
-      </div>
 
-      <!-- Partner 2 -->
-      <div class="partner-card" data-aos="fade-up" data-aos-delay="200">
-        <!-- Glow Effect -->
-        <div class="partner-glow"></div>
-        
-        <!-- Card Content -->
-        <div class="partner-content">
-          <!-- Logo Area -->
-          <div class="partner-logo-wrapper">
-            <div class="partner-logo-box">
-              <img src="./images/rooh.png" alt="Partner 2 Logo" loading="lazy">
+        <!-- Partners Grid -->
+        <div class="partners-grid">
+
+          <!-- Partner 1 -->
+          <div class="partner-card" data-aos="fade-up" data-aos-delay="100">
+            <!-- Glow Effect -->
+            <div class="partner-glow"></div>
+
+            <!-- Card Content -->
+            <div class="partner-content">
+              <!-- Logo Area -->
+              <div class="partner-logo-wrapper">
+                <div class="partner-logo-box">
+                  <img src="./images/PRO.webp" alt="Partner 1 Logo" loading="lazy">
+                </div>
+                <span class="partner-badge">Official Partner</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="partner-title">Pakistan Recovery Oasis</h3>
+
+              <!-- Description -->
+              <p class="partner-description">
+                We provide professional services for addiction treatment, psychological services, and mental health
+                recovery solutions with a compassionate approach.
+              </p>
+
+              <!-- Key Highlights -->
+              <div class="partner-highlights">
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Precontemplation
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Contemplation
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Preparation
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Action
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Maintenance
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Relapse Prevention
+                </span>
+              </div>
+
+              <!-- Visit Button -->
+              <a href="https://pakistanrecoveryoasis.com/" target="_blank" class="partner-visit-btn">
+                <span>Visit Website</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
             </div>
-            <span class="partner-badge">Official Partner</span>
           </div>
 
-          <!-- Title -->
-          <h3 class="partner-title">Rooh Rehabilitation</h3>
-          
-          <!-- Description -->
-          <p class="partner-description">
-           Rooh Rehabilitation Center offers specialized, evidence-based rehabilitation services designed to support clients in achieving sustainable recovery and comprehensive mental health restoration.
-          </p>
+          <!-- Partner 2 -->
+          <div class="partner-card" data-aos="fade-up" data-aos-delay="200">
+            <!-- Glow Effect -->
+            <div class="partner-glow"></div>
 
-          <!-- Key Highlights -->
-          <div class="partner-highlights">
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Therapy
-            </span>
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Detox
-            </span>
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Wellness
-            </span>
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Psychiatry
-            </span>
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Aftercare
-            </span>
-            <span class="highlight-tag">
-              <i class="fa-regular fa-circle-check"></i> Rehabilitation
-            </span>
+            <!-- Card Content -->
+            <div class="partner-content">
+              <!-- Logo Area -->
+              <div class="partner-logo-wrapper">
+                <div class="partner-logo-box">
+                  <img src="./images/rooh.png" alt="Partner 2 Logo" loading="lazy">
+                </div>
+                <span class="partner-badge">Official Partner</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="partner-title">Rooh Rehabilitation</h3>
+
+              <!-- Description -->
+              <p class="partner-description">
+                Rooh Rehabilitation Center offers specialized, evidence-based rehabilitation services designed to
+                support clients in achieving sustainable recovery and comprehensive mental health restoration.
+              </p>
+
+              <!-- Key Highlights -->
+              <div class="partner-highlights">
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Therapy
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Detox
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Wellness
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Psychiatry
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Aftercare
+                </span>
+                <span class="highlight-tag">
+                  <i class="fa-regular fa-circle-check"></i> Rehabilitation
+                </span>
+              </div>
+
+              <!-- Visit Button -->
+              <a href="https://roohrehabilitationcenter.com/" target="_blank" class="partner-visit-btn">
+                <span>Visit Website</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
           </div>
 
-          <!-- Visit Button -->
-          <a href="https://roohrehabilitationcenter.com/" target="_blank" class="partner-visit-btn">
-            <span>Visit Website</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
         </div>
+
       </div>
-
-    </div>
-
-  </div>
-</section>
+    </section>
 
 
 
@@ -665,437 +684,437 @@
 
         <!-- HEADER -->
         <div class="services-header text-center" data-aos="fade-up">
-          <h2>Transform Your <span class="highlight-text">Business</span></h2>
+          <h2>What We Build <span class="highlight-text">(And How It Helps Your Business)</span></h2>
           <p class="sub-text">
           </p>
         </div>
 
         <!-- SERVICES GRID CONTAINER -->
-  <div class="services-grid">
+        <div class="services-grid">
 
-  <!-- CARD 1: Web Development -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-        <span class="badge-tag">Scalable</span>
-      </div>
+          <!-- CARD 1: Web Development -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                <span class="badge-tag">Scalable</span>
+              </div>
 
-      <!-- IMAGE KE JAGAH CLEAN ICON VISUAL BOX -->
-      <div class="card-visual-box">
-        <i class="fa-solid fa-code visual-icon"></i>
-      </div>
+              <!-- IMAGE KE JAGAH CLEAN ICON VISUAL BOX -->
+              <div class="card-visual-box">
+                <i class="fa-solid fa-code visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>Web Development</h3>
-        <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>Web Development</h3>
+                <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+              </div>
+            </div>
 
-    <!-- Slide Up Hover Card -->
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Web Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Clean & Scalable Code</li>
-        <li><i class="fa-regular fa-circle-check"></i> Responsive & Modern UI</li>
-        <li><i class="fa-regular fa-circle-check"></i> Fast Performance & SEO</li>
-      </ul>
-      <a href="./Components/web.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <!-- Slide Up Hover Card -->
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>Web Development</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Clean & Scalable Code</li>
+                <li><i class="fa-regular fa-circle-check"></i> Responsive & Modern UI</li>
+                <li><i class="fa-regular fa-circle-check"></i> Fast Performance & SEO</li>
+              </ul>
+              <a href="./Components/web.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 2: App Development -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-        <span class="badge-tag">Mobile Performance</span>
-      </div>
+          <!-- CARD 2: App Development -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <span class="badge-tag">Mobile Performance</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-mobile-screen-button visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-mobile-screen-button visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>App Development</h3>
-        <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>App Development</h3>
+                <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>App Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Android & iOS Apps</li>
-        <li><i class="fa-regular fa-circle-check"></i> Smooth UI / UX Flow</li>
-        <li><i class="fa-regular fa-circle-check"></i> Secure & Scalable Architecture</li>
-      </ul>
-      <a href="./Components/app.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>App Development</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Android & iOS Apps</li>
+                <li><i class="fa-regular fa-circle-check"></i> Smooth UI / UX Flow</li>
+                <li><i class="fa-regular fa-circle-check"></i> Secure & Scalable Architecture</li>
+              </ul>
+              <a href="./Components/app.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 3: PMS Development -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-building"></i></div>
-        <span class="badge-tag">Property</span>
-      </div>
+          <!-- CARD 3: PMS Development -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-building"></i></div>
+                <span class="badge-tag">Property</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-building-user visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-building-user visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>PMS Development</h3>
-        <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>PMS Development</h3>
+                <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>PMS Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Centralized Property Dashboard</li>
-        <li><i class="fa-regular fa-circle-check"></i> Tenant & Lease Tracking</li>
-        <li><i class="fa-regular fa-circle-check"></i> Automated Invoicing & Alerts</li>
-      </ul>
-      <a href="./Components/pms.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>PMS Development</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Centralized Property Dashboard</li>
+                <li><i class="fa-regular fa-circle-check"></i> Tenant & Lease Tracking</li>
+                <li><i class="fa-regular fa-circle-check"></i> Automated Invoicing & Alerts</li>
+              </ul>
+              <a href="./Components/pms.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 4: Digital Marketing -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <span class="badge-tag">Growth</span>
-      </div>
+          <!-- CARD 4: Digital Marketing -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <span class="badge-tag">Growth</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-chart-pie visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-chart-pie visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>Digital Marketing</h3>
-        <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>Digital Marketing</h3>
+                <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Digital Marketing</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Target Social Campaigns</li>
-        <li><i class="fa-regular fa-circle-check"></i> SEO & ROI Analytics</li>
-        <li><i class="fa-regular fa-circle-check"></i> Targeted Lead Generation</li>
-      </ul>
-      <a href="./Components/marketing.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>Digital Marketing</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Target Social Campaigns</li>
+                <li><i class="fa-regular fa-circle-check"></i> SEO & ROI Analytics</li>
+                <li><i class="fa-regular fa-circle-check"></i> Targeted Lead Generation</li>
+              </ul>
+              <a href="./Components/marketing.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 5: Full CRM System -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
-        <span class="badge-tag">Business Automation</span>
-      </div>
+          <!-- CARD 5: Full CRM System -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                <span class="badge-tag">Business Automation</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-diagram-project visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-diagram-project visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>Full CRM System</h3>
-        <p class="focus-label"><span>Focus:</span> Business Automation</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>Full CRM System</h3>
+                <p class="focus-label"><span>Focus:</span> Business Automation</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Full CRM System</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Business Automation</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Client Data Management</li>
-        <li><i class="fa-regular fa-circle-check"></i> Sales Pipeline Tracking</li>
-        <li><i class="fa-regular fa-circle-check"></i> Workflow Automation</li>
-      </ul>
-      <a href="./Components/crm.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>Full CRM System</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Business Automation</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Client Data Management</li>
+                <li><i class="fa-regular fa-circle-check"></i> Sales Pipeline Tracking</li>
+                <li><i class="fa-regular fa-circle-check"></i> Workflow Automation</li>
+              </ul>
+              <a href="./Components/crm.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 6: POS Software -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-cash-register"></i></div>
-        <span class="badge-tag">Fast Billing</span>
-      </div>
+          <!-- CARD 6: POS Software -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-cash-register"></i></div>
+                <span class="badge-tag">Fast Billing</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-receipt visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-receipt visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>POS Software</h3>
-        <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>POS Software</h3>
+                <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>POS Software</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Instant Checkout & Receipts</li>
-        <li><i class="fa-regular fa-circle-check"></i> Live Stock Management</li>
-        <li><i class="fa-regular fa-circle-check"></i> Financial Reporting</li>
-      </ul>
-      <a href="./Components/pos.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>POS Software</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Instant Checkout & Receipts</li>
+                <li><i class="fa-regular fa-circle-check"></i> Live Stock Management</li>
+                <li><i class="fa-regular fa-circle-check"></i> Financial Reporting</li>
+              </ul>
+              <a href="./Components/pos.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 7: Ecommerce Services -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-        <span class="badge-tag">High Converting Stores</span>
-      </div>
+          <!-- CARD 7: Ecommerce Services -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <span class="badge-tag">High Converting Stores</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-store visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-store visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>Ecommerce Services</h3>
-        <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>Ecommerce Services</h3>
+                <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Ecommerce Services</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Custom Storefront Design</li>
-        <li><i class="fa-regular fa-circle-check"></i> Secure Payment Gateways</li>
-        <li><i class="fa-regular fa-circle-check"></i> Inventory & Order Sync</li>
-      </ul>
-      <a href="./Components/E-com.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>Ecommerce Services</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Custom Storefront Design</li>
+                <li><i class="fa-regular fa-circle-check"></i> Secure Payment Gateways</li>
+                <li><i class="fa-regular fa-circle-check"></i> Inventory & Order Sync</li>
+              </ul>
+              <a href="./Components/E-com.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 8: AI & Automation -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
-        <span class="badge-tag">Intelligent Workflows</span>
-      </div>
+          <!-- CARD 8: AI & Automation -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                <span class="badge-tag">Intelligent Workflows</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-microchip visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-microchip visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>AI & Automation</h3>
-        <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>AI & Automation</h3>
+                <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>AI & Automation</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Custom Conversational AI</li>
-        <li><i class="fa-regular fa-circle-check"></i> Predictive Analytics</li>
-        <li><i class="fa-regular fa-circle-check"></i> Process Optimization</li>
-      </ul>
-      <a href="./Components/AI.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>AI & Automation</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Custom Conversational AI</li>
+                <li><i class="fa-regular fa-circle-check"></i> Predictive Analytics</li>
+                <li><i class="fa-regular fa-circle-check"></i> Process Optimization</li>
+              </ul>
+              <a href="./Components/AI.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 9: Blockchain -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-link"></i></div>
-        <span class="badge-tag">Blockchain</span>
-      </div>
+          <!-- CARD 9: Blockchain -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-link"></i></div>
+                <span class="badge-tag">Blockchain</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-cubes-stacked visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-cubes-stacked visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>Blockchain Development</h3>
-        <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>Blockchain Development</h3>
+                <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Blockchain Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Smart Contract Development</li>
-        <li><i class="fa-regular fa-circle-check"></i> dApp & Web3 Architecture</li>
-        <li><i class="fa-regular fa-circle-check"></i> Tokenomics & DeFi Solutions</li>
-      </ul>
-      <a href="./Components/blockchain.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>Blockchain Development</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Smart Contract Development</li>
+                <li><i class="fa-regular fa-circle-check"></i> dApp & Web3 Architecture</li>
+                <li><i class="fa-regular fa-circle-check"></i> Tokenomics & DeFi Solutions</li>
+              </ul>
+              <a href="./Components/blockchain.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 10: Quality Assurance -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-bug-slash"></i></div>
-        <span class="badge-tag">Zero Defect</span>
-      </div>
+          <!-- CARD 10: Quality Assurance -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-bug-slash"></i></div>
+                <span class="badge-tag">Zero Defect</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-shield-cat visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-shield-cat visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>Quality Assurance</h3>
-        <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>Quality Assurance</h3>
+                <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Quality Assurance</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Automated & Manual Testing</li>
-        <li><i class="fa-regular fa-circle-check"></i> Performance & Load Testing</li>
-        <li><i class="fa-regular fa-circle-check"></i> Cross-Browser Compatibility</li>
-      </ul>
-      <a href="./Components/qa.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>Quality Assurance</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Automated & Manual Testing</li>
+                <li><i class="fa-regular fa-circle-check"></i> Performance & Load Testing</li>
+                <li><i class="fa-regular fa-circle-check"></i> Cross-Browser Compatibility</li>
+              </ul>
+              <a href="./Components/qa.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 11: DevOps -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
-        <span class="badge-tag">CI/CD & Cloud</span>
-      </div>
+          <!-- CARD 11: DevOps -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
+                <span class="badge-tag">CI/CD & Cloud</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-network-wired visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-network-wired visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>DevOps Solutions</h3>
-        <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>DevOps Solutions</h3>
+                <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>DevOps Solutions</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Automated CI/CD Pipelines</li>
-        <li><i class="fa-regular fa-circle-check"></i> Infrastructure as Code (IaC)</li>
-        <li><i class="fa-regular fa-circle-check"></i> Cloud Migration & Optimization</li>
-      </ul>
-      <a href="./Components/devops.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>DevOps Solutions</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Automated CI/CD Pipelines</li>
+                <li><i class="fa-regular fa-circle-check"></i> Infrastructure as Code (IaC)</li>
+                <li><i class="fa-regular fa-circle-check"></i> Cloud Migration & Optimization</li>
+              </ul>
+              <a href="./Components/devops.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-  <!-- CARD 12: Cybersecurity -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <span class="badge-tag">Threat Protection</span>
-      </div>
+          <!-- CARD 12: Cybersecurity -->
+          <div class="service-card">
+            <div class="card-front-content">
+              <div class="card-top-bar">
+                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="badge-tag">Threat Protection</span>
+              </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-user-shield visual-icon"></i>
-      </div>
+              <div class="card-visual-box">
+                <i class="fa-solid fa-user-shield visual-icon"></i>
+              </div>
 
-      <div class="card-bottom-info">
-        <h3>Cybersecurity</h3>
-        <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
-      </div>
-    </div>
+              <div class="card-bottom-info">
+                <h3>Cybersecurity</h3>
+                <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
+              </div>
+            </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Cybersecurity</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Penetration Testing & Audits</li>
-        <li><i class="fa-regular fa-circle-check"></i> End-to-End Encryption</li>
-        <li><i class="fa-regular fa-circle-check"></i> Real-time Threat Monitoring</li>
-      </ul>
-      <a href="./Components/cybersecurity.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+            <div class="card-hover-content">
+              <div class="hover-header">
+                <h3>Cybersecurity</h3>
+                <span class="details-badge">DETAILS</span>
+              </div>
+              <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
+              <ul class="feature-list">
+                <li><i class="fa-regular fa-circle-check"></i> Penetration Testing & Audits</li>
+                <li><i class="fa-regular fa-circle-check"></i> End-to-End Encryption</li>
+                <li><i class="fa-regular fa-circle-check"></i> Real-time Threat Monitoring</li>
+              </ul>
+              <a href="./Components/cybersecurity.html" class="explore-btn">
+                Explore Solution <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-</div>
+        </div>
 
         <!-- LOAD MORE / SHOW LESS BUTTON -->
         <div class="text-center mt-5">
@@ -1109,136 +1128,144 @@
     </section>
 
 
-<!-- =========================
+    <!-- =========================
      INDUSTRIES SECTION - DARK PREMIUM
      ========================= -->
-<section class="industries-section-dark">
-  <div class="container">
+    <section class="industries-section-dark">
+      <div class="container">
 
-    <!-- HEADER -->
-    <div class="industries-header-dark text-center" data-aos="fade-up">
-      <h2>Tailored Solutions <span class="highlight-text">Across Industries</span></h2>
-    </div>
+        <!-- HEADER -->
+        <div class="industries-header-dark text-center" data-aos="fade-up">
+          <h2>We Speak Your <span class="highlight-text">Industry's Language</span></h2>
+        </div>
 
-    <!-- INDUSTRIES GRID -->
-    <div class="industries-grid-dark" id="industriesGridDark">
+        <!-- INDUSTRIES GRID -->
+        <div class="industries-grid-dark" id="industriesGridDark">
 
-      <!-- Card 1: Travel & Hospitality -->
-      <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="100">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-plane-departure"></i>
-        </div>
-        <h3 class="industry-title-dark">Travel, Booking & Logistics</h3>
-        <p class="industry-desc-dark">Custom booking engines, fleet management dashboards, dispatch automation, and real-time tracking portals.</p>
-        <div class="card-action-dark">
-          <span>Explore solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </a>
+          <!-- Card 1: Travel & Hospitality -->
+          <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="100">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+            <h3 class="industry-title-dark">Travel & Logistics</h3>
+            <p class="industry-desc-dark">Running a travel or logistics business? We build booking engines that actually
+              convert, dispatch systems that optimize routes, and tracking that your customers love.</p>
+            <div class="card-action-dark">
+              <span>See Travel Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
 
-      <!-- Card 2: Public Sector -->
-      <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="150">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-landmark"></i>
-        </div>
-        <h3 class="industry-title-dark">SaaS & Tech Startups</h3>
-        <p class="industry-desc-dark">End-to-end product engineering, scalable cloud backend systems, API architecture, and rapid MVP delivery.</p>
-        <div class="card-action-dark">
-          <span>Explore solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </a>
+          <!-- Card 2: Public Sector -->
+          <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="150">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            <h3 class="industry-title-dark">SaaS & Tech Startups</h3>
+            <p class="industry-desc-dark">Building the next big thing? We handle the tech foundation so you can focus on
+              product and customers. We've shipped MVPs fast and built systems that scale.</p>
+            <div class="card-action-dark">
+              <span>See SaaS Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
 
-      <!-- Card 3: Telecommunication -->
-      <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="200">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-tower-cell"></i>
-        </div>
-        <h3 class="industry-title-dark">On-Demand & Service Marketplaces</h3>
-        <p class="industry-desc-dark">Two-sided marketplace platforms, service professional booking, customer management portals, and automated payouts.</p>
-        <div class="card-action-dark">
-          <span>Explore solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </a>
+          <!-- Card 3: Telecommunication -->
+          <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="200">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-tower-cell"></i>
+            </div>
+            <h3 class="industry-title-dark">Marketplaces</h3>
+            <p class="industry-desc-dark">Marketplace business? We've built platforms where customers book services,
+              professionals get paid automatically, and you get your cut. No manual payout headaches.</p>
+            <div class="card-action-dark">
+              <span>See Marketplace Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
 
-      <!-- Card 4: Retail & CPG -->
-      <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="250">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-store"></i>
-        </div>
-        <h3 class="industry-title-dark">Professional Services & Corporate</h3>
-        <p class="industry-desc-dark">Internal ERP tools, custom CRM workflows, work-order tracking systems, and client portal integrations.</p>
-        <div class="card-action-dark">
-          <span>Explore solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </a>
+          <!-- Card 4: Retail & CPG -->
+          <a href="./Components/indus.html" class="industry-card-dark" data-aos="fade-up" data-aos-delay="250">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <h3 class="industry-title-dark">Professional Services Firms</h3>
+            <p class="industry-desc-dark">Law firms, consultancies, agencies—we build internal systems that make your
+              team more efficient and client portals that make relationships better.</p>
+            <div class="card-action-dark">
+              <span>See Enterprise Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
 
-      <!-- Card 5: Oil, Gas & Energy (Hidden) -->
-      <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-fire-flame-simple"></i>
-        </div>
-        <h3 class="industry-title-dark">Construction & Contracting</h3>
-        <p class="industry-desc-dark">Work order tracking systems, site management portals, vendor management tools, and project estimation dashboards.</p>
-        <div class="card-action-dark">
-          <span>Explore Solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </a>
+          <!-- Card 5: Oil, Gas & Energy (Hidden) -->
+          <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-fire-flame-simple"></i>
+            </div>
+            <h3 class="industry-title-dark">Construction & Contracting</h3>
+            <p class="industry-desc-dark">Track projects from bid to completion. Manage crews, sync vendors, and get
+              reports that actually help you make decisions faster.</p>
+            <div class="card-action-dark">
+              <span>See Construction Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
 
-      <!-- Card 6: Startups (Hidden) -->
-      <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-rocket"></i>
-        </div>
-        <h3 class="industry-title-dark">Education & EdTech</h3>
-        <p class="industry-desc-dark">Learning management systems (LMS), virtual classroom portals, student assessment engines, and automated billing modules.</p>
-        <div class="card-action-dark">
-          <span>Explore Solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </a>
+          <!-- Card 6: Startups (Hidden) -->
+          <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3 class="industry-title-dark">Education & EdTech</h3>
+            <p class="industry-desc-dark">Schools and online education platforms—we build learning management systems,
+              virtual classrooms that work smoothly, and student tracking that doesn't suck.</p>
+            <div class="card-action-dark">
+              <span>See EdTech Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
 
-      <!-- Card 7: E-commerce (Hidden) -->
-      <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </div>
-        <h3 class="industry-title-dark">E-Commerce & Retail Tech</h3>
-        <p class="industry-desc-dark">Multi-vendor marketplace platforms, automated order fulfillment tools, and custom shopping cart architectures.</p>
-        <div class="card-action-dark">
-          <span>Explore Solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </a>
+          <!-- Card 7: E-commerce (Hidden) -->
+          <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <h3 class="industry-title-dark">Retail & E-Commerce</h3>
+            <p class="industry-desc-dark">Building the next marketplace? We handle multi-vendor platforms, automatic
+              fulfillment, and shopping experiences that convert.</p>
+            <div class="card-action-dark">
+              <span>See Retail Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
 
-      <!-- Card 8: Banking & Fintech (Hidden) -->
-      <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
-        <div class="industry-icon-box-dark">
-          <i class="fa-solid fa-building-columns"></i>
+          <!-- Card 8: Banking & Fintech (Hidden) -->
+          <a href="./Components/indus.html" class="industry-card-dark extra-card-dark hidden-card-dark">
+            <div class="industry-icon-box-dark">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <h3 class="industry-title-dark">Banking & Finance</h3>
+            <p class="industry-desc-dark">Financial services need security and speed. We build systems for payments,
+              payouts, and financial analysis that handle billions safely.</p>
+            <div class="card-action-dark">
+              <span>See Finance Solutions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
         </div>
-        <h3 class="industry-title-dark">Banking & Financial Services</h3>
-        <p class="industry-desc-dark">Secure banking portals, automated payout systems, real-time transaction processing, and custom risk-analysis tools.</p>
-        <div class="card-action-dark">
-          <span>Explore Solutions</span>
-          <i class="fa-solid fa-arrow-right"></i>
+
+        <!-- ACTION BUTTON -->
+        <div class="industry-cta-dark text-center" data-aos="fade-up">
+          <button id="toggleIndustriesDark" class="btn-explore-dark" onclick="toggleIndustriesDark()">
+            <span id="btnTextDark">EXPLORE ALL INDUSTRIES</span>
+            <i id="btnIconDark" class="fa-solid fa-arrow-right-long"></i>
+          </button>
         </div>
-      </a>
 
-    </div>
-
-    <!-- ACTION BUTTON -->
-    <div class="industry-cta-dark text-center" data-aos="fade-up">
-      <button id="toggleIndustriesDark" class="btn-explore-dark" onclick="toggleIndustriesDark()">
-        <span id="btnTextDark">EXPLORE ALL INDUSTRIES</span>
-        <i id="btnIconDark" class="fa-solid fa-arrow-right-long"></i>
-      </button>
-    </div>
-
-  </div>
-</section>
+      </div>
+    </section>
 
     <!-- =========================
      CAREERS SECTION - FIXED
@@ -1264,10 +1291,13 @@
 
           <!-- RIGHT TEXT CONTENT -->
           <div class="careers-right" data-aos="fade-left">
-            <h2>Build What Matters at <span class="highlight-text">Coded Clouds</span></h2>
+            <h2>Build Something That <span class="highlight-text">Matters</span></h2>
 
             <p class="careers-desc">
-              We are an engineering-first software organization dedicated to solving complex digital challenges. At Coded Clouds, we cultivate a culture of technical autonomy, continuous learning, and structured collaboration—where high-performing teams build enterprise-grade software products that scale globally.
+              We're engineers who actually care about the quality of their work. 
+We're hiring people who want to build real products that solve real problems, 
+not just collect paychecks. You'll work on challenging projects with a team 
+that respects your time and your code.
             </p>
 
             <!-- FEATURE HIGHLIGHTS GRID -->
@@ -1283,7 +1313,8 @@
                 <div class="highlight-icon"><i class="fa-solid fa-laptop-code"></i></div>
                 <div class="highlight-info">
                   <h4>Modern Tech Stacks</h4>
-                  <p>Build with modern, production-grade tools, clean architectures, and modern cloud infrastructure.</p>
+                  <p>Build with modern, production-grade tools, clean architectures, and modern cloud infrastructure.
+                  </p>
                 </div>
               </div>
               <div class="highlight-card">
@@ -1420,7 +1451,7 @@
 
         <!-- Section Header -->
         <div class="section-header" data-aos="fade-up">
-          <h2 class="main-title">Have Questions or <span class="gradient-text">Feedback</span>?</h2>
+          <h2 class="main-title">Questions People <span class="gradient-text">Usually Ask </span>?</h2>
           <p class="section-subtitle">Explore quick answers or share your experience with Coded Clouds.</p>
         </div>
 
@@ -1443,13 +1474,13 @@
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
                   <div class="faq-question" role="button" aria-expanded="false">
                     <span class="q-num">01</span>
-                    <p>What makes Coded Clouds different from other agencies?</p>
+                    <p>Why should I choose you instead of another dev shop?</p>
                     <div class="icon-box"><i class="fas fa-plus"></i></div>
                   </div>
                   <div class="faq-answer">
                     <div class="answer-content">
-                      We don't just build websites; we engineer cloud-native experiences. Our focus on scalability,
-                      performance, and high-end security ensures your business is built for modern web standards.
+                      Because we're not chasing projects—we're building systems. We care about performance, security,
+                      and long-term support. Most agencies build and ghost. We stick around.
                     </div>
                   </div>
                 </div>
@@ -1457,13 +1488,13 @@
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
                   <div class="faq-question" role="button" aria-expanded="false">
                     <span class="q-num">02</span>
-                    <p>Can you migrate my existing site to the cloud?</p>
+                    <p>Can you move my existing business to the cloud?</p>
                     <div class="icon-box"><i class="fas fa-plus"></i></div>
                   </div>
                   <div class="faq-answer">
                     <div class="answer-content">
-                      Yes, we specialize in seamless migrations. We ensure zero downtime and complete data integrity
-                      while transitioning your infrastructure to modern cloud environments.
+                      Yes. We do migrations carefully—zero downtime, data stays safe. Your old system keeps running
+                      while we move everything. Then we test before you switch over.
                     </div>
                   </div>
                 </div>
@@ -1471,13 +1502,13 @@
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
                   <div class="faq-question" role="button" aria-expanded="false">
                     <span class="q-num">03</span>
-                    <p>Do you provide custom UI/UX design services?</p>
+                    <p>Do you offer design services?</p>
                     <div class="icon-box"><i class="fas fa-plus"></i></div>
                   </div>
                   <div class="faq-answer">
                     <div class="answer-content">
-                      Every project we take on includes a bespoke design phase. We focus on user psychology, interactive
-                      prototypes, and modern aesthetics to make your brand pop.
+                      100%. Every project includes design. We think about how people actually use software, not just
+                      what looks pretty. Real user psychology, not guesses.
                     </div>
                   </div>
                 </div>
@@ -1485,13 +1516,13 @@
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                   <div class="faq-question" role="button" aria-expanded="false">
                     <span class="q-num">04</span>
-                    <p>How do you handle project communication?</p>
+                    <p>How do you handle communication?</p>
                     <div class="icon-box"><i class="fas fa-plus"></i></div>
                   </div>
                   <div class="faq-answer">
                     <div class="answer-content">
-                      Transparency is key. We establish dedicated channels (Slack / WhatsApp) and provide structured
-                      weekly progress reports so you are always in full control.
+                      Direct. You get access to the actual team building your project. Slack or WhatsApp for daily
+                      stuff. Weekly video updates on progress. No middlemen, no surprises.
                     </div>
                   </div>
                 </div>
@@ -1499,13 +1530,13 @@
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
                   <div class="faq-question" role="button" aria-expanded="false">
                     <span class="q-num">05</span>
-                    <p>What is your typical payment structure?</p>
+                    <p>What's the pricing model?</p>
                     <div class="icon-box"><i class="fas fa-plus"></i></div>
                   </div>
                   <div class="faq-answer">
                     <div class="answer-content">
-                      Usually, we work on a milestone-based payment plan (25% upfront, and the remainder divided across
-                      distinct project delivery phases).
+                      Usually milestone-based (25% to start, then divided across delivery phases). But we're flexible.
+                      Fixed price, hourly, retainer—we'll work out what makes sense for your project.
                     </div>
                   </div>
                 </div>
@@ -1644,10 +1675,11 @@
         <!-- SECTION TOP HEADER -->
         <div class="section-top-header">
           <h1 class="main-section-title">
-            Let’s Engineer Your Next <span class="gradient-text-alt">Digital Breakthrough</span>
+            Ready to Stop Dealing <span class="gradient-text-alt">With Bad Software?</span>
           </h1>
           <p class="main-section-desc">
-            Ready to transform your ideas into scalable software? Whether you’re launching a new product, refactoring existing platforms, or building custom enterprise systems, our engineering team is here to help.
+            Tell us about your business. Where it hurts. What you're trying to build. We'll tell you if we can help—and
+            if we can, what it'll take.
           </p>
         </div>
 
@@ -1786,7 +1818,8 @@
                 <i class="fa-solid fa-cloud"></i> Coded Clouds
               </div>
               <h3>Engineered for Growth & Scale</h3>
-              <p>We partner with ambitious founders, growing businesses, and modern enterprises globally to deliver scalable digital solutions.</p>
+              <p>We partner with ambitious founders, growing businesses, and modern enterprises globally to deliver
+                scalable digital solutions.</p>
             </div>
 
             <!-- TILES / FEATURE CARDS CONTAINER -->
@@ -2446,7 +2479,7 @@
             </ul>
           </div>
 
-         <!-- Column 4: Services -->
+          <!-- Column 4: Services -->
           <div class="col-xl-2 col-lg-2 col-md-3 col-6">
             <h5 class="footer-title">Services</h5>
             <ul class="footer-links">
@@ -2838,7 +2871,7 @@
             </ul>
           </div>
 
-           <!-- Column 4: Services -->
+          <!-- Column 4: Services -->
           <div class="col-xl-2 col-lg-2 col-md-3 col-6">
             <h5 class="footer-title">Services</h5>
             <ul class="footer-links">
@@ -3035,7 +3068,7 @@
             </ul>
           </div>
 
-           <!-- Column 4: Services -->
+          <!-- Column 4: Services -->
           <div class="col-xl-2 col-lg-2 col-md-3 col-6">
             <h5 class="footer-title">Services</h5>
             <ul class="footer-links">
@@ -3306,7 +3339,7 @@
             </ul>
           </div>
 
-           <!-- Column 4: Services -->
+          <!-- Column 4: Services -->
           <div class="col-xl-2 col-lg-2 col-md-3 col-6">
             <h5 class="footer-title">Services</h5>
             <ul class="footer-links">
@@ -3613,8 +3646,8 @@
               <li><a href="./Components/service level.html">Service Disclaimer</a></li>
             </ul>
           </div>
-          
-  <!-- Column 4: Services -->
+
+          <!-- Column 4: Services -->
           <div class="col-xl-2 col-lg-2 col-md-3 col-6">
             <h5 class="footer-title">Services</h5>
             <ul class="footer-links">
