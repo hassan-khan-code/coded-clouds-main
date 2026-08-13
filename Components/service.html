@@ -11,12 +11,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================
-           THEME VARIABLES - SAME AS HOME
+           THEME VARIABLES - SKY BLUE
            ========================================== */
         :root {
             --bg-primary: #f4f4f5;
@@ -34,9 +33,9 @@
             --border-light: #f4f4f5;
             --border-dark: #27272a;
             
-            --accent-cyan: #0d9488;
+            --accent-cyan: #0284c7;
             --accent-blue: #18181b;
-            --accent-glow: rgba(13, 148, 136, 0.06);
+            --accent-glow: rgba(2, 132, 199, 0.06);
             
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -67,9 +66,9 @@
             --border-light: #3f3f46;
             --border-dark: #18181b;
             
-            --accent-cyan: #34d399;
+            --accent-cyan: #38bdf8;
             --accent-blue: #fafafa;
-            --accent-glow: rgba(52, 211, 153, 0.05);
+            --accent-glow: rgba(56, 189, 248, 0.05);
             
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -97,7 +96,7 @@
         }
 
         /* ==========================================
-           NAVIGATION - DARK (SAME AS HOME)
+           NAVIGATION - DARK
            ========================================== */
         .main-nav {
             background: #0a0a0f !important;
@@ -151,9 +150,9 @@
         }
 
         .theme-toggle-btn:hover {
-            border-color: #0d9488;
-            background: rgba(13, 148, 136, 0.12);
-            color: #0d9488 !important;
+            border-color: #0284c7;
+            background: rgba(2, 132, 199, 0.12);
+            color: #0284c7 !important;
             transform: rotate(20deg) scale(1.05);
         }
 
@@ -188,7 +187,7 @@
         }
 
         .back-btn i {
-            color: #0d9488;
+            color: #0284c7;
         }
 
         @media (max-width: 768px) {
@@ -254,11 +253,11 @@
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #34d399;
-            background: rgba(13, 148, 136, 0.12);
+            color: #0284c7;
+            background: rgba(2, 132, 199, 0.12);
             padding: 6px 20px;
             border-radius: 50px;
-            border: 1px solid rgba(13, 148, 136, 0.15);
+            border: 1px solid rgba(2, 132, 199, 0.15);
             margin-bottom: 16px;
         }
 
@@ -272,7 +271,7 @@
         }
 
         .serv-header h1 span {
-            background: linear-gradient(135deg, #ffffff 0%, #34d399 40%, #ffffff 70%, #34d399 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #0284c7 40%, #ffffff 70%, #0284c7 100%);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -304,7 +303,7 @@
         }
 
         /* ==========================================
-           SERVICES SECTION - SAME AS HOME
+           SERVICES SECTION
            ========================================== */
         .services-section {
             background: var(--bg-primary);
@@ -342,7 +341,7 @@
         }
 
         /* ==========================================
-           SERVICE CARDS - SAME AS HOME
+           SERVICE CARDS - BLUE THEME
            ========================================== */
         .service-card {
             background: var(--bg-card);
@@ -383,8 +382,8 @@
             width: 42px;
             height: 42px;
             border-radius: var(--radius-md);
-            background: rgba(13, 148, 136, 0.08);
-            border: 1px solid rgba(13, 148, 136, 0.12);
+            background: rgba(2, 132, 199, 0.08);
+            border: 1px solid rgba(2, 132, 199, 0.12);
             color: var(--accent-cyan);
             display: flex;
             align-items: center;
@@ -416,7 +415,7 @@
             border-radius: var(--radius-md);
             margin-bottom: 24px;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-card) 100%);
-            border: 1px dashed rgba(13, 148, 136, 0.2);
+            border: 1px dashed rgba(2, 132, 199, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -447,7 +446,7 @@
 
         .service-card:hover .card-visual-box {
             border-color: var(--accent-cyan);
-            background: rgba(13, 148, 136, 0.04);
+            background: rgba(2, 132, 199, 0.04);
         }
 
         .service-card:hover .card-visual-box::before {
@@ -487,26 +486,27 @@
         }
 
         /* ==========================================
-           SLIDE-UP HOVER OVERLAY - SAME AS HOME
+           SLIDE-UP HOVER OVERLAY
            ========================================== */
-       .card-hover-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-card);
-  padding: 24px;
-  border-radius: var(--radius-xl);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 5;
-  transform: translateY(100%);
-  opacity: 0;
-  visibility: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.4s;
-}
+        .card-hover-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 5;
+            transform: translateY(100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.4s;
+        }
+
         .service-card:hover .card-hover-content {
             transform: translateY(0);
             opacity: 1;
@@ -533,7 +533,7 @@
             font-weight: 800;
             letter-spacing: 0.8px;
             color: var(--accent-cyan);
-            background: rgba(13, 148, 136, 0.08);
+            background: rgba(2, 132, 199, 0.08);
             padding: 3px 10px;
             border-radius: 20px;
             transition: all 0.3s ease;
@@ -567,7 +567,6 @@
             color: var(--text-white) !important;
             text-align: center;
             padding: 14px 24px;
-            /* border-radius: 50px; */
             font-size: 0.9rem;
             font-weight: 800;
             text-decoration: none !important;
@@ -596,7 +595,7 @@
         }
 
         /* ==========================================
-           CONTACT SECTION - SAME AS HOME
+           CONTACT SECTION - BLUE THEME
            ========================================== */
         .contact-section-wrapper {
             font-family: 'Inter', sans-serif;
@@ -634,7 +633,7 @@
         }
 
         .gradient-text-alt {
-            background: linear-gradient(135deg, var(--accent-cyan), #0f9d8f);
+            background: linear-gradient(135deg, var(--accent-cyan), #0369a1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -672,14 +671,14 @@
             align-items: center;
             gap: 6px;
             padding: 5px 12px;
-            background: rgba(13, 148, 136, 0.08);
+            background: rgba(2, 132, 199, 0.08);
             color: var(--accent-cyan);
             font-size: 11px;
             font-weight: 800;
             letter-spacing: 1px;
             border-radius: 50px;
             margin-bottom: 12px;
-            border: 1px solid rgba(13, 148, 136, 0.1);
+            border: 1px solid rgba(2, 132, 199, 0.1);
             transition: all 0.3s ease;
         }
 
@@ -693,7 +692,7 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, var(--accent-cyan), #0f9d8f);
+            background: linear-gradient(135deg, var(--accent-cyan), #0369a1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -859,19 +858,19 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 10px 20px rgba(13, 148, 136, 0.2);
+            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.2);
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(13, 148, 136, 0.35);
-            background: #0f9d8f;
+            box-shadow: 0 12px 25px rgba(2, 132, 199, 0.35);
+            background: #0369a1;
             color: #ffffff;
         }
 
         .contact-right-col {
-            background: radial-gradient(circle at 85% 15%, rgba(13, 148, 136, 0.15) 0%, transparent 45%),
-                        radial-gradient(circle at 15% 85%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+            background: radial-gradient(circle at 85% 15%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(2, 132, 199, 0.15) 0%, transparent 50%),
                         linear-gradient(150deg, #060913 0%, #0B0E14 50%, #0B0E14 100%);
             padding: 50px 38px;
             color: var(--text-white);
@@ -884,8 +883,8 @@
         }
 
         [data-theme="light"] .contact-right-col {
-            background: radial-gradient(circle at 85% 15%, rgba(13, 148, 136, 0.15) 0%, transparent 45%),
-                        radial-gradient(circle at 15% 85%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+            background: radial-gradient(circle at 85% 15%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(2, 132, 199, 0.15) 0%, transparent 50%),
                         linear-gradient(150deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
         }
 
@@ -920,7 +919,7 @@
             gap: 8px;
             padding: 7px 16px;
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(13, 148, 136, 0.35);
+            border: 1px solid rgba(2, 132, 199, 0.35);
             border-radius: 30px;
             font-size: 11px;
             font-weight: 800;
@@ -970,16 +969,16 @@
 
         .side-feature-card:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(13, 148, 136, 0.5);
+            border-color: rgba(2, 132, 199, 0.5);
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(13, 148, 136, 0.15);
+            box-shadow: 0 12px 30px rgba(2, 132, 199, 0.15);
         }
 
         .feature-icon {
             width: 46px;
             height: 46px;
-            background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(124, 58, 237, 0.2));
-            border: 1px solid rgba(13, 148, 136, 0.4);
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(124, 58, 237, 0.2));
+            border: 1px solid rgba(2, 132, 199, 0.4);
             color: var(--accent-cyan);
             border-radius: var(--radius-md);
             display: flex;
@@ -987,7 +986,7 @@
             justify-content: center;
             font-size: 18px;
             flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.2);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
         }
 
         .feature-tag {
@@ -1227,432 +1226,394 @@
                 <p class="sub-text"></p>
             </div>
 
-                   <!-- SERVICES GRID CONTAINER -->
-  <div class="services-grid">
+            <!-- SERVICES GRID CONTAINER -->
+            <div class="services-grid">
 
-  <!-- CARD 1: Web Development -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-        <span class="badge-tag">Scalable</span>
-      </div>
+                <!-- CARD 1: Web Development -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                            <span class="badge-tag">Scalable</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-code visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Web Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Web Development</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Clean & Scalable Code</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Responsive & Modern UI</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Fast Performance & SEO</li>
+                        </ul>
+                        <a href="./Components/web.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-      <!-- IMAGE KE JAGAH CLEAN ICON VISUAL BOX -->
-      <div class="card-visual-box">
-        <i class="fa-solid fa-code visual-icon"></i>
-      </div>
+                <!-- CARD 2: App Development -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <span class="badge-tag">Mobile Performance</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-mobile-screen-button visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>App Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>App Development</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Android & iOS Apps</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Smooth UI / UX Flow</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Secure & Scalable Architecture</li>
+                        </ul>
+                        <a href="./Components/app.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-      <div class="card-bottom-info">
-        <h3>Web Development</h3>
-        <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
-      </div>
-    </div>
+                <!-- CARD 3: PMS Development -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-building"></i></div>
+                            <span class="badge-tag">Property</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-building-user visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>PMS Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>PMS Development</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Centralized Property Dashboard</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Tenant & Lease Tracking</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Automated Invoicing & Alerts</li>
+                        </ul>
+                        <a href="./Components/pms.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-    <!-- Slide Up Hover Card -->
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Web Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Scalable & Fast Web</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Clean & Scalable Code</li>
-        <li><i class="fa-regular fa-circle-check"></i> Responsive & Modern UI</li>
-        <li><i class="fa-regular fa-circle-check"></i> Fast Performance & SEO</li>
-      </ul>
-      <a href="./Components/web.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+                <!-- CARD 4: Digital Marketing -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <span class="badge-tag">Growth</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-chart-pie visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Digital Marketing</h3>
+                            <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Digital Marketing</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Target Social Campaigns</li>
+                            <li><i class="fa-regular fa-circle-check"></i> SEO & ROI Analytics</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Targeted Lead Generation</li>
+                        </ul>
+                        <a href="./Components/marketing.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- CARD 2: App Development -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-        <span class="badge-tag">Mobile Performance</span>
-      </div>
+                <!-- CARD 5: Full CRM System -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                            <span class="badge-tag">Business Automation</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-diagram-project visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Full CRM System</h3>
+                            <p class="focus-label"><span>Focus:</span> Business Automation</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Full CRM System</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Business Automation</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Client Data Management</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Sales Pipeline Tracking</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Workflow Automation</li>
+                        </ul>
+                        <a href="./Components/crm.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-mobile-screen-button visual-icon"></i>
-      </div>
+                <!-- CARD 6: POS Software -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-cash-register"></i></div>
+                            <span class="badge-tag">Fast Billing</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-receipt visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>POS Software</h3>
+                            <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>POS Software</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Instant Checkout & Receipts</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Live Stock Management</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Financial Reporting</li>
+                        </ul>
+                        <a href="./Components/pos.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-      <div class="card-bottom-info">
-        <h3>App Development</h3>
-        <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
-      </div>
-    </div>
+                <!-- CARD 7: Ecommerce Services -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <span class="badge-tag">High Converting Stores</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-store visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Ecommerce Services</h3>
+                            <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Ecommerce Services</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Custom Storefront Design</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Secure Payment Gateways</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Inventory & Order Sync</li>
+                        </ul>
+                        <a href="./Components/E-com.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>App Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Mobile Performance & UX</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Android & iOS Apps</li>
-        <li><i class="fa-regular fa-circle-check"></i> Smooth UI / UX Flow</li>
-        <li><i class="fa-regular fa-circle-check"></i> Secure & Scalable Architecture</li>
-      </ul>
-      <a href="./Components/app.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+                <!-- CARD 8: AI & Automation -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                            <span class="badge-tag">Intelligent Workflows</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-microchip visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>AI & Automation</h3>
+                            <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>AI & Automation</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Custom Conversational AI</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Predictive Analytics</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Process Optimization</li>
+                        </ul>
+                        <a href="./Components/AI.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- CARD 3: PMS Development -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-building"></i></div>
-        <span class="badge-tag">Property</span>
-      </div>
+                <!-- CARD 9: Blockchain -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-link"></i></div>
+                            <span class="badge-tag">Blockchain</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-cubes-stacked visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Blockchain Development</h3>
+                            <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Blockchain Development</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Smart Contract Development</li>
+                            <li><i class="fa-regular fa-circle-check"></i> dApp & Web3 Architecture</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Tokenomics & DeFi Solutions</li>
+                        </ul>
+                        <a href="./Components/blockchain.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-      <div class="card-visual-box">
-        <i class="fa-solid fa-building-user visual-icon"></i>
-      </div>
+                <!-- CARD 10: Quality Assurance -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-bug-slash"></i></div>
+                            <span class="badge-tag">Zero Defect</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-shield-cat visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Quality Assurance</h3>
+                            <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Quality Assurance</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Automated & Manual Testing</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Performance & Load Testing</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Cross-Browser Compatibility</li>
+                        </ul>
+                        <a href="./Components/qa.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-      <div class="card-bottom-info">
-        <h3>PMS Development</h3>
-        <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
-      </div>
-    </div>
+                <!-- CARD 11: DevOps -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
+                            <span class="badge-tag">CI/CD & Cloud</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-network-wired visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>DevOps Solutions</h3>
+                            <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>DevOps Solutions</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Automated CI/CD Pipelines</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Infrastructure as Code (IaC)</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Cloud Migration & Optimization</li>
+                        </ul>
+                        <a href="./Components/devops.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>PMS Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Property & Management Systems</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Centralized Property Dashboard</li>
-        <li><i class="fa-regular fa-circle-check"></i> Tenant & Lease Tracking</li>
-        <li><i class="fa-regular fa-circle-check"></i> Automated Invoicing & Alerts</li>
-      </ul>
-      <a href="./Components/pms.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+                <!-- CARD 12: Cybersecurity -->
+                <div class="service-card">
+                    <div class="card-front-content">
+                        <div class="card-top-bar">
+                            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <span class="badge-tag">Threat Protection</span>
+                        </div>
+                        <div class="card-visual-box">
+                            <i class="fa-solid fa-user-shield visual-icon"></i>
+                        </div>
+                        <div class="card-bottom-info">
+                            <h3>Cybersecurity</h3>
+                            <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
+                        </div>
+                    </div>
+                    <div class="card-hover-content">
+                        <div class="hover-header">
+                            <h3>Cybersecurity</h3>
+                            <span class="details-badge">DETAILS</span>
+                        </div>
+                        <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-regular fa-circle-check"></i> Penetration Testing & Audits</li>
+                            <li><i class="fa-regular fa-circle-check"></i> End-to-End Encryption</li>
+                            <li><i class="fa-regular fa-circle-check"></i> Real-time Threat Monitoring</li>
+                        </ul>
+                        <a href="./Components/cybersecurity.html" class="explore-btn">
+                            Explore Solution <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- CARD 4: Digital Marketing -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-        <span class="badge-tag">Growth</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-chart-pie visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>Digital Marketing</h3>
-        <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Digital Marketing</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Growth & Visibility</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Target Social Campaigns</li>
-        <li><i class="fa-regular fa-circle-check"></i> SEO & ROI Analytics</li>
-        <li><i class="fa-regular fa-circle-check"></i> Targeted Lead Generation</li>
-      </ul>
-      <a href="./Components/marketing.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 5: Full CRM System -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
-        <span class="badge-tag">Business Automation</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-diagram-project visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>Full CRM System</h3>
-        <p class="focus-label"><span>Focus:</span> Business Automation</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Full CRM System</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Business Automation</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Client Data Management</li>
-        <li><i class="fa-regular fa-circle-check"></i> Sales Pipeline Tracking</li>
-        <li><i class="fa-regular fa-circle-check"></i> Workflow Automation</li>
-      </ul>
-      <a href="./Components/crm.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 6: POS Software -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-cash-register"></i></div>
-        <span class="badge-tag">Fast Billing</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-receipt visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>POS Software</h3>
-        <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>POS Software</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Fast Billing & Inventory</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Instant Checkout & Receipts</li>
-        <li><i class="fa-regular fa-circle-check"></i> Live Stock Management</li>
-        <li><i class="fa-regular fa-circle-check"></i> Financial Reporting</li>
-      </ul>
-      <a href="./Components/pos.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 7: Ecommerce Services -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-        <span class="badge-tag">High Converting Stores</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-store visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>Ecommerce Services</h3>
-        <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Ecommerce Services</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> High Converting Stores</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Custom Storefront Design</li>
-        <li><i class="fa-regular fa-circle-check"></i> Secure Payment Gateways</li>
-        <li><i class="fa-regular fa-circle-check"></i> Inventory & Order Sync</li>
-      </ul>
-      <a href="./Components/E-com.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 8: AI & Automation -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
-        <span class="badge-tag">Intelligent Workflows</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-microchip visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>AI & Automation</h3>
-        <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>AI & Automation</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Intelligent Workflows</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Custom Conversational AI</li>
-        <li><i class="fa-regular fa-circle-check"></i> Predictive Analytics</li>
-        <li><i class="fa-regular fa-circle-check"></i> Process Optimization</li>
-      </ul>
-      <a href="./Components/AI.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 9: Blockchain -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-link"></i></div>
-        <span class="badge-tag">Blockchain</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-cubes-stacked visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>Blockchain Development</h3>
-        <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Blockchain Development</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Decentralized Solutions</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Smart Contract Development</li>
-        <li><i class="fa-regular fa-circle-check"></i> dApp & Web3 Architecture</li>
-        <li><i class="fa-regular fa-circle-check"></i> Tokenomics & DeFi Solutions</li>
-      </ul>
-      <a href="./Components/blockchain.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 10: Quality Assurance -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-bug-slash"></i></div>
-        <span class="badge-tag">Zero Defect</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-shield-cat visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>Quality Assurance</h3>
-        <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Quality Assurance</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Reliable & Bug-Free Apps</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Automated & Manual Testing</li>
-        <li><i class="fa-regular fa-circle-check"></i> Performance & Load Testing</li>
-        <li><i class="fa-regular fa-circle-check"></i> Cross-Browser Compatibility</li>
-      </ul>
-      <a href="./Components/qa.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 11: DevOps -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
-        <span class="badge-tag">CI/CD & Cloud</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-network-wired visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>DevOps Solutions</h3>
-        <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>DevOps Solutions</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Fast & Seamless Deployment</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Automated CI/CD Pipelines</li>
-        <li><i class="fa-regular fa-circle-check"></i> Infrastructure as Code (IaC)</li>
-        <li><i class="fa-regular fa-circle-check"></i> Cloud Migration & Optimization</li>
-      </ul>
-      <a href="./Components/devops.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD 12: Cybersecurity -->
-  <div class="service-card">
-    <div class="card-front-content">
-      <div class="card-top-bar">
-        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <span class="badge-tag">Threat Protection</span>
-      </div>
-
-      <div class="card-visual-box">
-        <i class="fa-solid fa-user-shield visual-icon"></i>
-      </div>
-
-      <div class="card-bottom-info">
-        <h3>Cybersecurity</h3>
-        <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
-      </div>
-    </div>
-
-    <div class="card-hover-content">
-      <div class="hover-header">
-        <h3>Cybersecurity</h3>
-        <span class="details-badge">DETAILS</span>
-      </div>
-      <p class="focus-label"><span>Focus:</span> Complete Data & App Defense</p>
-      <ul class="feature-list">
-        <li><i class="fa-regular fa-circle-check"></i> Penetration Testing & Audits</li>
-        <li><i class="fa-regular fa-circle-check"></i> End-to-End Encryption</li>
-        <li><i class="fa-regular fa-circle-check"></i> Real-time Threat Monitoring</li>
-      </ul>
-      <a href="./Components/cybersecurity.html" class="explore-btn">
-        Explore Solution <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-
-</div>
+            </div>
 
         </div>
     </section>
@@ -1665,7 +1626,7 @@
 
             <div class="section-top-header">
                 <h1 class="main-section-title">
-                Ready to Stop Dealing <span class="gradient-text-alt">With Bad Software?</span>
+                    Ready to Stop Dealing <span class="gradient-text-alt">With Bad Software?</span>
                 </h1>
                 <p class="main-section-desc">
                     Have a project in mind or looking for the right technology partner? Our team is ready to turn your

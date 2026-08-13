@@ -24,6 +24,7 @@ body {
    ========================================== */
 /* ==========================================
    THEME VARIABLES - LIGHT (Corporate Organization)
+   Updated: Black + Sky Blue Color Scheme
    ========================================== */
 :root {
   /* Backgrounds - Warm Neutral (Not cold white) */
@@ -46,16 +47,16 @@ body {
   --border-light: #f4f4f5;
   --border-dark: #27272a;
   
-  /* Accents - Deep Charcoal Primary + Muted Emerald Secondary */
+  /* Accents - Deep Charcoal Primary + SKY BLUE Secondary (UPDATED) */
   --accent-blue: #18181b;
-  --accent-cyan: #047857;
+  --accent-cyan: #0284c7;
   --accent-purple: #52525b;
-  --accent-glow: rgba(4, 120, 87, 0.06);
-  --theme-cyan: #047857;
+  --accent-glow: rgba(2, 132, 199, 0.06);
+  --theme-cyan: #0284c7;
   --theme-blue: #18181b;
   --theme-purple: #52525b;
   --theme-navy: #18181b;
-  --theme-accent-glow: rgba(24, 24, 27, 0.04);
+  --theme-accent-glow: rgba(2, 132, 199, 0.04);
   
   /* Shadows - Extremely Subtle (Organization Depth) */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -63,11 +64,11 @@ body {
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
   
-  /* Gradients - REMOVED. Organizations use solid colors. */
+  /* Gradients - UPDATED WITH SKY BLUE */
   --gradient-hero: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.88) 100%);
   --gradient-btn: linear-gradient(135deg, #18181b 0%, #27272a 100%);
   --gradient-btn-hover: linear-gradient(135deg, #27272a 0%, #3f3f46 100%);
-  --gradient-text: linear-gradient(135deg, #18181b 0%, #047857 100%);
+  --gradient-text: linear-gradient(135deg, #18181b 0%, #0284c7 100%);
   
   /* Border Radius - Slightly Reduced for Structure */
   --radius-sm: 4px;
@@ -79,6 +80,7 @@ body {
 
 /* ==========================================
    THEME VARIABLES - DARK (Deep Corporate)
+   Updated: Black + Sky Blue Color Scheme
    ========================================== */
 [data-theme="dark"] {
   /* Backgrounds - True Dark (Not Navy Blue) */
@@ -101,15 +103,15 @@ body {
   --border-light: #3f3f46;
   --border-dark: #18181b;
   
-  /* Accents - White Primary + Soft Emerald Secondary */
+  /* Accents - White Primary + SKY BLUE Secondary (UPDATED) */
   --accent-blue: #fafafa;
-  --accent-cyan: #34d399;
+  --accent-cyan: #38bdf8;
   --accent-purple: #a1a1aa;
-  --accent-glow: rgba(52, 211, 153, 0.05);
-  --theme-cyan: #34d399;
+  --accent-glow: rgba(56, 189, 248, 0.05);
+   --theme-cyan: #0284c7;
   --theme-blue: #fafafa;
-  --theme-purple: #34d399;
-  --theme-accent-glow: rgba(250, 250, 250, 0.03);
+  --theme-purple: #38bdf8;
+  --theme-accent-glow: rgba(56, 189, 248, 0.03);
   
   /* Shadows - Deeper for Dark Mode */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -117,11 +119,11 @@ body {
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.6);
   
-  /* Gradients */
+  /* Gradients - UPDATED WITH SKY BLUE */
   --gradient-hero: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
   --gradient-btn: linear-gradient(135deg, #fafafa 0%, #d4d4d8 100%);
   --gradient-btn-hover: linear-gradient(135deg, #e4e4e7 0%, #fafafa 100%);
-  --gradient-text: linear-gradient(135deg, #fafafa 0%, #34d399 100%);
+  --gradient-text: linear-gradient(135deg, #fafafa 0%, #38bdf8 100%);
 }
 /* ==========================================
    THEME TOGGLE BUTTON
@@ -248,7 +250,7 @@ body {
 
 /* ===== EXPLORE SERVICES BUTTON - GREEN (FIXED) ===== */
 .e-nav-talk-btn {
-  background: var(--accent-cyan) !important;  /* DIRECT GREEN COLOR */
+  background: var(--theme-cyan) !important;  /* DIRECT GREEN COLOR */
   color: #ffffff !important;
   border: none !important;
   border-radius: 8px !important;
@@ -421,6 +423,7 @@ body {
 
 /* ==========================================
    HERO SECTION - ULTRA PREMIUM ANIMATIONS
+   Updated: GREEN → SKY BLUE
    ========================================== */
 .hero-section-ultra {
   position: relative;
@@ -439,7 +442,7 @@ body {
   background: #f5f7fa;
 }
 
-/* ===== LAYER 1: MOVING GRADIENT - GREEN ===== */
+/* ===== LAYER 1: MOVING GRADIENT - SKY BLUE (UPDATED) ===== */
 .hero-bg-layer-1 {
   position: absolute;
   top: 0;
@@ -448,22 +451,22 @@ body {
   height: 100%;
   z-index: 0;
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(13, 148, 136, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(13, 148, 136, 0.10) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 100%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 30% 80%, rgba(13, 148, 136, 0.05) 0%, transparent 40%),
-    radial-gradient(ellipse at 70% 20%, rgba(13, 148, 136, 0.05) 0%, transparent 40%);
+    radial-gradient(ellipse at 20% 50%, rgba(2, 132, 199, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(2, 132, 199, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(2, 132, 199, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 80%, rgba(2, 132, 199, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 20%, rgba(2, 132, 199, 0.05) 0%, transparent 40%);
   animation: gradientMoveUltra 25s ease-in-out infinite;
   transform-origin: center;
 }
 
 [data-theme="light"] .hero-bg-layer-1 {
   background: 
-    radial-gradient(ellipse at 20% 50%, rgba(13, 148, 136, 0.20) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(13, 148, 136, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 100%, rgba(13, 148, 136, 0.10) 0%, transparent 50%),
-    radial-gradient(ellipse at 30% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 40%),
-    radial-gradient(ellipse at 70% 20%, rgba(13, 148, 136, 0.08) 0%, transparent 40%);
+    radial-gradient(ellipse at 20% 50%, rgba(2, 132, 199, 0.20) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(2, 132, 199, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(2, 132, 199, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 80%, rgba(2, 132, 199, 0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 40%);
 }
 
 @keyframes gradientMoveUltra {
@@ -474,7 +477,7 @@ body {
   100% { transform: translate(0, 0) scale(1) rotate(0deg); }
 }
 
-/* ===== LAYER 2: FLOATING ORBS - GREEN ===== */
+/* ===== LAYER 2: FLOATING ORBS - SKY BLUE (UPDATED) ===== */
 .hero-orbs {
   position: absolute;
   top: 0;
@@ -497,7 +500,7 @@ body {
   right: -5%;
   width: 500px;
   height: 500px;
-  background: rgba(13, 148, 136, 0.12);
+  background: rgba(2, 132, 199, 0.12);
   animation: orbFloat1 30s ease-in-out infinite;
 }
 
@@ -506,7 +509,7 @@ body {
   left: -10%;
   width: 400px;
   height: 400px;
-  background: rgba(13, 148, 136, 0.08);
+  background: rgba(2, 132, 199, 0.08);
   animation: orbFloat2 35s ease-in-out infinite;
 }
 
@@ -515,7 +518,7 @@ body {
   left: 40%;
   width: 300px;
   height: 300px;
-  background: rgba(13, 148, 136, 0.06);
+  background: rgba(2, 132, 199, 0.06);
   animation: orbFloat3 25s ease-in-out infinite;
 }
 
@@ -524,7 +527,7 @@ body {
   left: 20%;
   width: 200px;
   height: 200px;
-  background: rgba(13, 148, 136, 0.10);
+  background: rgba(2, 132, 199, 0.10);
   animation: orbFloat1 28s ease-in-out infinite reverse;
 }
 
@@ -533,7 +536,7 @@ body {
   right: 15%;
   width: 250px;
   height: 250px;
-  background: rgba(13, 148, 136, 0.07);
+  background: rgba(2, 132, 199, 0.07);
   animation: orbFloat2 32s ease-in-out infinite reverse;
 }
 
@@ -582,7 +585,7 @@ body {
     linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 }
 
-/* ===== LAYER 4: HEAVY PARTICLES - GREEN ===== */
+/* ===== LAYER 4: HEAVY PARTICLES - SKY BLUE (UPDATED) ===== */
 .hero-particles-heavy {
   position: absolute;
   top: 0;
@@ -597,7 +600,7 @@ body {
 .particle-h {
   position: absolute;
   border-radius: 50%;
-  background: #0d9488;  /* DIRECT GREEN COLOR */
+  background: #0284c7;
   opacity: 0.15;
   animation: particleHeavy var(--duration) ease-in-out infinite;
 }
@@ -638,18 +641,18 @@ body {
   }
 }
 
-/* ===== LAYER 5: SCANNING LINE - GREEN ===== */
+/* ===== LAYER 5: SCANNING LINE - SKY BLUE (UPDATED) ===== */
 .hero-scan-line {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #0d9488, transparent);
+  background: linear-gradient(90deg, transparent, #0284c7, transparent);
   z-index: 1;
   opacity: 0.15;
   animation: scanLine 8s ease-in-out infinite;
-  box-shadow: 0 0 30px rgba(13, 148, 136, 0.15);
+  box-shadow: 0 0 30px rgba(2, 132, 199, 0.15);
 }
 
 @keyframes scanLine {
@@ -701,7 +704,7 @@ body {
   padding: 20px 0;
 }
 
-/* ===== BADGE - GREEN ===== */
+/* ===== BADGE - SKY BLUE (UPDATED) ===== */
 .hero-badge-ultra {
   display: inline-flex;
   align-items: center;
@@ -729,7 +732,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #0d9488;
+  background: #0284c7;
   display: inline-block;
   animation: pulseBadgeUltra 2s ease-in-out infinite;
 }
@@ -739,7 +742,7 @@ body {
   50% { opacity: 0.2; transform: scale(0.6); }
 }
 
-/* ===== TITLE - GREEN GRADIENT ===== */
+/* ===== TITLE - SKY BLUE GRADIENT (UPDATED) ===== */
 .hero-title-ultra {
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
   font-weight: 900;
@@ -755,7 +758,7 @@ body {
 }
 
 .text-gradient-ultra {
-  background: linear-gradient(135deg, #ffffff 0%, #0d9488 30%, #ffffff 60%, #0d9488 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #0284c7 30%, #ffffff 60%, #0284c7 100%);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -772,7 +775,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Glow Underline - GREEN */
+/* Glow Underline - SKY BLUE (UPDATED) */
 .text-gradient-ultra::after {
   content: '';
   position: absolute;
@@ -780,7 +783,7 @@ body {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #0d9488, transparent);
+  background: linear-gradient(90deg, transparent, #0284c7, transparent);
   border-radius: 4px;
   animation: underlineGlowUltra 3s ease-in-out infinite;
 }
@@ -791,7 +794,7 @@ body {
 }
 
 [data-theme="light"] .text-gradient-ultra {
-  background: linear-gradient(135deg, #1a1a2e 0%, #0d9488 30%, #1a1a2e 60%, #0d9488 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #0284c7 30%, #1a1a2e 60%, #0284c7 100%);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -818,7 +821,7 @@ body {
   color: rgba(0, 0, 0, 0.6);
 }
 
-/* ===== BUTTONS - GREEN ===== */
+/* ===== BUTTONS - SKY BLUE (UPDATED) ===== */
 .hero-btn-group-ultra {
   display: flex;
   align-items: center;
@@ -834,7 +837,7 @@ body {
   align-items: center;
   gap: 12px;
   padding: 16px 38px;
-  background: #0d9488;
+  background: #0284c7;
   color: #ffffff;
   font-size: 0.95rem;
   font-weight: 700;
@@ -864,8 +867,8 @@ body {
 
 .hero-btn-primary-ultra:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(13, 148, 136, 0.35);
-  background: #0f9d8f;
+  box-shadow: 0 12px 40px rgba(2, 132, 199, 0.35);
+  background: #0369a1;
   color: #ffffff;
 }
 
@@ -902,7 +905,7 @@ body {
 
 .hero-btn-secondary-ultra i {
   font-size: 1.1rem;
-  color: #0d9488;
+  color: #0284c7;
 }
 
 [data-theme="light"] .hero-btn-secondary-ultra {
@@ -917,7 +920,7 @@ body {
   color: #1a1a2e;
 }
 
-/* ===== TRUST - GREEN ===== */
+/* ===== TRUST - SKY BLUE (UPDATED) ===== */
 .hero-trust-ultra {
   display: flex;
   align-items: center;
@@ -952,7 +955,7 @@ body {
 }
 
 .trust-icon-ultra {
-  color: #0d9488;
+  color: #0284c7;
   font-size: 0.7rem;
 }
 
@@ -1096,10 +1099,9 @@ body {
     padding: 12px 20px;
   }
   .trust-item-ultra {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
-}
-
+} 
 /* ==========================================
    MISSION, VISION, VALUES
    ========================================== */
