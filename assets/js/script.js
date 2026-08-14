@@ -185,12 +185,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //show more services in footer button
+function toggleServices(btn) {
+  // Button ke parent column me se hi '.more-services' ko dhoondega
+  const parentCol = btn.closest('.col-xl-2, .col-lg-2, .col-md-3, .col-6');
+  const moreServices = parentCol.querySelector('.more-services');
 
-function toggleServices() {
-  const moreServices = document.getElementById("moreServices");
-  const btn = document.getElementById("toggleServicesBtn");
-
-  if (moreServices.style.display === "none") {
+  if (moreServices.style.display === "none" || moreServices.style.display === "") {
     moreServices.style.display = "block";
     btn.innerHTML = 'View Less <i class="fa-solid fa-chevron-up ms-1"></i>';
   } else {
