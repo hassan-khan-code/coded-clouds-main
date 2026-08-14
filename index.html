@@ -32,7 +32,7 @@
       <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
     </a>
 
-    <!-- Right Controls: Theme Toggle + Explore Button + Menu Trigger -->
+    <!-- Right Controls: Theme Toggle + Desktop Explore Button + Menu Trigger -->
     <div class="d-flex align-items-center gap-2">
       
       <!-- Theme Toggle Button -->
@@ -40,12 +40,12 @@
         <i class="fa-solid fa-moon"></i>
       </button>
 
-      <!-- Explore Services Button (Navbar main Rakha Gaya Hai) -->
-      <a href="./Components/service.html" class="text-decoration-none">
+      <!-- Desktop Explore Button (d-none d-md-inline-block se mobile pe hide ho jayega) -->
+      <a href="./Components/service.html" class="text-decoration-none d-none d-md-inline-block">
         <button class="btn e-nav-talk-btn" type="button">Explore Services</button>
       </a>
 
-      <!-- Sidebar Trigger Button -->
+      <!-- Sidebar Trigger Button (MENU) -->
       <button class="btn sidebar-trigger-btn d-flex align-items-center gap-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainMenuSidebar" aria-controls="mainMenuSidebar">
         <i class="fa-solid fa-bars burger-icon"></i>
         <span class="d-none d-sm-inline">MENU</span>
@@ -68,7 +68,7 @@
   </div>
 
   <!-- Sidebar Body -->
-  <div class="offcanvas-body">
+  <div class="offcanvas-body d-flex flex-column justify-content-between">
     
     <!-- Menu Links List -->
     <div class="sidebar-links-container d-flex flex-column gap-2">
@@ -101,6 +101,15 @@
         <i class="fa-solid fa-chart-line me-2"></i> PARTNERSHIP
       </button>
 
+    </div>
+
+    <!-- Mobile Explore Button (d-md-none se ye surf mobile screen / sidebar mein show hoga) -->
+    <div class="sidebar-footer mt-4 pt-3 border-top border-secondary-subtle d-md-none">
+      <a href="./Components/service.html" class="text-decoration-none w-100 d-block">
+        <button class="btn e-nav-talk-btn w-100" type="button">
+          Explore Services
+        </button>
+      </a>
     </div>
 
   </div>

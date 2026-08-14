@@ -8089,7 +8089,6 @@ body {
 
 
 
-
 /* ===== NAVBAR CONTAINER ===== */
 .navbar {
   background: #0a0a0f !important;
@@ -8107,6 +8106,27 @@ body {
   object-fit: contain;
 }
 
+/* Explore Services Button (Universal Style) */
+.nav-talk-btn {
+  background: var(--text-primary, #ffffff) !important;
+  color: var(--bg-secondary, #0a0a0f) !important;
+  border: none !important;
+  border-radius: var(--radius-sm, 6px) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.3px !important;
+  height: 38px !important;
+  padding: 0 18px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease !important;
+}
+
+.nav-talk-btn:hover {
+  opacity: 0.85 !important;
+  transform: translateY(-1px);
+}
 
 /* Sidebar Trigger Button (MENU) */
 .sidebar-trigger-btn {
@@ -8152,7 +8172,7 @@ body {
 /* ===== SIDEBAR (OFFCANVAS) STYLING ===== */
 .main-menu-sidebar {
   background-color: #0d0d12 !important;
-  width: 320px !important;
+  width: 300px !important;
   border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -8173,12 +8193,4 @@ body {
   background: rgba(255, 255, 255, 0.06) !important;
   color: var(--accent-cyan, #0d9488) !important;
   transform: translateX(4px);
-}
-
-/* Mobile Adjustments */
-@media (max-width: 576px) {
-  .nav-talk-btn {
-    font-size: 11px !important;
-    padding: 0 10px !important;
-  }
 }
