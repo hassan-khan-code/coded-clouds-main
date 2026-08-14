@@ -258,8 +258,8 @@ body {
   font-weight: 700 !important;
   letter-spacing: 0.8px !important;
   text-transform: uppercase;
-  height: 42px;
-  padding: 0 18px !important;
+  height: 35px;
+  padding: 0 8px !important;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
