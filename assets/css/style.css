@@ -6811,6 +6811,7 @@ body {
   letter-spacing: 1.5px;
   margin-bottom: 12px;
   transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .team-pill i {
@@ -7032,7 +7033,7 @@ body {
 @media (max-width: 768px) {
   .team-hero-cover {
     height: 32vh;
-    min-height: 240px;
+    min-height: 270px;
   }
   
   .team-scroll-area {
@@ -7060,7 +7061,7 @@ body {
 @media (max-width: 576px) {
   .team-hero-cover {
     height: 28vh;
-    min-height: 200px;
+    min-height: 270px;
   }
   
   .team-hero-title {
@@ -7885,90 +7886,88 @@ body {
 
 
 
-
 /* ==========================================
-   PARTNERSHIPS SECTION STYLES (COMPACT & RESPONSIVE)
+   PARTNERSHIPS SECTION STYLES (SLATE & CLEAN)
    ========================================== */
 
 .partner-category-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 20px;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  margin-bottom: 16px;
 }
 
 .partner-cat-icon {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   background: rgba(0, 212, 255, 0.08);
   border: 1px solid rgba(0, 212, 255, 0.2);
-  color: var(--accent-cyan);
-  border-radius: 12px;
+  color: var(--accent-cyan, #0d9488);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
 }
 
 .partner-cat-title {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--text-primary, #ffffff);
   margin: 0;
   line-height: 1.2;
 }
 
 .partner-cat-desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin: 4px 0 0 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  margin: 2px 0 0 0;
 }
 
-/* Card Container Structure */
+/* Card Main Container */
 .partner-card {
   position: relative;
   background: var(--bg-input, rgba(255, 255, 255, 0.03));
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg, 16px);
-  padding: 20px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 14px);
+  padding: 16px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
 }
 
 .partner-card:hover {
-  border-color: var(--accent-cyan);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  border-color: var(--accent-cyan, #0d9488);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Top Row: Logo Container on Left, Badge on Right */
+/* Top Row: Logo & Badge Horizontal Alignment */
 .partner-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 14px;
+  gap: 6px;
+  margin-bottom: 12px;
   width: 100%;
 }
 
-/* White Container Box to Make Dark Logos Pop Clearly */
+/* White Logo Frame Box */
 .partner-logo-box {
-  width: 58px;
-  height: 46px;
+  width: 46px;
+  height: 36px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 8px;
+  padding: 4px;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .partner-logo-img {
@@ -7979,114 +7978,105 @@ body {
 }
 
 .partner-logo-box .fallback-icon {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #0284c7;
 }
 
 /* Badge Styling */
 .partner-badge {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
-  color: var(--accent-cyan);
+  color: var(--accent-cyan, #00d4ff);
   background: rgba(0, 212, 255, 0.08);
-  padding: 4px 8px;
-  border-radius: 20px;
+  padding: 3px 6px;
+  border-radius: 12px;
   border: 1px solid rgba(0, 212, 255, 0.18);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-/* Title Section */
+/* Text Content Container */
 .partner-info-box {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .partner-name {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--text-primary, #ffffff);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .partner-sub {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
+  font-size: 0.72rem;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
   font-weight: 500;
+  line-height: 1.3;
 }
 
 .partner-details {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  line-height: 1.45;
+  margin-top: 10px;
 }
 
 /* ==========================================
-   2-COLUMN MOBILE RESPONSIVE OPTIMIZATION
+   MOBILE SCREEN FIX (OVERFLOW & BADGE FIX)
    ========================================== */
 @media (max-width: 576px) {
+  /* Grid Gutter / Gap Reduction */
+  .partner-category-section .row {
+    --bs-gutter-x: 0.5rem !important;
+    --bs-gutter-y: 0.5rem !important;
+  }
+
+  /* Card Container */
   .partner-card {
-    padding: 12px;
-    border-radius: 12px;
+    padding: 10px 8px !important;
+    border-radius: 10px !important;
+    min-height: auto !important;
+    justify-content: flex-start !important;
   }
 
+  /* Top Bar Header */
   .partner-card-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 6px !important;
+    justify-content: flex-start !important;
   }
 
+  /* Compact Logo Box */
   .partner-logo-box {
-    width: 48px;
-    height: 38px;
-    padding: 4px 6px;
-    border-radius: 8px;
+    width: 36px !important;
+    height: 28px !important;
+    padding: 2px !important;
+    border-radius: 6px !important;
   }
 
+  /* Mobile screen par overflowing badges ko hide kar do */
   .partner-badge {
-    font-size: 8px;
-    padding: 3px 6px;
-    letter-spacing: 0.3px;
-    white-space: normal;
-    text-align: left;
-    line-height: 1.2;
+    display: none !important;
   }
 
+  /* Clean Typography */
   .partner-name {
-    font-size: 0.9rem;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    margin-bottom: 2px !important;
   }
 
   .partner-sub {
-    font-size: 0.7rem;
-  }
-
-  .partner-details {
-    font-size: 0.75rem;
-    line-height: 1.4;
-  }
-
-  .partner-cat-icon {
-    width: 38px;
-    height: 38px;
-    font-size: 1rem;
-    border-radius: 8px;
-  }
-
-  .partner-cat-title {
-    font-size: 1.1rem;
-  }
-
-  .partner-cat-desc {
-    font-size: 0.75rem;
+    font-size: 0.65rem !important;
+    line-height: 1.2 !important;
+    color: var(--text-secondary, rgba(255, 255, 255, 0.6)) !important;
   }
 }
-
 
 
 /* ===== NAVBAR CONTAINER ===== */
