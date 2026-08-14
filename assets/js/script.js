@@ -27,9 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
   if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
 });
 
-// ==========================================
-// ACHIEVEMENT COUNTER
-// ==========================================
+
+// sidebar:
+
+
+
 // ==========================================
 // COUNTER ANIMATION FOR ACHIEVEMENTS
 // ==========================================
