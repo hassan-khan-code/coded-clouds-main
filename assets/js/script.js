@@ -183,3 +183,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+//show more services in footer button
+
+function toggleServices() {
+  const moreServices = document.getElementById("moreServices");
+  const btn = document.getElementById("toggleServicesBtn");
+
+  if (moreServices.style.display === "none") {
+    moreServices.style.display = "block";
+    btn.innerHTML = 'View Less <i class="fa-solid fa-chevron-up ms-1"></i>';
+  } else {
+    moreServices.style.display = "none";
+    btn.innerHTML = 'View More <i class="fa-solid fa-chevron-down ms-1"></i>';
+  }
+}
