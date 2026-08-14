@@ -2304,7 +2304,7 @@
       </div>
     </div>
 
-    <!--footer-->
+     <!--footer-->
     <footer class="pro-footer">
       <div class="container">
         <div class="row g-4 justify-content-between">
@@ -2350,24 +2350,32 @@
             </ul>
           </div>
 
-          <!-- Column 4: Services -->
-          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-            <h5 class="footer-title">Services</h5>
-            <ul class="footer-links">
-              <li><a href="./Components/web.html">Web Development</a></li>
-              <li><a href="./Components/app.html">App Development</a></li>
-              <li><a href="./Components/pms.html">PMS Development</a></li>
-              <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-              <li><a href="./Components/crm.html">Full CRM System</a></li>
-              <li><a href="./Components/pos.html">POS Software</a></li>
-              <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-              <li><a href="./Components/AI.html">AI & Automation</a></li>
-              <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-              <li><a href="./Components/qa.html">Quality Assurance</a></li>
-              <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-              <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-            </ul>
-          </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
+    </div>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
 
           <!-- Column 5: Contact & Clear Map -->
           <div class="col-xl-3 col-lg-2 col-md-3 col-12">
@@ -2583,26 +2591,34 @@
             </ul>
           </div>
 
-          <!-- Column 4: Services -->
-          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-            <h5 class="footer-title">Services</h5>
-            <ul class="footer-links">
-              <li><a href="./Components/web.html">Web Development</a></li>
-              <li><a href="./Components/app.html">App Development</a></li>
-              <li><a href="./Components/pms.html">PMS Development</a></li>
-              <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-              <li><a href="./Components/crm.html">Full CRM System</a></li>
-              <li><a href="./Components/pos.html">POS Software</a></li>
-              <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-              <li><a href="./Components/AI.html">AI & Automation</a></li>
-              <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-              <li><a href="./Components/qa.html">Quality Assurance</a></li>
-              <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-              <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-            </ul>
-          </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
+    </div>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
 
-          <!-- Column 5: Contact & Map -->
+          <!-- Column 5: Contact & Clear Map -->
           <div class="col-xl-3 col-lg-2 col-md-3 col-12">
             <h5 class="footer-title">Get In Touch</h5>
             <ul class="footer-contact">
@@ -2611,6 +2627,7 @@
                   Avenue, Lahore, 34217, Pakistan</span></li>
             </ul>
 
+            <!-- Clear & Modern Map Box -->
             <div class="compact-map-box">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk"
@@ -2737,24 +2754,32 @@
             </ul>
           </div>
 
-          <!-- Column 4: Services -->
-          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-            <h5 class="footer-title">Services</h5>
-            <ul class="footer-links">
-              <li><a href="./Components/web.html">Web Development</a></li>
-              <li><a href="./Components/app.html">App Development</a></li>
-              <li><a href="./Components/pms.html">PMS Development</a></li>
-              <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-              <li><a href="./Components/crm.html">Full CRM System</a></li>
-              <li><a href="./Components/pos.html">POS Software</a></li>
-              <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-              <li><a href="./Components/AI.html">AI & Automation</a></li>
-              <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-              <li><a href="./Components/qa.html">Quality Assurance</a></li>
-              <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-              <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-            </ul>
-          </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
+    </div>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
 
           <!-- Column 5: Contact & Clear Map -->
           <div class="col-xl-3 col-lg-2 col-md-3 col-12">
@@ -2929,7 +2954,7 @@
       </div>
     </div>
 
-    <!-- Footer Section -->
+       <!--footer-->
     <footer class="pro-footer">
       <div class="container">
         <div class="row g-4 justify-content-between">
@@ -2975,24 +3000,32 @@
             </ul>
           </div>
 
-          <!-- Column 4: Services -->
-          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-            <h5 class="footer-title">Services</h5>
-            <ul class="footer-links">
-              <li><a href="./Components/web.html">Web Development</a></li>
-              <li><a href="./Components/app.html">App Development</a></li>
-              <li><a href="./Components/pms.html">PMS Development</a></li>
-              <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-              <li><a href="./Components/crm.html">Full CRM System</a></li>
-              <li><a href="./Components/pos.html">POS Software</a></li>
-              <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-              <li><a href="./Components/AI.html">AI & Automation</a></li>
-              <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-              <li><a href="./Components/qa.html">Quality Assurance</a></li>
-              <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-              <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-            </ul>
-          </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
+    </div>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
 
           <!-- Column 5: Contact & Clear Map -->
           <div class="col-xl-3 col-lg-2 col-md-3 col-12">
@@ -3003,6 +3036,7 @@
                   Avenue, Lahore, 34217, Pakistan</span></li>
             </ul>
 
+            <!-- Clear & Modern Map Box -->
             <div class="compact-map-box">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk"
@@ -3092,87 +3126,104 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="pro-footer">
-    <div class="container">
-      <div class="row g-4 justify-content-between">
+     <!--footer-->
+    <footer class="pro-footer">
+      <div class="container">
+        <div class="row g-4 justify-content-between">
 
-        <!-- Column 1: Brand Info -->
-        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-          <a href="#" class="footer-logo">
-            <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
-          </a>
-          <p class="footer-desc">
-            Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital solutions.
-          </p>
-          <div class="footer-social">
-            <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/codedclouds/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <!-- Column 1: Brand Info -->
+          <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+            <a href="#" class="footer-logo">
+              <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
+            </a>
+            <p class="footer-desc">
+              Empowering businesses with cutting-edge technology. We build scalable, secure, and innovative digital
+              solutions.
+            </p>
+            <div class="footer-social">
+              <a href="https://www.linkedin.com/company/coded-clouds/" title="LinkedIn"><i
+                  class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61584082650845" title="Facebook"><i
+                  class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/codedclouds/" title="Instagram"><i
+                  class="fa-brands fa-instagram"></i></a>
+            </div>
           </div>
-        </div>
 
-        <!-- Column 2: Quick Links -->
-        <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-          <h5 class="footer-title">Quick Links</h5>
-          <ul class="footer-links">
-            <li><a href="./Components/Presence.html">Countries</a></li>
-            <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
-            <li><a href="./Components/Leaders.html">CEO Message</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Legal -->
-        <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-          <h5 class="footer-title">Legal</h5>
-          <ul class="footer-links">
-            <li><a href="./Components/nda.html">NDA</a></li>
-            <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
-            <li><a href="./Components/privacy.html">Privacy Policy</a></li>
-            <li><a href="./Components/refund.html">Refund Policy</a></li>
-            <li><a href="./Components/service level.html">Service Disclaimer</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Services -->
-        <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-          <h5 class="footer-title">Services</h5>
-          <ul class="footer-links">
-            <li><a href="./Components/web.html">Web Development</a></li>
-            <li><a href="./Components/app.html">App Development</a></li>
-            <li><a href="./Components/pms.html">PMS Development</a></li>
-            <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-            <li><a href="./Components/crm.html">Full CRM System</a></li>
-            <li><a href="./Components/pos.html">POS Software</a></li>
-            <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-            <li><a href="./Components/AI.html">AI & Automation</a></li>
-            <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-            <li><a href="./Components/qa.html">Quality Assurance</a></li>
-            <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-            <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 5: Contact & Map -->
-        <div class="col-xl-3 col-lg-2 col-md-3 col-12">
-          <h5 class="footer-title">Get In Touch</h5>
-          <ul class="footer-contact">
-            <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
-            <li><i class="fa-solid fa-location-dot"></i><span>College Rd, Block 1 Sector C-1 Twp Sector C 1 Ahmed Avenue, Lahore, 34217, Pakistan</span></li>
-          </ul>
-
-          <div class="compact-map-box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" allowfullscreen="" loading="lazy"></iframe>
+          <!-- Column 2: Quick Links -->
+          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="./Components/Presence.html">Countries</a></li>
+              <li><a href="#offcanvasstory" data-bs-toggle="offcanvas">Our Story</a></li>
+              <li><a href="./Components/Leaders.html">CEO Message</a></li>
+            </ul>
           </div>
-        </div>
 
-      </div>
+          <!-- Column 3: Legal -->
+          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
+            <h5 class="footer-title">Legal</h5>
+            <ul class="footer-links">
+              <li><a href="./Components/nda.html">NDA</a></li>
+              <li><a href="./Components/Condition.html">Terms & Conditions</a></li>
+              <li><a href="./Components/privacy.html">Privacy Policy</a></li>
+              <li><a href="./Components/refund.html">Refund Policy</a></li>
+              <li><a href="./Components/service level.html">Service Disclaimer</a></li>
+            </ul>
+          </div>
 
-      <div class="footer-bottom">
-        <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
-      </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
     </div>
-  </footer>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
+
+          <!-- Column 5: Contact & Clear Map -->
+          <div class="col-xl-3 col-lg-2 col-md-3 col-12">
+            <h5 class="footer-title">Get In Touch</h5>
+            <ul class="footer-contact">
+              <li><i class="fa-solid fa-envelope"></i><span>info@codedclouds.org</span></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>College Rd, Block 1 Sector C-1 Twp Sector C 1 Ahmed
+                  Avenue, Lahore, 34217, Pakistan</span></li>
+            </ul>
+
+            <!-- Clear & Modern Map Box -->
+            <div class="compact-map-box">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.0123456789!2d74.3000!3d31.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI3JzAwLjAiTiA3NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk"
+                allowfullscreen="" loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 <strong>Coded Clouds</strong> Pvt. Ltd. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
 </div>
 
@@ -3353,7 +3404,7 @@
       </div>
     </div>
 
-    <!--footer-->
+      <!--footer-->
     <footer class="pro-footer">
       <div class="container">
         <div class="row g-4 justify-content-between">
@@ -3399,24 +3450,32 @@
             </ul>
           </div>
 
-          <!-- Column 4: Services -->
-          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-            <h5 class="footer-title">Services</h5>
-            <ul class="footer-links">
-              <li><a href="./Components/web.html">Web Development</a></li>
-              <li><a href="./Components/app.html">App Development</a></li>
-              <li><a href="./Components/pms.html">PMS Development</a></li>
-              <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-              <li><a href="./Components/crm.html">Full CRM System</a></li>
-              <li><a href="./Components/pos.html">POS Software</a></li>
-              <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-              <li><a href="./Components/AI.html">AI & Automation</a></li>
-              <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-              <li><a href="./Components/qa.html">Quality Assurance</a></li>
-              <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-              <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-            </ul>
-          </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
+    </div>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
 
           <!-- Column 5: Contact & Clear Map -->
           <div class="col-xl-3 col-lg-2 col-md-3 col-12">
@@ -3632,7 +3691,7 @@
       </div>
     </div>
 
-    <!--footer-->
+      <!--footer-->
     <footer class="pro-footer">
       <div class="container">
         <div class="row g-4 justify-content-between">
@@ -3678,24 +3737,32 @@
             </ul>
           </div>
 
-          <!-- Column 4: Services -->
-          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-            <h5 class="footer-title">Services</h5>
-            <ul class="footer-links">
-              <li><a href="./Components/web.html">Web Development</a></li>
-              <li><a href="./Components/app.html">App Development</a></li>
-              <li><a href="./Components/pms.html">PMS Development</a></li>
-              <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-              <li><a href="./Components/crm.html">Full CRM System</a></li>
-              <li><a href="./Components/pos.html">POS Software</a></li>
-              <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-              <li><a href="./Components/AI.html">AI & Automation</a></li>
-              <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-              <li><a href="./Components/qa.html">Quality Assurance</a></li>
-              <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-              <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-            </ul>
-          </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
+    </div>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
 
           <!-- Column 5: Contact & Clear Map -->
           <div class="col-xl-3 col-lg-2 col-md-3 col-12">
@@ -3994,8 +4061,7 @@
     </div>
   </div>
 
-  <!-- Footer -->
-     <!--footer-->
+    <!--footer-->
     <footer class="pro-footer">
       <div class="container">
         <div class="row g-4 justify-content-between">
@@ -4041,24 +4107,32 @@
             </ul>
           </div>
 
-          <!-- Column 4: Services -->
-          <div class="col-xl-2 col-lg-2 col-md-3 col-6">
-            <h5 class="footer-title">Services</h5>
-            <ul class="footer-links">
-              <li><a href="./Components/web.html">Web Development</a></li>
-              <li><a href="./Components/app.html">App Development</a></li>
-              <li><a href="./Components/pms.html">PMS Development</a></li>
-              <li><a href="./Components/marketing.html">Digital Marketing</a></li>
-              <li><a href="./Components/crm.html">Full CRM System</a></li>
-              <li><a href="./Components/pos.html">POS Software</a></li>
-              <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
-              <li><a href="./Components/AI.html">AI & Automation</a></li>
-              <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
-              <li><a href="./Components/qa.html">Quality Assurance</a></li>
-              <li><a href="./Components/devops.html">DevOps Solutions</a></li>
-              <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
-            </ul>
-          </div>
+         <!-- Column 4: Services -->
+<div class="col-xl-2 col-lg-2 col-md-3 col-6">
+  <h5 class="footer-title">Services</h5>
+  <ul class="footer-links" id="servicesList">
+    <li><a href="./Components/web.html">Web Development</a></li>
+    <li><a href="./Components/app.html">App Development</a></li>
+    <li><a href="./Components/pms.html">PMS Development</a></li>
+    <li><a href="./Components/marketing.html">Digital Marketing</a></li>
+    
+    <!-- Collapsible Services -->
+    <div class="more-services" id="moreServices" style="display: none;">
+      <li><a href="./Components/crm.html">Full CRM System</a></li>
+      <li><a href="./Components/pos.html">POS Software</a></li>
+      <li><a href="./Components/E-com.html">Ecommerce Services</a></li>
+      <li><a href="./Components/AI.html">AI & Automation</a></li>
+      <li><a href="./Components/blockchain.html">Blockchain Development</a></li>
+      <li><a href="./Components/qa.html">Quality Assurance</a></li>
+      <li><a href="./Components/devops.html">DevOps Solutions</a></li>
+      <li><a href="./Components/cybersecurity.html">Cybersecurity</a></li>
+    </div>
+  </ul>
+  
+  <button type="button" class="show-more-btn" id="toggleServicesBtn" onclick="toggleServices()">
+    View More <i class="fa-solid fa-chevron-down ms-1"></i>
+  </button>
+</div>
 
           <!-- Column 5: Contact & Clear Map -->
           <div class="col-xl-3 col-lg-2 col-md-3 col-12">
