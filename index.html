@@ -23,97 +23,103 @@
 <body>
 
 
-<!-- NAVBAR SECTION -->
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container d-flex align-items-center justify-content-between">
+  <!-- NAVBAR SECTION -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    <!-- Logo -->
-    <a href="#" class="navbar-brand p-0 m-0">
-      <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
-    </a>
-
-    <!-- Right Controls: Theme Toggle + Desktop Explore Button + Menu Trigger -->
-    <div class="d-flex align-items-center gap-2">
-      
-      <!-- Theme Toggle Button -->
-      <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-
-      <!-- Desktop Explore Button (d-none d-md-inline-block se mobile pe hide ho jayega) -->
-      <a href="./Components/service.html" class="text-decoration-none d-none d-md-inline-block">
-        <button class="btn e-nav-talk-btn" type="button">Explore Services</button>
+      <!-- Logo -->
+      <a href="#" class="navbar-brand p-0 m-0">
+        <img src="./images/logo.webp" alt="Coded Clouds Logo" class="logo-img">
       </a>
 
-      <!-- Sidebar Trigger Button (MENU) -->
-      <button class="btn sidebar-trigger-btn d-flex align-items-center gap-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainMenuSidebar" aria-controls="mainMenuSidebar">
-        <i class="fa-solid fa-bars burger-icon"></i>
-        <span class="d-none d-sm-inline">MENU</span>
-      </button>
+      <div class="d-flex align-items-center gap-2">
 
-    </div>
-
-  </div>
-</nav>
-
-<!-- SIDEBAR NAVIGATION (OFFCANVAS) -->
-<div class="offcanvas offcanvas-end main-menu-sidebar" tabindex="-1" id="mainMenuSidebar" aria-labelledby="mainMenuSidebarLabel">
-  
-  <!-- Sidebar Header -->
-  <div class="offcanvas-header border-bottom border-secondary-subtle">
-    <h5 class="offcanvas-title text-white font-weight-bold" id="mainMenuSidebarLabel">
-      NAVIGATION
-    </h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-
-  <!-- Sidebar Body -->
-  <div class="offcanvas-body d-flex flex-column justify-content-between">
-    
-    <!-- Menu Links List -->
-    <div class="sidebar-links-container d-flex flex-column gap-2">
-      
-      <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDo">
-        <i class="fa-solid fa-layer-group me-2"></i> WHAT WE DO
-      </button>
-
-      <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHelp">
-        <i class="fa-solid fa-handshake me-2"></i> WHO WE HELP
-      </button>
-
-      <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWho">
-        <i class="fa-solid fa-users me-2"></i> WHO WE ARE
-      </button>
-
-      <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasJoin">
-        <i class="fa-solid fa-user-graduate me-2"></i> INTERNSHIP
-      </button>
-
-      <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam">
-        <i class="fa-solid fa-briefcase me-2"></i> MANAGEMENT BOARD
-      </button>
-
-      <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasstory">
-        <i class="fa-solid fa-book-open me-2"></i> OUR STORY
-      </button>
-
-      <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvaspartnership">
-        <i class="fa-solid fa-chart-line me-2"></i> PARTNERSHIP
-      </button>
-
-    </div>
-
-    <!-- Mobile Explore Button (d-md-none se ye surf mobile screen / sidebar mein show hoga) -->
-    <div class="sidebar-footer mt-4 pt-3 border-top border-secondary-subtle d-md-none">
-      <a href="./Components/service.html" class="text-decoration-none w-100 d-block">
-        <button class="btn e-nav-talk-btn w-100" type="button">
-          Explore Services
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
         </button>
-      </a>
+
+        <a href="./Components/service.html" class="text-decoration-none d-none d-md-inline-block">
+          <button class="btn e-nav-talk-btn" type="button">Explore Services</button>
+        </a>
+
+        <button class="btn sidebar-trigger-btn d-flex align-items-center gap-2" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#mainMenuSidebar" aria-controls="mainMenuSidebar">
+          <i class="fa-solid fa-bars burger-icon"></i>
+          <span class="d-none d-sm-inline">MENU</span>
+        </button>
+
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- SIDEBAR NAVIGATION -->
+  <div class="offcanvas offcanvas-end main-menu-sidebar" tabindex="-1" id="mainMenuSidebar"
+    aria-labelledby="mainMenuSidebarLabel">
+
+    <!-- Sidebar Header -->
+    <div class="offcanvas-header border-bottom border-secondary-subtle">
+      <h5 class="offcanvas-title text-white font-weight-bold" id="mainMenuSidebarLabel">
+        NAVIGATION
+      </h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
+    <!-- Sidebar Body -->
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+
+      <!-- Menu Links List -->
+      <div class="sidebar-links-container d-flex flex-column gap-2">
+
+        <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasDo">
+          <i class="fa-solid fa-layer-group me-2"></i> WHAT WE DO
+        </button>
+
+        <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasHelp">
+          <i class="fa-solid fa-handshake me-2"></i> WHO WE HELP
+        </button>
+
+        <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasWho">
+          <i class="fa-solid fa-users me-2"></i> WHO WE ARE
+        </button>
+
+        <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasJoin">
+          <i class="fa-solid fa-user-graduate me-2"></i> INTERNSHIP
+        </button>
+
+        <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasTeam">
+          <i class="fa-solid fa-briefcase me-2"></i> MANAGEMENT BOARD
+        </button>
+
+        <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasstory">
+          <i class="fa-solid fa-book-open me-2"></i> OUR STORY
+        </button>
+
+        <button class="btn sidebar-nav-link text-start" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvaspartnership">
+          <i class="fa-solid fa-chart-line me-2"></i> PARTNERSHIP
+        </button>
+
+      </div>
+
+      <!-- Mobile Explore Button (d-md-none se ye surf mobile screen / sidebar mein show hoga) -->
+      <div class="sidebar-footer mt-4 pt-3 border-top border-secondary-subtle d-md-none">
+        <a href="./Components/service.html" class="text-decoration-none w-100 d-block">
+          <button class="btn e-nav-talk-btn w-100" type="button">
+            Explore Services
+          </button>
+        </a>
+      </div>
+
+    </div>
   </div>
-</div>
   <!-- Navbar section end -->
 
   <div>
@@ -3575,215 +3581,224 @@
                   operational security, and enterprise compliance across all operations.
                 </p>
 
-          <!-- CATEGORY 1: FINANCIAL PARTNERS -->
-<div class="partner-category-section mt-4 mt-md-5">
-  <div class="partner-category-header">
-    <div class="partner-cat-icon"><i class="fa-solid fa-building-columns"></i></div>
-    <div>
-      <h4 class="partner-cat-title">Financial Partners</h4>
-      <p class="partner-cat-desc">Tier-1 Banking Solutions & Payment Clearing Systems</p>
-    </div>
-  </div>
+                <!-- CATEGORY 1: FINANCIAL PARTNERS -->
+                <div class="partner-category-section mt-4 mt-md-5">
+                  <div class="partner-category-header">
+                    <div class="partner-cat-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div>
+                      <h4 class="partner-cat-title">Financial Partners</h4>
+                      <p class="partner-cat-desc">Tier-1 Banking Solutions & Payment Clearing Systems</p>
+                    </div>
+                  </div>
 
-  <div class="row g-2 g-md-4 mt-1">
-    <!-- Meezan Bank Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="/images/meezan-bank-logo.png" alt="Meezan Bank Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-vault fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">ISLAMIC BANK</span>
-        </div>
+                  <div class="row g-2 g-md-4 mt-1">
+                    <!-- Meezan Bank Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="/images/meezan-bank-logo.png" alt="Meezan Bank Logo" class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-vault fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">ISLAMIC BANK</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">Meezan Bank</h5>
-          <span class="partner-sub">Pakistan's Premier Islamic Bank</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">Meezan Bank</h5>
+                          <span class="partner-sub">Pakistan's Premier Islamic Bank</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Provides enterprise-level Islamic corporate banking infrastructure, high-volume escrow management, and secure transactional routing.
-        </p>
-      </div>
-    </div>
+                        <p class="partner-details d-none d-md-block">
+                          Provides enterprise-level Islamic corporate banking infrastructure, high-volume escrow
+                          management, and secure transactional routing.
+                        </p>
+                      </div>
+                    </div>
 
-    <!-- UBL Bank Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="images/UBL.PK-de861b7a.png" alt="UBL Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-landmark fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">COMMERCIAL BANK</span>
-        </div>
+                    <!-- UBL Bank Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="images/UBL.PK-de861b7a.png" alt="UBL Logo" class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-landmark fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">COMMERCIAL BANK</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">UBL</h5>
-          <span class="partner-sub">Commercial Banking & Digital Solutions</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">UBL</h5>
+                          <span class="partner-sub">Commercial Banking & Digital Solutions</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Facilitates automated corporate disbursements, seamless cross-border financial transactions, and scalable merchant payment processing gateways.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+                        <p class="partner-details d-none d-md-block">
+                          Facilitates automated corporate disbursements, seamless cross-border financial transactions,
+                          and scalable merchant payment processing gateways.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-<!-- CATEGORY 2: CERTIFICATION & ACCREDITATION BODIES -->
-<div class="partner-category-section mt-4 mt-md-5">
-  <div class="partner-category-header">
-    <div class="partner-cat-icon"><i class="fa-solid fa-award"></i></div>
-    <div>
-      <h4 class="partner-cat-title">Certification & Accreditation</h4>
-      <p class="partner-cat-desc">Corporate Governance & Quality Standard Compliance</p>
-    </div>
-  </div>
+                <!-- CATEGORY 2: CERTIFICATION & ACCREDITATION BODIES -->
+                <div class="partner-category-section mt-4 mt-md-5">
+                  <div class="partner-category-header">
+                    <div class="partner-cat-icon"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                      <h4 class="partner-cat-title">Certification & Accreditation</h4>
+                      <p class="partner-cat-desc">Corporate Governance & Quality Standard Compliance</p>
+                    </div>
+                  </div>
 
-  <div class="row g-2 g-md-4 mt-1">
-    <!-- SECP Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="images/secp.png" alt="SECP Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-file-contract fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">REGULATOR</span>
-        </div>
+                  <div class="row g-2 g-md-4 mt-1">
+                    <!-- SECP Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="images/secp.png" alt="SECP Logo" class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-file-contract fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">REGULATOR</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">SECP</h5>
-          <span class="partner-sub">Securities & Exchange Commission</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">SECP</h5>
+                          <span class="partner-sub">Securities & Exchange Commission</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Federal corporate regulator ensuring full corporate compliance, legal framework verification, and corporate transparency for business entities.
-        </p>
-      </div>
-    </div>
+                        <p class="partner-details d-none d-md-block">
+                          Federal corporate regulator ensuring full corporate compliance, legal framework verification,
+                          and corporate transparency for business entities.
+                        </p>
+                      </div>
+                    </div>
 
-    <!-- PNAC Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="images/pnac.png" alt="PNAC Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-shield-halved fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">ACCREDITATION</span>
-        </div>
+                    <!-- PNAC Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="images/pnac.png" alt="PNAC Logo" class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-shield-halved fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">ACCREDITATION</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">PNAC</h5>
-          <span class="partner-sub">National Accreditation Council</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">PNAC</h5>
+                          <span class="partner-sub">National Accreditation Council</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Apex accreditation authority under the Ministry of Science and Technology, validating international testing standards.
-        </p>
-      </div>
-    </div>
+                        <p class="partner-details d-none d-md-block">
+                          Apex accreditation authority under the Ministry of Science and Technology, validating
+                          international testing standards.
+                        </p>
+                      </div>
+                    </div>
 
-    <!-- GDPR / ISO 27701 Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="images/ISO-27701-Certification-3-logo.png" alt="GDPR ISO Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-user-shield fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">PRIVACY</span>
-        </div>
+                    <!-- GDPR / ISO 27701 Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="images/ISO-27701-Certification-3-logo.png" alt="GDPR ISO Logo"
+                              class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-user-shield fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">PRIVACY</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">ISO 27701</h5>
-          <span class="partner-sub">Privacy Info System</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">ISO 27701</h5>
+                          <span class="partner-sub">Privacy Info System</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Adherence to international data protection privacy frameworks, safeguarding personal data processing and global GDPR standards.
-        </p>
-      </div>
-    </div>
+                        <p class="partner-details d-none d-md-block">
+                          Adherence to international data protection privacy frameworks, safeguarding personal data
+                          processing and global GDPR standards.
+                        </p>
+                      </div>
+                    </div>
 
-    <!-- CMMI Level 3 Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="images/CMMI-Level-3logo.png" alt="CMMI Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-diagram-project fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">PROCESS</span>
-        </div>
+                    <!-- CMMI Level 3 Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="images/CMMI-Level-3logo.png" alt="CMMI Logo" class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-diagram-project fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">PROCESS</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">CMMI Level 3</h5>
-          <span class="partner-sub">Capability Maturity Model</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">CMMI Level 3</h5>
+                          <span class="partner-sub">Capability Maturity Model</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Appraised at Maturity Level 3 for standardized software development workflows and structured project delivery.
-        </p>
-      </div>
-    </div>
+                        <p class="partner-details d-none d-md-block">
+                          Appraised at Maturity Level 3 for standardized software development workflows and structured
+                          project delivery.
+                        </p>
+                      </div>
+                    </div>
 
-    <!-- PSEB Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="images/PSEB-logo.png" alt="PSEB Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-globe fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">GOVT IT BODY</span>
-        </div>
+                    <!-- PSEB Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="images/PSEB-logo.png" alt="PSEB Logo" class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-globe fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">GOVT IT BODY</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">PSEB</h5>
-          <span class="partner-sub">Software Export Board</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">PSEB</h5>
+                          <span class="partner-sub">Software Export Board</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Apex government body mandated to facilitate the IT industry, ensuring global IT export compliance.
-        </p>
-      </div>
-    </div>
+                        <p class="partner-details d-none d-md-block">
+                          Apex government body mandated to facilitate the IT industry, ensuring global IT export
+                          compliance.
+                        </p>
+                      </div>
+                    </div>
 
-    <!-- HITRUST r2 Card -->
-    <div class="col-6 col-lg-6">
-      <div class="partner-card">
-        <div class="partner-card-top">
-          <div class="partner-logo-box">
-            <img src="images/HITRUST-r2logo.png" alt="HITRUST Logo" class="partner-logo-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <i class="fa-solid fa-notes-medical fallback-icon" style="display: none;"></i>
-          </div>
-          <span class="partner-badge">SECURITY</span>
-        </div>
+                    <!-- HITRUST r2 Card -->
+                    <div class="col-6 col-lg-6">
+                      <div class="partner-card">
+                        <div class="partner-card-top">
+                          <div class="partner-logo-box">
+                            <img src="images/HITRUST-r2logo.png" alt="HITRUST Logo" class="partner-logo-img"
+                              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fa-solid fa-notes-medical fallback-icon" style="display: none;"></i>
+                          </div>
+                          <span class="partner-badge">SECURITY</span>
+                        </div>
 
-        <div class="partner-info-box">
-          <h5 class="partner-name">HITRUST r2</h5>
-          <span class="partner-sub">Validated Risk Assessment</span>
-        </div>
+                        <div class="partner-info-box">
+                          <h5 class="partner-name">HITRUST r2</h5>
+                          <span class="partner-sub">Validated Risk Assessment</span>
+                        </div>
 
-        <p class="partner-details d-none d-md-block">
-          Highest level of information security assurance, validating rigorous cybersecurity controls and risk management.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+                        <p class="partner-details d-none d-md-block">
+                          Highest level of information security assurance, validating rigorous cybersecurity controls
+                          and risk management.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
               </div>
             </div>
@@ -3907,7 +3922,7 @@
 
   </div>
 
-</div>
+  </div>
 
 
 
@@ -3919,10 +3934,10 @@
 
   <script type="text/javascript">
     AOS.init({
-      offset: 50,          // Triggers animation earlier on scroll
-      duration: 600,       // Faster smooth transition
-      once: true,          // Prevents re-triggering lag
-      disable: 'mobile'    // Optional: Completely disables AOS on mobile for instant loading
+      offset: 50,          
+      duration: 600,      
+      once: true,          
+      disable: 'mobile'    
     });
 
     (function () {

@@ -22,12 +22,9 @@ body {
 /* ==========================================
    THEME VARIABLES - LIGHT (Enterprise Clean)
    ========================================== */
-/* ==========================================
-   THEME VARIABLES - LIGHT (Corporate Organization)
-   Updated: Black + Sky Blue Color Scheme
-   ========================================== */
+
 :root {
-  /* Backgrounds - Warm Neutral (Not cold white) */
+
   --bg-primary: #f4f4f5;
   --bg-secondary: #ececec;
   --bg-card: #ffffff;
@@ -35,7 +32,7 @@ body {
   --bg-navbar: rgba(255, 255, 255, 0.97);
   --bg-footer: #18181b;
   
-  /* Text Colors - Warm Charcoal (Not blue-tinted) */
+
   --text-primary: #18181b;
   --text-secondary: #52525b;
   --text-muted: #a1a1aa;
@@ -47,7 +44,7 @@ body {
   --border-light: #f4f4f5;
   --border-dark: #27272a;
   
-  /* Accents - Deep Charcoal Primary + SKY BLUE Secondary (UPDATED) */
+  
   --accent-blue: #18181b;
   --accent-cyan: #0284c7;
   --accent-purple: #52525b;
@@ -58,19 +55,19 @@ body {
   --theme-navy: #18181b;
   --theme-accent-glow: rgba(2, 132, 199, 0.04);
   
-  /* Shadows - Extremely Subtle (Organization Depth) */
+
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
   
-  /* Gradients - UPDATED WITH SKY BLUE */
+  
   --gradient-hero: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.88) 100%);
   --gradient-btn: linear-gradient(135deg, #18181b 0%, #27272a 100%);
   --gradient-btn-hover: linear-gradient(135deg, #27272a 0%, #3f3f46 100%);
   --gradient-text: linear-gradient(135deg, #18181b 0%, #0284c7 100%);
   
-  /* Border Radius - Slightly Reduced for Structure */
+
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -78,10 +75,7 @@ body {
   --radius-xxl: 20px;
 }
 
-/* ==========================================
-   THEME VARIABLES - DARK (Deep Corporate)
-   Updated: Black + Sky Blue Color Scheme
-   ========================================== */
+
 [data-theme="dark"] {
   /* Backgrounds - True Dark (Not Navy Blue) */
   --bg-primary: #09090b;
@@ -103,7 +97,7 @@ body {
   --border-light: #3f3f46;
   --border-dark: #18181b;
   
-  /* Accents - White Primary + SKY BLUE Secondary (UPDATED) */
+
   --accent-blue: #fafafa;
   --accent-cyan: #38bdf8;
   --accent-purple: #a1a1aa;
@@ -113,13 +107,13 @@ body {
   --theme-purple: #38bdf8;
   --theme-accent-glow: rgba(56, 189, 248, 0.03);
   
-  /* Shadows - Deeper for Dark Mode */
+
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.6);
   
-  /* Gradients - UPDATED WITH SKY BLUE */
+ 
   --gradient-hero: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
   --gradient-btn: linear-gradient(135deg, #fafafa 0%, #d4d4d8 100%);
   --gradient-btn-hover: linear-gradient(135deg, #e4e4e7 0%, #fafafa 100%);
@@ -159,9 +153,7 @@ body {
   transform: rotate(360deg);
 }
 
-/* ==========================================
-   NAVBAR - DARK WITH GREEN BUTTON (FINAL)
-   ========================================== */
+
 
 /* ==========================================
    NAVBAR - DARK WITH GREEN BUTTON (FIXED)
@@ -215,7 +207,7 @@ body {
   height: 2px;
   bottom: 4px;
   left: 50%;
-  background-color: #0d9488 !important;  /* DIRECT GREEN COLOR */
+  background-color: #0d9488 !important;  
   transition: all 0.3s ease;
   transform: translateX(-50%);
   border-radius: 2px;
@@ -244,13 +236,13 @@ body {
 
 .theme-toggle-btn:hover {
   background: rgba(255, 255, 255, 0.06);
-  color: #0d9488 !important;  /* DIRECT GREEN COLOR */
+  color: #0d9488 !important;  
   transform: rotate(20deg);
 }
 
-/* ===== EXPLORE SERVICES BUTTON - GREEN (FIXED) ===== */
+/* ===== EXPLORE SERVICES BUTTON ===== */
 .e-nav-talk-btn {
-  background: var(--theme-cyan) !important;  /* DIRECT GREEN COLOR */
+  background: var(--theme-cyan) !important;  
   color: #ffffff !important;
   border: none !important;
   border-radius: 8px !important;
@@ -264,13 +256,13 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3) !important;  /* GREEN SHADOW */
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3) !important;  
 }
 
 .nav-talk-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(13, 148, 136, 0.5) !important;
-  background: #0f9d8f !important;  /* LIGHTER GREEN ON HOVER */
+  background: #0f9d8f !important;  
   color: #ffffff !important;
 }
 
@@ -366,8 +358,6 @@ body {
 
 
 
-/* ==========================================
-   MOBILE RESPONSIVE (Left side bottom)
 
 
 /* ==========================================
@@ -416,7 +406,7 @@ body {
     rgba(7, 7, 13, 0.85) 50%,
     rgba(7, 7, 13, 0.95) 100%
   );
-  backdrop-filter: blur(2px); /* Text contrast ko optimize karne ke liye subtle blur */
+  backdrop-filter: blur(2px); 
 }
 
 /* ===== CONTENT STYLING ===== */
@@ -1510,13 +1500,13 @@ body {
 /* ===== HIGHLIGHTS (VERTICAL BLOCK LIST) ===== */
 .partner-highlights {
   display: flex;
-  flex-direction: column; /* Vertical Column layout */
-  gap: 8px; /* Tags ke darmiyan spacing */
+  flex-direction: column; 
+  gap: 8px; 
   margin-bottom: 24px;
 }
 
 .highlight-tag {
-  display: inline-flex !important; /* Icon aur text ko perfectly align karne ke liye */
+  display: inline-flex !important; 
   align-items: center;
   gap: 10px;
   font-size: 0.8rem;
@@ -1525,8 +1515,8 @@ body {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   padding: 5px 14px;
-  border-radius: 20px; /* Clean enterprise border radius (capsule ki jagah) */
-  width: 100%; /* Har tag poori width lega */
+  border-radius: 20px; 
+  width: 100%; 
   box-sizing: border-box;
   transition: all 0.25s ease;
 }
@@ -7573,7 +7563,6 @@ body {
 }
 
 .logo-card img {
-  /* filter: grayscale(1) brightness(0.7) !important; */
   transition: filter 0.4s ease, transform 0.4s ease !important;
 }
 
@@ -7887,7 +7876,7 @@ body {
 
 
 /* ==========================================
-   PARTNERSHIPS SECTION STYLES (SLATE & CLEAN)
+   PARTNERSHIPS SECTION
    ========================================== */
 
 .partner-category-header {
@@ -8027,7 +8016,7 @@ body {
 }
 
 /* ==========================================
-   MOBILE SCREEN FIX (OVERFLOW & BADGE FIX)
+   MOBILE SCREEN FIX 
    ========================================== */
 @media (max-width: 576px) {
   /* Grid Gutter / Gap Reduction */
@@ -8058,7 +8047,7 @@ body {
     border-radius: 6px !important;
   }
 
-  /* Mobile screen par overflowing badges ko hide kar do */
+ 
   .partner-badge {
     display: none !important;
   }
